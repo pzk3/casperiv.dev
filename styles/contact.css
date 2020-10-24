@@ -1,0 +1,36 @@
+.contact__title {
+  font-size: clamp(2rem, 7vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.form__group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__group label {
+  font-size: 1.2rem;
+  color: var(--light);
+}
+
+.form__input {
+  color: var(--light);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 0.1rem solid var(--lighter);
+  border-radius: 0.2rem;
+  outline: none;
+  transition: 300ms border;
+  resize: vertical;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.form__input:focus {
+  border: 0.1rem solid var(--light);
+}
+
+.form__input:hover {
+  border: 0.1rem solid var(--light);
+}

@@ -1,0 +1,28 @@
+.main {
+  min-height: 50vh;
+}
+
+.main__title {
+  font-size: clamp(2rem, 10vw, 5.5rem);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.main__text {
+  color: var(--light);
+  font-size: clamp(1rem, 5vw, 1.2rem);
+}
+
+.btn__container {
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.btn__container .btn:nth-child(odd) {
+  margin: 0 10px;
+}
+
+.btn__container .btn:first-child {
+  margin-left: 0;
+}
