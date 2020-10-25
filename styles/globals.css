@@ -1,5 +1,5 @@
 :root {
-  --primary: #1d2024;
+  --primary: #2a2e33;
   --light: #374759;
   --lighter: #cdd6e2;
   --content-width: 90%;
@@ -57,6 +57,11 @@ a {
   :root {
     --content-width: 1200px;
   }
+}
+
+.section__title {
+  font-size: clamp(2rem, 7vw, 3rem);
+  margin-bottom: 1rem;
 }
 
 .btn {

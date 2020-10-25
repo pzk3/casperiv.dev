@@ -1,0 +1,21 @@
+.skills__icons {
+  width: 100%;
+  margin: 5rem 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+}
+
+.skills__icons svg {
+  max-width: 7rem;
+  max-height: 7rem;
+  transition: 150ms;
+}
+
+.skills__icons svg path {
+  fill: var(--light);
+}
+
+.skills__icons svg:hover {
+  filter: brightness(120%);
+}

@@ -1,11 +1,24 @@
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import {
+  BootstrapIcon,
+  CSSIcon,
+  DatabaseIcon,
+  GitIcon,
+  HtmlIcon,
+  JavaScriptIcon,
+  NodejsIcon,
+  NpmIcon,
+  ReactIcon,
+  TerminalIcon,
+  TypescriptIcon,
+} from "../components/icons/skills";
+import TimelineSection from "../components/TimelineSection";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
   function onSubmit(e: FormEvent) {
     e.preventDefault();
   }
@@ -16,14 +29,17 @@ export default function Home() {
         <Head>
           <title>Casper Iversen - Web Developer </title>
         </Head>
-        <h1 className="main__title">I am Casper</h1>
+        <div className="main__title">
+          <h1>I am Casper</h1>
+          <h3>Frontend web developer</h3>
+        </div>
 
         <p className="main__text">
           Hello, I am Casper! I am a 15y/o programmer and student. I Love
-          programming a lot of things such as: making websites, bots,
-          applications and more. I'm a self taught developer and I've been
-          programming for about 2 years now and still learning new technologies
-          every day, mostly focusing on React and design at the moment.
+          programming a lot of things such as: websites, bots, applications and
+          more. I'm a self taught developer and I've been programming for about
+          2 years now and still learning new technologies every day, mostly
+          focusing on React, TypeScript and design.
         </p>
 
         <div className="btn__container">
@@ -53,8 +69,31 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      {/* Skills */}
+      <section id="skills">
+        <h1 className="section__title">My Backpack</h1>
+
+        <div className="skills__icons">
+          <HtmlIcon />
+          <CSSIcon />
+          <JavaScriptIcon />
+          <TypescriptIcon />
+          <ReactIcon />
+          <BootstrapIcon />
+          <NodejsIcon />
+          <DatabaseIcon />
+          <NpmIcon />
+          <TerminalIcon />
+          <GitIcon />
+        </div>
+      </section>
+
+      <TimelineSection />
+
+      {/* Contact */}
       <section id="contact">
-        <h1 className="contact__title">Contact me</h1>
+        <h1 className="section__title">Contact me</h1>
         <form onSubmit={onSubmit}>
           <div className="form__group">
             <label htmlFor="name">Enter your name</label>
@@ -95,7 +134,6 @@ export default function Home() {
           </button>
         </form>
       </section>
-
     </>
   );
 }
