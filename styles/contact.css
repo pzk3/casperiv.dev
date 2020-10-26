@@ -29,3 +29,13 @@
 .form__input:hover {
   border: 0.1rem solid var(--light);
 }
+
+.form__small {
+  font-size: 1rem;
+  color: var(--light);
+  font-style: italic;
+}
+
+.form__link {
+  text-decoration: underline;
+}
