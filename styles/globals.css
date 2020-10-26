@@ -60,6 +60,7 @@ a {
 }
 
 .section__title {
+  padding-top: 5rem;
   font-size: clamp(2rem, 7vw, 3rem);
   margin-bottom: 1rem;
 }

@@ -24,11 +24,14 @@ const Nav = () => {
           </h1>
 
           <div className="nav__links">
+            <a href="#" className="nav__link">
+              About
+            </a>
             <a href="#skills" className="nav__link">
               Skills
             </a>
-            <a href="#about" className="nav__link">
-              About
+            <a href="#timeline" className="nav__link">
+              Timeline
             </a>
             <a href="#contact" className="nav__link">
               Contact

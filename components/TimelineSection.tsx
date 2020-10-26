@@ -22,7 +22,13 @@ const TimelineSection = () => {
       <div className="timeline">
         {timeline.slice(0, length).map((item: TimelineItem, idx: number) => {
           return (
-            <div key={idx} className={`timeline-item ${item.side}`}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={item.url}
+              key={idx}
+              className={`timeline-item ${item.side}`}
+            >
               <div className="timeline-item-body">
                 <header className="timeline-item-header">
                   <h1>{item.title}</h1>
@@ -30,7 +36,7 @@ const TimelineSection = () => {
                 </header>
                 {item.text}
               </div>
-            </div>
+            </a>
           );
         })}
         <button

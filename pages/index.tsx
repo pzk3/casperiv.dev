@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   BootstrapIcon,
   CSSIcon,
