@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^4.0.0",
     "emailjs-com": "^2.6.3",
     "next": "^10.0.0",
     "react": "^17.0.1",

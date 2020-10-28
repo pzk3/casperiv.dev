@@ -15,20 +15,21 @@ import {
   TerminalIcon,
   TypescriptIcon,
 } from "../components/icons/skills";
-import config from "../config";
-import Footer from "../components/Footer";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState<boolean>(null);
+  const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
+  const EMAILJS_MAIL_SERVICE = process.env.EMAILJS_MAIL_SERVICE;
+  const EMAILJS_USER_ID = process.env.EMAILJS_USER_ID;
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
 
     emailjs
-      .send(config.emailJs.mailService, config.emailJs.templateId, {
+      .send(EMAILJS_MAIL_SERVICE, EMAILJS_TEMPLATE_ID, {
         name,
         message,
         email,
@@ -42,7 +43,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    init(config.emailJs.user_id);
+    init(EMAILJS_USER_ID);
   }, []);
 
   return (
@@ -169,8 +170,6 @@ export default function Home() {
           </div>
         </form>
       </section>
-
-      <Footer />
     </>
   );
 }
