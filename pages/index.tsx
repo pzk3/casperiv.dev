@@ -1,5 +1,7 @@
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import TimelineSection from "../components/TimelineSection";
+import emailjs, { init } from "emailjs-com";
+import { FormEvent, useState, useEffect } from "react";
 import {
   BootstrapIcon,
   CSSIcon,
@@ -13,15 +15,34 @@ import {
   TerminalIcon,
   TypescriptIcon,
 } from "../components/icons/skills";
-import TimelineSection from "../components/TimelineSection";
+import config from "../config";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState<boolean>(null);
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
+
+    emailjs
+      .send(config.emailJs.mailService, config.emailJs.templateId, {
+        name,
+        message,
+        email,
+      })
+      .then(() => {
+        setSuccess(true);
+        setEmail("");
+        setName("");
+        setMessage("");
+      });
   }
+
+  useEffect(() => {
+    init(config.emailJs.user_id);
+  }, []);
 
   return (
     <>
@@ -43,6 +64,9 @@ export default function Home() {
         </p>
 
         <div className="btn__container">
+          <a className="btn btn__light" href="#contact">
+            Contact
+          </a>
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -95,6 +119,7 @@ export default function Home() {
       <section id="contact">
         <h1 className="section__title">Contact me</h1>
         <form onSubmit={onSubmit}>
+          {success ? <p>Successfully send message!</p> : null}
           <div className="form__group">
             <label htmlFor="name">Enter your name</label>
             <input

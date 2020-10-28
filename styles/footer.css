@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--content-width);
+}
+
+.footer__icon {
+  width: 100px;
+  height: 100px;
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer__icon {
+    display: none;
+  }
+}
