@@ -3,6 +3,13 @@ import TimelineItem from "../interfaces/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "October 2020",
+    title: "Portfoliov3",
+    text: "Rewritten and redesigned my portfolio in NextJs and TypeScript",
+    side: "right",
+    url: "https://github.com/dev-caspertheghost/caspertheghost.me",
+  },
+  {
+    date: "October 2020",
     title: "SnailyCADv3",
     text: "Rewriting my first project in TypeScript, making it more secure and better.",
     side: "left",
