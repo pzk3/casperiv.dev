@@ -56,8 +56,26 @@
   color: var(--primary);
 }
 
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger__item {
+  margin: 0.2rem;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+}
+
 @media (min-width: 768px) {
   .nav__links {
     display: flex;
+  }
+  .hamburger {
+    display: none;
   }
 }

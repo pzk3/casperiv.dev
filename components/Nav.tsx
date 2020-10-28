@@ -15,6 +15,8 @@ const Nav = () => {
     };
   }, []);
 
+  function handleHamburgerClick() {}
+
   return (
     <div className="nav__container">
       <nav ref={ref} className="nav" id="nav">
@@ -36,6 +38,12 @@ const Nav = () => {
             <a href="#contact" className="nav__link">
               Contact
             </a>
+          </div>
+
+          <div onClick={handleHamburgerClick} className="hamburger">
+            <span className="hamburger__item"></span>
+            <span className="hamburger__item"></span>
+            <span className="hamburger__item"></span>
           </div>
         </div>
       </nav>
