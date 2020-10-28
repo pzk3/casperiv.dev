@@ -39,11 +39,7 @@ const TimelineSection = () => {
             </a>
           );
         })}
-        <button
-          onClick={showMore}
-          id="view-older-btn"
-          className="view-older-btn"
-        >
+        <button onClick={showMore} id="view-older-btn" className="view-older-btn">
           {viewOlderText}
         </button>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
 import TimelineSection from "../components/TimelineSection";
 import emailjs, { init } from "emailjs-com";
@@ -58,11 +59,10 @@ export default function Home() {
         </div>
 
         <p className="main__text">
-          Hello, I am Casper! I am a 15y/o programmer and student. I Love
-          programming a lot of things such as: websites, bots, applications and
-          more. I'm a self taught developer and I've been programming for about
-          2 years now and still learning new technologies every day, mostly
-          focusing on React, TypeScript and design.
+          Hello, I am Casper! I am a 15y/o programmer and student. I Love programming a lot of
+          things such as: websites, bots, applications and more. I am a self taught developer and
+          I have been programming for about 2 years now and still learning new technologies every day,
+          mostly focusing on React, TypeScript and design.
         </p>
 
         <div className="btn__container">
@@ -154,17 +154,10 @@ export default function Home() {
           </div>
 
           <div>
-            <a
-              className="form__small form__link"
-              href="mailto:casper.iversen2@gmail.com"
-            >
+            <a className="form__small form__link" href="mailto:casper.iversen2@gmail.com">
               Send me an email directly
             </a>
-            <button
-              style={{ float: "right" }}
-              className="btn btn__light"
-              type="submit"
-            >
+            <button style={{ float: "right" }} className="btn btn__light" type="submit">
               Submit
             </button>
           </div>
