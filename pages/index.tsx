@@ -16,6 +16,7 @@ import {
   TypescriptIcon,
 } from "../components/icons/skills";
 import config from "../config";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -52,7 +53,7 @@ export default function Home() {
         </Head>
         <div className="main__title">
           <h1>I am Casper</h1>
-          <h3>Frontend web developer</h3>
+          <h2>Frontend web developer</h2>
         </div>
 
         <p className="main__text">
@@ -150,15 +151,26 @@ export default function Home() {
               className="form__input"
             ></textarea>
           </div>
-          <button
-            style={{ float: "right" }}
-            className="btn btn__light"
-            type="submit"
-          >
-            Submit
-          </button>
+
+          <div>
+            <a
+              className="form__small form__link"
+              href="mailto:casper.iversen2@gmail.com"
+            >
+              Send me an email directly
+            </a>
+            <button
+              style={{ float: "right" }}
+              className="btn btn__light"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </section>
+
+      <Footer />
     </>
   );
 }
