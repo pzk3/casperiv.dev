@@ -7,7 +7,7 @@ const timeline: TimelineItem[] = [
     text:
       "Rewriting my first project in TypeScript, making it more secure and better.",
     side: "left",
-    url: "https://github.com/dev-caspertheghost/snaily-cadv3"
+    url: "https://github.com/dev-caspertheghost/snaily-cadv3",
   },
   {
     date: "September 2020",
@@ -15,6 +15,7 @@ const timeline: TimelineItem[] = [
     text:
       "Started learning TypeScript. I'm liking it and It's going great so far!",
     side: "right",
+    url: "https://www.typescriptlang.org/",
   },
   {
     date: "August 2020",

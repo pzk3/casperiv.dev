@@ -57,6 +57,9 @@
 }
 
 .hamburger {
+  outline: none;
+  background: none;
+  border: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,6 +90,7 @@
 }
 
 .close__menu {
+  outline: none;
   font-size: 3rem;
   background: none;
   border: none;

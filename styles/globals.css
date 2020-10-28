@@ -41,24 +41,6 @@ a {
   width: var(--content-width);
 }
 
-@media (min-width: 768px) {
-  :root {
-    --content-width: 70%;
-  }
-}
-
-@media (min-width: 1200px) {
-  :root {
-    --content-width: 65%;
-  }
-}
-
-@media (min-width: 1800px) {
-  :root {
-    --content-width: 1200px;
-  }
-}
-
 .section__title {
   padding-top: 5rem;
   font-size: clamp(2rem, 7vw, 3rem);
@@ -81,4 +63,33 @@ a {
 
 .btn__light {
   background: var(--light);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --content-width: 65%;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --content-width: 1200px;
+  }
 }

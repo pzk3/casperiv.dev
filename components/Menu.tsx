@@ -9,6 +9,7 @@ const Menu = () => {
     <nav id="menu" className="menu__nav">
       <div className="menu__content">
         <button onClick={handleClose} className="close__menu">
+          <p className="sr-only">Close menu</p>
           <XIcon />
         </button>
         <div onClick={handleClose} className="menu__links">

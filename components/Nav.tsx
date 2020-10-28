@@ -16,7 +16,7 @@ const Nav = () => {
   }, []);
 
   function handleHamburgerClick() {
-    document.getElementById("menu")?.classList.add("menu__nav--active")
+    document.getElementById("menu")?.classList.add("menu__nav--active");
   }
 
   return (
@@ -42,11 +42,12 @@ const Nav = () => {
             </a>
           </div>
 
-          <div onClick={handleHamburgerClick} className="hamburger">
+          <button onClick={handleHamburgerClick} className="hamburger">
+            <p className="sr-only">Open Menu</p>
             <span className="hamburger__item"></span>
             <span className="hamburger__item"></span>
             <span className="hamburger__item"></span>
-          </div>
+          </button>
         </div>
       </nav>
     </div>
