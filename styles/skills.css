@@ -3,7 +3,8 @@
   margin: 2rem 0;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(7rem), 8rem));
+  align-items: center;
 }
 
 .skills__icons svg {
@@ -18,4 +19,15 @@
 
 .skills__icons svg:hover {
   filter: brightness(120%);
+}
+
+@media (max-width: 768px) {
+  .skills__icons svg {
+    width: 5rem;
+    height: 5rem;
+  }
+  .skills__icons {
+    grid-template-columns: repeat(auto-fill, minmax(min(5rem), 6rem));
+    justify-content: center;
+  }
 }

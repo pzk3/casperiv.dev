@@ -34,10 +34,6 @@
   font-weight: 300;
 }
 
-.nav__icon span {
-  font-weight: 500;
-}
-
 .nav__links {
   display: none;
   align-items: center;
@@ -125,6 +121,12 @@
   margin: 1rem 0;
   font-size: clamp(1.2rem, 7vw, 4rem);
   color: var(--primary);
+}
+
+@media (max-width: 320px) {
+  .nav__hidden {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {

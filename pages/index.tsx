@@ -60,8 +60,8 @@ export default function Home() {
 
         <p className="main__text">
           Hello, I am Casper! I am a 15y/o programmer and student. I Love programming a lot of
-          things such as: websites, bots, applications and more. I am a self taught developer and
-          I have been programming for about 2 years now and still learning new technologies every day,
+          things such as: websites, bots, applications and more. I am a self taught developer and I
+          have been programming for about 2 years now and still learning new technologies every day,
           mostly focusing on React, TypeScript and design.
         </p>
 
@@ -130,6 +130,7 @@ export default function Home() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="form__input"
+              required
             />
           </div>
           <div className="form__group">
@@ -140,6 +141,7 @@ export default function Home() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form__input"
+              required
             />
           </div>
           <div className="form__group">
@@ -150,6 +152,7 @@ export default function Home() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="form__input"
+              required
             ></textarea>
           </div>
 

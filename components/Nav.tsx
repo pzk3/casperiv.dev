@@ -24,7 +24,7 @@ const Nav = () => {
       <nav ref={ref} className="nav" id="nav">
         <div className="nav__content">
           <h1 className="nav__icon">
-            <a href="/">Casper Iversen</a>
+            <a href="/">Casper <span className="nav__hidden">Iversen</span></a>
           </h1>
 
           <div className="nav__links">
