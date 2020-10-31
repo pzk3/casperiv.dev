@@ -10,19 +10,8 @@ import "../styles/contact.css";
 import "../styles/skills.css";
 import "../styles/timeline.css";
 import "../styles/footer.css";
-import { useEffect } from "react";
 
 function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .catch((err) => console.error("Service worker registration failed", err));
-    } else {
-      console.log("Service worker not supported");
-    }
-  }, []);
-
   return (
     <>
       <Nav />
