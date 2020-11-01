@@ -10,18 +10,20 @@
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 0;
+  line-height: 55pt;
 }
 
 .main__title h2 {
+  text-transform: uppercase;
   font-size: clamp(1.2rem, 7vw, 2.5rem);
-  margin-top: -15px;
+  margin-top: 0;
   font-weight: 400;
   text-align: center;
 }
 
 .main__text {
   color: var(--light);
-  font-size: clamp(1rem, 5vw, 1.2rem);
+  font-size: clamp(1rem, 5vw, 1.3rem);
 }
 
 .btn__container {
