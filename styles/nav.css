@@ -46,6 +46,9 @@
   transition: 300ms color;
   margin-left: 20px;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav__link:hover {

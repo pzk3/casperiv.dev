@@ -14,7 +14,7 @@
   font-size: 1rem;
   padding: 0.5rem;
   border: 0.1rem solid var(--lighter);
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   outline: none;
   transition: 300ms border;
   resize: vertical;

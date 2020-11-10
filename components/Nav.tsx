@@ -4,10 +4,8 @@ const Nav = () => {
   const ref = useRef<HTMLDivElement>();
 
   useEffect(() => {
-    const offset = ref.current?.offsetTop;
-
     window.onscroll = function updateNav() {
-      if (window.pageYOffset > offset) {
+      if (isPageOffset()) {
         ref.current.classList.add("nav--active");
       } else {
         ref.current.classList.remove("nav--active");
@@ -15,8 +13,22 @@ const Nav = () => {
     };
   }, []);
 
+  function isPageOffset(): boolean {
+    const offset = ref.current?.offsetTop;
+
+    return window.pageYOffset > offset;
+  }
+
   function handleHamburgerClick() {
     document.getElementById("menu")?.classList.add("menu__nav--active");
+  }
+
+  function handleAboutClick() {
+    if (isPageOffset()) {
+      window.location.href = "#";
+    } else {
+      window.scrollTo(0, 60);
+    }
   }
 
   return (
@@ -24,15 +36,20 @@ const Nav = () => {
       <nav ref={ref} className="nav" id="nav">
         <div className="nav__content">
           <h1 className="nav__icon">
-            <a href="/">Casper <span className="nav__hidden">Iversen</span></a>
+            <a href="/">
+              Casper <span className="nav__hidden">Iversen</span>
+            </a>
           </h1>
 
           <div className="nav__links">
-            <a href="#" className="nav__link">
+            <button onClick={handleAboutClick} className="nav__link">
               About
-            </a>
+            </button>
             <a href="#skills" className="nav__link">
               Skills
+            </a>
+            <a href="#projects" className="nav__link">
+              Projects
             </a>
             <a href="#timeline" className="nav__link">
               Timeline

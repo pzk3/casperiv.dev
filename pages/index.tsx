@@ -16,6 +16,7 @@ import {
   TerminalIcon,
   TypescriptIcon,
 } from "../components/icons/skills";
+import ProjectSection from "../components/ProjectsSection";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -114,6 +115,8 @@ export default function Home() {
           <GitIcon />
         </div>
       </section>
+
+      <ProjectSection />
 
       <TimelineSection />
 

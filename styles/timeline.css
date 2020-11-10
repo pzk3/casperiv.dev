@@ -112,6 +112,7 @@
 }
 
 .timeline-item-body {
+  border-radius: 0.5rem;
   transition: box-shadow 300ms ease;
   padding: 0.8rem 1rem;
   background: var(--light);

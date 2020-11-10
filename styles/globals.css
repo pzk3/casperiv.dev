@@ -13,6 +13,21 @@ body {
   color: var(--primary);
   scroll-behavior: smooth;
   background: #cdd6e2;
+  scrollbar-color: var(--lighter) var(--light);
+  scrollbar-width: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lighter);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light);
+  border-radius: 0.5rem;
 }
 
 ::selection {
@@ -63,6 +78,11 @@ a {
 
 .btn__light {
   background: var(--light);
+}
+
+.btn__lighter {
+  color: #000;
+  background: var(--lighter);
 }
 
 .sr-only {
