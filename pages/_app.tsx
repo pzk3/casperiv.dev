@@ -11,6 +11,7 @@ import "../styles/skills.css";
 import "../styles/timeline.css";
 import "../styles/footer.css";
 import "../styles/projects.css";
+import "../styles/modal.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (

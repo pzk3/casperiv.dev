@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
 import TimelineSection from "../components/TimelineSection";
+import ProjectSection from "../components/ProjectsSection";
+import ContactModal from "../components/ContantModal";
 import emailjs, { init } from "emailjs-com";
 import { FormEvent, useState, useEffect } from "react";
 import {
@@ -16,13 +18,12 @@ import {
   TerminalIcon,
   TypescriptIcon,
 } from "../components/icons/skills";
-import ProjectSection from "../components/ProjectsSection";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState<boolean>(null);
+  const [success, setSuccess] = useState<boolean>(false);
   const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
   const EMAILJS_MAIL_SERVICE = process.env.EMAILJS_MAIL_SERVICE;
   const EMAILJS_USER_ID = process.env.EMAILJS_USER_ID;
@@ -41,6 +42,9 @@ export default function Home() {
         setEmail("");
         setName("");
         setMessage("");
+      })
+      .catch(() => {
+        setSuccess(false);
       });
   }
 
@@ -122,9 +126,13 @@ export default function Home() {
 
       {/* Contact */}
       <section id="contact">
+        <ContactModal
+          onClose={() => setSuccess(false)}
+          shown={success}
+          options={{ title: "Success", body: "Successfully send your message my way!" }}
+        />
         <h1 className="section__title">Contact me</h1>
         <form onSubmit={onSubmit}>
-          {success ? <p>Successfully send message!</p> : null}
           <div className="form__group">
             <label htmlFor="name">Enter your name</label>
             <input
