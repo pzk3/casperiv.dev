@@ -31,7 +31,7 @@
 
 .nav__icon {
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .nav__links {
@@ -132,7 +132,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 880px) {
   .nav__links {
     display: flex;
   }

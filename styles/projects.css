@@ -12,12 +12,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(55, 71, 89, 0.3);
   transition: box-shadow 200ms;
 }
 
 .project__item:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 16px 0 rgba(55, 71, 89, 0.5);
 }
 
 .project__item__header {
@@ -32,6 +32,11 @@
   padding-top: 0.5rem;
   display: flex;
   gap: 1rem;
+}
+
+.project__item__footer a {
+  color: var(--light);
+  font-weight: 600;
 }
 
 @media (max-width: 400px) {
