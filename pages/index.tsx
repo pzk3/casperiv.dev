@@ -106,17 +106,41 @@ export default function Home() {
         <h1 className="section__title">My Backpack</h1>
 
         <div className="skills__icons">
-          <HtmlIcon />
-          <CSSIcon />
-          <JavaScriptIcon />
-          <TypescriptIcon />
-          <ReactIcon />
-          <BootstrapIcon />
-          <NodejsIcon />
-          <DatabaseIcon />
-          <NpmIcon />
-          <TerminalIcon />
-          <GitIcon />
+          <div aria-label="HTML - Expert" className="skills__icon">
+            <HtmlIcon />
+          </div>
+          <div aria-label="CSS - Expert" className="skills__icon">
+            <CSSIcon />
+          </div>
+          <div aria-label="JavaScript - Intermediate" className="skills__icon">
+            <JavaScriptIcon />
+          </div>
+          <div aria-label="TypeScript - Intermediate" className="skills__icon">
+            <TypescriptIcon />
+          </div>
+          <div aria-label="React - Intermediate" className="skills__icon">
+            <ReactIcon />
+          </div>
+          <div aria-label="BootStrap - Intermediate" className="skills__icon">
+            <BootstrapIcon />
+          </div>
+          <div aria-label="NodeJs - Intermediate" className="skills__icon">
+            <NodejsIcon />
+          </div>
+          <div aria-label="MongoDB - Intermediate" className="skills__icon">
+            <DatabaseIcon />
+          </div>
+          <div aria-label="NPM - Expert" className="skills__icon">
+            <NpmIcon />
+          </div>
+
+          <div aria-label="Terminal - Intermediate" className="skills__icon">
+            <TerminalIcon />
+          </div>
+
+          <div aria-label="GIT & GitHub - Intermediate" className="skills__icon">
+            <GitIcon />
+          </div>
         </div>
       </section>
 

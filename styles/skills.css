@@ -2,12 +2,21 @@
   width: 100%;
   margin: 2rem 0;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(min(7rem), 8rem));
   align-items: center;
 }
 
-.skills__icons svg {
+.skills__icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 7rem;
+  max-height: 7rem;
+}
+
+.skills__icon svg {
   max-width: 7rem;
   max-height: 7rem;
   transition: 150ms;
@@ -15,6 +24,29 @@
 
 .skills__icons svg path {
   fill: var(--light);
+}
+
+.skills__icon::after {
+  text-align: center;
+  z-index: 20;
+  position: absolute;
+  content: attr(aria-label);
+  opacity: 0;
+  width: 100%;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: opacity 200ms;
+  background: var(--lighter);
+  color: var(--light);
+  padding: 5px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 16px rgba(55, 71, 89, 0.5);
+}
+
+.skills__icon:hover::after {
+  opacity: 1;
 }
 
 .skills__icons svg:hover {
