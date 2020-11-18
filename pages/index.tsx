@@ -18,6 +18,7 @@ import {
   TerminalIcon,
   TypescriptIcon,
 } from "../components/icons/skills";
+import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "../components/icons/about";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -71,31 +72,35 @@ export default function Home() {
         </p>
 
         <div className="btn__container">
-          <a className="btn btn__light" href="#contact">
+          <a className="btn btn__light btn__icon" href="#contact">
+            <ContactIcon />
             Contact
           </a>
           <a
             rel="noopener noreferrer"
             target="_blank"
-            className="btn btn__light"
+            className="btn btn__light btn__icon"
             href="https://github.com/dev-caspertheghost"
           >
+            <GitHubIcon />
             GitHub
           </a>
           <a
             rel="noopener noreferrer"
             target="_blank"
-            className="btn btn__light"
+            className="btn btn__light btn__icon"
             href="https://twitter.com/casper124578"
           >
+            <TwitterIcon />
             Twitter
           </a>
           <a
             rel="noopener noreferrer"
             target="_blank"
-            className="btn btn__light"
+            className="btn btn__light btn__icon"
             href="https://www.linkedin.com/in/casper-iversen-54bbb71a4/"
           >
+            <LinkedInIcon />
             LinkedIn
           </a>
         </div>

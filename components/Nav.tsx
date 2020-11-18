@@ -21,6 +21,7 @@ const Nav = () => {
 
   function handleHamburgerClick() {
     document.getElementById("menu")?.classList.add("menu__nav--active");
+    document.body.classList.add("disable-scroll");
   }
 
   function handleAboutClick() {

@@ -17,6 +17,10 @@ body {
   scrollbar-width: 0.5rem;
 }
 
+.disable-scroll {
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -83,6 +87,18 @@ a {
 .btn__lighter {
   color: #000;
   background: var(--lighter);
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__icon svg {
+  margin-right: 10px;
+  width: 1.2rem;
+  fill: var(--lighter);
 }
 
 .sr-only {

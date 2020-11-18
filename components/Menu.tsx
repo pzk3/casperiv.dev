@@ -3,6 +3,7 @@ import XIcon from "./icons/XIcon";
 const Menu = () => {
   function handleClose() {
     document.getElementById("menu")?.classList.remove("menu__nav--active");
+    document.body.classList.remove("disable-scroll");
   }
 
   return (

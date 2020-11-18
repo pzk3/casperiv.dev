@@ -66,12 +66,22 @@ const projects: Project[] = [
       "A fully responsive statistics dashboard made with plain CSS, HTML and a little bit of JavaScript",
     buttons: [
       {
-        url: `${url}/ css-statistic-dashboard`,
-        name: "View code",
+        url: `${url}/css-statistic-dashboard`,
+        name: VIEW_CODE,
       },
       {
         name: OPEN_PROJECT,
         url: "https://dev-caspertheghost.github.io/css-statistic-dashboard/",
+      },
+    ],
+  },
+  {
+    title: "Other projects",
+    description: "You can view all my other projects on GitHub below",
+    buttons: [
+      {
+        url: `${url}?tab=repositories`,
+        name: "Show projects",
       },
     ],
   },
