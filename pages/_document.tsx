@@ -35,16 +35,10 @@ class MyDocument extends Document {
           <meta name="twitter:creator" content="@casper124578" />
           <meta name="twitter:description" content="Hi I'm Casper Iversen! A web developer." />
           <meta name="twitter:title" content="Casper Iversen" />
-          <meta
-            property="og:image"
-            content="https://caspertheghost.me/assets/img/icons/icon-128.png"
-          />
+          <meta property="og:image" content="https://caspertheghost.me/icons/icon-128.png" />
           <meta property="og:description" content="Hi I'm Casper Iversen! A web developer" />
           <meta property="og:site_name" content="Casper Iversen" />
-          <meta
-            property="og:image"
-            content="https://caspertheghost.me/assets/img/icons/icon-128.png"
-          />
+
           <meta
             name="keywords"
             content="caspertheghost, dev-caspertheghost, casper, @casper124578, Dev-CasperTheGhost, CasperTheGhost Dev, casper, iversen, casper iversen, @dev-caspertheghost, frontend dev, developer, frontend developer portfolio, portfolio, casper iversen portfolio, caspertheghost portfolio, caspertheghost github"
