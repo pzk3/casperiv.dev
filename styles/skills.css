@@ -3,7 +3,7 @@
   margin: 2rem 0;
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(7rem), 8rem));
+  grid-template-columns: repeat(auto-fill, minmax(min(7.5rem), 8rem));
   align-items: center;
 }
 
@@ -12,14 +12,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 7rem;
-  max-height: 7rem;
+  max-width: 7.5rem;
+  max-height: 7.5rem;
 }
 
 .skills__icon svg {
-  max-width: 7rem;
-  max-height: 7rem;
-  transition: 150ms;
+  max-width: 7.5rem;
+  max-height: 7.5rem;
+  transition: 200ms;
 }
 
 .skills__icons svg path {
@@ -45,6 +45,10 @@
   pointer-events: none;
   font-weight: 500;
   font-size: 1.1rem;
+}
+
+.lg::after {
+  width: 200px;
 }
 
 .skills__icon:hover::after {

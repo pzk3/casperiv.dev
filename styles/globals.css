@@ -12,7 +12,7 @@ body {
   font-weight: 400;
   color: var(--primary);
   scroll-behavior: smooth;
-  background: #cdd6e2;
+  background: var(--lighter);
   scrollbar-color: var(--lighter) var(--light);
   scrollbar-width: 0.5rem;
 }

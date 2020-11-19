@@ -117,33 +117,33 @@ export default function Home() {
           <div aria-label="CSS - Expert" className="skills__icon">
             <CSSIcon />
           </div>
-          <div aria-label="JavaScript - Intermediate" className="skills__icon">
+          <div aria-label="JavaScript - Intermediate" className="skills__icon lg">
             <JavaScriptIcon />
           </div>
-          <div aria-label="TypeScript - Intermediate" className="skills__icon">
+          <div aria-label="TypeScript - Intermediate" className="skills__icon lg">
             <TypescriptIcon />
           </div>
-          <div aria-label="React - Intermediate" className="skills__icon">
+          <div aria-label="React - Intermediate" className="skills__icon lg">
             <ReactIcon />
           </div>
-          <div aria-label="BootStrap - Intermediate" className="skills__icon">
+          <div aria-label="BootStrap - Intermediate" className="skills__icon lg">
             <BootstrapIcon />
           </div>
-          <div aria-label="NodeJs - Intermediate" className="skills__icon">
+          <div aria-label="NodeJs - Intermediate" className="skills__icon lg">
             <NodejsIcon />
           </div>
-          <div aria-label="MongoDB - Intermediate" className="skills__icon">
+          <div aria-label="MongoDB - Intermediate" className="skills__icon lg">
             <DatabaseIcon />
           </div>
           <div aria-label="NPM - Expert" className="skills__icon">
             <NpmIcon />
           </div>
 
-          <div aria-label="Terminal - Intermediate" className="skills__icon">
+          <div aria-label="Terminal - Intermediate" className="skills__icon lg">
             <TerminalIcon />
           </div>
 
-          <div aria-label="GIT & GitHub - Intermediate" className="skills__icon">
+          <div aria-label="GIT & GitHub - Intermediate" className="skills__icon lg">
             <GitIcon />
           </div>
         </div>
