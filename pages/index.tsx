@@ -120,7 +120,7 @@ export default function Home() {
           <div aria-label="JavaScript - Intermediate" className="skills__icon lg">
             <JavaScriptIcon />
           </div>
-          <div aria-label="TypeScript - Intermediate" className="skills__icon lg">
+          <div aria-label="TypeScript - Beginner" className="skills__icon lg">
             <TypescriptIcon />
           </div>
           <div aria-label="React - Intermediate" className="skills__icon lg">
