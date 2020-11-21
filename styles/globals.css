@@ -15,6 +15,7 @@ body {
   background: var(--lighter);
   scrollbar-color: var(--lighter) var(--light);
   scrollbar-width: 0.5rem;
+  overflow-x: hidden;
 }
 
 .disable-scroll {

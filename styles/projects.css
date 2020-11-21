@@ -35,6 +35,7 @@
 }
 
 .project__item__footer a {
+  margin-right: 0.5rem !important;
   color: var(--light);
   font-weight: 600;
 }

@@ -11,6 +11,7 @@
   text-transform: uppercase;
   margin-bottom: 0;
   line-height: 55pt;
+  animation: fade 1s;
 }
 
 .main__title h2 {
@@ -19,9 +20,11 @@
   margin-top: 0;
   font-weight: 400;
   text-align: center;
+  animation: fade 1s;
 }
 
 .main__text {
+  animation: fade_text 1s;
   color: var(--light);
   font-size: clamp(1rem, 5vw, 1.3rem);
 }
@@ -31,6 +34,7 @@
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
+  animation: fade_btn 1s;
 }
 
 .btn__container .btn {
@@ -53,5 +57,38 @@
 @media (max-width: 320px) {
   .btn__container {
     grid-template-columns: auto;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade_text {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade_btn {
+  from {
+    opacity: 0;
+    transform: translateY(75px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
