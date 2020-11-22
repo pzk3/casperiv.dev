@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
+import emailjs, { init } from "emailjs-com";
+import { FormEvent, useState, useEffect } from "react";
 import TimelineSection from "../components/TimelineSection";
 import ProjectSection from "../components/ProjectsSection";
 import ContactModal from "../components/ContantModal";
-import emailjs, { init } from "emailjs-com";
-import { FormEvent, useState, useEffect } from "react";
 import {
   BootstrapIcon,
   CSSIcon,

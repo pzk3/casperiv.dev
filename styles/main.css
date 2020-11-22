@@ -27,6 +27,7 @@
   animation: fade_text 1s;
   color: var(--light);
   font-size: clamp(1rem, 5vw, 1.3rem);
+  text-align: center;
 }
 
 .btn__container {
@@ -48,6 +49,7 @@
 @media (min-width: 768px) {
   .btn__container {
     display: flex;
+    justify-content: center;
   }
   .btn__container .btn:nth-child(2n + 2) {
     margin: 0 10px;
