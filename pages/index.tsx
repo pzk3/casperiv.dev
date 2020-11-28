@@ -80,7 +80,7 @@ export default function Home() {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href="https://github.com/dev-caspertheghost"
+            href={process.env.GITHUB_PROFILE_URL}
           >
             <GitHubIcon />
             GitHub
@@ -89,7 +89,7 @@ export default function Home() {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href="https://twitter.com/casper124578"
+            href={process.env.TWITTER_PROFILE_URL}
           >
             <TwitterIcon />
             Twitter
@@ -98,7 +98,7 @@ export default function Home() {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href="https://www.linkedin.com/in/casper-iversen-54bbb71a4/"
+            href={process.env.LINKEDIN_PROFILE_URL}
           >
             <LinkedInIcon />
             LinkedIn

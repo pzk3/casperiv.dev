@@ -21,6 +21,21 @@
   text-decoration: underline;
 }
 
+.footer__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__links a {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 350px) {
+  .footer__content {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
   .footer__icon {
     display: none;

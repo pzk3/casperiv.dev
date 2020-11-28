@@ -11,6 +11,18 @@ const Footer = () => {
           <a href="https://github.com/dev-caspertheghost/caspertheghost.me">CasperTheGhost</a> with
           ❤️
         </p>
+
+        <div className="footer__links">
+          <a target="_blank" rel="noreferrer noopener" href={process.env.TWITTER_PROFILE_URL}>
+            Twitter
+          </a>
+          <a target="_blank" rel="noreferrer noopener" href={process.env.GITHUB_PROFILE_URL}>
+            GitHub
+          </a>
+          <a target="_blank" rel="noreferrer noopener" href={process.env.LINKEDIN_PROFILE_URL}>
+            LinkedIn
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -4,7 +4,11 @@ import Project from "../interfaces/Project";
 const ProjectSection = () => {
   return (
     <section id="projects">
-      <a target="_blank" rel="noreferrer noopener" href="https://github.com/dev-caspertheghost">
+      <a
+        target="_blank"
+        rel="noreferrer noopener"
+        href={`${process.env.GITHUB_PROFILE_URL}?tab=repositories`}
+      >
         <h1 className="section__title">Projects</h1>
       </a>
 
