@@ -29,7 +29,7 @@ export default function Home() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/api/mail", {
+    fetch(`https://caspertheghost.me/api/mail`, {
       method: "POST",
       body: JSON.stringify({
         name: name,
