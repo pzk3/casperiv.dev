@@ -10,7 +10,7 @@ const limiter = rateLimit({
 
 function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
   return new Promise((resolve, rej) => {
-    fn(req, res, (result: any) => {
+    fn(req, res, (result) => {
       if (result instanceof Error) {
         return rej(result);
       }
@@ -39,7 +39,6 @@ export default async function handler(
       const body = JSON.parse(req.body);
 
       console.log(body);
-      
 
       if (!body.name || !body.email || !body.text) return;
 

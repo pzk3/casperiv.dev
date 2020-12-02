@@ -40,7 +40,10 @@ export default function Home() {
       .then(async (res) => {
         if (res.status === 429) {
           setOpen(true);
-          return setResponse({ title: "Error!", body: res.statusText });
+          return setResponse({
+            title: "Error!",
+            body: "Too many requests, please slow wait 15 more minutes before sending a new mail",
+          });
         }
         const data = await res.json();
 
