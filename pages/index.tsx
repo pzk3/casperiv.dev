@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
-import emailjs, { init } from "emailjs-com";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import TimelineSection from "../components/TimelineSection";
 import ProjectSection from "../components/ProjectsSection";
 import ContactModal from "../components/ContantModal";
@@ -24,34 +23,43 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState<boolean>(false);
-  const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
-  const EMAILJS_MAIL_SERVICE = process.env.EMAILJS_MAIL_SERVICE;
-  const EMAILJS_USER_ID = process.env.EMAILJS_USER_ID;
+  const [open, setOpen] = useState<boolean>(false);
+  const [response, setResponse] = useState<{ title: string; body: string }>(null);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    emailjs
-      .send(EMAILJS_MAIL_SERVICE, EMAILJS_TEMPLATE_ID, {
-        name,
-        message,
-        email,
-      })
-      .then(() => {
-        setSuccess(true);
-        setEmail("");
-        setName("");
-        setMessage("");
+    fetch("http://localhost:3000/api/mail", {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        text: message,
+        email: email,
+      }),
+    })
+      .then(async (res) => {
+        if (res.status === 429) {
+          setOpen(true);
+          return setResponse({ title: "Error!", body: res.statusText });
+        }
+        const data = await res.json();
+
+        if (data.status === "success") {
+          setOpen(true);
+          setEmail("");
+          setName("");
+          setMessage("");
+          setResponse({ title: "Success", body: "Successfully send your message my way!" });
+        } else {
+          setOpen(true);
+          setResponse({ title: "Error!", body: data.error || data });
+        }
       })
       .catch(() => {
-        setSuccess(false);
+        setResponse({ title: "Error!", body: "An error occurred" });
+        setOpen(true);
       });
   }
-
-  useEffect(() => {
-    init(EMAILJS_USER_ID);
-  }, []);
 
   return (
     <>
@@ -155,11 +163,7 @@ export default function Home() {
 
       {/* Contact */}
       <section id="contact">
-        <ContactModal
-          onClose={() => setSuccess(false)}
-          shown={success}
-          options={{ title: "Success", body: "Successfully send your message my way!" }}
-        />
+        <ContactModal onClose={() => setOpen(false)} shown={open} options={response} />
         <h1 className="section__title">Contact me</h1>
         <form onSubmit={onSubmit}>
           <div className="form__group">

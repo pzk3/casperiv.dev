@@ -6,7 +6,7 @@ interface Props {
   options: {
     title: string;
     body: string;
-  };
+  } | null;
 }
 
 const ContactModal = ({ onClose, shown, options }: Props) => {
@@ -14,14 +14,14 @@ const ContactModal = ({ onClose, shown, options }: Props) => {
     <div className={`modal__container ${shown ? "modal--active" : ""}`}>
       <div className="modal">
         <header className="modal__header">
-          {options.title}
+          {options?.title}
 
           <button onClick={() => onClose()} className="close close__modal">
             <XIcon />
           </button>
         </header>
 
-        <div className="modal__body">{options.body}</div>
+        <div className="modal__body">{options?.body}</div>
       </div>
     </div>
   );
