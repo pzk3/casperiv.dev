@@ -183,7 +183,7 @@ export default function Home() {
           <div className="form__group">
             <label htmlFor="email">Enter your email</label>
             <input
-              type="text"
+              type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

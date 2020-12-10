@@ -14,7 +14,7 @@
   background: none;
   border: none;
   padding: 10px;
-  color: var(--light);
+  color: var(--text-color);
   font-weight: 500;
   font-size: 1.2rem;
   cursor: pointer;
@@ -41,7 +41,7 @@
   top: 0;
   bottom: 0;
   width: 6px;
-  background: var(--light);
+  background: var(--secondary);
   left: 50%;
   margin-left: -3px;
 }
@@ -68,7 +68,7 @@
   right: -13px;
   width: 25px;
   height: 25px;
-  background: var(--light);
+  background: var(--secondary);
   border-radius: 50%;
   transform: translateY(-50%);
 }
@@ -92,9 +92,9 @@
   position: absolute;
   top: 50%;
   right: 30px;
-  border: 10px solid var(--light);
+  border: 10px solid var(--secondary);
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent var(--light);
+  border-color: transparent transparent transparent var(--secondary);
   transform: translateY(-50%);
 }
 
@@ -105,9 +105,9 @@
   position: absolute;
   top: 50%;
   left: 30px;
-  border: 10px solid var(--light);
+  border: 10px solid var(--secondary);
   border-width: 10px 10px 10px 0;
-  border-color: transparent var(--light) transparent transparent;
+  border-color: transparent var(--secondary) transparent transparent;
   transform: translateY(-50%);
 }
 
@@ -115,10 +115,10 @@
   border-radius: 0.5rem;
   transition: box-shadow 300ms ease;
   padding: 0.8rem 1rem;
-  background: var(--light);
+  background: var(--secondary);
   color: white;
   font-size: 1.1rem;
-  box-shadow: 0 2px 4px 0 rgba(55, 71, 89, 0.3);
+  box-shadow: 0 2px 4px 0 rgb(22, 27, 34, 0.3);
 }
 
 .timeline-item-header {
@@ -134,14 +134,14 @@
 
 .timeline-item-header p {
   font-size: 1.2rem;
-  color: var(--lighter);
+  color: var(--secondaryer);
   font-weight: bold;
 }
 
 .timeline-item-header h1 {
   font-size: 1rem;
   color: var(--primary);
-  background-color: var(--lighter);
+  background-color: var(--secondaryer);
   padding: 5px;
 }
 
@@ -178,7 +178,7 @@
 
 @media (hover: hover) {
   .timeline-item-body:hover {
-    box-shadow: 0 8px 16px 0 rgba(55, 71, 89, 0.5);
+    box-shadow: 0 0px 18px 0 rgb(22, 27, 34, 0.6);
   }
   .timeline-link:hover {
     color: white;

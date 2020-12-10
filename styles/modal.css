@@ -15,7 +15,7 @@
 }
 
 .modal {
-  background: var(--light);
+  background: var(--secondary);
   color: #fff;
   width: 500px;
   max-width: 95%;

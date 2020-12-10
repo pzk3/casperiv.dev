@@ -1,7 +1,7 @@
 :root {
-  --primary: #2a2e33;
-  --light: #374759;
-  --lighter: #cdd6e2;
+  --bg: #0d1117;
+  --text-color: #cdd6e2;
+  --secondary: #161b22;
   --content-width: 90%;
 }
 
@@ -10,9 +10,9 @@ body {
   padding: 0;
   margin: 0;
   font-weight: 400;
-  color: var(--primary);
+  color: var(--text-color);
   scroll-behavior: smooth;
-  background: var(--lighter);
+  background: var(--bg);
   scrollbar-color: var(--lighter) var(--light);
   scrollbar-width: 0.5rem;
   overflow-x: hidden;
@@ -36,8 +36,8 @@ body {
 }
 
 ::selection {
-  color: var(--lighter);
-  background: var(--primary);
+  color: var(--text-color);
+  background: var(--secondary);
 }
 
 a {
@@ -78,16 +78,16 @@ a {
 }
 
 .btn:hover {
-  filter: brightness(120%);
+  filter: brightness(150%);
 }
 
 .btn__light {
-  background: var(--light);
+  background: var(--secondary);
 }
 
 .btn__lighter {
-  color: #000;
-  background: var(--lighter);
+  color: var(--bg) !important;
+  background: var(--text-color);
 }
 
 .btn__icon {
@@ -99,7 +99,7 @@ a {
 .btn__icon svg {
   margin-right: 10px;
   width: 1.2rem;
-  fill: var(--lighter);
+  fill: var(--secondary);
 }
 
 .sr-only {

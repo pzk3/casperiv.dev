@@ -9,7 +9,7 @@ const Footer = () => {
         <p>
           Created by{" "}
           <a href="https://github.com/dev-caspertheghost/caspertheghost.me">CasperTheGhost</a> with
-          ❤️
+          ❤️, Colors: GitHub dark mode
         </p>
 
         <div className="footer__links">
