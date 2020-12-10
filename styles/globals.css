@@ -14,7 +14,6 @@ body {
   scroll-behavior: smooth;
   background: var(--bg);
   scrollbar-color: var(--lighter) var(--light);
-  scrollbar-width: 0.5rem;
   overflow-x: hidden;
 }
 
