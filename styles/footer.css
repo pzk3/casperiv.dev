@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10rem;
+  height: 12rem;
+  padding-bottom: 2rem;
 }
 
 .footer__content {
