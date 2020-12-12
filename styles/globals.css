@@ -2,19 +2,26 @@
   --bg: #0d1117;
   --text-color: #cdd6e2;
   --secondary: #161b22;
+  --dark: #090D13;
   --content-width: 90%;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-weight: 400;
   color: var(--text-color);
-  scroll-behavior: smooth;
   background: var(--bg);
   scrollbar-color: var(--lighter) var(--light);
   overflow-x: hidden;
+}
+
+#__next {
+  width: 100%;
 }
 
 .disable-scroll {
@@ -26,11 +33,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--lighter);
+  background: var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--light);
+  background: var(--text-color);
   border-radius: 0.5rem;
 }
 
@@ -50,8 +57,8 @@ a {
 }
 
 .container {
-  display: flex;
   width: 100%;
+  display: flex;
   justify-content: center;
   padding-bottom: 2rem;
 }

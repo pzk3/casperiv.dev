@@ -44,6 +44,7 @@
   background: var(--secondary);
   left: 50%;
   margin-left: -3px;
+  filter: brightness(150%);
 }
 
 .timeline-item {
@@ -134,14 +135,15 @@
 
 .timeline-item-header p {
   font-size: 1.2rem;
-  color: var(--secondaryer);
+  color: var(--text-color);
+  filter: brightness(80%);
   font-weight: bold;
 }
 
 .timeline-item-header h1 {
   font-size: 1rem;
-  color: var(--primary);
-  background-color: var(--secondaryer);
+  color: var(--text-color);
+  /* background-color: var(--secondary); */
   padding: 5px;
 }
 
@@ -178,7 +180,7 @@
 
 @media (hover: hover) {
   .timeline-item-body:hover {
-    box-shadow: 0 0px 18px 0 rgb(22, 27, 34, 0.6);
+    box-shadow: 0 0px 18px 0 rgb(22, 27, 34, 0.3);
   }
   .timeline-link:hover {
     color: white;

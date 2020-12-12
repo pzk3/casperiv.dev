@@ -27,18 +27,16 @@
 .project__item__footer {
   padding-top: 0.5rem;
   display: flex;
-  gap: 1rem;
 }
 
 .project__item__footer a {
   margin-right: 0.5rem !important;
-  color: var(--light);
   font-weight: 600;
 }
 
 @media (hover: hover) {
   .project__item:hover {
-    box-shadow: 0 8px 16px 0 rgb(22, 27, 34, 0.6);
+    box-shadow: 0 8px 16px 0 rgb(22, 27, 34, 0.3);
     transform: translateY(-0.2rem);
   }
 }
