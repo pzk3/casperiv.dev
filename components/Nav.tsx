@@ -1,6 +1,6 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, FC } from "react";
 
-const Nav = () => {
+const Nav: FC = () => {
   const ref = useRef<HTMLDivElement>();
 
   useEffect(() => {

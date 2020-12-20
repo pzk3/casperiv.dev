@@ -134,6 +134,9 @@
 }
 
 @media (min-width: 880px) {
+  .menu__nav {
+    display: none;
+  }
   .nav__links {
     display: flex;
   }

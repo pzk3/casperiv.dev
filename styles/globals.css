@@ -2,7 +2,7 @@
   --bg: #0d1117;
   --text-color: #cdd6e2;
   --secondary: #161b22;
-  --dark: #090D13;
+  --dark: #090d13;
   --content-width: 90%;
 }
 
@@ -18,6 +18,12 @@ body {
   background: var(--bg);
   scrollbar-color: var(--lighter) var(--light);
   overflow-x: hidden;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #6e7681;
+  outline-offset: 2px;
 }
 
 #__next {

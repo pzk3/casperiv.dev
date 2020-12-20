@@ -122,41 +122,41 @@ export default function Home() {
         <h1 className="section__title">My Backpack</h1>
 
         <div className="skills__icons">
-          <div aria-label="HTML - Expert" className="skills__icon">
+          <button aria-label="HTML - Expert" className="skills__icon">
             <HtmlIcon />
-          </div>
-          <div aria-label="CSS - Expert" className="skills__icon">
+          </button>
+          <button aria-label="CSS - Expert" className="skills__icon">
             <CSSIcon />
-          </div>
-          <div aria-label="JavaScript - Intermediate" className="skills__icon lg">
+          </button>
+          <button aria-label="JavaScript - Intermediate" className="skills__icon lg">
             <JavaScriptIcon />
-          </div>
-          <div aria-label="TypeScript - Beginner" className="skills__icon lg">
+          </button>
+          <button aria-label="TypeScript - Beginner" className="skills__icon lg">
             <TypescriptIcon />
-          </div>
-          <div aria-label="React - Intermediate" className="skills__icon lg">
+          </button>
+          <button aria-label="React - Intermediate" className="skills__icon lg">
             <ReactIcon />
-          </div>
-          <div aria-label="BootStrap - Intermediate" className="skills__icon lg">
+          </button>
+          <button aria-label="BootStrap - Intermediate" className="skills__icon lg">
             <BootstrapIcon />
-          </div>
-          <div aria-label="NodeJs - Intermediate" className="skills__icon lg">
+          </button>
+          <button aria-label="NodeJs - Intermediate" className="skills__icon lg">
             <NodejsIcon />
-          </div>
-          <div aria-label="MongoDB - Intermediate" className="skills__icon lg">
+          </button>
+          <button aria-label="MongoDB - Intermediate" className="skills__icon lg">
             <DatabaseIcon />
-          </div>
-          <div aria-label="NPM - Expert" className="skills__icon">
+          </button>
+          <button aria-label="NPM - Expert" className="skills__icon">
             <NpmIcon />
-          </div>
+          </button>
 
-          <div aria-label="Terminal - Intermediate" className="skills__icon lg">
+          <button aria-label="Terminal - Intermediate" className="skills__icon lg">
             <TerminalIcon />
-          </div>
+          </button>
 
-          <div aria-label="GIT & GitHub - Intermediate" className="skills__icon lg">
+          <button aria-label="GIT & GitHub - Intermediate" className="skills__icon lg">
             <GitIcon />
-          </div>
+          </button>
         </div>
       </section>
 

@@ -13,7 +13,7 @@
   color: var(--text-color);
   font-size: 1rem;
   padding: 0.5rem;
-  border: 0.1rem solid var(--secondary);
+  border: 1px solid var(--secondary);
   background-color: var(--dark);
   border-radius: 0.5rem;
   outline: none;
@@ -24,7 +24,7 @@
 }
 
 .form__input:focus {
-  border: 0.1rem solid var(--text-color);
+  border-color: var(--text-color);
 }
 
 .form__small {
@@ -39,6 +39,6 @@
 
 @media (hover: hover) {
   .form__input:hover {
-    border: 0.1rem solid var(--text-color);
+    border-color: var(--text-color);
   }
 }

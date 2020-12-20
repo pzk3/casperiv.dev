@@ -1,16 +1,11 @@
+import { FC } from "react";
 import projects from "../data/projects";
 import Project from "../interfaces/Project";
 
-const ProjectSection = () => {
+const ProjectSection: FC = () => {
   return (
     <section id="projects">
-      <a
-        target="_blank"
-        rel="noreferrer noopener"
-        href={`${process.env.GITHUB_PROFILE_URL}?tab=repositories`}
-      >
-        <h1 className="section__title">Projects</h1>
-      </a>
+      <h1 className="section__title">Projects</h1>
 
       <div className="projects__container">
         {projects.map((project: Project, idx: number) => {
