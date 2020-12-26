@@ -1,7 +1,11 @@
+import { useRouter } from "next/dist/client/router";
 import { FC } from "react";
 import XIcon from "./icons/XIcon";
 
 const Menu: FC = () => {
+  const router = useRouter();
+  const is404 = router.pathname !== "/";
+
   function handleClose() {
     document.getElementById("menu")?.classList.remove("menu__nav--active");
     document.body.classList.remove("disable-scroll");
@@ -15,19 +19,19 @@ const Menu: FC = () => {
       </button>
       <div className="menu__content">
         <div onClick={handleClose} className="menu__links">
-          <a href="#" className="menu__link">
+          <a href={is404 ? "/" : "#"} className="menu__link">
             About
           </a>
-          <a href="#skills" className="menu__link">
+          <a href={is404 ? "/#skills" : "#skills"} className="menu__link">
             Skills
           </a>
-          <a href="#projects" className="menu__link">
+          <a href={is404 ? "/#projects" : "#projects"} className="menu__link">
             Projects
           </a>
-          <a href="#timeline" className="menu__link">
+          <a href={is404 ? "/#timeline" : "#timeline"} className="menu__link">
             Timeline
           </a>
-          <a href="#contact" className="menu__link">
+          <a href={is404 ? "/#contact" : "#contact"} className="menu__link">
             Contact
           </a>
         </div>

@@ -1,7 +1,10 @@
+import { useRouter } from "next/dist/client/router";
 import { useRef, useEffect, FC } from "react";
 
 const Nav: FC = () => {
   const ref = useRef<HTMLDivElement>();
+  const router = useRouter();
+  const is404 = router.pathname !== "/";
 
   useEffect(() => {
     window.onscroll = function updateNav() {
@@ -25,6 +28,9 @@ const Nav: FC = () => {
   }
 
   function handleAboutClick() {
+    if (is404) {
+      return window.location.href = "/#about";
+    }
     if (isPageOffset()) {
       window.location.href = "#";
     } else {
@@ -46,16 +52,16 @@ const Nav: FC = () => {
             <button onClick={handleAboutClick} className="nav__link">
               About
             </button>
-            <a href="#skills" className="nav__link">
+            <a href={is404 ? "/#skills" : "#skills"} className="nav__link">
               Skills
             </a>
-            <a href="#projects" className="nav__link">
+            <a href={is404 ? "/#projects" : "#projects"} className="nav__link">
               Projects
             </a>
-            <a href="#timeline" className="nav__link">
+            <a href={is404 ? "/#timeline" : "#timeline"} className="nav__link">
               Timeline
             </a>
-            <a href="#contact" className="nav__link">
+            <a href={is404 ? "/#contact" : "#contact"} className="nav__link">
               Contact
             </a>
           </div>
