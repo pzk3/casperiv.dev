@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from "next/head";
 import { FormEvent, useState } from "react";
+import { NextPage } from "next";
 import TimelineSection from "../components/TimelineSection";
 import ProjectSection from "../components/ProjectsSection";
 import ContactModal from "../components/ContantModal";
@@ -19,7 +19,7 @@ import {
 } from "../components/icons/skills";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "../components/icons/about";
 
-export default function Home() {
+const Index: NextPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -215,4 +215,6 @@ export default function Home() {
       </section>
     </>
   );
-}
+};
+
+export default Index;

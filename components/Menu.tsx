@@ -1,6 +1,7 @@
+import { FC } from "react";
 import XIcon from "./icons/XIcon";
 
-const Menu = () => {
+const Menu: FC = () => {
   function handleClose() {
     document.getElementById("menu")?.classList.remove("menu__nav--active");
     document.body.classList.remove("disable-scroll");
@@ -8,11 +9,11 @@ const Menu = () => {
 
   return (
     <nav id="menu" className="menu__nav">
+      <button onClick={handleClose} className="close__menu">
+        <p className="sr-only">Close menu</p>
+        <XIcon />
+      </button>
       <div className="menu__content">
-        <button onClick={handleClose} className="close__menu">
-          <p className="sr-only">Close menu</p>
-          <XIcon />
-        </button>
         <div onClick={handleClose} className="menu__links">
           <a href="#" className="menu__link">
             About
