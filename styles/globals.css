@@ -6,6 +6,12 @@
   --content-width: 90%;
 }
 
+.light-theme {
+  --bg: white;
+  --text-color: #0d1117;
+  --secondary: #161b22;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,7 +22,6 @@ body {
   font-weight: 400;
   color: var(--text-color);
   background: var(--bg);
-  scrollbar-color: var(--lighter) var(--light);
   overflow-x: hidden;
 }
 
