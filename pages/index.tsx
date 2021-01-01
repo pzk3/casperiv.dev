@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { NextPage } from "next";
 import TimelineSection from "../components/TimelineSection";
 import ProjectSection from "../components/ProjectsSection";
@@ -20,11 +20,24 @@ import {
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "../components/icons/about";
 
 const Index: NextPage = () => {
+  const [age, setAge] = useState<string>();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState<boolean>(false);
   const [response, setResponse] = useState<{ title: string; body: string }>(null);
+
+  useEffect(() => {
+    // Thanks to https://ottomated.net/
+    const calculatedAge = (
+      (Date.now() - +new Date("07/21/2005")) /
+      (60 * 60 * 24 * 365 * 1000)
+    ).toFixed(3);
+
+    setAge(calculatedAge);
+
+    setInterval(() => setAge(calculatedAge), 60_000);
+  }, []);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -76,7 +89,7 @@ const Index: NextPage = () => {
         </div>
 
         <p className="main__text">
-          Hello, I am Casper! I am a 15y/o programmer and student. I Love programming a lot of
+          Hello, I am Casper! I am a {age}y/o programmer and student. I Love programming a lot of
           things such as: websites, bots, applications and more. I am a self taught developer and I
           have been programming for about 2 years now and still learning new technologies every day,
           mostly focusing on React, TypeScript and design.
