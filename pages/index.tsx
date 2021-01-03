@@ -42,7 +42,7 @@ const Index: NextPage = () => {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    fetch(`https://caspertheghost.me/api/mail`, {
+    fetch(process.env.CONTACT_URL, {
       method: "POST",
       body: JSON.stringify({
         name: name,

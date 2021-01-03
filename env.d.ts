@@ -7,5 +7,6 @@ declare namespace NodeJS {
     TWITTER_PROFILE_URL: string;
     LINKEDIN_PROFILE_URL: string;
     YOUTUBE_REDIRECT_URL: string;
+    CONTACT_URL: string;
   }
 }

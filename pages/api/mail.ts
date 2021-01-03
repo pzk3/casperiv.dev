@@ -46,7 +46,10 @@ export default async function handler(
         from: body.email,
         to: process.env.EXTRA_EMAIL,
         subject: `New email from ${body.name}`,
-        text: body.text,
+        text: `
+Email from: ${body.email}:
+
+${body.text}`,
         cc: process.env.EXTRA_EMAIL,
       };
 
