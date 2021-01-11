@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import experience from "../data/experience";
-import Experience from "../interfaces/experience";
+import Experience from "../interfaces/Experience";
 
 const ExperiencePage: NextPage = () => {
   return (
