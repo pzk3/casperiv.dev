@@ -12,6 +12,7 @@ import "../styles/timeline.css";
 import "../styles/footer.css";
 import "../styles/projects.css";
 import "../styles/modal.css";
+import "../styles/experience.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (

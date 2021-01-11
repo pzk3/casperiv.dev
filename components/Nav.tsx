@@ -1,4 +1,5 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
+import Link from "next/link";
 import { useRef, useEffect, FC } from "react";
 
 const Nav: FC = () => {
@@ -29,7 +30,7 @@ const Nav: FC = () => {
 
   function handleAboutClick() {
     if (is404) {
-      return window.location.href = "/#about";
+      return (window.location.href = "/#about");
     }
     if (isPageOffset()) {
       window.location.href = "#";
@@ -64,6 +65,11 @@ const Nav: FC = () => {
             <a href={is404 ? "/#contact" : "#contact"} className="nav__link">
               Contact
             </a>
+            <Link href="/experience">
+              <a href="/experience" className="nav__link">
+                Experience
+              </a>
+            </Link>
           </div>
 
           <button onClick={handleHamburgerClick} className="hamburger">
