@@ -34,6 +34,9 @@ const Menu: FC = () => {
           <a href={is404 ? "/#contact" : "#contact"} className="menu__link">
             Contact
           </a>
+          <a href="/experience" className="menu__link">
+            Experience
+          </a>
         </div>
       </div>
     </nav>
