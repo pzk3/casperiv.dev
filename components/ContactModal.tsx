@@ -1,3 +1,4 @@
+import { FC } from "react";
 import XIcon from "./icons/XIcon";
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
   } | null;
 }
 
-const ContactModal = ({ onClose, shown, options }: Props) => {
+const ContactModal: FC<Props> = ({ onClose, shown, options }: Props) => {
   return (
     <div className={`modal__container ${shown ? "modal--active" : ""}`}>
       <div className="modal">

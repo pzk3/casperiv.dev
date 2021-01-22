@@ -3,7 +3,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { NextPage } from "next";
 import TimelineSection from "../components/TimelineSection";
 import ProjectSection from "../components/ProjectsSection";
-import ContactModal from "../components/ContantModal";
+import ContactModal from "../components/ContactModal";
 import {
   BootstrapIcon,
   CSSIcon,

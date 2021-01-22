@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import timeline from "../data/timeline";
 import TimelineItem from "../interfaces/Timeline";
+import ArrowDown from "./icons/ArrowDown";
 
 const TimelineSection = () => {
   const [viewOlderText, setViewOlderText] = useState<string>("View older");
   const [length, setLength] = useState<number>(7);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   function showMore() {
     if (length > 7) {
       setLength(7);
       setViewOlderText("View older");
+      btnRef.current?.classList.remove("active");
     } else {
       setLength((prev) => prev + 5);
       setViewOlderText("View less");
+      btnRef.current?.classList.add("active");
     }
   }
 
@@ -39,8 +43,9 @@ const TimelineSection = () => {
             </a>
           );
         })}
-        <button onClick={showMore} id="view-older-btn" className="view-older-btn">
+        <button ref={btnRef} onClick={showMore} id="view-older-btn" className="view-older-btn">
           {viewOlderText}
+          <ArrowDown />
         </button>
       </div>
     </section>

@@ -27,7 +27,7 @@ body {
 
 button:focus,
 a:focus {
-  outline: 2px solid #6e7681;
+  outline: 1.5px solid #6e7681;
   outline-offset: 2px;
 }
 

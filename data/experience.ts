@@ -5,7 +5,7 @@ const experience: Experience[] = [
     title: "Zyndicate",
     year: "2021 - Present",
     description: "Working mostly on the frontend, currently making the settings pages.",
-    stack: ["react.js", "next", "graphql", "typescript"],
+    stack: ["react.js", "next.js", "graphql", "typescript"],
   },
   {
     title: "Ghostybot",
