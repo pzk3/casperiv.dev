@@ -25,12 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-button:focus,
-a:focus {
-  outline: 1.5px solid #6e7681;
-  outline-offset: 2px;
-}
-
 #__next {
   width: 100%;
   overflow: hidden;

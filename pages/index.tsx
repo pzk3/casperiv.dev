@@ -179,7 +179,7 @@ const Index: NextPage = () => {
 
       {/* Contact */}
       <section id="contact">
-        <ContactModal onClose={() => setOpen(false)} shown={open} options={response} />
+        {open ? <ContactModal onClose={() => setOpen(false)} options={response} /> : null}
         <h1 className="section__title">Contact me</h1>
         <form onSubmit={onSubmit}>
           <div className="form__group">

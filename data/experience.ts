@@ -4,7 +4,8 @@ const experience: Experience[] = [
   {
     title: "Zyndicate",
     year: "01/2021 - Present",
-    description: "Working mostly on the frontend, currently making the settings pages.",
+    description:
+      "Working mostly on the frontend. Working on settings, QuickCapture & more!",
     stack: ["react.js", "next.js", "graphql", "typescript"],
   },
   {
@@ -12,7 +13,7 @@ const experience: Experience[] = [
     year: "07/2019 - Present",
     description:
       "A Discord bot for communities for helping them with automating things such as welcoming people, giving roles, playing music and more.",
-    stack: ["mongodb", "javascript"],
+    stack: ["mongodb", "typescript", "next.js"],
   },
   {
     title: "Notey.app",

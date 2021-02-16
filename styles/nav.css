@@ -43,17 +43,19 @@
   font-size: 1.2rem;
   font-weight: 400;
   color: var(--light);
-  margin-left: 20px;
   position: relative;
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
-  transition: 250ms filter;
+  transition: 250ms background-color;
   filter: brightness(90%);
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.2rem;
+  margin: 0.2rem;
 }
 
 .nav__link:hover {
-  filter: brightness(150%);
+  background-color: var(--dark);
 }
 
 .hamburger {

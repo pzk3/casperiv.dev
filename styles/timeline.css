@@ -149,13 +149,13 @@
   color: var(--text-color);
   filter: brightness(80%);
   font-weight: bold;
+  margin: 0;
 }
 
 .timeline-item-header h1 {
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: var(--text-color);
-  /* background-color: var(--secondary); */
-  padding: 5px;
+  margin: 0.2rem 0;
 }
 
 @media screen and (max-width: 1300px) {
