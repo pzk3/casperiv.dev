@@ -30,7 +30,7 @@ const Nav: FC = () => {
 
   function handleAboutClick() {
     if (is404) {
-      return (window.location.href = "/#about");
+      return router.push("/#");
     }
     if (isPageOffset()) {
       window.location.href = "#";
@@ -53,18 +53,18 @@ const Nav: FC = () => {
             <button onClick={handleAboutClick} className="nav__link">
               About
             </button>
-            <a href={is404 ? "/#skills" : "#skills"} className="nav__link">
-              Skills
-            </a>
-            <a href={is404 ? "/#projects" : "#projects"} className="nav__link">
-              Projects
-            </a>
-            <a href={is404 ? "/#timeline" : "#timeline"} className="nav__link">
-              Timeline
-            </a>
-            <a href={is404 ? "/#contact" : "#contact"} className="nav__link">
-              Contact
-            </a>
+            <Link href={is404 ? "/#skills" : "#skills"}>
+              <a className="nav__link">Skills</a>
+            </Link>
+            <Link href={is404 ? "/#projects" : "#projects"}>
+              <a className="nav__link">Projects</a>
+            </Link>
+            <Link href={is404 ? "/#timeline" : "#timeline"}>
+              <a className="nav__link">Timeline</a>
+            </Link>
+            <Link href={is404 ? "/#contact" : "#contact"}>
+              <a className="nav__link">Contact</a>
+            </Link>
             <Link href="/experience">
               <a href="/experience" className="nav__link">
                 Experience
