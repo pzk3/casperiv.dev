@@ -4,7 +4,6 @@ const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-
   webpack: (config) => {
     config.plugins = config.plugins || [];
 
@@ -26,7 +25,6 @@ module.exports = {
         source: "/twitter",
         destination: process.env.TWITTER_PROFILE_URL,
         permanent: true,
-        
       },
       {
         source: "/github",

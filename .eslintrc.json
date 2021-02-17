@@ -6,7 +6,9 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,7 +18,21 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": { "react/react-in-jsx-scope": "off" },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "no-multi-spaces": ["error"],
+    "eqeqeq": ["warn", "always"],
+    "no-unused-vars": ["error"],
+    "no-duplicate-case": ["error"],
+    "no-extra-semi": ["error"],
+    "no-unreachable": ["error"],
+    "default-case": ["warn"],
+    "default-case-last": ["error"],
+    "no-useless-catch": ["warn"],
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "warn"
+  },
   "globals": { "React": "writable" }
 }

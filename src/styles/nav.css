@@ -55,6 +55,7 @@
 }
 
 .nav__link:hover {
+  color: white;
   background-color: var(--dark);
 }
 
@@ -135,7 +136,7 @@
   }
 }
 
-@media (min-width: 880px) {
+@media (min-width: 950px) {
   .menu__nav {
     display: none;
   }

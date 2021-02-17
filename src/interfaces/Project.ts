@@ -1,10 +1,12 @@
 interface Project {
   title: string;
   description: string;
-  buttons: Array<{
-    url: string;
-    name: string;
-  }>;
+  buttons: Array<Button>;
+}
+
+export interface Button {
+  url: string;
+  name: string;
 }
 
 export default Project;

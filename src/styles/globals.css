@@ -47,11 +47,6 @@ body {
   border-radius: 0.5rem;
 }
 
-::selection {
-  color: var(--text-color);
-  background: var(--secondary);
-}
-
 a {
   color: inherit;
   text-decoration: none;

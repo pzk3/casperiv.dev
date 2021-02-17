@@ -14,7 +14,7 @@ const projects: Project[] = [
         name: VIEW_CODE,
       },
       {
-        url: `https://notey.caspertheghost.me`,
+        url: "https://notey.caspertheghost.me",
         name: OPEN_PROJECT,
       },
     ],

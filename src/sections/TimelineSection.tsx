@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef, useState, FC } from "react";
 import timeline from "../data/timeline";
 import TimelineItem from "../interfaces/Timeline";
-import ArrowDown from "./icons/ArrowDown";
+import ArrowDown from "../components/icons/ArrowDown";
 
-const TimelineSection = () => {
+const TimelineSection: FC = () => {
   const [viewOlderText, setViewOlderText] = useState<string>("View older");
   const [length, setLength] = useState<number>(7);
   const btnRef = useRef<HTMLButtonElement>(null);
