@@ -39,4 +39,11 @@
   background: var(--dark);
   min-width: 85px;
   text-align: center;
+  cursor: default;
+  transition: 200ms;
+}
+
+.experience__stack:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 4px 8px 0 rgb(22, 27, 34, 0.3);
 }
