@@ -25,7 +25,7 @@ const Index: NextPage = () => {
     <>
       <main className="main" id="about">
         <Head>
-          <title>Casper Iversen - Web Developer </title>
+          <title>Casper Iversen - Web Developer</title>
         </Head>
         <div className="main__title">
           <h1>I am Casper</h1>
@@ -33,10 +33,10 @@ const Index: NextPage = () => {
         </div>
 
         <p className="main__text">
-          Hello, I am Casper! I am a {age}y/o programmer and student. I Love programming a lot of
-          things such as: websites, bots, applications and more. I am a self taught developer and I
-          have been programming for about 2 years now and still learning new technologies every day,
-          mostly focusing on React, TypeScript and design.
+          Hello, I am Casper! I am a {age} year old programmer and student. I enjoy programming a
+          lot. I&apos;ve created websites, Discord bots, NPM packages, etc. I am a self taught
+          developer and I have been programming for ~2 years now and still learning new technologies
+          every day, mostly focusing on React, TypeScript and design.
         </p>
 
         <div className="btn__container">
@@ -48,7 +48,7 @@ const Index: NextPage = () => {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href={process.env.GITHUB_PROFILE_URL}
+            href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
           >
             <GitHubIcon />
             GitHub
@@ -57,7 +57,7 @@ const Index: NextPage = () => {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href={process.env.TWITTER_PROFILE_URL}
+            href={process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL}
           >
             <TwitterIcon />
             Twitter
@@ -66,7 +66,7 @@ const Index: NextPage = () => {
             rel="noopener noreferrer"
             target="_blank"
             className="btn btn__light btn__icon"
-            href={process.env.LINKEDIN_PROFILE_URL}
+            href={process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL}
           >
             <LinkedInIcon />
             LinkedIn

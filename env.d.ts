@@ -3,10 +3,10 @@ declare namespace NodeJS {
     EMAIL_USERNAME: string;
     EMAIL_PASSWORD: string;
     EXTRA_EMAIL: string;
-    GITHUB_PROFILE_URL: string;
-    TWITTER_PROFILE_URL: string;
-    LINKEDIN_PROFILE_URL: string;
-    YOUTUBE_REDIRECT_URL: string;
-    CONTACT_URL: string;
+    NEXT_PUBLIC_GITHUB_PROFILE_URL: string;
+    NEXT_PUBLIC_TWITTER_PROFILE_URL: string;
+    NEXT_PUBLIC_LINKEDIN_PROFILE_URL: string;
+    NEXT_PUBLIC_YOUTUBE_REDIRECT_URL: string;
+    NEXT_PUBLIC_CONTACT_URL: string;
   }
 }

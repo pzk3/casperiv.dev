@@ -8,6 +8,7 @@ const ExperiencePage: NextPage = () => {
     <>
       <Head>
         <title>Experience - Casper Iversen</title>
+        <meta name="keywords" content="CasperTheGhost experience, experience casper iversen" />
       </Head>
 
       <div>

@@ -4,7 +4,8 @@ const experience: Experience[] = [
   {
     title: "Zyndicate",
     year: "01/2021 - Present",
-    description: "Working mostly on the frontend. Working on settings, QuickCapture & more!",
+    description:
+      "Working mostly on the frontend. Working on settings, QuickCapture, LifeOS and more!",
     stack: ["react.js", "next.js", "graphql", "typescript"],
   },
   {
@@ -24,7 +25,7 @@ const experience: Experience[] = [
     title: "SnailyCAD",
     year: "02/2019 - Present",
     description:
-      "A project I created to give Gaming communities a free CAD/MDT to help with management of Police, EMS and dispatch roleplay.",
+      "A project I created to give gaming communities a free CAD/MDT to help with management of Police, EMS and dispatch roleplay.",
     stack: ["react.js", "redux", "mysql", "express", "typescript"],
   },
 ];

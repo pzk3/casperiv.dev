@@ -38,9 +38,13 @@ export default async function handler(
       await middleWare(req, res, limiter);
       const body = JSON.parse(req.body);
 
-      console.log(body);
-
-      if (!body.name || !body.email || !body.text) return;
+      if (!body.name || !body.email || !body.text) {
+        return res.json({
+          error: "Please fill in all fields",
+          status: "error",
+          required_fields: ["name", "email", "text"],
+        });
+      }
 
       const mail: MailOptions = {
         from: body.email,

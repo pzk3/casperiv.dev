@@ -13,13 +13,25 @@ const Footer = () => {
         </p>
 
         <div className="footer__links">
-          <a target="_blank" rel="noreferrer noopener" href={process.env.TWITTER_PROFILE_URL}>
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href={process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL}
+          >
             Twitter
           </a>
-          <a target="_blank" rel="noreferrer noopener" href={process.env.GITHUB_PROFILE_URL}>
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
+          >
             GitHub
           </a>
-          <a target="_blank" rel="noreferrer noopener" href={process.env.LINKEDIN_PROFILE_URL}>
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            href={process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL}
+          >
             LinkedIn
           </a>
         </div>

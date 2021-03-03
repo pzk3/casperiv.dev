@@ -136,7 +136,7 @@
   }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 1200px) {
   .menu__nav {
     display: none;
   }
