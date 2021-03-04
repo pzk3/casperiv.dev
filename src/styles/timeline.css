@@ -104,7 +104,7 @@
   position: absolute;
   top: 50%;
   right: 30px;
-  border: 10px solid var(--secondary);
+  border: solid var(--secondary);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent var(--secondary);
   transform: translateY(-50%);
