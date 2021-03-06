@@ -2,6 +2,13 @@ import TimelineItem from "../interfaces/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "March 2021",
+    title: "Discord clone",
+    text: "Started working on a Discord clone using React, TypeScript and socket.io",
+    side: "left",
+    url: "https://www.npmjs.com/package/pastebin-api",
+  },
+  {
     date: "February 2021",
     title: "pastebin-api",
     text: "Created a simple NPM package to interact with the Pastebin API 💻",
