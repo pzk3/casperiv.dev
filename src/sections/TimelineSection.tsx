@@ -1,7 +1,7 @@
 import { useRef, useState, FC } from "react";
 import timeline from "../data/timeline";
-import TimelineItem from "../interfaces/Timeline";
-import ArrowDown from "../components/icons/ArrowDown";
+import TimelineItem from "types/Timeline";
+import ArrowDown from "@components/icons/ArrowDown";
 
 const TimelineSection: FC = () => {
   const [viewOlderText, setViewOlderText] = useState<string>("View older");

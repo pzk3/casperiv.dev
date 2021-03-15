@@ -1,4 +1,4 @@
-import Experience from "../interfaces/Experience";
+import Experience from "types/Experience";
 
 const experience: Experience[] = [
   {

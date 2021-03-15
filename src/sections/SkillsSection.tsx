@@ -11,7 +11,7 @@ import {
   ReactIcon,
   TerminalIcon,
   TypescriptIcon,
-} from "../components/icons/skills";
+} from "@icons/skills";
 
 const SkillsSection: FC = () => {
   return (

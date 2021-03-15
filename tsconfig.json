@@ -15,7 +15,16 @@
     "jsx": "preserve",
     "removeComments": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "root": ["."],
+      "@components/*": ["./src/components/*"],
+      "@sections/*": ["./src/sections/*"],
+      "types/*": ["./src/interfaces/*"],
+      "css": ["./src/styles"],
+      "@icons/*": ["./src/components/icons/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

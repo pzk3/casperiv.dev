@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { NextPage } from "next";
-import TimelineSection from "../sections/TimelineSection";
-import ProjectSection from "../sections/ProjectsSection";
-import ContactSection from "../sections/ContactSection";
-import SkillsSection from "../sections/SkillsSection";
-import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "../components/icons/about";
+import TimelineSection from "@sections/TimelineSection";
+import ProjectSection from "@sections/ProjectsSection";
+import ContactSection from "@sections/ContactSection";
+import SkillsSection from "@sections/SkillsSection";
+import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@components/icons/about";
 
 const Index: NextPage = () => {
   const [age, setAge] = useState<string>();

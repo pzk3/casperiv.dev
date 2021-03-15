@@ -1,4 +1,4 @@
-const XIcon = () => {
+const XIcon: React.FC = () => {
   return (
     <svg
       width="1em"

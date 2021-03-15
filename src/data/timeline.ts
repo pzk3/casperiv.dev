@@ -1,4 +1,4 @@
-import TimelineItem from "../interfaces/Timeline";
+import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {

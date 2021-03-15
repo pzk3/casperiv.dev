@@ -1,4 +1,4 @@
-export const TypescriptIcon = () => {
+export const TypescriptIcon: React.FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
       <path
@@ -9,7 +9,7 @@ export const TypescriptIcon = () => {
   );
 };
 
-export const JavaScriptIcon = () => {
+export const JavaScriptIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -29,7 +29,7 @@ export const JavaScriptIcon = () => {
   );
 };
 
-export const NodejsIcon = () => {
+export const NodejsIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -49,7 +49,7 @@ export const NodejsIcon = () => {
   );
 };
 
-export const HtmlIcon = () => {
+export const HtmlIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -69,7 +69,7 @@ export const HtmlIcon = () => {
   );
 };
 
-export const CSSIcon = () => {
+export const CSSIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -89,7 +89,7 @@ export const CSSIcon = () => {
   );
 };
 
-export const ReactIcon = () => {
+export const ReactIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -109,7 +109,7 @@ export const ReactIcon = () => {
   );
 };
 
-export const BootstrapIcon = () => {
+export const BootstrapIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -129,7 +129,7 @@ export const BootstrapIcon = () => {
   );
 };
 
-export const DatabaseIcon = () => {
+export const DatabaseIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -149,7 +149,7 @@ export const DatabaseIcon = () => {
   );
 };
 
-export const NpmIcon = () => {
+export const NpmIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -169,7 +169,7 @@ export const NpmIcon = () => {
   );
 };
 
-export const TerminalIcon = () => {
+export const TerminalIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"
@@ -189,7 +189,7 @@ export const TerminalIcon = () => {
   );
 };
 
-export const GitIcon = () => {
+export const GitIcon: React.FC = () => {
   return (
     <svg
       aria-hidden="true"

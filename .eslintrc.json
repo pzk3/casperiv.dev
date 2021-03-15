@@ -32,7 +32,12 @@
     "default-case-last": ["error"],
     "no-useless-catch": ["warn"],
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": "warn"
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   },
   "globals": { "React": "writable" }
 }

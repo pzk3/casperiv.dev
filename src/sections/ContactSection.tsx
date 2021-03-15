@@ -1,5 +1,5 @@
 import { FC, FormEvent, useState } from "react";
-import ContactModal from "../components/ContactModal";
+import ContactModal from "@components/ContactModal";
 
 const ContactSection: FC = () => {
   const [name, setName] = useState("");

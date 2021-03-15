@@ -1,4 +1,4 @@
-import Project from "../interfaces/Project";
+import Project from "types/Project";
 const url = "https://github.com/dev-caspertheghost";
 
 const VIEW_CODE = "View Code";

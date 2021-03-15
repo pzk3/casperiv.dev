@@ -1,6 +1,6 @@
 import { FC } from "react";
 import projects from "../data/projects";
-import Project from "../interfaces/Project";
+import Project from "types/Project";
 
 const ProjectSection: FC = () => {
   return (
