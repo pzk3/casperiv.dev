@@ -25,10 +25,10 @@ const SkillsSection: FC = () => {
         <button aria-label="CSS - Expert" className="skills__icon">
           <CSSIcon />
         </button>
-        <button aria-label="JavaScript - Intermediate" className="skills__icon lg">
+        <button aria-label="JavaScript - Expert" className="skills__icon lg">
           <JavaScriptIcon />
         </button>
-        <button aria-label="TypeScript - Beginner" className="skills__icon lg">
+        <button aria-label="TypeScript - Expert" className="skills__icon lg">
           <TypescriptIcon />
         </button>
         <button aria-label="React - Intermediate" className="skills__icon lg">
