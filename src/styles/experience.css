@@ -27,8 +27,8 @@
 }
 
 .experience__stack__container {
-  margin-top: 1.5rem;
   display: grid;
+  margin-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(min(85px, 100%), 1fr));
   gap: 0.5rem;
 }

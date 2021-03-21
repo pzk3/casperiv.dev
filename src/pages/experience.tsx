@@ -28,10 +28,10 @@ interface Props {
 export const ExperienceItem: React.FC<Props> = ({ item }: Props) => {
   return (
     <div className="experience__item">
-      <header className="experience__title">
+      <a target="_blank" rel="noopener noreferrer" href={item.href} className="experience__title">
         <h1>{item.title}</h1>
         <p>{item.year}</p>
-      </header>
+      </a>
       <div className="experience__desc">{item.description}</div>
       <footer className="experience__stack__container">
         {item.stack.map((st) => (
