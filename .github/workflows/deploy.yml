@@ -15,9 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Installed dependencies
+        run: npm install
 
-      - name: Run a multi-line script
-      - run: npm install
-      - run: npm run build --if-present
+      - name: build
+        run: run run build --if-present
