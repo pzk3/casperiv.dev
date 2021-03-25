@@ -11,7 +11,7 @@ class CasperTheGhostDotMe extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="description" content="Hi I'm Casper Iversen! A web developer." />
+          <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
           <link
             href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
@@ -32,12 +32,18 @@ class CasperTheGhostDotMe extends Document {
           <meta property="og:url" content="https://caspertheghost.me" />
           <meta property="og:title" content="Casper Iversen" />
           <meta property="og:image" content="https://caspertheghost.me/icons/icon-128.png" />
-          <meta property="og:description" content="Hi I'm Casper Iversen! A web developer" />
+          <meta
+            property="og:description"
+            content="Hi I'm Casper Iversen! A Frontend Web Developer."
+          />
           <meta property="og:site_name" content="Casper Iversen" />
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="@casper124578" />
-          <meta name="twitter:description" content="Hi I'm Casper Iversen! A web developer." />
+          <meta
+            name="twitter:description"
+            content="Hi I'm Casper Iversen! A Frontend Web Developer."
+          />
           <meta name="twitter:title" content="Casper Iversen" />
           <meta
             name="keywords"

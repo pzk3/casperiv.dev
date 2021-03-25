@@ -31,17 +31,16 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "React Timeline",
-    description:
-      "Reusable react components to create good looking and responsive timeline out the box and customizable!",
+    title: "pastebin-api",
+    description: "A very simple pastebin npm package to interact with the pastebin api! ",
     buttons: [
       {
-        url: `${url}/react-timeline`,
+        url: `${url}/pastebin-api`,
         name: VIEW_CODE,
       },
       {
         name: "View on NPM",
-        url: "https://www.npmjs.com/package/react-timelinev2",
+        url: "https://www.npmjs.com/package/pastebin-api",
       },
     ],
   },
