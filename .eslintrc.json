@@ -32,6 +32,7 @@
     "default-case-last": ["error"],
     "no-useless-catch": ["warn"],
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "prettier/prettier": [
       "warn",
       {

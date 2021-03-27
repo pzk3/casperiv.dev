@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "express-rate-limit": "^5.2.6",
+    "gray-matter": "^4.0.2",
     "next": "^10.0.9",
     "nodemailer": "^6.5.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.3"
   },
   "devDependencies": {
     "@types/express-rate-limit": "^5.1.1",

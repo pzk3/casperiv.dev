@@ -13,6 +13,7 @@ import "css/footer.css";
 import "css/projects.css";
 import "css/modal.css";
 import "css/experience.css";
+import "css/blog.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (

@@ -1,0 +1,116 @@
+.blog__header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 0.1rem solid var(--text-color);
+}
+
+.left__container {
+  display: flex;
+  align-items: center;
+}
+
+.blog__header div img {
+  --image-size: 55px;
+
+  width: var(--image-size);
+  height: var(--image-size);
+}
+
+.left__text {
+  margin-left: 1rem;
+}
+
+.blog__author {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.blog__date {
+  font-size: 1rem;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.blog__date span {
+  font-weight: bold;
+}
+
+.right__container a {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background: transparent;
+  transition: background 200ms;
+}
+
+.react-markdown {
+  margin-top: 1rem;
+}
+
+.react-markdown a {
+  text-decoration: underline;
+  color: var(--text-color);
+}
+
+.blog__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.blog__item {
+  display: block;
+  width: 100%;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+
+  transition: background 200ms;
+}
+
+.blog__item h3 {
+  margin: 0;
+}
+
+.react-markdown pre {
+  padding: 0.2rem 0.5rem;
+  background: var(--dark);
+  border-radius: 0.3rem;
+}
+
+.react-markdown h4,
+h3,
+h2 {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.react-markdown p {
+  margin: 0;
+  margin-top: 0.2rem;
+}
+
+@media (hover: hover) {
+  .blog__item:hover {
+    background: var(--dark);
+  }
+
+  .right__container a:hover {
+    background: var(--dark);
+  }
+}
+
+@media (max-width: 900px) {
+  .blog__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .blog__items {
+    grid-template-columns: auto;
+  }
+}
