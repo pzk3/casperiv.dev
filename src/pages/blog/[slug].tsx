@@ -1,5 +1,5 @@
 import BlogHeader from "@components/BlogHeader";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -44,22 +44,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(["slug"]);
-
-  return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const slug = `${ctx.params.slug}`;
   const exists = getAllPosts(["slug"]).find((p) => p?.slug?.toLowerCase() === slug?.toLowerCase());
 
