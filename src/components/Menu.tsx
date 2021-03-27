@@ -37,6 +37,9 @@ const Menu: FC = () => {
           <a href="/experience" className="menu__link">
             Experience
           </a>
+          <a href="/blog" className="menu__link">
+            Blog
+          </a>
         </div>
       </div>
     </nav>

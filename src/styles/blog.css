@@ -1,8 +1,17 @@
+@font-face {
+  font-family: "CascadiaMono";
+  src: url("/fonts/CascadiaMono.woff2");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
 .blog__header {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 0.5rem;
   border-bottom: 0.1rem solid var(--text-color);
 }
 
@@ -79,6 +88,11 @@
   padding: 0.2rem 0.5rem;
   background: var(--dark);
   border-radius: 0.3rem;
+  overflow-x: auto;
+}
+
+.react-markdown pre code {
+  font-family: "CascadiaMono", "Courier New", monospace;
 }
 
 .react-markdown h4,

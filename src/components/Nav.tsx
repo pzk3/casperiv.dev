@@ -70,6 +70,11 @@ const Nav: FC = () => {
                 Experience
               </a>
             </Link>
+            <Link href="/blog">
+              <a href="/blog" className="nav__link">
+                Blog
+              </a>
+            </Link>
           </div>
 
           <button onClick={handleHamburgerClick} className="hamburger">

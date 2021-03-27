@@ -7,6 +7,12 @@ interface Props {
 }
 
 const BlogHeader: React.FC<Props> = ({ post }) => {
+  const [createdAt, setCreatedAt] = React.useState(null);
+
+  React.useEffect(() => {
+    setCreatedAt(new Date(post.created_at).toLocaleDateString());
+  }, [post?.created_at]);
+
   return (
     <header className="blog__header">
       <div className="left__container">
@@ -15,7 +21,7 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
         <div className="left__text">
           <h1 className="blog__author">Casper Iversen</h1>
           <h2 className="blog__date">
-            Created on <span>{new Date(post.created_at).toLocaleDateString()}</span>
+            Created on <span>{createdAt}</span>
           </h2>
         </div>
       </div>
