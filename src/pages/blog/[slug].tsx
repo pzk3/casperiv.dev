@@ -1,5 +1,6 @@
 import BlogHeader from "@components/BlogHeader";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
 import Markdown from "react-markdown";
@@ -25,6 +26,16 @@ const PostPage: NextPage<Props> = ({ post }) => {
 
   return (
     <>
+      <Head>
+        <title>{post.title} - Casper Iversen - Blog</title>
+        {post.intro ? (
+          <>
+            <meta name="description" content={post.intro} />
+            <meta property="og:description" content={post.intro} />
+            <meta name="twitter:description" content={post.intro} />
+          </>
+        ) : null}
+      </Head>
       <BlogHeader post={post} />
       <Markdown linkTarget="_blank" className="react-markdown">
         {post.content}

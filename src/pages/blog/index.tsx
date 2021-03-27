@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import * as React from "react";
 import { getAllPosts } from "src/lib/blog";
@@ -10,7 +11,10 @@ interface Props {
 
 const BlogPage: NextPage<Props> = ({ posts }) => {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Blog - Casper Iversen</title>
+      </Head>
       <h1>Blog posts</h1>
 
       <div className="blog__items">
@@ -26,7 +30,7 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
