@@ -26,7 +26,21 @@ const Index: NextPage = () => {
       <main className="main" id="about">
         <Head>
           <title>Casper Iversen - Web Developer</title>
+          <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
+          <meta
+            property="og:description"
+            content="Hi I'm Casper Iversen! A Frontend Web Developer."
+          />
+          <meta
+            name="twitter:description"
+            content="Hi I'm Casper Iversen! A Frontend Web Developer."
+          />
+          <meta
+            name="keywords"
+            content="dev-caspertheghost, caspertheghost, casper iversen, ghostybot"
+          />
         </Head>
+
         <div className="main__title">
           <h1>I am Casper</h1>
           <h2>Frontend web developer</h2>

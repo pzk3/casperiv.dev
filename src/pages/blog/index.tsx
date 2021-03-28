@@ -14,6 +14,7 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
     <>
       <Head>
         <title>Blog - Casper Iversen</title>
+        <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
       </Head>
       <h1>Blog posts</h1>
 

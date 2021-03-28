@@ -28,13 +28,10 @@ const PostPage: NextPage<Props> = ({ post }) => {
     <>
       <Head>
         <title>{post.title} - Casper Iversen - Blog</title>
-        {post.intro ? (
-          <>
-            <meta name="description" content={post.intro} />
-            <meta property="og:description" content={post.intro} />
-            <meta name="twitter:description" content={post.intro} />
-          </>
-        ) : null}
+        <meta name="description" content={post.intro + "- Blog - Casper Iversen"} />
+        <meta property="og:description" content={post.intro + "- Blog - Casper Iversen"} />
+        <meta name="twitter:description" content={post.intro + "- Blog - Casper Iversen"} />
+        <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
       </Head>
       <BlogHeader post={post} />
       <Markdown linkTarget="_blank" className="react-markdown">
@@ -56,7 +53,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
-  const post = getPostBySlug(slug, ["content", "created_at", "updated_at", "slug", "title"]);
+  const post = getPostBySlug(slug, [
+    "content",
+    "created_at",
+    "updated_at",
+    "slug",
+    "title",
+    "intro",
+  ]);
 
   return {
     props: {

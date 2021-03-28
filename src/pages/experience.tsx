@@ -7,7 +7,16 @@ const ExperiencePage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Experience - Casper Iversen</title>
+        <title>Experience - Casper Iversen</title>{" "}
+        <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
+        <meta
+          property="og:description"
+          content="Hi I'm Casper Iversen! A Frontend Web Developer."
+        />
+        <meta
+          name="twitter:description"
+          content="Hi I'm Casper Iversen! A Frontend Web Developer."
+        />
         <meta name="keywords" content="CasperTheGhost experience, experience casper iversen" />
       </Head>
 
