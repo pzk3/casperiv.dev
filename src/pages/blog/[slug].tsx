@@ -16,6 +16,16 @@ const PostPage: NextPage<Props> = ({ post }) => {
   const router = useRouter();
 
   React.useEffect(() => {
+    const mdLinks = document.querySelectorAll<HTMLAnchorElement>("#react-markdown a");
+
+    // Open all links in a new tab & add `rel="noopener noreferrer" to anchor element`
+    mdLinks.forEach((link) => {
+      link.rel = "noopener noreferrer";
+      link.target = "_blank";
+    });
+  }, []);
+
+  React.useEffect(() => {
     if (!post) {
       router.push("/404");
     }
@@ -36,10 +46,14 @@ const PostPage: NextPage<Props> = ({ post }) => {
         <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
         <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
       </Head>
+
       <BlogHeader post={post} />
-      <Markdown linkTarget="_blank" className={styles.react__markdown}>
-        {post.content}
-      </Markdown>
+
+      <div id="react-markdown">
+        <Markdown linkTarget="_blank" className={styles.react__markdown}>
+          {post.content}
+        </Markdown>
+      </div>
     </>
   );
 };
