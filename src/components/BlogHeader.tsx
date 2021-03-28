@@ -16,10 +16,8 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
   return (
     <header className="blog__header">
       <div className="left__container">
-        <img width="100%" height="100%" src="/icons/icon-128.png" alt="blog-author" />
-
         <div className="left__text">
-          <h1 className="blog__author">Casper Iversen</h1>
+          <h1 className="blog__author">{post.title}</h1>
           <h2 className="blog__date">
             Created on <span>{createdAt}</span>
           </h2>

@@ -14,6 +14,8 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
     <>
       <Head>
         <title>Blog - Casper Iversen</title>
+        <link rel="canonical" href="https://caspertheghost.me/blog" />
+        <meta property="og:title" content="Blog - Casper Iversen" />
         <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
       </Head>
       <h1>Blog posts</h1>

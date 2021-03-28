@@ -3,7 +3,7 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__icon">
-          <img src="/icons/icon-1080.png" alt="footer" width="100" height="100" />
+          <img loading="lazy" src="/icons/icon-1080.png" alt="footer" width="100" height="100" />
         </div>
 
         <p>

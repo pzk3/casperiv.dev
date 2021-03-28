@@ -29,7 +29,6 @@ class CasperTheGhostDotMe extends Document {
           <meta property="og:color" content="#161b22" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://caspertheghost.me" />
-          <meta property="og:title" content="Casper Iversen" />
           <meta property="og:image" content="https://caspertheghost.me/icons/icon-128.png" />
           <meta property="og:site_name" content="Casper Iversen" />
 

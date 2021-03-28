@@ -5,7 +5,7 @@ import TimelineSection from "@sections/TimelineSection";
 import ProjectSection from "@sections/ProjectsSection";
 import ContactSection from "@sections/ContactSection";
 import SkillsSection from "@sections/SkillsSection";
-import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@components/icons/about";
+import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
 
 const Index: NextPage = () => {
   const [age, setAge] = useState<string>();
@@ -18,7 +18,9 @@ const Index: NextPage = () => {
 
     setAge(calculatedAge);
 
-    setInterval(() => setAge(calculatedAge), 60_000);
+    const interval = setInterval(() => setAge(calculatedAge), 60_000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -26,6 +28,7 @@ const Index: NextPage = () => {
       <main className="main" id="about">
         <Head>
           <title>Casper Iversen - Web Developer</title>
+          <meta property="og:title" content="Casper Iversen - Web Developer" />
           <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
           <meta
             property="og:description"
@@ -39,6 +42,7 @@ const Index: NextPage = () => {
             name="keywords"
             content="dev-caspertheghost, caspertheghost, casper iversen, ghostybot"
           />
+          <link rel="canonical" href="https://caspertheghost.me/" />
         </Head>
 
         <div className="main__title">

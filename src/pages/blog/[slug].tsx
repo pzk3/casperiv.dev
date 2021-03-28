@@ -1,5 +1,5 @@
 import BlogHeader from "@components/BlogHeader";
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -27,11 +27,13 @@ const PostPage: NextPage<Props> = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{post.title} - Casper Iversen - Blog</title>
-        <meta name="description" content={post.intro + "- Blog - Casper Iversen"} />
-        <meta property="og:description" content={post.intro + "- Blog - Casper Iversen"} />
-        <meta name="twitter:description" content={post.intro + "- Blog - Casper Iversen"} />
+        <title>{post.title} - Casper Iversen Blog</title>
+        <meta property="og:title" content={`${post.title} - Casper Iversen Blog`} />
+        <meta name="description" content={`${post.intro}  Casper Iversen Blog`} />
+        <meta property="og:description" content={`${post.intro}  Casper Iversen Blog`} />
+        <meta name="twitter:description" content={`${post.intro}  Casper Iversen Blog`} />
         <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
+        <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
       </Head>
       <BlogHeader post={post} />
       <Markdown linkTarget="_blank" className="react-markdown">
@@ -41,7 +43,20 @@ const PostPage: NextPage<Props> = ({ post }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = getAllPosts(["slug"]);
+
+  return {
+    fallback: false,
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = `${ctx.params.slug}`;
   const exists = getAllPosts(["slug"]).find((p) => p?.slug?.toLowerCase() === slug?.toLowerCase());
 

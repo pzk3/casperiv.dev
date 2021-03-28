@@ -20,17 +20,6 @@
   align-items: center;
 }
 
-.blog__header div img {
-  --image-size: 55px;
-
-  width: var(--image-size);
-  height: var(--image-size);
-}
-
-.left__text {
-  margin-left: 1rem;
-}
-
 .blog__author {
   font-size: 1.3rem;
   margin-bottom: 0;

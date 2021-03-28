@@ -7,7 +7,8 @@ const ExperiencePage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Experience - Casper Iversen</title>{" "}
+        <title>Experience - Casper Iversen</title>
+        <meta property="og:title" content="Experience - Casper Iversen" />
         <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
         <meta
           property="og:description"
@@ -18,6 +19,7 @@ const ExperiencePage: NextPage = () => {
           content="Hi I'm Casper Iversen! A Frontend Web Developer."
         />
         <meta name="keywords" content="CasperTheGhost experience, experience casper iversen" />
+        <link rel="canonical" href="https://caspertheghost.me/experience" />
       </Head>
 
       <div>

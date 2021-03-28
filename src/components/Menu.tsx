@@ -1,4 +1,5 @@
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import { FC } from "react";
 import XIcon from "./icons/XIcon";
 
@@ -34,12 +35,18 @@ const Menu: FC = () => {
           <a href={is404 ? "/#contact" : "#contact"} className="menu__link">
             Contact
           </a>
-          <a href="/experience" className="menu__link">
-            Experience
-          </a>
-          <a href="/blog" className="menu__link">
-            Blog
-          </a>
+
+          <Link href="/experience">
+            <a href="/experience" className="menu__link">
+              Experience
+            </a>
+          </Link>
+
+          <Link href="/blog">
+            <a href="/blog" className="menu__link">
+              Blog
+            </a>
+          </Link>
         </div>
       </div>
     </nav>
