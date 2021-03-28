@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import styles from "css/404.module.scss";
 
 const Custom404: NextPage = () => {
   return (
@@ -9,7 +10,7 @@ const Custom404: NextPage = () => {
         <meta property="og:title" content="Page Not Found - Casper Iversen" />
         <link rel="canonical" href="https://caspertheghost.me/404" />
       </Head>
-      <div className="container__404">
+      <div className={styles.container__404}>
         <h1>404</h1>
         <p>Page Not Found</p>
       </div>

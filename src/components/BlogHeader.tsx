@@ -1,6 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
 import { Post } from "types/Post";
+import styles from "css/blog.module.scss";
 
 interface Props {
   post: Post;
@@ -14,17 +15,17 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
   }, [post?.created_at]);
 
   return (
-    <header className="blog__header">
-      <div className="left__container">
-        <div className="left__text">
-          <h1 className="blog__author">{post.title}</h1>
-          <h2 className="blog__date">
+    <header className={styles.blog__header}>
+      <div className={styles.left__container}>
+        <div className={styles.left__text}>
+          <h1 className={styles.blog__author}>{post.title}</h1>
+          <h2 className={styles.blog__date}>
             Created on <span>{createdAt}</span>
           </h2>
         </div>
       </div>
 
-      <div className="right__container">
+      <div className={styles.right__container}>
         <Link href="/blog">
           <a href="/blog">Return</a>
         </Link>

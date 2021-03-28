@@ -139,6 +139,7 @@
   align-items: center;
   justify-content: space-between;
   color: white;
+  margin-bottom: 0.5rem;
 }
 
 .reverse {
@@ -146,8 +147,11 @@
 }
 
 .timeline-item-header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-color);
+  background: var(--secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
   filter: brightness(80%);
   font-weight: bold;
   margin: 0;

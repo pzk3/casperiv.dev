@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import rateLimit from "express-rate-limit";
 import nodeMailer from "nodemailer";
 import { MailOptions } from "nodemailer/lib/json-transport";
-import rateLimit from "express-rate-limit";
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

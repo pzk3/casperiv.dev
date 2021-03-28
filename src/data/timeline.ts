@@ -7,6 +7,7 @@ const timeline: TimelineItem[] = [
     text: "Created my custom blog to post ✨special✨ things!",
     side: "left",
     url: "https://caspertheghost.me/blog",
+    full_date: "March 27, 2021",
   },
   {
     date: "March 2021",
@@ -14,6 +15,7 @@ const timeline: TimelineItem[] = [
     text: "Started working on a Discord clone using React, TypeScript and socket.io",
     side: "right",
     url: "https://github.com/Dev-CasperTheGhost/discord-clone",
+    full_date: "March 5, 2021",
   },
   {
     date: "February 2021",
@@ -21,6 +23,7 @@ const timeline: TimelineItem[] = [
     text: "Created a simple NPM package to interact with the Pastebin API 💻",
     side: "left",
     url: "https://www.npmjs.com/package/pastebin-api",
+    full_date: "February 23, 2021",
   },
   {
     date: "January 2021",
@@ -28,6 +31,7 @@ const timeline: TimelineItem[] = [
     text: "Joined the Zyndicate team 🎉!",
     side: "right",
     url: "https://zyndicate.app",
+    full_date: "January 1, 2021",
   },
   {
     date: "November 2020",
@@ -35,6 +39,7 @@ const timeline: TimelineItem[] = [
     text: "Created a simple application to update my GitHub bio with my WakaTime stats",
     side: "left",
     url: "https://github.com/Dev-CasperTheGhost/update-github-bio",
+    full_date: "November 28, 2020",
   },
   {
     date: "October 2020",
@@ -42,6 +47,7 @@ const timeline: TimelineItem[] = [
     text: "Rewritten and redesigned my portfolio in NextJs and TypeScript",
     side: "right",
     url: "https://github.com/dev-caspertheghost/caspertheghost.me",
+    full_date: "October 24, 2020",
   },
   {
     date: "October 2020",
@@ -49,6 +55,7 @@ const timeline: TimelineItem[] = [
     text: "Rewriting my first project in TypeScript, making it more secure and better.",
     side: "left",
     url: "https://github.com/dev-caspertheghost/snaily-cadv3",
+    full_date: "October 14, 2020",
   },
   {
     date: "September 2020",
@@ -63,6 +70,7 @@ const timeline: TimelineItem[] = [
     text: "Working on another big project! Notes app to keep track of important things",
     url: "https://notey.caspertheghost.me",
     side: "left",
+    full_date: "August 16, 2020",
   },
   {
     date: "July 2020",
@@ -71,6 +79,7 @@ const timeline: TimelineItem[] = [
       "Recreated my right Discord bot and made it even better, learned a lot from my right mistakes.",
     url: "https://github.com/dev-caspertheghost/ghostybot",
     side: "right",
+    full_date: "July 20, 2020",
   },
   {
     date: "July 2020",
@@ -78,6 +87,7 @@ const timeline: TimelineItem[] = [
     text: "Created my first NPM package! Create cool and good looking timelines with ease.",
     url: "https://www.npmjs.com/package/react-timelinev2",
     side: "left",
+    full_date: "July 15, 2020",
   },
   {
     date: "July 2020",

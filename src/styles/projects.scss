@@ -27,22 +27,20 @@
 .project__item__footer {
   padding-top: 0.5rem;
   display: flex;
-}
 
-.project__item__footer a {
-  margin-right: 0.5rem !important;
-  font-weight: 600;
+  a {
+    margin-right: 0.5rem !important;
+    font-weight: 600;
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 }
 
 @media (hover: hover) {
   .project__item:hover {
     box-shadow: 0 8px 16px 0 rgb(22, 27, 34, 0.3);
     transform: translateY(-0.2rem);
-  }
-}
-
-@media (max-width: 400px) {
-  .project__item__footer {
-    flex-direction: column;
   }
 }

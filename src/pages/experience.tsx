@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import experience from "../data/experience";
 import Experience from "types/Experience";
+import styles from "css/experience.module.scss";
 
 const ExperiencePage: NextPage = () => {
   return (
@@ -38,15 +39,20 @@ interface Props {
 
 export const ExperienceItem: React.FC<Props> = ({ item }: Props) => {
   return (
-    <div className="experience__item">
-      <a target="_blank" rel="noopener noreferrer" href={item.href} className="experience__title">
+    <div className={styles.experience__item}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={item.href}
+        className={styles.experience__title}
+      >
         <h1>{item.title}</h1>
         <p>{item.year}</p>
       </a>
-      <div className="experience__desc">{item.description}</div>
-      <footer className="experience__stack__container">
+      <div className={styles.experience__desc}>{item.description}</div>
+      <footer className={styles.experience__stack__container}>
         {item.stack.map((st) => (
-          <span key={st} className="experience__stack">
+          <span key={st} className={styles.experience__stack}>
             {st}
           </span>
         ))}

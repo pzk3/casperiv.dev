@@ -52,11 +52,11 @@
   padding: 0.3rem 0.8rem;
   border-radius: 0.2rem;
   margin: 0.2rem;
-}
 
-.nav__link:hover {
-  color: white;
-  background-color: var(--dark);
+  &:hover {
+    color: white;
+    background-color: var(--dark);
+  }
 }
 
 .hamburger {
@@ -101,10 +101,10 @@
   top: 15px;
   cursor: pointer;
   padding: 10px;
-}
 
-.close__menu svg path {
-  fill: var(--text-color);
+  svg path {
+    fill: var(--text-color);
+  }
 }
 
 .menu__nav--active {
@@ -126,11 +126,15 @@
 .menu__link {
   text-align: center;
   margin: 1rem 0;
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 7vw, 3rem);
   color: var(--text-color);
 }
 
 @media (max-width: 320px) {
+  .menu__link {
+    margin-bottom: 0rem;
+  }
+
   .nav__hidden {
     display: none;
   }

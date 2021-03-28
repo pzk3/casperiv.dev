@@ -39,14 +39,14 @@
   font-size: 2rem;
   border-radius: 50%;
   transition: 200ms;
-}
 
-.close__modal svg path {
-  fill: #fff;
-}
+  svg path {
+    fill: #fff;
+  }
 
-.close__modal:hover {
-  background: rgba(255, 255, 255, 0.2);
+  & :hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .modal__body {

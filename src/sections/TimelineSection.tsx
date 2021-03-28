@@ -4,17 +4,17 @@ import TimelineItem from "types/Timeline";
 import ArrowDown from "@components/icons/ArrowDown";
 
 const TimelineSection: FC = () => {
-  const [viewOlderText, setViewOlderText] = useState<string>("View older");
+  const [viewOlderText, setViewOlderText] = useState<string>("View All");
   const [length, setLength] = useState<number>(7);
   const btnRef = useRef<HTMLButtonElement>(null);
 
   function showMore() {
     if (length > 7) {
       setLength(7);
-      setViewOlderText("View older");
+      setViewOlderText("View All");
       btnRef.current?.classList.remove("active");
     } else {
-      setLength((prev) => prev + 5);
+      setLength(() => timeline.length);
       setViewOlderText("View less");
       btnRef.current?.classList.add("active");
     }
@@ -36,7 +36,9 @@ const TimelineSection: FC = () => {
               <div className="timeline-item-body">
                 <header className="timeline-item-header">
                   <h1>{item.title}</h1>
-                  <p>{item.date}</p>
+                  <p aria-label={item.full_date} className={item.full_date ? "tooltip" : null}>
+                    {item.date}
+                  </p>
                 </header>
                 {item.text}
               </div>

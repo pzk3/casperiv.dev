@@ -6,12 +6,6 @@
   --content-width: 90%;
 }
 
-.light-theme {
-  --bg: white;
-  --text-color: #0d1117;
-  --secondary: #161b22;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -84,10 +78,10 @@ a {
   border: none;
   font-size: 1rem;
   cursor: pointer;
-}
 
-.btn:hover {
-  filter: brightness(150%);
+  &:hover {
+    filter: brightness(150%);
+  }
 }
 
 .btn__light {
@@ -97,18 +91,22 @@ a {
 .btn__lighter {
   color: var(--bg) !important;
   background: var(--text-color);
+
+  &:hover {
+    filter: brightness(120%);
+  }
 }
 
 .btn__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.btn__icon svg {
-  margin-right: 10px;
-  width: 1.2rem;
-  fill: var(--secondary);
+  svg {
+    margin-right: 10px;
+    width: 1.2rem;
+    fill: var(--secondary);
+  }
 }
 
 .sr-only {
@@ -120,25 +118,6 @@ a {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.container__404 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.container__404 h1 {
-  font-size: clamp(4rem, 10vw, 10rem);
-  text-align: center;
-  margin: 0;
-}
-
-.container__404 p {
-  margin: 0;
-  font-size: clamp(3rem, 5vw, 5rem);
-  text-align: center;
 }
 
 @media (min-width: 768px) {

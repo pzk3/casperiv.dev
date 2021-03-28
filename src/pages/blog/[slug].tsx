@@ -6,6 +6,7 @@ import * as React from "react";
 import Markdown from "react-markdown";
 import { getAllPosts, getPostBySlug } from "src/lib/blog";
 import { Post } from "types/Post";
+import styles from "css/blog.module.scss";
 
 interface Props {
   post: Post;
@@ -36,7 +37,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
         <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
       </Head>
       <BlogHeader post={post} />
-      <Markdown linkTarget="_blank" className="react-markdown">
+      <Markdown linkTarget="_blank" className={styles.react__markdown}>
         {post.content}
       </Markdown>
     </>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import * as React from "react";
 import { getAllPosts } from "src/lib/blog";
 import { Post } from "types/Post";
+import styles from "css/blog.module.scss";
 
 interface Props {
   posts: Post[];
@@ -20,14 +21,14 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
       </Head>
       <h1>Blog posts</h1>
 
-      <div className="blog__items">
+      <div className={styles.blog__items}>
         {posts.map((post) => {
           return (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
-              <a href={`/blog/${post.slug}`} className="blog__item">
+              <a href={`/blog/${post.slug}`} className={styles.blog__item}>
                 <h3>{post.title}</h3>
 
-                <p>{post.intro} </p>
+                <p>{post.intro}</p>
               </a>
             </Link>
           );

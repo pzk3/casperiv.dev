@@ -52,8 +52,8 @@ const Index: NextPage = () => {
 
         <p className="main__text">
           Hello, I am Casper! I am a {age} year old programmer and student. I enjoy programming a
-          lot. I&apos;ve created websites, Discord bots, NPM packages, etc. I am a self taught
-          developer and I have been programming for ~2 years now and still learning new technologies
+          lot. I&apos;ve created websites, Discord bots, npm packages, etc. I am a self taught
+          developer and I have been programming for ~2 years and still learning new technologies
           every day, mostly focusing on React, TypeScript and design.
         </p>
 
