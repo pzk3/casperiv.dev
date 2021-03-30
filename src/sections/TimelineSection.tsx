@@ -25,13 +25,15 @@ const TimelineSection: FC = () => {
       <h1 className="section__title">Timeline</h1>
       <div className="timeline">
         {timeline.slice(0, length).map((item: TimelineItem, idx: number) => {
+          const side = idx % 2 === 0 ? "left" : "right";
+
           return (
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={item.url}
               key={idx}
-              className={`timeline-item ${item.side}`}
+              className={`timeline-item ${side}`}
             >
               <div className="timeline-item-body">
                 <header className="timeline-item-header">

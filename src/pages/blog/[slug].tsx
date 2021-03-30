@@ -45,6 +45,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
         <meta name="twitter:description" content={`${post.intro}  Casper Iversen Blog`} />
         <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
         <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
+        <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
 
       <BlogHeader post={post} />
