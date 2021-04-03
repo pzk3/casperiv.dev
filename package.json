@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next-sitemap && next build",
     "start": "next start",
     "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
@@ -13,6 +13,7 @@
     "express-rate-limit": "^5.2.6",
     "gray-matter": "^4.0.2",
     "next": "^10.1.2",
+    "next-sitemap": "^1.6.18",
     "nodemailer": "^6.5.0",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",
