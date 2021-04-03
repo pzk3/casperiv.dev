@@ -1,0 +1,35 @@
+---
+title: My uses
+created_at: April 3, 2021
+# updated_at: April 3, 2021
+intro: My tech and gear that I use on the daily basis
+---
+
+## Computer
+
+- **RAM:** HyperX 16GB
+- **CPU:** AMD Ryzen 7 3800X 8 Core @ 4.3GHz
+- **GPU:** GTX 1070
+- **Motherboard:** MSI B550 Tomahawk
+- **OS:** Windows + WSL (Ubuntu)
+
+## Coding
+
+- **Editor:** [Visual Studio Code](https://code.visualstudio.com) [(Theme, settings and extensions)](https://github.com/Dev-CasperTheGhost/dotfiles)
+- **Terminal:** [Windows Terminal](https://github.com/microsoft/terminal)
+- **Browser:** [Firefox](https://www.mozilla.org/en-US/firefox/new/) and [Brave](https://brave.com/)
+
+## Gear
+
+- **Keyboard:** [Logitech G213 RGB](https://www.logitechg.com/en-us/products/gaming-keyboards/g213-rgb-gaming-keyboard.html)
+- **Mouse:** Logitech G402
+- **Monitor:** [Samsung UE590 4K 28" x2](https://www.samsung.com/us/computing/monitors/uhd-and-wqhd/samsung-uhd-28-monitor-with-high-glossy-black-finish-lu28e590ds-za/)
+- **Speaker/sound:** [Logitech Z333](https://www.logitech.com/en-us/products/speakers/z333-speaker-system-subwoofer.980-001203.html?crid=47)
+- **Headset:** [Logitech G432](https://www.logitechg.com/en-us/products/gaming-audio/g432-7-1-surround-sound-gaming-headset.981-000769.html)
+
+## Games
+
+- [Grand Theft Auto V](https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/)
+- [Euro Truck Simulator 2](https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/)
+- [Scrap Mechanic](https://store.steampowered.com/app/387990/Scrap_Mechanic/)
+- [BeamNG.drive](https://store.steampowered.com/app/284160/BeamNGdrive/)

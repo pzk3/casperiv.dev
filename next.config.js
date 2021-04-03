@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   async redirects() {
     return [
@@ -19,6 +20,11 @@ module.exports = {
       {
         source: "/youtube",
         destination: process.env.NEXT_PUBLIC_YOUTUBE_REDIRECT_URL || "https://youtube.com",
+        permanent: true,
+      },
+      {
+        source: "/uses",
+        destination: "/blog/my-uses",
         permanent: true,
       },
     ];

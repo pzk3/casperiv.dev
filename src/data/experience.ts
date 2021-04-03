@@ -32,6 +32,13 @@ const experience: Experience[] = [
     stack: ["react.js", "redux", "mysql", "express", "typescript"],
     href: "https://github.com/Dev-CasperTheGhost/snaily-cadv3",
   },
+  {
+    title: "Community help",
+    year: "12/2018 - 2020",
+    description: "Helped several communities setup gaming servers, discord servers and more",
+    stack: ["discord", "windows"],
+    href: "#",
+  },
 ];
 
 export default experience;

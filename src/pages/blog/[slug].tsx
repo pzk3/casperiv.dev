@@ -12,6 +12,15 @@ interface Props {
   post: Post;
 }
 
+const renderers = {
+  // eslint-disable-next-line react/display-name
+  heading: (props) => {
+    const id = props?.node?.children?.[0]?.value;
+
+    return <h2 id={id}>{props.children}</h2>;
+  },
+};
+
 const PostPage: NextPage<Props> = ({ post }) => {
   const router = useRouter();
 
@@ -51,7 +60,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
       <BlogHeader post={post} />
 
       <div id="react-markdown">
-        <Markdown linkTarget="_blank" className={styles.react__markdown}>
+        <Markdown renderers={renderers} linkTarget="_blank" className={styles.react__markdown}>
           {post.content}
         </Markdown>
       </div>
