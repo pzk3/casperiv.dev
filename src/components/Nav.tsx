@@ -25,6 +25,7 @@ const Nav: FC = () => {
 
   function handleHamburgerClick() {
     document.getElementById("menu")?.classList.add("menu__nav--active");
+    document.getElementById("menu__bg")?.classList.add("menu__bg--active");
     document.body.classList.add("disable-scroll");
   }
 
