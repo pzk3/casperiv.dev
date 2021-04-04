@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import * as React from "react";
 import Markdown from "react-markdown";
 import slugify from "slugify";
-import { getAllPosts, getPostBySlug } from "src/lib/blog";
+// import { getPostBySlug } from "src/lib/blog";
+import { getAllItems, getItemBySlug } from "src/lib/shared";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
+import Seo from "@components/Seo";
 
 interface Props {
   post: Post;
@@ -103,19 +105,16 @@ const PostPage: NextPage<Props> = ({ post }) => {
     return null;
   }
 
+  const keywords = post.keywords?.split(", ") ?? [];
   return (
     <>
+      <Seo
+        title={`${post.title} - Casper's Blog`}
+        description={post.intro ?? undefined}
+        keywords={["blog", "blog casper iversen", ...keywords]}
+        url={`https://caspertheghost.me/blog/${post.slug}`}
+      />
       <Head>
-        <title>{post.title} - Casper Iversen Blog</title>
-        <meta property="og:title" content={`${post.title} - Casper Iversen Blog`} />
-        <meta name="description" content={`${post.intro}  Casper Iversen Blog`} />
-        <meta property="og:description" content={`${post.intro}  Casper Iversen Blog`} />
-        <meta name="twitter:description" content={`${post.intro}  Casper Iversen Blog`} />
-        <meta
-          name="keywords"
-          content={`CasperTheGhost blog, blog casper iversen ${post.keywords ?? ""}`}
-        />
-        <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
 
@@ -131,7 +130,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllItems<Post>("posts", ["slug"]);
 
   return {
     fallback: false,
@@ -145,7 +144,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = `${ctx.params.slug}`;
-  const exists = getAllPosts(["slug"]).find((p) => p?.slug?.toLowerCase() === slug?.toLowerCase());
+  const exists = getAllItems("posts", ["slug"]).find(
+    (p) => p?.slug?.toLowerCase() === slug?.toLowerCase(),
+  );
 
   if (!exists) {
     return {
@@ -155,7 +156,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     };
   }
 
-  const post = getPostBySlug(slug, [
+  const post = getItemBySlug<Post>(slug, "posts", [
     "content",
     "created_at",
     "updated_at",

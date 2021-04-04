@@ -75,6 +75,11 @@ const Nav: FC = () => {
                 Blog
               </a>
             </Link>
+            <Link href="/snippets">
+              <a href="/snippets" className="nav__link">
+                Code snippets
+              </a>
+            </Link>
           </div>
 
           <button onClick={handleHamburgerClick} className="hamburger">

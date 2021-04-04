@@ -1,10 +1,10 @@
 import { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import * as React from "react";
-import { getAllPosts } from "src/lib/blog";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
+import Seo from "@components/Seo";
+import { getAllItems } from "src/lib/shared";
 
 interface Props {
   posts: Post[];
@@ -13,15 +13,12 @@ interface Props {
 const BlogPage: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      <Head>
-        <title>Blog - Casper Iversen</title>
-        <link rel="canonical" href="https://caspertheghost.me/blog" />
-        <meta property="og:title" content="Blog - Casper Iversen" />
-        <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
-        <meta name="description" content="My blog - Casper Iversen" />
-        <meta property="og:description" content="My blog - Casper Iversen" />
-        <meta name="twitter:description" content="My blog - Casper Iversen" />
-      </Head>
+      <Seo
+        title="Blog - Casper Iversen"
+        url="https://caspertheghost.me/blog"
+        keywords={["blog casper iversen", "caspertheghost blog"]}
+        description="My blog - Casper Iversen"
+      />
       <h1>Blog posts</h1>
 
       <div className={styles.blog__items}>
@@ -42,7 +39,7 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(["slug", "title", "created_at", "intro"]);
+  const posts = getAllItems<Post>("posts", ["slug", "title", "created_at", "intro"]);
 
   return {
     props: {

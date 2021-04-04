@@ -1,16 +1,16 @@
-import Head from "next/head";
-import { useEffect, useState } from "react";
+import * as React from "react";
 import { NextPage } from "next";
 import TimelineSection from "@sections/TimelineSection";
 import ProjectSection from "@sections/ProjectsSection";
 import ContactSection from "@sections/ContactSection";
 import SkillsSection from "@sections/SkillsSection";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
+import Seo from "@components/Seo";
 
 const Index: NextPage = () => {
-  const [age, setAge] = useState<string>();
+  const [age, setAge] = React.useState<string>();
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Thanks to https://ottomated.net/
     const calculatedAge = ((Date.now() - +new Date("07/21/2005")) / (60 * 60 * 24 * 365 * 1000))
       .toString()
@@ -26,24 +26,7 @@ const Index: NextPage = () => {
   return (
     <>
       <main className="main" id="about">
-        <Head>
-          <title>Casper Iversen - Web Developer</title>
-          <meta property="og:title" content="Casper Iversen - Web Developer" />
-          <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
-          <meta
-            property="og:description"
-            content="Hi I'm Casper Iversen! A Frontend Web Developer."
-          />
-          <meta
-            name="twitter:description"
-            content="Hi I'm Casper Iversen! A Frontend Web Developer."
-          />
-          <meta
-            name="keywords"
-            content="dev-caspertheghost, caspertheghost, casper iversen, ghostybot"
-          />
-          <link rel="canonical" href="https://caspertheghost.me/" />
-        </Head>
+        <Seo title="Casper Iversen - Web Developer" />
 
         <div className="main__title">
           <h1>I am Casper</h1>

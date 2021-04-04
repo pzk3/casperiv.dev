@@ -125,8 +125,8 @@
 
 .menu__link {
   text-align: center;
-  margin: 1rem 0;
-  font-size: clamp(1.2rem, 7vw, 3rem);
+  margin: 0.2rem 0;
+  font-size: clamp(1.2rem, 7vw, 2rem);
   color: var(--text-color);
 }
 
@@ -140,7 +140,7 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1500px) {
   .menu__nav {
     display: none;
   }

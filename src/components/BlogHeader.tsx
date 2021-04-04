@@ -1,15 +1,19 @@
 import Link from "next/link";
 import * as React from "react";
+import { useRouter } from "next/router";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
+import { Snippet } from "types/Snippet";
 
 interface Props {
-  post: Post;
+  post: Post | Snippet;
 }
 
 const BlogHeader: React.FC<Props> = ({ post }) => {
   const [createdAt, setCreatedAt] = React.useState(null);
   const [updatedAt, setUpdatedAt] = React.useState(null);
+  const router = useRouter();
+  const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
 
   React.useEffect(() => {
     setCreatedAt(new Date(post.created_at).toLocaleDateString());
@@ -33,8 +37,8 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
       </div>
 
       <div className={styles.right__container}>
-        <Link href="/blog">
-          <a href="/blog">Return</a>
+        <Link href={backUrl}>
+          <a href={backUrl}>Return</a>
         </Link>
       </div>
     </header>

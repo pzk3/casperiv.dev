@@ -33,13 +33,10 @@ class CasperTheGhostDotMe extends Document {
           <meta name="theme-color" content="#161b22" />
           <meta property="og:color" content="#161b22" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://caspertheghost.me" />
           <meta property="og:image" content="https://caspertheghost.me/icons/icon-128.png" />
-          <meta property="og:site_name" content="Casper Iversen" />
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="@casper124578" />
-          <meta name="twitter:title" content="Casper Iversen" />
         </Head>
         <body>
           <Main />

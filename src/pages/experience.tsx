@@ -1,27 +1,18 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import experience from "../data/experience";
 import Experience from "types/Experience";
 import styles from "css/experience.module.scss";
+import Seo from "@components/Seo";
 
 const ExperiencePage: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Experience - Casper Iversen</title>
-        <meta property="og:title" content="Experience - Casper Iversen" />
-        <meta name="description" content="Hi I'm Casper Iversen! A Frontend Web Developer." />
-        <meta
-          property="og:description"
-          content="Hi I'm Casper Iversen! A Frontend Web Developer."
-        />
-        <meta
-          name="twitter:description"
-          content="Hi I'm Casper Iversen! A Frontend Web Developer."
-        />
-        <meta name="keywords" content="CasperTheGhost experience, experience casper iversen" />
-        <link rel="canonical" href="https://caspertheghost.me/experience" />
-      </Head>
+      <Seo
+        title="Experience - Casper Iversen"
+        keywords={["CasperTheGhost experience", "experience casper iversen"]}
+        url="https://caspertheghost.me/experience"
+        description="My experience - Casper Iversen"
+      />
 
       <div>
         <h1>My Experience</h1>

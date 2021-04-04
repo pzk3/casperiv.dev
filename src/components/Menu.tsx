@@ -47,6 +47,12 @@ const Menu: FC = () => {
               Blog
             </a>
           </Link>
+
+          <Link href="/snippets">
+            <a href="/snippets" className="menu__link">
+              Code snippets
+            </a>
+          </Link>
         </div>
       </div>
     </nav>

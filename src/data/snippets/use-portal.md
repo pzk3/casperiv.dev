@@ -1,0 +1,81 @@
+---
+title: usePortal React hook
+intro: A simple react hook for creating portals for next.js.
+created_at: 04/04/2021
+---
+
+A simple [React](https://github.com/facebook/react) hook for creating portals for next.js!
+
+## The hook
+
+```ts
+import * as React from "react";
+
+export function usePortal(id = "unknown") {
+  // the ref that is going to be returned.
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    // The element that will be created onMount and removed on unMount.
+    let element: HTMLDivElement | null = null;
+
+    if (!ref.current) {
+      element = document.createElement("div");
+
+      // You can give a it custom id.
+      element.setAttribute("id", `Modal_Portal_${id}`);
+
+      // Add the element to the "body", this can also be any other element.
+      document.body.appendChild(element);
+
+      ref.current = element;
+    }
+
+    return () => {
+      // on unMount remove the element from the DOM
+      ref.current = null;
+      document.body.removeChild(element);
+    };
+  }, [id]);
+
+  // return the ref so it can be used
+  return ref.current;
+}
+```
+
+## Usage
+
+```tsx
+import * as React from "react";
+import ReactDOM from "react-dom";
+
+export const MyCoolModal = () => {
+  const [isOpen, setOpen] = React.useState(false);
+  // use the ref and add a custom Id
+  const portalRef = usePortal("my-cool-modal");
+
+  return (
+    <div>
+      <button onClick={() => setOpen(true)}>Open modal</button>
+
+      {isOpen
+        ? // Use react-dom to create a portal
+          portalRef &&
+          ReactDOM.createPortal(
+            <div style={{ width: "100%" }}>
+              <h1>Hello from the modal!</h1>
+
+              <button onClick={() => setOpen(false)}>Close modal</button>
+            </div>,
+            // set the portal element to the portalRef
+            portalRef,
+          )
+        : null}
+    </div>
+  );
+};
+```
+
+## Try it
+
+[Try it out yourself here](https://codesandbox.io/s/admiring-lake-5b30h) 🚀
