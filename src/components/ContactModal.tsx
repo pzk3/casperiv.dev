@@ -16,7 +16,7 @@ const ContactModal: FC<Props> = ({ onClose, options }: Props) => {
         <header className="modal__header">
           {options?.title}
 
-          <button onClick={() => onClose()} className="close close__modal">
+          <button onClick={() => onClose()} className="close__modal">
             <XIcon />
           </button>
         </header>

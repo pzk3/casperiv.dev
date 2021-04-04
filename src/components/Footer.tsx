@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__icon">
-          <img loading="lazy" src="/icons/icon-1080.png" alt="footer" width="100" height="100" />
+          <Image loading="lazy" src="/icons/icon-1080.png" alt="footer" width="100" height="100" />
         </div>
 
         <p>

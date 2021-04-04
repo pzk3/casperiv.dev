@@ -26,6 +26,9 @@
   font-size: 2rem;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid var(--text-color);
 }
 
 .close__modal {
@@ -38,13 +41,13 @@
   cursor: pointer;
   font-size: 2rem;
   border-radius: 50%;
-  transition: 200ms;
+  transition: all 200ms;
 
-  svg path {
+  svg {
     fill: #fff;
   }
 
-  & :hover {
+  &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
 }

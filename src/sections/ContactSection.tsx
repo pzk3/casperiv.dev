@@ -1,6 +1,11 @@
 import { FC, FormEvent, useState } from "react";
 import ContactModal from "@components/ContactModal";
 
+const Messages = {
+  Success: "Successfully sent your message my way! I should respond soon.",
+  RateLimit: "Too many requests, please slow wait 15 more minutes before sending a new mail",
+};
+
 const ContactSection: FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +29,7 @@ const ContactSection: FC = () => {
           setOpen(true);
           return setResponse({
             title: "Error!",
-            body: "Too many requests, please slow wait 15 more minutes before sending a new mail",
+            body: Messages.RateLimit,
           });
         }
         const data = await res.json();
@@ -34,7 +39,7 @@ const ContactSection: FC = () => {
           setEmail("");
           setName("");
           setMessage("");
-          setResponse({ title: "Success!", body: "Successfully send your message my way!" });
+          setResponse({ title: "Success!", body: Messages.Success });
         } else {
           setOpen(true);
           setResponse({ title: "Error!", body: data.error || data });

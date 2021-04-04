@@ -32,6 +32,11 @@ module.exports = {
         destination: "/snippets/:slug",
         permanent: true,
       },
+      {
+        source: "/blog/setting-up-snailycad",
+        destination: "/blog/setting-up-snailycad-windows",
+        permanent: true,
+      },
     ];
   },
   future: {

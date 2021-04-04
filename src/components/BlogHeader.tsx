@@ -1,6 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
 import { useRouter } from "next/router";
+import format from "date-fns/format";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
 import { Snippet } from "types/Snippet";
@@ -10,8 +11,8 @@ interface Props {
 }
 
 const BlogHeader: React.FC<Props> = ({ post }) => {
-  const createdAt = new Date(post.created_at).toDateString();
-  const updatedAt = new Date(post.updated_at).toDateString();
+  const createdAt = format(new Date(post.created_at), "yyyy-MM-dd");
+  const updatedAt = format(new Date(post.updated_at), "yyyy-MM-dd");
   const router = useRouter();
   const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
 

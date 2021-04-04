@@ -1,13 +1,14 @@
 ---
 title: Setting up SnailyCADv3 on Windows
-created_at: April 5, 2021
+created_at: April 4, 2021
+updated_at: April 4, 2021
 intro: How to setup SnailyCADv3 on Windows 10 - In-depth guide.
 keywords: snaily-cad, CAD, fivem
 ---
 
 # Getting started
 
-This is a Windows guide for installing SnailyCAD. A Linux guide will come soon!
+This is a Windows guide for installing SnailyCAD. You [can view the Linux (Ubuntu) guide here](/blog/setting-up-snailycad-linux)
 
 ## Requirements
 
@@ -55,19 +56,19 @@ Now a new window should appear, click the `browse...` button and select the `sna
 
 Firstly, [open your command prompt](https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/)
 
-Once opened, we'll need to clone down the code, run the follow command:
+Once opened, we'll need to clone down the code, run the following command:
 
 ```console
 git clone https://github.com/Dev-CasperTheGhost/snaily-cadv3
 ```
 
-Once that's finished, we can go into the SnailyCAD folder with the follow command:
+Once that's finished, we can go into the SnailyCAD folder with the following command:
 
 ```console
 cd snaily-cadv3
 ```
 
-Now we need to install all the dependencies to run the CAD. Run the follow command:
+Now we need to install all the dependencies to run the CAD. Run the following command:
 
 _This can take several minutes to finish, please be patient!_
 
