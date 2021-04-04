@@ -2,6 +2,7 @@
 title: useMounted React hook
 intro: Check if your React component has mounted.
 created_at: 04/04/2021
+keywords: use-mount, useMount, usemounted, react hooks
 ---
 
 ## The hook
