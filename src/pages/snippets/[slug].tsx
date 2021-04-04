@@ -2,12 +2,11 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import * as React from "react";
-import Markdown from "react-markdown";
 import { getAllItems, getItemBySlug } from "src/lib/shared";
-import styles from "css/blog.module.scss";
 import Seo from "@components/Seo";
 import { Snippet } from "types/Snippet";
 import BlogHeader from "@components/BlogHeader";
+import ReactMarkdown from "@components/ReactMarkdown";
 
 interface Props {
   snippet: Snippet;
@@ -44,10 +43,7 @@ const PostPage: NextPage<Props> = ({ snippet }) => {
       <BlogHeader post={snippet} />
 
       <div id="react-markdown">
-        {/* //TODO: setup a syntax-highlighter  */}
-        <Markdown linkTarget="_blank" className={styles.react__markdown}>
-          {snippet.content}
-        </Markdown>
+        <ReactMarkdown content={snippet.content} />
       </div>
     </>
   );

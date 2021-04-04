@@ -10,15 +10,10 @@ interface Props {
 }
 
 const BlogHeader: React.FC<Props> = ({ post }) => {
-  const [createdAt, setCreatedAt] = React.useState(null);
-  const [updatedAt, setUpdatedAt] = React.useState(null);
+  const createdAt = new Date(post.created_at).toDateString();
+  const updatedAt = new Date(post.updated_at).toDateString();
   const router = useRouter();
   const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
-
-  React.useEffect(() => {
-    setCreatedAt(new Date(post.created_at).toLocaleDateString());
-    setUpdatedAt(new Date(post.updated_at).toLocaleDateString());
-  }, [post?.created_at]);
 
   return (
     <header className={styles.blog__header}>

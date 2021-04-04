@@ -27,6 +27,11 @@ module.exports = {
         destination: "/blog/my-uses",
         permanent: true,
       },
+      {
+        source: "/code-snippets/:slug",
+        destination: "/snippets/:slug",
+        permanent: true,
+      },
     ];
   },
   future: {
