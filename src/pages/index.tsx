@@ -8,17 +8,17 @@ import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about
 import Seo from "@components/Seo";
 
 const Index: NextPage = () => {
-  const [age, setAge] = React.useState<string>();
+  const [age, setAge] = React.useState<string>(calculateAge());
 
-  React.useEffect(() => {
-    // Thanks to https://ottomated.net/
-    const calculatedAge = ((Date.now() - +new Date("07/21/2005")) / (60 * 60 * 24 * 365 * 1000))
+  function calculateAge() {
+    return ((Date.now() - +new Date("07/21/2005")) / (60 * 60 * 24 * 365 * 1000))
       .toString()
       .split(".")[0];
+  }
 
-    setAge(calculatedAge);
-
-    const interval = setInterval(() => setAge(calculatedAge), 60_000);
+  React.useEffect(() => {
+    // Inspiration to https://ottomated.net/
+    const interval = setInterval(() => setAge(calculateAge()), 60_000);
 
     return () => clearInterval(interval);
   }, []);
