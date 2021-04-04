@@ -61,24 +61,32 @@
     code {
       font-family: "CascadiaMono", "Courier New", monospace;
     }
+  }
 
-    code {
-      padding: 0.2rem 0.5rem;
-      background: var(--dark);
-      border-radius: 0.3rem;
-    }
+  code {
+    padding: 0.1rem 0.5rem;
+    background: var(--dark);
+    border-radius: 0.3rem;
   }
 
   h4,
   h3,
-  h2 {
+  h2,
+  h1 {
     margin: 0;
     margin-top: 0.5rem;
+    scroll-margin-top: 4.5rem;
   }
 
   p {
+    font-size: 1.1rem;
     margin: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
+  }
+
+  img {
+    width: 100%;
+    max-width: 60%;
   }
 }
 
@@ -106,6 +114,7 @@
   transition: background 200ms;
 
   h2 {
+    font-size: 1.3rem;
     margin: 0;
   }
 

@@ -24,6 +24,7 @@ export function getPostBySlug(slug: string, fields: Fields = []): Pick<Post, key
     slug: null,
     content: null,
     intro: null,
+    keywords: null,
   };
 
   fields.forEach((field) => {

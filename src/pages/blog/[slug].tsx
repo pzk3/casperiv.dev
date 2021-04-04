@@ -1,9 +1,11 @@
+/* eslint-disable react/display-name */
 import BlogHeader from "@components/BlogHeader";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
 import Markdown from "react-markdown";
+import slugify from "slugify";
 import { getAllPosts, getPostBySlug } from "src/lib/blog";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
@@ -13,12 +15,69 @@ interface Props {
 }
 
 const renderers = {
-  // eslint-disable-next-line react/display-name
   heading: (props) => {
-    const id = props?.node?.children?.[0]?.value;
+    const node = props.node.children?.[0]?.value;
+    const slug = slugify(node, {
+      lower: true,
+      replacement: "-",
+      strict: true,
+    });
 
-    return <h2 id={id}>{props.children}</h2>;
+    function handleClick() {
+      if (typeof window !== "undefined") {
+        window.location.href = `#${slug}`;
+      }
+    }
+
+    // couldn't find a better way todo this.
+    switch (props.level) {
+      case 1: {
+        return (
+          <h1 onClick={handleClick} id={slug}>
+            {props.children}
+          </h1>
+        );
+      }
+      case 2: {
+        return (
+          <h2 onClick={handleClick} id={slug}>
+            {props.children}
+          </h2>
+        );
+      }
+      case 3: {
+        return (
+          <h3 onClick={handleClick} id={slug}>
+            {props.children}
+          </h3>
+        );
+      }
+      case 4: {
+        return (
+          <h4 onClick={handleClick} id={slug}>
+            {props.children}
+          </h4>
+        );
+      }
+      case 5: {
+        return (
+          <h5 onClick={handleClick} id={slug}>
+            {props.children}
+          </h5>
+        );
+      }
+      default: {
+        return (
+          <h6 onClick={handleClick} id={slug}>
+            {props.children}
+          </h6>
+        );
+      }
+    }
   },
+  image: (props) => (
+    <img draggable={false} loading="lazy" width="100" src={props.src} alt={props.alt} />
+  ),
 };
 
 const PostPage: NextPage<Props> = ({ post }) => {
@@ -52,7 +111,10 @@ const PostPage: NextPage<Props> = ({ post }) => {
         <meta name="description" content={`${post.intro}  Casper Iversen Blog`} />
         <meta property="og:description" content={`${post.intro}  Casper Iversen Blog`} />
         <meta name="twitter:description" content={`${post.intro}  Casper Iversen Blog`} />
-        <meta name="keywords" content="CasperTheGhost blog, blog casper iversen" />
+        <meta
+          name="keywords"
+          content={`CasperTheGhost blog, blog casper iversen ${post.keywords ?? ""}`}
+        />
         <link rel="canonical" href={`https://caspertheghost.me/blog/${post.slug}`} />
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
@@ -100,6 +162,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     "slug",
     "title",
     "intro",
+    "keywords",
   ]);
 
   return {

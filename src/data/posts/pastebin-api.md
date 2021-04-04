@@ -2,6 +2,7 @@
 title: Pastebin API
 created_at: March 27, 2021 17:20:00
 intro: Learn more about my npm package.
+keywords: pastebin-api, pastebin, haste, hastebin
 ---
 
 On February 23rd I created my second [npm](https://npmjs.com) package "pastebin-api", it's a package to interact with the [Pastebin](https://pastebin.com) api.

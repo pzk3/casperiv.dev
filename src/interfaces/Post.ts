@@ -5,4 +5,5 @@ export interface Post {
   slug: string | null;
   content: string | null;
   intro: string | null;
+  keywords: string | null;
 }
