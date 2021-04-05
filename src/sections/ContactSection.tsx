@@ -16,7 +16,7 @@ const ContactSection: FC = () => {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    fetch(process.env.CONTACT_URL, {
+    fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {
       method: "POST",
       body: JSON.stringify({
         name: name,
