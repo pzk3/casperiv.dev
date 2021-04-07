@@ -2,6 +2,14 @@ import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "April 2021",
+    title: "ctgs.ga",
+    text:
+      "Created a simple URL shortener using Next.js, FaunaDB and tailwindCSS. Very fun and great developer experience 👨‍💻!",
+    url: "https://ctgs.ga",
+    full_date: "April 6, 2021",
+  },
+  {
     date: "End March 2021",
     title: "notey.app",
     text: "Rewritten my notes application with next.js and TypeScript. It's so fast and easy ⚡!",
