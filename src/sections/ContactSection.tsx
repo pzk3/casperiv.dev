@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import * as React from "react";
 import ContactModal from "@components/ContactModal";
 
 const Messages = {
@@ -6,14 +6,14 @@ const Messages = {
   RateLimit: "Too many requests, please slow wait 15 more minutes before sending a new mail",
 };
 
-const ContactSection: FC = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [open, setOpen] = useState<boolean>(false);
-  const [response, setResponse] = useState<{ title: string; body: string }>(null);
+const ContactSection: React.FC = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [response, setResponse] = React.useState<{ title: string; body: string }>(null);
 
-  async function onSubmit(e: FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {

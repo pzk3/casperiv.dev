@@ -2,6 +2,7 @@
 import { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
+import "zenscroll/zenscroll-min";
 import Nav from "@components/Nav";
 import Menu from "@components/Menu";
 import Footer from "@components/Footer";

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next-sitemap && next build",
+    "build": "next build && next-sitemap",
     "start": "next start",
     "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
@@ -23,7 +23,8 @@
     "react-markdown": "^5.0.3",
     "react-syntax-highlighter": "^15.4.3",
     "sass": "^1.32.8",
-    "slugify": "^1.5.0"
+    "slugify": "^1.5.0",
+    "zenscroll": "^4.0.2"
   },
   "devDependencies": {
     "@types/express-rate-limit": "^5.1.1",
