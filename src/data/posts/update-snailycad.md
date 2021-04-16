@@ -42,7 +42,7 @@ npm install
 to start the CAD simply run the following command:
 
 ```bash
-npm install
+npm start
 ```
 
 ## 🎉 woohoo
