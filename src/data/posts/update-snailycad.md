@@ -29,6 +29,33 @@ Do the following:
 5. Paste the contents from the old `language.json` file into the new `language.json`
 6. Done!
 
+## Creating the config file
+
+If you haven't already, create a new file in the `src` folder
+
+Paste the following content inside and change where needed.
+
+```ts
+/* eslint-disable prettier/prettier */
+// @ts-nocheck
+
+// You can find more information about what everything is here:
+// https://github.com/Dev-CasperTheGhost/snaily-cadv3/wiki/Config-file
+const config = {
+  port: Number(process.env.PORT) || 3030,
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "admin",
+  databaseName: process.env.DB_NAME || "snaily-cad",
+  jwtSecret: process.env.JWT_SECRET || "bongo super cat",
+  env: process.env.PROFILE || "production",
+};
+
+export default config;
+```
+
+once done, save the file.
+
 ## Installing the dependencies
 
 Now we'll install the dependencies.
