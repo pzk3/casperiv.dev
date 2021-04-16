@@ -1,6 +1,7 @@
 ---
 title: Setting up SnailyCADv3 on Linux
 created_at: April 4, 2021
+updated_at: April 16, 2021
 intro: How to setup SnailyCADv3 on Ubuntu - In-depth guide.
 keywords: snaily-cad, CAD, fivem, cad/mdt linux
 ---
@@ -71,13 +72,13 @@ Now we need to install all the dependencies to run the CAD. Run the following co
 _This can take several minutes to finish, please be patient!_
 
 ```console
-npm run auto-install
+npm install
 ```
 
-Once it has finished installing, navigate to the `server` folder with the following command:
+Once it has finished installing, navigate to the `src` folder with the following command:
 
 ```console
-cd server
+cd src
 ```
 
 We can see all the files and folders with the following command:
@@ -89,13 +90,16 @@ ls -l
 Now you should see the following files and folders:
 
 ```console
+components
+hooks
+interfaces
+lib
+pages
+state
+styles
 config.example.ts
-node_modules
-package-lock.json
-package.json
-public
-src
-tsconfig.json
+language.json
+server.ts
 ```
 
 ---
@@ -111,14 +115,17 @@ cp config.example.ts config.ts
 Your server folder should now have these files:
 
 ```console
+components
+hooks
+interfaces
+lib
+pages
+state
+styles
 config.example.ts
 config.ts
-node_modules
-package-lock.json
-package.json
-public
-src
-tsconfig.json
+language.json
+server.ts
 ```
 
 Now open the `config.ts` file using `nano config.ts` or any other terminal-editor. You can [view more information about what the values mean here](https://github.com/Dev-CasperTheGhost/snaily-cadv3/wiki/Config-file).

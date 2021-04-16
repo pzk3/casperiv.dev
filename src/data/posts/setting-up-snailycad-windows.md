@@ -1,7 +1,7 @@
 ---
 title: Setting up SnailyCADv3 on Windows
 created_at: April 4, 2021
-updated_at: April 4, 2021
+updated_at: April 16, 2021
 intro: How to setup SnailyCADv3 on Windows 10 - In-depth guide.
 keywords: snaily-cad, CAD, fivem
 ---
@@ -73,7 +73,7 @@ Now we need to install all the dependencies to run the CAD. Run the following co
 _This can take several minutes to finish, please be patient!_
 
 ```console
-npm run auto-install
+npm install
 ```
 
 Once it has finished installing, you [can open windows file explorer](https://www.howtogeek.com/693474/12-ways-to-open-file-explorer-in-windows-10/) and navigate to the folder where you installed SnailyCAD. (Keep the command prompt open)
@@ -86,7 +86,7 @@ If you don't see the file extensions (`.js`, `.md`, `.sql`, ...) I [recommend en
 
 ---
 
-Now navigate into the `server` folder and look for the `config.example.ts` file. **Copy and rename** this file to `config.ts`.
+Now navigate into the `src` folder and look for the `config.example.ts` file. **Copy and rename** this file to `config.ts`.
 
 Your server folder should look like this now:
 
