@@ -79,3 +79,7 @@ After a few seconds it should log
 ```txt
 [APP]: Running on http://localhost:<port>/
 ```
+
+## Support
+
+If you need extra help or support, feel free to [join our Discord server](https://discord.gg/eGnrPqEH7U)
