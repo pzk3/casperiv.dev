@@ -5,82 +5,90 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-lig
 import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
 import styles from "css/blog.module.scss";
 
-const renderers = {
-  heading: (props) => {
-    const node = props.node.children?.[0]?.value;
-    const slug = slugify(node, {
-      lower: true,
-      replacement: "-",
-      strict: true,
-    });
+function getSlug(props): string {
+  const node = props.node.children?.[0]?.value;
+  return slugify(node, {
+    lower: true,
+    replacement: "-",
+    strict: true,
+  });
+}
 
-    function handleClick() {
-      if (typeof window !== "undefined") {
-        window.location.href = `#${slug}`;
-      }
-    }
+function handleClick(slug: string) {
+  if (typeof window !== "undefined") {
+    window.location.href = `#${slug}`;
+  }
+}
 
-    // couldn't find a better way todo this.
-    switch (props.level) {
-      case 1: {
-        return (
-          <h1 onClick={handleClick} id={slug}>
-            {props.children}
-          </h1>
-        );
-      }
-      case 2: {
-        return (
-          <h2 onClick={handleClick} id={slug}>
-            {props.children}
-          </h2>
-        );
-      }
-      case 3: {
-        return (
-          <h3 onClick={handleClick} id={slug}>
-            {props.children}
-          </h3>
-        );
-      }
-      case 4: {
-        return (
-          <h4 onClick={handleClick} id={slug}>
-            {props.children}
-          </h4>
-        );
-      }
-      case 5: {
-        return (
-          <h5 onClick={handleClick} id={slug}>
-            {props.children}
-          </h5>
-        );
-      }
-      default: {
-        return (
-          <h6 onClick={handleClick} id={slug}>
-            {props.children}
-          </h6>
-        );
-      }
-    }
+const components = {
+  h1: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h1 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h1>
+    );
   },
-  image: (props) => (
+  h2: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h2 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h2>
+    );
+  },
+  h3: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h3 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h3>
+    );
+  },
+  h4: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h4 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h4>
+    );
+  },
+  h5: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h5 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h5>
+    );
+  },
+  h6: (props) => {
+    const slug = getSlug(props);
+    return (
+      <h6 id={slug} onClick={() => handleClick(slug)}>
+        {props.children}{" "}
+      </h6>
+    );
+  },
+  img: (props) => (
     <img draggable={false} loading="lazy" width="100" src={props.src} alt={props.alt} />
   ),
-  code: (props) => {
-    return (
-      <SyntaxHighlighter style={Theme} language={props.language}>
-        {props.value}
+  code: ({ ...props }) => {
+    const { inline, className, children } = props;
+    const match = /language-(\w+)/.exec(className || "");
+
+    return !inline && match ? (
+      <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
+        {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
+    ) : (
+      <code className={className}>{props.children}</code>
     );
   },
 };
 
 const ReactMarkdown: React.FC<{ content: string }> = ({ content }) => {
   return (
-    <Markdown renderers={renderers} linkTarget="_blank" className={styles.react__markdown}>
+    <Markdown components={components} linkTarget="_blank" className={styles.react__markdown}>
       {content}
     </Markdown>
   );
