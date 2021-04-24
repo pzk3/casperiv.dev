@@ -37,17 +37,17 @@ Let's create the database and insert the `snaily-cad.sql` file
 
 In the sidebar you can see a link: "New", click that, it should look something like this:
 
-![create-database](/blog/create-database.png)
+![create-database](/blog/create-database.webp)
 
 Enter `snaily-cad` in the input field then click `Create`.
 
 Once finished creating the database, you can should see a navbar at the top, click the `import` button:
 
-![import-button](/blog/import-button.png)
+![import-button](/blog/import-button.webp)
 
 Now a new window should appear, click the `browse...` button and select the `snaily-cad.sql` file. It's located in the root folder of SnailyCAD. After selecting it you can click the `Go` button on the bottom right corner.
 
-![database-browse](/blog/database-browse.png)
+![database-browse](/blog/database-browse.webp)
 
 🎉 You've successfully setup XAMPP and MySQL for SnailyCAD! If you're experiencing issues, [feel free to join our Discord server](https://discord.gg/eGnrPqEH7U).
 

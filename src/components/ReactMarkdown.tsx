@@ -1,9 +1,11 @@
 /* eslint-disable react/display-name */
 import Markdown from "react-markdown";
 import slugify from "slugify";
+import Image from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-light";
 import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
 import styles from "css/blog.module.scss";
+import { imageSizes } from "types/ImageSizes";
 
 function getSlug(props): string {
   const node = props.node.children?.[0]?.value;
@@ -69,9 +71,29 @@ const components = {
       </h6>
     );
   },
-  img: (props) => (
-    <img draggable={false} loading="lazy" width="100" src={props.src} alt={props.alt} />
-  ),
+  p: (props) => {
+    const hasImage = props.children.find((c) => typeof c !== "string" && c.type === "img");
+
+    if (hasImage) {
+      const size = imageSizes[hasImage.props.alt];
+
+      return (
+        <div style={{ maxWidth: "60%" }}>
+          <Image
+            draggable={false}
+            loading="lazy"
+            width={size.width}
+            height={size.height}
+            src={hasImage.props.src}
+            alt={hasImage.props.alt}
+          />
+        </div>
+      );
+    }
+
+    return <p>{props.children}</p>;
+  },
+
   code: ({ ...props }) => {
     const { inline, className, children } = props;
     const match = /language-(\w+)/.exec(className || "");

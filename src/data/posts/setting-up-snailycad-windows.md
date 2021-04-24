@@ -26,7 +26,7 @@ After successfully installing XAMPP, open the XAMPP Control Panel
 
 You should see something like this:
 
-![xampp-control-panel](/blog/xampp-control-panel.png)
+![xampp-control-panel](/blog/xampp-control-panel.webp)
 
 Now we'll start both `Apache` and `MySQL` by clicking the `Start` button.
 
@@ -38,17 +38,17 @@ Let's create the database and insert the `snaily-cad.sql` file
 
 In the sidebar you can see a link: "New", click that, it should look something like this:
 
-![create-database](/blog/create-database.png)
+![create-database](/blog/create-database.webp)
 
 Enter `snaily-cad` in the input field then click `Create`.
 
 Once finished creating the database, you can should see a navbar at the top, click the `import` button:
 
-![import-button](/blog/import-button.png)
+![import-button](/blog/import-button.webp)
 
 Now a new window should appear, click the `browse...` button and select the `snaily-cad.sql` file. It's located in the root folder of SnailyCAD. After selecting it you can click the `Go` button on the bottom right corner.
 
-![database-browse](/blog/database-browse.png)
+![database-browse](/blog/database-browse.webp)
 
 🎉 You've successfully setup XAMPP and MySQL for SnailyCAD! If you're experiencing issues, [feel free to join our Discord server](https://discord.gg/eGnrPqEH7U).
 
@@ -80,7 +80,7 @@ Once it has finished installing, you [can open windows file explorer](https://ww
 
 Now you should see the following files and folders:
 
-![snaily-cad-root-folder](/blog/snaily-cad-root-folder.png)
+![snaily-cad-root-folder](/blog/snaily-cad-root-folder.webp)
 
 If you don't see the file extensions (`.js`, `.md`, `.sql`, ...) I [recommend enabling this](https://www.msftnext.com/show-file-extensions-windows-10-explorer/)
 
@@ -90,7 +90,7 @@ Now navigate into the `src` folder and look for the `config.example.ts` file. **
 
 Your server folder should look like this now:
 
-![server-folder-config](/blog/server-folder-config.png)
+![server-folder-config](/blog/server-folder-config.webp)
 
 Now open the `config.ts` file with `notepad` or any other text-editor. You can [view more information about what the values mean here](https://github.com/Dev-CasperTheGhost/snaily-cadv3/wiki/Config-file).
 
