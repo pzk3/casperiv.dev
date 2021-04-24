@@ -83,6 +83,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     "title",
     "keywords",
     "intro",
+    "updated_at",
   ]);
 
   return {

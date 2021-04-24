@@ -1,8 +1,8 @@
 ---
-title: Updating SnailyCAD from 1.5.x to 2.0.0
+title: Updating SnailyCAD to a new version.
 created_at: April 16, 2021
-updated_at: April 16, 2021
-intro: How to update SnailyCAD 1.5.x to 2.0.0.
+updated_at: April 24, 2021
+intro: How to update SnailyCAD
 keywords: snaily-cad, CAD, fivem
 ---
 

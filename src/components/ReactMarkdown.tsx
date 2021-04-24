@@ -6,6 +6,7 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-lig
 import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
 import styles from "css/blog.module.scss";
 import { imageSizes } from "types/ImageSizes";
+import HeaderLink from "./HeaderLink";
 
 function getSlug(props): string {
   const node = props.node.children?.[0]?.value;
@@ -16,58 +17,52 @@ function getSlug(props): string {
   });
 }
 
-function handleClick(slug: string) {
-  if (typeof window !== "undefined") {
-    window.location.href = `#${slug}`;
-  }
-}
-
 const components = {
   h1: (props) => {
     const slug = getSlug(props);
     return (
-      <h1 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h1 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h1>
     );
   },
   h2: (props) => {
     const slug = getSlug(props);
     return (
-      <h2 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h2 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h2>
     );
   },
   h3: (props) => {
     const slug = getSlug(props);
     return (
-      <h3 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h3 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h3>
     );
   },
   h4: (props) => {
     const slug = getSlug(props);
     return (
-      <h4 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h4 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h4>
     );
   },
   h5: (props) => {
     const slug = getSlug(props);
     return (
-      <h5 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h5 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h5>
     );
   },
   h6: (props) => {
     const slug = getSlug(props);
     return (
-      <h6 id={slug} onClick={() => handleClick(slug)}>
-        {props.children}{" "}
+      <h6 className={styles.header_link} id={slug}>
+        {props.children} <HeaderLink slug={slug} />
       </h6>
     );
   },
