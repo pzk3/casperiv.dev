@@ -3,6 +3,14 @@ import TimelineItem from "types/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "April 2021",
+    title: "Pastebin clone",
+    text:
+      "Created a Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators. Again, an amazing developer experience 💻",
+    url: "https://paste.caspertheghost.me",
+    full_date: "April 25, 2021",
+  },
+  {
+    date: "April 2021",
     title: "ctgs.ga",
     text:
       "Created a simple URL shortener using Next.js, FaunaDB and tailwindCSS. Very fun and great developer experience 👨‍💻!",

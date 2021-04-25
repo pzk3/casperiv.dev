@@ -6,6 +6,20 @@ const OPEN_PROJECT = "Open Project";
 
 const projects: Project[] = [
   {
+    title: "pastebin clone",
+    description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
+    buttons: [
+      {
+        url: `${url}/faunadb-pastebin-clone`,
+        name: VIEW_CODE,
+      },
+      {
+        url: "https://paste.caspertheghost.me",
+        name: OPEN_PROJECT,
+      },
+    ],
+  },
+  {
     title: "notey.app",
     description: "A notes app to keep track of important things and share notes with others",
     buttons: [
