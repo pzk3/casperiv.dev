@@ -1,5 +1,7 @@
 /* eslint-disable */
-module.exports = {
+const withPWA = require("next-pwa");
+
+const config = {
   async redirects() {
     return [
       {
@@ -55,3 +57,10 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withPWA({
+  ...config,
+  pwa: {
+    dest: "public",
+  },
+});
