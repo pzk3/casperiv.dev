@@ -16,6 +16,7 @@ import "css/footer.scss";
 import "css/projects.scss";
 import "css/modal.scss";
 import "css/nprogress.css";
+import "css/fonts.scss";
 
 Router.events.on("routeChangeStart", NProgress.start);
 Router.events.on("routeChangeComplete", NProgress.done);
