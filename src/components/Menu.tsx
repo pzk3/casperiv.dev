@@ -24,21 +24,21 @@ const Menu: FC = () => {
 
         <div className="menu__content">
           <div onClick={handleClose} className="menu__links">
-            <a href={is404 ? "/" : "#"} className="menu__link">
-              About
-            </a>
-            <a href={is404 ? "/#skills" : "#skills"} className="menu__link">
-              Skills
-            </a>
-            <a href={is404 ? "/#projects" : "#projects"} className="menu__link">
-              Projects
-            </a>
-            <a href={is404 ? "/#timeline" : "#timeline"} className="menu__link">
-              Timeline
-            </a>
-            <a href={is404 ? "/#contact" : "#contact"} className="menu__link">
-              Contact
-            </a>
+            <Link href={is404 ? "/" : "#"}>
+              <a className="menu__link">About</a>
+            </Link>
+            <Link href={is404 ? "/#skills" : "#skills"}>
+              <a className="menu__link">Skills</a>
+            </Link>
+            <Link href={is404 ? "/#projects" : "#projects"}>
+              <a className="menu__link">Projects</a>
+            </Link>
+            <Link href={is404 ? "/#timeline" : "#timeline"}>
+              <a className="menu__link">Timeline</a>
+            </Link>
+            <Link href={is404 ? "/#contact" : "#contact"}>
+              <a className="menu__link">Contact</a>
+            </Link>
 
             <Link href="/experience">
               <a href="/experience" className="menu__link">

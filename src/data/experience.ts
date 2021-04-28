@@ -33,6 +33,13 @@ const experience: Experience[] = [
     href: "https://github.com/Dev-CasperTheGhost/snaily-cadv3",
   },
   {
+    title: "Open Source",
+    year: "2020 - Present",
+    description: "Creating and maintaining open source projects",
+    stack: ["react.js", "next.js", "typescript"],
+    href: "https://github.com/Dev-CasperTheGhost?tab=repositories",
+  },
+  {
     title: "Community help",
     year: "12/2018 - 2020",
     description: "Helped several communities setup gaming servers, discord servers and more",
