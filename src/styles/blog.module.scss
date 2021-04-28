@@ -86,6 +86,7 @@
     background: var(--dark) !important;
     border-radius: 0.3rem;
     overflow-x: auto;
+    position: relative;
 
     code {
       font-family: "CascadiaMono", "Courier New", monospace !important;
@@ -95,6 +96,10 @@
       span {
         font-family: "CascadiaMono", "Courier New", monospace !important;
       }
+    }
+
+    &:hover button {
+      opacity: 1;
     }
   }
 
@@ -118,6 +123,21 @@
     margin: 0;
     margin-top: 0.3rem;
   }
+}
+
+.copy_btn {
+  position: absolute;
+  right: 0;
+  top: 0rem;
+  z-index: 99;
+  cursor: pointer;
+  border: none;
+  background-color: var(--secondary);
+  color: var(--text-color);
+
+  transition: opacity 150ms;
+  opacity: 0;
+  padding: 0.3rem 1rem;
 }
 
 .blog__items {

@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import Markdown from "react-markdown";
+import * as React from "react";
 import slugify from "slugify";
 import Image from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-light";
@@ -92,11 +93,27 @@ const components = {
   code: ({ ...props }) => {
     const { inline, className, children } = props;
     const match = /language-(\w+)/.exec(className || "");
+    const text = String(children).replace(/\n$/, "");
+    const [btnText, setBtnText] = React.useState("Copy");
+
+    function handleCopy() {
+      if (typeof window !== "undefined" && window.navigator?.clipboard) {
+        navigator.clipboard.writeText(text);
+        setBtnText("Copied!");
+        setTimeout(() => setBtnText("Copy"), 1000);
+      }
+    }
 
     return !inline && match ? (
-      <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
+      <div>
+        <button onClick={handleCopy} className={styles.copy_btn}>
+          {btnText}
+        </button>
+
+        <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
+          {text}
+        </SyntaxHighlighter>
+      </div>
     ) : (
       <code className={className}>{props.children}</code>
     );
