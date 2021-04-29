@@ -2,12 +2,9 @@
 import Markdown from "react-markdown";
 import * as React from "react";
 import slugify from "slugify";
-import Image from "next/image";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-light";
-import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
 import styles from "css/blog.module.scss";
-import { imageSizes } from "types/ImageSizes";
 import HeaderLink from "./HeaderLink";
+import dynamic from "next/dynamic";
 
 function getSlug(props): string {
   const node = props.node.children?.[0]?.value;
@@ -67,57 +64,8 @@ const components = {
       </h6>
     );
   },
-  p: (props) => {
-    const hasImage = props.children.find((c) => typeof c !== "string" && c.type === "img");
-
-    if (hasImage) {
-      const size = imageSizes[hasImage.props.alt];
-
-      return (
-        <div style={{ maxWidth: "60%" }}>
-          <Image
-            draggable={false}
-            loading="lazy"
-            width={size.width}
-            height={size.height}
-            src={hasImage.props.src}
-            alt={hasImage.props.alt}
-          />
-        </div>
-      );
-    }
-
-    return <p>{props.children}</p>;
-  },
-
-  code: ({ ...props }) => {
-    const { inline, className, children } = props;
-    const match = /language-(\w+)/.exec(className || "");
-    const text = String(children).replace(/\n$/, "");
-    const [btnText, setBtnText] = React.useState("Copy");
-
-    function handleCopy() {
-      if (typeof window !== "undefined" && window.navigator?.clipboard) {
-        navigator.clipboard.writeText(text);
-        setBtnText("Copied!");
-        setTimeout(() => setBtnText("Copy"), 1000);
-      }
-    }
-
-    return !inline && match ? (
-      <div>
-        <button onClick={handleCopy} className={styles.copy_btn}>
-          {btnText}
-        </button>
-
-        <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
-          {text}
-        </SyntaxHighlighter>
-      </div>
-    ) : (
-      <code className={className}>{props.children}</code>
-    );
-  },
+  p: (dynamic(() => import("./Markdown/Paragraph")) as unknown) as () => Element,
+  code: (dynamic(() => import("./Markdown/Code")) as unknown) as () => Element,
 };
 
 const ReactMarkdown: React.FC<{ content: string }> = ({ content }) => {
