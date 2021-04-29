@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build && next-sitemap",
     "start": "next start",
-    "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore"
+    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
+    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "date-fns": "^2.21.1",
