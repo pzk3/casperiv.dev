@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useWindowEvent } from "@casper124578/useful/hooks/useWindowEvent";
 import ContactModal from "@components/ContactModal";
 
 const Messages = {
@@ -12,6 +13,13 @@ const ContactSection: React.FC = () => {
   const [message, setMessage] = React.useState("");
   const [open, setOpen] = React.useState<boolean>(false);
   const [response, setResponse] = React.useState<{ title: string; body: string }>(null);
+  const ref = React.useRef<HTMLInputElement>(null);
+
+  const focusHandler = () => {
+    ref.current.focus();
+  };
+
+  useWindowEvent("focusOnContact", focusHandler);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -59,6 +67,7 @@ const ContactSection: React.FC = () => {
         <div className="form__group">
           <label htmlFor="name">Enter your name</label>
           <input
+            ref={ref}
             type="text"
             id="name"
             value={name}

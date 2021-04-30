@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NextPage } from "next";
+import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import TimelineSection from "@sections/TimelineSection";
 import ProjectSection from "@sections/ProjectsSection";
 import ContactSection from "@sections/ContactSection";
@@ -9,6 +10,7 @@ import Seo from "@components/Seo";
 
 const Index: NextPage = () => {
   const [age, setAge] = React.useState<string>(calculateAge());
+  const { dispatch } = useEmitEvent<{ test: string }>("focusOnContact", { test: "hello" });
 
   function calculateAge() {
     return ((Date.now() - +new Date("07/21/2005")) / (60 * 60 * 24 * 365 * 1000))
@@ -41,7 +43,7 @@ const Index: NextPage = () => {
         </p>
 
         <div className="btn__container">
-          <a className="btn btn__light btn__icon" href="#contact">
+          <a onClick={dispatch} className="btn btn__light btn__icon" href="#contact">
             <ContactIcon />
             Contact
           </a>

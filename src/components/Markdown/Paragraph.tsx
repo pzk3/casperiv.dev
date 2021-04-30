@@ -18,6 +18,7 @@ const MDParagraph: React.FC<Props> = (props) => {
     return (
       <div style={{ maxWidth: "60%" }}>
         <Image
+          decoding="async"
           draggable={false}
           loading="lazy"
           width={size.width}
