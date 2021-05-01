@@ -28,14 +28,13 @@ const TimelineSection: FC = () => {
           const side = idx % 2 === 0 ? "left" : "right";
 
           return (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={item.url}
-              key={idx}
-              className={`timeline-item ${side}`}
-            >
-              <div className="timeline-item-body">
+            <div key={idx} className={`timeline-item ${side}`}>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={item.url}
+                className="timeline-item-body"
+              >
                 <header className="timeline-item-header">
                   <h1>{item.title}</h1>
                   <p aria-label={item.full_date} className={item.full_date ? "tooltip" : null}>
@@ -43,11 +42,12 @@ const TimelineSection: FC = () => {
                   </p>
                 </header>
                 {item.text}
-              </div>
-            </a>
+              </a>
+            </div>
           );
         })}
-        <button ref={btnRef} onClick={showMore} id="view-older-btn" className="view-older-btn">
+
+        <button ref={btnRef} onClick={showMore} className="view-older-btn">
           {viewOlderText}
           <ArrowDown />
         </button>

@@ -9,7 +9,7 @@ import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about
 import Seo from "@components/Seo";
 
 const Index: NextPage = () => {
-  const [age, setAge] = React.useState<string>(calculateAge());
+  const age = calculateAge();
   const { dispatch } = useEmitEvent("focusOnContact", true);
 
   function calculateAge() {
@@ -17,13 +17,6 @@ const Index: NextPage = () => {
       .toString()
       .split(".")[0];
   }
-
-  React.useEffect(() => {
-    // Inspiration to https://ottomated.net/
-    const interval = setInterval(() => setAge(calculateAge()), 60_000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>

@@ -1,11 +1,3 @@
-#view-older {
-  display: none;
-}
-
-#view-older.active {
-  display: block;
-}
-
 .view-older-btn {
   position: absolute;
   left: 50%;
@@ -13,7 +5,7 @@
   transform: translateX(-50%);
   background: none;
   border: none;
-  padding: 10px;
+  padding: 0;
   color: var(--text-color);
   font-weight: 500;
   font-size: 1rem;
@@ -26,10 +18,6 @@
 
 .view-older-btn.active svg {
   transform: rotate(180deg);
-}
-
-.view-older-btn:focus {
-  outline: none;
 }
 
 .timeline-section {
@@ -125,6 +113,7 @@
 }
 
 .timeline-item-body {
+  display: block;
   border-radius: 0.5rem;
   transition: box-shadow 300ms ease;
   padding: 0.8rem 1rem;
@@ -177,7 +166,7 @@
   .timeline-item::before {
     left: 45px;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #232535 transparent transparent;
+    border-color: transparent var(--secondary) transparent transparent;
   }
 
   .left::after,

@@ -51,3 +51,17 @@ export function useSearch<T = object>(key: keyof T, items: T[]) {
 ## Example
 
 [See an example here 🚀](https://codesandbox.io/s/use-search-hook-2o2q2)
+
+## npm/yarn
+
+You can now also use this hook via npm/yarn by installing [my npm package](https://npm.im/@casper124578/useful):
+
+```bash
+npm install @casper124578/useful
+```
+
+Later in your project
+
+```tsx
+import { useSearch } from "@casper124578/useful/hooks/useSearch";
+```

@@ -80,3 +80,17 @@ export const MyCoolModal = () => {
 ## Try it
 
 [Try it out yourself here](https://codesandbox.io/s/admiring-lake-5b30h) 🚀
+
+## npm/yarn
+
+You can now also use this hook via npm/yarn by installing [my npm package](https://npm.im/@casper124578/useful):
+
+```bash
+npm install @casper124578/useful
+```
+
+Later in your project
+
+```tsx
+import { usePortal } from "@casper124578/useful/hooks/usePortal";
+```

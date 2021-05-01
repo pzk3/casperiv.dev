@@ -1,5 +1,5 @@
 ---
-title: Updating SnailyCAD to a new version.
+title: Updating SnailyCAD to a new version
 created_at: April 16, 2021
 updated_at: April 24, 2021
 intro: How to update SnailyCAD
@@ -31,7 +31,7 @@ Do the following:
 
 ## Creating the config file
 
-If you haven't already, create a new file in the `src` folder
+If you haven't already, create a new file in the `src` folder and call it `config.ts`
 
 Paste the following content inside and change where needed.
 

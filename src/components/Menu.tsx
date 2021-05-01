@@ -2,10 +2,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { FC } from "react";
 import XIcon from "./icons/XIcon";
+import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 
 const Menu: FC = () => {
   const router = useRouter();
   const is404 = router.pathname !== "/";
+  const { dispatch } = useEmitEvent("focusOnContact", true);
 
   function handleClose() {
     document.getElementById("menu")?.classList.remove("menu__nav--active");
@@ -37,7 +39,9 @@ const Menu: FC = () => {
               <a className="menu__link">Timeline</a>
             </Link>
             <Link href={is404 ? "/#contact" : "#contact"}>
-              <a className="menu__link">Contact</a>
+              <a onClick={dispatch} className="menu__link">
+                Contact
+              </a>
             </Link>
 
             <Link href="/experience">

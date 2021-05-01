@@ -2,6 +2,14 @@ import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "May 2021",
+    title: "@casper124578/useful",
+    text:
+      "Created another npm package called '@casper124578/useful'. This package includes useful React hooks and functions",
+    url: "https://npm.im/@casper124578/useful",
+    full_date: "May 1, 2021",
+  },
+  {
     date: "April 2021",
     title: "Pastebin clone",
     text:

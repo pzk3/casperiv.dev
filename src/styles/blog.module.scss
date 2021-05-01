@@ -60,6 +60,10 @@
       width: 100%;
       height: 100%;
     }
+
+    &:focus-visible {
+      opacity: 1;
+    }
   }
 
   @media (hover: hover) {
@@ -139,6 +143,10 @@
   transition: opacity 150ms;
   padding: 0.3rem 1rem;
   opacity: 1;
+
+  &:focus-visible {
+    opacity: 1;
+  }
 
   @media (hover: hover) {
     opacity: 0;
