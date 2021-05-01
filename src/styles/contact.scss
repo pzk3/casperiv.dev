@@ -16,16 +16,10 @@
   border: 1.5px solid var(--secondary);
   background-color: var(--dark);
   border-radius: 0.5rem;
-  outline: none;
   transition: 300ms border;
   resize: vertical;
   max-width: 100%;
   min-width: 100%;
-
-  &:focus,
-  &:hover {
-    border-color: var(--text-color);
-  }
 }
 
 .form__small {

@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useRef, useEffect, FC } from "react";
+import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 
 const Nav: FC = () => {
   const ref = useRef<HTMLDivElement>();
   const router = useRouter();
   const is404 = router.pathname !== "/";
+  const { dispatch } = useEmitEvent("focusOnContact", true);
 
   useEffect(() => {
     window.onscroll = function updateNav() {
@@ -64,7 +66,9 @@ const Nav: FC = () => {
               <a className="nav__link">Timeline</a>
             </Link>
             <Link href={is404 ? "/#contact" : "#contact"}>
-              <a className="nav__link">Contact</a>
+              <a onClick={dispatch} className="nav__link">
+                Contact
+              </a>
             </Link>
             <Link href="/experience">
               <a href="/experience" className="nav__link">

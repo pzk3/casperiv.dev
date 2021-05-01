@@ -10,7 +10,7 @@ import Seo from "@components/Seo";
 
 const Index: NextPage = () => {
   const [age, setAge] = React.useState<string>(calculateAge());
-  const { dispatch } = useEmitEvent<{ test: string }>("focusOnContact", { test: "hello" });
+  const { dispatch } = useEmitEvent("focusOnContact", true);
 
   function calculateAge() {
     return ((Date.now() - +new Date("07/21/2005")) / (60 * 60 * 24 * 365 * 1000))
