@@ -15,7 +15,7 @@
     "express-rate-limit": "^5.2.6",
     "gray-matter": "^4.0.2",
     "next": "^10.2.0",
-    "next-pwa": "^5.2.15",
+    "next-pwa": "^5.2.18",
     "next-sitemap": "^1.6.25",
     "nodemailer": "^6.6.0",
     "nprogress": "^0.2.0",
