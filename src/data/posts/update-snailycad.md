@@ -1,7 +1,7 @@
 ---
 title: Updating SnailyCAD to a new version
-created_at: April 16, 2021
-updated_at: April 24, 2021
+createdAt: April 16, 2021
+updatedAt: April 24, 2021
 intro: How to update SnailyCAD
 keywords: snaily-cad, CAD, fivem
 ---

@@ -86,12 +86,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const post = getItemBySlug<Post>(slug, "posts", [
     "content",
-    "created_at",
-    "updated_at",
+    "createdAt",
+    "updatedAt",
     "slug",
     "title",
     "intro",
     "keywords",
+    "readingTime",
   ]);
 
   return {

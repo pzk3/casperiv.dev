@@ -1,6 +1,6 @@
 ---
 title: FaunaDB with Next.js
-created_at: May 6, 2021
+createdAt: May 6, 2021
 intro: Setting up FaunaDB with Next.js and TypeScript
 ---
 

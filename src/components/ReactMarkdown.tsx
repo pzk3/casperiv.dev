@@ -65,10 +65,10 @@ const components = {
     );
   },
   p: (dynamic(() => import("./Markdown/Paragraph"), {
-    loading: () => <p>Loading text..</p>,
+    loading: () => <>Loading text..</>,
   }) as unknown) as () => Element,
   code: (dynamic(() => import("./Markdown/Code"), {
-    loading: () => <p>Loading code..</p>,
+    loading: () => <>Loading code..</>,
   }) as unknown) as () => Element,
 };
 

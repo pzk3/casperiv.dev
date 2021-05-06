@@ -78,12 +78,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const snippet = getItemBySlug<Snippet>(slug, "snippets", [
     "content",
-    "created_at",
+    "createdAt",
     "slug",
     "title",
     "keywords",
     "intro",
-    "updated_at",
+    "updatedAt",
   ]);
 
   return {

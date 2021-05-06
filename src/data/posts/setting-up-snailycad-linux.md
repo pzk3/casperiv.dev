@@ -1,7 +1,7 @@
 ---
 title: Setting up SnailyCADv3 on Linux
-created_at: April 4, 2021
-updated_at: April 16, 2021
+createdAt: April 4, 2021
+updatedAt: April 16, 2021
 intro: How to setup SnailyCADv3 on Ubuntu - In-depth guide.
 keywords: snaily-cad, CAD, fivem, cad/mdt linux
 ---

@@ -1,8 +1,8 @@
 ---
 title: useSearch React hook
 intro: easily search through an array with this hook.
-created_at: April 17, 2021
-updated_at: April 24, 2021
+createdAt: April 17, 2021
+updatedAt: April 24, 2021
 keywords: use-search, search arrays, useSearch, react hooks
 ---
 

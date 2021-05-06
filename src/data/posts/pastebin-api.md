@@ -1,6 +1,6 @@
 ---
 title: Pastebin API
-created_at: March 27, 2021 17:20:00
+createdAt: March 27, 2021 17:20:00
 intro: Learn more about my npm package.
 keywords: pastebin-api, pastebin, haste, hastebin
 ---

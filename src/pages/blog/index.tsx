@@ -39,7 +39,7 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllItems<Post>("posts", ["slug", "title", "created_at", "intro"]);
+  const posts = getAllItems<Post>("posts", ["slug", "title", "createdAt", "intro"]);
 
   return {
     props: {

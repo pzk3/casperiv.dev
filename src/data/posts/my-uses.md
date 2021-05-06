@@ -1,6 +1,6 @@
 ---
 title: My uses
-created_at: April 3, 2021
+createdAt: April 3, 2021
 # updated_at: April 3, 2021
 intro: My tech and gear that I use on the daily basis
 ---

@@ -11,8 +11,8 @@ interface Props {
 }
 
 const BlogHeader: React.FC<Props> = ({ post }) => {
-  const createdAt = format(new Date(post.created_at), "yyyy-MM-dd");
-  const updatedAt = format(new Date(post.updated_at), "yyyy-MM-dd");
+  const createdAt = format(new Date(post.createdAt), "yyyy-MM-dd");
+  const updatedAt = format(new Date(post.updatedAt), "yyyy-MM-dd");
   const router = useRouter();
   const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
 
@@ -23,9 +23,14 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
           <h1 className={styles.blog__title}>{post.title}</h1>
           <h2 className={styles.blog__date}>
             Created: <span>{createdAt}</span>{" "}
-            {post.updated_at ? (
+            {post.updatedAt ? (
               <>
                 - Last updated: <span>{updatedAt}</span>
+              </>
+            ) : null}
+            {post.readingTime ? (
+              <>
+                - <span>{post.readingTime}</span>
               </>
             ) : null}
           </h2>

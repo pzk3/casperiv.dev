@@ -39,7 +39,7 @@ const BlogPage: NextPage<Props> = ({ snippets }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets = getAllItems<Snippet>("snippets", ["slug", "title", "created_at", "intro"]);
+  const snippets = getAllItems<Snippet>("snippets", ["slug", "title", "createdAt", "intro"]);
 
   return {
     props: {

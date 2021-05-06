@@ -1,7 +1,6 @@
 ---
 title: First post!
-created_at: March 27, 2021 17:15:00
-updated_at: March 27, 2021
+createdAt: March 27, 2021 17:15:00
 intro: My first blog post!
 ---
 
