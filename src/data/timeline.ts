@@ -3,6 +3,14 @@ import TimelineItem from "types/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "May 2021",
+    title: "@casper124578/mysql.ts",
+    text:
+      "Created yet another npm package called '@casper124578/mysql.ts'. A wrapper to interact with MySQL databases with ease",
+    url: "https://npm.im/@casper124578/mysql.ts",
+    full_date: "May 7, 2021",
+  },
+  {
+    date: "May 2021",
     title: "@casper124578/useful",
     text:
       "Created another npm package called '@casper124578/useful'. This package includes useful React hooks and functions",
