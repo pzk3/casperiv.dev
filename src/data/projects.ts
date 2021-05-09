@@ -59,6 +59,20 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "mysql.ts",
+    description: "A simple node.js wrapper for mysql, simplified",
+    buttons: [
+      {
+        url: `${url}/mysql.ts`,
+        name: VIEW_CODE,
+      },
+      {
+        name: "View on NPM",
+        url: "https://www.npmjs.com/package/@casper124578/mysql.ts",
+      },
+    ],
+  },
+  {
     title: "GhostyBot",
     description:
       "A Discord bot with a lot of commands for Discord communities. (+180 commands) Economy, util, fun, music, admin and xp system ",
