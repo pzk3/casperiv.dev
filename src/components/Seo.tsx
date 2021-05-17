@@ -8,7 +8,7 @@ interface Props {
   url?: string;
 }
 
-// These should be displayed on all pages.
+// these should be displayed on all pages.
 const DEFAULT_KEYWORDS = ["dev-caspertheghost", "casper iversen", "ghostybot", "snaily cad"];
 
 const defaults: Props = {

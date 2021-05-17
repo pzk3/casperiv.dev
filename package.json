@@ -7,7 +7,7 @@
     "build": "next build && next-sitemap",
     "start": "next start",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\""
+    "lint": "eslint ./src --ext .tsx,.ts,.jsx,.js"
   },
   "dependencies": {
     "@casper124578/useful": "^0.0.9",
@@ -30,6 +30,7 @@
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
+    "@casper124578/eslint-config": "^0.0.2",
     "@types/express-rate-limit": "^5.1.1",
     "@types/node": "^15.0.2",
     "@types/nodemailer": "^6.4.1",

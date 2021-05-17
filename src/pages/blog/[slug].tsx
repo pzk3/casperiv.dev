@@ -18,7 +18,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
   React.useEffect(() => {
     const mdLinks = document.querySelectorAll<HTMLAnchorElement>("#react-markdown a");
 
-    // Open all links in a new tab & add `rel="noopener noreferrer" to anchor element`
+    // open all links in a new tab & add `rel="noopener noreferrer" to anchor element`
     mdLinks.forEach((link) => {
       link.rel = "noopener noreferrer";
       link.target = "_blank";
