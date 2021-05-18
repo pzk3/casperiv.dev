@@ -30,7 +30,8 @@
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
-    "@casper124578/eslint-config": "^0.0.2",
+    "@casper124578/eslint-config": "^0.0.5",
+    "@casper124578/eslint-config-react": "0.0.1-alpha",
     "@types/express-rate-limit": "^5.1.1",
     "@types/node": "^15.0.2",
     "@types/nodemailer": "^6.4.1",

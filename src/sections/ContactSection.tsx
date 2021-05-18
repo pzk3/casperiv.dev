@@ -27,9 +27,9 @@ const ContactSection: React.FC = () => {
     fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {
       method: "POST",
       body: JSON.stringify({
-        name: name,
+        name,
         text: message,
-        email: email,
+        email,
       }),
     })
       .then(async (res) => {
@@ -96,7 +96,7 @@ const ContactSection: React.FC = () => {
             onChange={(e) => setMessage(e.target.value)}
             className="form__input"
             required
-          ></textarea>
+          />
         </div>
 
         <div>

@@ -89,9 +89,9 @@ const Nav: FC = () => {
 
           <button onClick={handleHamburgerClick} className="hamburger">
             <p className="sr-only">Open Menu</p>
-            <span className="hamburger__item"></span>
-            <span className="hamburger__item"></span>
-            <span className="hamburger__item"></span>
+            <span className="hamburger__item" />
+            <span className="hamburger__item" />
+            <span className="hamburger__item" />
           </button>
         </div>
       </nav>

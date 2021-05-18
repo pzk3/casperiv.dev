@@ -29,7 +29,7 @@ const PostPage: NextPage<Props> = ({ post }) => {
     if (!post) {
       router.push("/404");
     }
-  }, [post]);
+  }, [post, router]);
 
   if (!post) {
     return null;
