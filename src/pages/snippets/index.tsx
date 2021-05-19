@@ -21,11 +21,11 @@ const BlogPage: NextPage<Props> = ({ snippets }) => {
       />
       <h1>Code snippets</h1>
 
-      <div className={styles.blog__items}>
+      <div className={styles.blogItems}>
         {snippets.map((snippet) => {
           return (
             <Link href={`/snippets/${snippet.slug}`} key={snippet.slug}>
-              <a href={`/snippets/${snippet.slug}`} className={styles.blog__item}>
+              <a href={`/snippets/${snippet.slug}`} className={styles.blogItem}>
                 <h2>{snippet.title}</h2>
 
                 <p>{snippet.intro}</p>

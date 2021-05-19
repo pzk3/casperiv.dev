@@ -19,7 +19,7 @@ const components = {
   h1: (props) => {
     const slug = getSlug(props);
     return (
-      <h1 className={styles.header_link} id={slug}>
+      <h1 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h1>
     );
@@ -27,7 +27,7 @@ const components = {
   h2: (props) => {
     const slug = getSlug(props);
     return (
-      <h2 className={styles.header_link} id={slug}>
+      <h2 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h2>
     );
@@ -35,7 +35,7 @@ const components = {
   h3: (props) => {
     const slug = getSlug(props);
     return (
-      <h3 className={styles.header_link} id={slug}>
+      <h3 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h3>
     );
@@ -43,7 +43,7 @@ const components = {
   h4: (props) => {
     const slug = getSlug(props);
     return (
-      <h4 className={styles.header_link} id={slug}>
+      <h4 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h4>
     );
@@ -51,7 +51,7 @@ const components = {
   h5: (props) => {
     const slug = getSlug(props);
     return (
-      <h5 className={styles.header_link} id={slug}>
+      <h5 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h5>
     );
@@ -59,7 +59,7 @@ const components = {
   h6: (props) => {
     const slug = getSlug(props);
     return (
-      <h6 className={styles.header_link} id={slug}>
+      <h6 className={styles.headerLink} id={slug}>
         {props.children} <HeaderLink slug={slug} />
       </h6>
     );
@@ -74,7 +74,7 @@ const components = {
 
 const ReactMarkdown: React.FC<{ content: string }> = ({ content }) => {
   return (
-    <Markdown components={components} linkTarget="_blank" className={styles.react__markdown}>
+    <Markdown components={components} linkTarget="_blank" className={styles.reactMarkdown}>
       {content}
     </Markdown>
   );

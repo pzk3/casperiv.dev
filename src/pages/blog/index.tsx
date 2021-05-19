@@ -21,11 +21,11 @@ const BlogPage: NextPage<Props> = ({ posts }) => {
       />
       <h1>Blog posts</h1>
 
-      <div className={styles.blog__items}>
+      <div className={styles.blogItems}>
         {posts.map((post) => {
           return (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
-              <a href={`/blog/${post.slug}`} className={styles.blog__item}>
+              <a href={`/blog/${post.slug}`} className={styles.blogItem}>
                 <h2>{post.title}</h2>
 
                 <p>{post.intro}</p>

@@ -30,20 +30,20 @@ interface Props {
 
 export const ExperienceItem: React.FC<Props> = ({ item }: Props) => {
   return (
-    <div className={styles.experience__item}>
+    <div className={styles.experienceItem}>
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={item.href}
-        className={styles.experience__title}
+        className={styles.experienceTitle}
       >
         <h1>{item.title}</h1>
         <p>{item.year}</p>
       </a>
-      <div className={styles.experience__desc}>{item.description}</div>
-      <footer className={styles.experience__stack__container}>
+      <div className={styles.experienceDesc}>{item.description}</div>
+      <footer className={styles.experienceStackContainer}>
         {item.stack.map((st) => (
-          <span key={st} className={styles.experience__stack}>
+          <span key={st} className={styles.experienceStack}>
             {st}
           </span>
         ))}

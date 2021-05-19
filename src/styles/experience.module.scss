@@ -1,8 +1,8 @@
-.experience__item {
+.experienceItem {
   padding: 1.2rem 0;
 }
 
-.experience__title {
+.experienceTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,18 +20,18 @@
   }
 }
 
-.experience__desc {
+.experienceDesc {
   font-size: 1.1rem;
 }
 
-.experience__stack__container {
+.experienceStackContainer {
   display: grid;
   margin-top: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(min(85px, 100%), 1fr));
   gap: 0.5rem;
 }
 
-.experience__stack {
+.experienceStack {
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
   background: var(--dark);

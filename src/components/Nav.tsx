@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useRef, useEffect, FC } from "react";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
+import styles from "css/nav.module.scss";
 
 const Nav: FC = () => {
   const ref = useRef<HTMLDivElement>();
@@ -12,9 +13,9 @@ const Nav: FC = () => {
   useEffect(() => {
     window.onscroll = function updateNav() {
       if (isPageOffset()) {
-        ref.current.classList.add("nav--active");
+        ref.current.classList.add(styles.navActive);
       } else {
-        ref.current.classList.remove("nav--active");
+        ref.current.classList.remove(styles.navActive);
       }
     };
   }, []);
@@ -26,8 +27,8 @@ const Nav: FC = () => {
   }
 
   function handleHamburgerClick() {
-    document.getElementById("menu")?.classList.add("menu__nav--active");
-    document.getElementById("menu__bg")?.classList.add("menu__bg--active");
+    document.getElementById("menu")?.classList.add(styles.menuNavActive);
+    document.getElementById("menu__bg")?.classList.add(styles.menuBgActive);
     document.body.classList.add("disable-scroll");
   }
 
@@ -43,55 +44,55 @@ const Nav: FC = () => {
   }
 
   return (
-    <div className="nav__container">
-      <nav ref={ref} className="nav" id="nav">
-        <div className="nav__content">
-          <h1 className="nav__icon">
+    <div className={styles.navContainer}>
+      <nav ref={ref} className={styles.nav} id="nav">
+        <div className={styles.navContent}>
+          <h1 className={styles.navIcon}>
             <a href="/">
-              Casper <span className="nav__hidden">Iversen</span>
+              Casper <span className={styles.navHidden}>Iversen</span>
             </a>
           </h1>
 
-          <div className="nav__links">
-            <button onClick={handleAboutClick} className="nav__link">
+          <div className={styles.navLinks}>
+            <button onClick={handleAboutClick} className={styles.navLink}>
               About
             </button>
             <Link href={is404 ? "/#skills" : "#skills"}>
-              <a className="nav__link">Skills</a>
+              <a className={styles.navLink}>Skills</a>
             </Link>
             <Link href={is404 ? "/#projects" : "#projects"}>
-              <a className="nav__link">Projects</a>
+              <a className={styles.navLink}>Projects</a>
             </Link>
             <Link href={is404 ? "/#timeline" : "#timeline"}>
-              <a className="nav__link">Timeline</a>
+              <a className={styles.navLink}>Timeline</a>
             </Link>
             <Link href={is404 ? "/#contact" : "#contact"}>
-              <a onClick={dispatch} className="nav__link">
+              <a onClick={dispatch} className={styles.navLink}>
                 Contact
               </a>
             </Link>
             <Link href="/experience">
-              <a href="/experience" className="nav__link">
+              <a href="/experience" className={styles.navLink}>
                 Experience
               </a>
             </Link>
             <Link href="/blog">
-              <a href="/blog" className="nav__link">
+              <a href="/blog" className={styles.navLink}>
                 Blog
               </a>
             </Link>
             <Link href="/snippets">
-              <a href="/snippets" className="nav__link">
+              <a href="/snippets" className={styles.navLink}>
                 Code snippets
               </a>
             </Link>
           </div>
 
-          <button onClick={handleHamburgerClick} className="hamburger">
+          <button onClick={handleHamburgerClick} className={styles.hamburger}>
             <p className="sr-only">Open Menu</p>
-            <span className="hamburger__item" />
-            <span className="hamburger__item" />
-            <span className="hamburger__item" />
+            <span className={styles.hamburgerItem} />
+            <span className={styles.hamburgerItem} />
+            <span className={styles.hamburgerItem} />
           </button>
         </div>
       </nav>

@@ -1,4 +1,4 @@
-.form__group {
+.formGroup {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   }
 }
 
-.form__input {
+.formInput {
   color: var(--text-color);
   font-size: 1rem;
   padding: 0.5rem;
@@ -22,12 +22,12 @@
   min-width: 100%;
 }
 
-.form__small {
+.formSmall {
   font-size: 1rem;
   color: var(--text-color);
   font-style: italic;
 }
 
-.form__link {
+.formLink {
   text-decoration: underline;
 }

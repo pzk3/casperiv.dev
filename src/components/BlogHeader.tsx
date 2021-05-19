@@ -17,11 +17,11 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
   const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
 
   return (
-    <header className={styles.blog__header}>
-      <div className={styles.left__container}>
-        <div className={styles.left__text}>
-          <h1 className={styles.blog__title}>{post.title}</h1>
-          <h2 className={styles.blog__date}>
+    <header className={styles.blogHeader}>
+      <div className={styles.leftContainer}>
+        <div>
+          <h1 className={styles.blogTitle}>{post.title}</h1>
+          <h2 className={styles.blogDate}>
             Created: <span>{createdAt}</span>{" "}
             {post.updatedAt ? (
               <>
@@ -37,7 +37,7 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
         </div>
       </div>
 
-      <div className={styles.right__container}>
+      <div className={styles.rightContainer}>
         <Link href={backUrl}>
           <a href={backUrl}>Return</a>
         </Link>

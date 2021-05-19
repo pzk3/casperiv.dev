@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useWindowEvent } from "@casper124578/useful/hooks/useWindowEvent";
 import ContactModal from "@components/ContactModal";
+import styles from "css/contact.module.scss";
+import { classes } from "src/lib/classes";
 
 const Messages = {
   Success: "Successfully sent your message my way! I should respond soon.",
@@ -64,7 +66,7 @@ const ContactSection: React.FC = () => {
       {open ? <ContactModal onClose={() => setOpen(false)} options={response} /> : null}
       <h1 className="section__title">Contact me</h1>
       <form onSubmit={onSubmit}>
-        <div className="form__group">
+        <div className={styles.formGroup}>
           <label htmlFor="name">Enter your name</label>
           <input
             ref={ref}
@@ -72,35 +74,38 @@ const ContactSection: React.FC = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="form__input"
+            className={styles.formInput}
             required
           />
         </div>
-        <div className="form__group">
+        <div className={styles.formGroup}>
           <label htmlFor="email">Enter your email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form__input"
+            className={styles.formInput}
             required
           />
         </div>
-        <div className="form__group">
+        <div className={styles.formGroup}>
           <label htmlFor="message">Enter message</label>
           <textarea
             rows={5}
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="form__input"
+            className={styles.formInput}
             required
           />
         </div>
 
         <div>
-          <a className="form__small form__link" href="mailto:casper.iversen2@gmail.com">
+          <a
+            className={classes([styles.formSmall, styles.formLink])}
+            href="mailto:casper.iversen2@gmail.com"
+          >
             Send me an email directly
           </a>
           <button style={{ float: "right" }} className="btn btn__light" type="submit">

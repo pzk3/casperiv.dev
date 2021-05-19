@@ -24,7 +24,7 @@ const MDCode: React.FC<Props> = (props) => {
 
   return !inline && match ? (
     <div>
-      <button onClick={handleCopy} className={styles.copy_btn}>
+      <button onClick={handleCopy} className={styles.copyBtn}>
         {btnText}
       </button>
 
