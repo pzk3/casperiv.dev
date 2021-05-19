@@ -1,43 +1,43 @@
-import { useRef, useState, FC } from "react";
+import * as React from "react";
 import timeline from "../data/timeline";
 import TimelineItem from "types/Timeline";
 import ArrowDown from "@components/icons/ArrowDown";
+import styles from "css/timeline.module.scss";
+import { classes } from "@lib/classes";
+import { tooltip } from "css/skills.module.scss";
 
-const TimelineSection: FC = () => {
-  const [viewOlderText, setViewOlderText] = useState<string>("View All");
-  const [length, setLength] = useState<number>(7);
-  const btnRef = useRef<HTMLButtonElement>(null);
+const TimelineSection: React.FC = () => {
+  const [viewOlderText, setViewOlderText] = React.useState<string>("View All");
+  const [length, setLength] = React.useState<number>(7);
 
   function showMore() {
     if (length > 7) {
       setLength(7);
       setViewOlderText("View All");
-      btnRef.current?.classList.remove("active");
     } else {
       setLength(() => timeline.length);
       setViewOlderText("View less");
-      btnRef.current?.classList.add("active");
     }
   }
 
   return (
     <section id="timeline">
       <h1 className="section__title">Timeline</h1>
-      <div className="timeline">
+      <div className={styles.timeline}>
         {timeline.slice(0, length).map((item: TimelineItem, idx: number) => {
-          const side = idx % 2 === 0 ? "left" : "right";
+          const side = idx % 2 === 0 ? styles.left : styles.right;
 
           return (
-            <div key={idx} className={`timeline-item ${side}`}>
+            <div key={idx} className={classes([styles.timelineItem, side])}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href={item.url}
-                className="timeline-item-body"
+                className={styles.timelineItemBody}
               >
-                <header className="timeline-item-header">
+                <header className={styles.timelineItemHeader}>
                   <h1>{item.title}</h1>
-                  <p aria-label={item.full_date} className={item.full_date ? "tooltip" : null}>
+                  <p aria-label={item.full_date} className={item.full_date ? tooltip : null}>
                     {item.date}
                   </p>
                 </header>
@@ -47,9 +47,9 @@ const TimelineSection: FC = () => {
           );
         })}
 
-        <button ref={btnRef} onClick={showMore} className="view-older-btn">
+        <button onClick={showMore} className={styles.viewOlderBtn}>
           {viewOlderText}
-          <ArrowDown />
+          <ArrowDown style={{ transform: viewOlderText === "View less" ? "rotate(180deg)" : "" }} />
         </button>
       </div>
     </section>

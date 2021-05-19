@@ -7,6 +7,7 @@ import ContactSection from "@sections/ContactSection";
 import SkillsSection from "@sections/SkillsSection";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
 import Seo from "@components/Seo";
+import mainStyles from "css/main.module.scss";
 
 const Index: NextPage = () => {
   const age = calculateAge();
@@ -20,22 +21,22 @@ const Index: NextPage = () => {
 
   return (
     <>
-      <main className="main" id="about">
+      <main className={mainStyles.main} id="about">
         <Seo title="Casper Iversen - Web Developer" />
 
-        <div className="main__title">
+        <div className={mainStyles.mainTitle}>
           <h1>I am Casper</h1>
           <h2>Frontend web developer</h2>
         </div>
 
-        <p className="main__text">
+        <p className={mainStyles.mainText}>
           Hello, I am Casper! I am a {age} year old programmer and student. I enjoy programming a
           lot. I&apos;ve created websites, Discord bots, npm packages, etc. I am a self taught
           developer and I have been programming for ~2 years and still learning new technologies
           every day, mostly focusing on React, TypeScript and design.
         </p>
 
-        <div className="btn__container">
+        <div className={mainStyles.btnContainer}>
           <a onClick={dispatch} className="btn btn__light btn__icon" href="#contact">
             <ContactIcon />
             Contact

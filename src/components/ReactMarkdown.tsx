@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import Markdown from "react-markdown";
 import * as React from "react";
 import slugify from "slugify";
