@@ -1,4 +1,4 @@
-.modal__container {
+.modalContainer {
   z-index: 999;
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@
   border-radius: 0.7rem;
 }
 
-.modal__header {
+.modalHeader {
   display: flex;
   font-size: 2rem;
   justify-content: space-between;
@@ -31,7 +31,7 @@
   border-bottom: 1.5px solid var(--text-color);
 }
 
-.close__modal {
+.closeModal {
   display: flex;
   align-items: center;
   width: 45px;
@@ -52,7 +52,7 @@
   }
 }
 
-.modal__body {
+.modalBody {
   font-size: clamp(1rem, 2vw, 1.3rem);
 }
 

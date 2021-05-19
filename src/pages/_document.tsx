@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
 class CasperTheGhostDotMe extends Document {
