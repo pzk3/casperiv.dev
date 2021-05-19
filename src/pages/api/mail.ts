@@ -9,10 +9,10 @@ const limiter = rateLimit({
 });
 
 function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
-  return new Promise((resolve, rej) => {
+  return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
-        return rej(result);
+        return reject(result);
       }
 
       return resolve(result);

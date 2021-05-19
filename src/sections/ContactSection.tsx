@@ -26,39 +26,40 @@ const ContactSection: React.FC = () => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-        text: message,
-        email,
-      }),
-    })
-      .then(async (res) => {
-        if (res.status === 429) {
-          setOpen(true);
-          return setResponse({
-            title: "Error!",
-            body: Messages.RateLimit,
-          });
-        }
-        const data = await res.json();
-
-        if (data.status === "success") {
-          setOpen(true);
-          setEmail("");
-          setName("");
-          setMessage("");
-          setResponse({ title: "Success!", body: Messages.Success });
-        } else {
-          setOpen(true);
-          setResponse({ title: "Error!", body: data.error || data });
-        }
-      })
-      .catch(() => {
-        setResponse({ title: "Error!", body: "An error occurred" });
-        setOpen(true);
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          text: message,
+          email,
+        }),
       });
+
+      if (res.status === 429) {
+        setOpen(true);
+        return setResponse({
+          title: "Error!",
+          body: Messages.RateLimit,
+        });
+      }
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        setOpen(true);
+        setEmail("");
+        setName("");
+        setMessage("");
+        setResponse({ title: "Success!", body: Messages.Success });
+      } else {
+        setOpen(true);
+        setResponse({ title: "Error!", body: data.error || data });
+      }
+    } catch (e) {
+      setResponse({ title: "Error!", body: "An error occurred" });
+      setOpen(true);
+    }
   }
 
   return (
