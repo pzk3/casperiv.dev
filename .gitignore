@@ -41,6 +41,3 @@ yarn-error.log*
 # remove service workers, will be present when running `npm run build`.
 public/*.js
 public/*.js.map
-
-# these are used for typed scss modules. Don't push this to github
-src/styles/**.d.ts
