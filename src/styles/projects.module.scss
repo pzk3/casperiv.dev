@@ -38,6 +38,11 @@
   }
 }
 
+.projectItem:focus-within {
+  box-shadow: 0 8px 16px 0 rgb(22, 27, 34, 0.3);
+  transform: translateY(-0.2rem);
+}
+
 @media (hover: hover) {
   .projectItem:hover {
     box-shadow: 0 8px 16px 0 rgb(22, 27, 34, 0.3);
