@@ -46,7 +46,11 @@ const MdHtml = () => {
 
   return (
     <div className={styles.mdHtmlContainer}>
-      <Seo title="Markdown to HTML/HTML to markdown converter - Casper Iversen" />
+      <Seo
+        title="Markdown to HTML/HTML to markdown converter - Casper Iversen"
+        description="Convert Markdown to HTML or HTML to Markdown"
+        url="https://caspertheghost.me/utils/md-html"
+      />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
