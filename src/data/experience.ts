@@ -13,7 +13,7 @@ const experience: Experience[] = [
     title: "Ghostybot",
     year: "07/2019 - Present",
     description:
-      "A Discord bot for communities for helping them with automating things such as welcoming people, giving roles, playing music and more.",
+      "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
     stack: ["mongodb", "typescript", "next.js"],
     href: "https://ghostybot.tk",
   },

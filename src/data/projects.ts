@@ -75,7 +75,7 @@ const projects: Project[] = [
   {
     title: "GhostyBot",
     description:
-      "A Discord bot with a lot of commands for Discord communities. (+180 commands) Economy, util, fun, music, admin and xp system ",
+      "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
     buttons: [
       {
         url: `${url}/ghostybot`,

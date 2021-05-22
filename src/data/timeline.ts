@@ -105,8 +105,7 @@ const timeline: TimelineItem[] = [
   {
     date: "July 2020",
     title: "GhostyBot",
-    text:
-      "Recreated my right Discord bot and made it even better, learned a lot from my right mistakes.",
+    text: "Recreated my right Discord bot and made it even better, learned a lot from my mistakes.",
     url: "https://github.com/dev-caspertheghost/ghostybot",
     full_date: "July 20, 2020",
   },
