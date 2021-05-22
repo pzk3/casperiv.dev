@@ -39,6 +39,11 @@ const config = {
         destination: "/blog/setting-up-snailycad-windows",
         permanent: true,
       },
+      {
+        source: "/markdown",
+        destination: "/utils/md-html",
+        permanent: true,
+      },
     ];
   },
   async headers() {

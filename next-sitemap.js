@@ -2,4 +2,5 @@
 module.exports = {
   siteUrl: "https://caspertheghost.me",
   generateRobotsTxt: true, // (optional)
+  exclude: ["utils/**"],
 };
