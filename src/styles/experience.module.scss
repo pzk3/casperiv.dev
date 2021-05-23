@@ -1,3 +1,13 @@
+.header {
+  > h1 {
+    margin-bottom: 0;
+  }
+  > p {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
 .experienceItem {
   padding: 1.2rem 0;
 }

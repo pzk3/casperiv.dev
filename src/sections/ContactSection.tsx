@@ -104,7 +104,7 @@ const ContactSection: React.FC = () => {
 
         <div>
           <a
-            className={classes([styles.formSmall, styles.formLink])}
+            className={classes(styles.formSmall, styles.formLink)}
             href="mailto:hello@caspertheghost.me"
           >
             Send me an email directly

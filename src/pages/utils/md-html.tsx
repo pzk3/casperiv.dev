@@ -16,7 +16,7 @@ type Types = "html-to-markdown" | "markdown-to-html";
 const MdHtml = () => {
   const [value, setValue] = React.useState("");
   const [result, setResult] = React.useState("");
-  const [type, setType] = React.useState<Types>("markdown-to-html");
+  const [type, setType] = React.useState<Types>("html-to-markdown");
   const [btnText, setBtnText] = React.useState("Copy");
   const valueRef = React.useRef<HTMLTextAreaElement>(null);
 

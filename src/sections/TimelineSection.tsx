@@ -28,7 +28,7 @@ const TimelineSection: React.FC = () => {
           const side = idx % 2 === 0 ? styles.left : styles.right;
 
           return (
-            <div key={idx} className={classes([styles.timelineItem, side])}>
+            <div key={idx} className={classes(styles.timelineItem, side)}>
               <a
                 target="_blank"
                 rel="noopener noreferrer"

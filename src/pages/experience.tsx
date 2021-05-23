@@ -14,8 +14,10 @@ const ExperiencePage: NextPage = () => {
         description="My experience - Casper Iversen"
       />
 
-      <div>
+      <div className={styles.header}>
         <h1>My Experience</h1>
+        <p>The list below shows my most active experiences starting from 2018.</p>
+
         {experience.map((item) => {
           return <ExperienceItem key={item.title} item={item} />;
         })}
