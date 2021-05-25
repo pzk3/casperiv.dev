@@ -4,32 +4,28 @@ const timeline: TimelineItem[] = [
   {
     date: "May 2021",
     title: "@casper124578/mysql.ts",
-    text:
-      "Created yet another npm package called '@casper124578/mysql.ts'. A wrapper to interact with MySQL databases with ease",
+    text: "Created yet another npm package called '@casper124578/mysql.ts'. A wrapper to interact with MySQL databases with ease",
     url: "https://npm.im/@casper124578/mysql.ts",
     full_date: "May 7, 2021",
   },
   {
     date: "May 2021",
     title: "@casper124578/useful",
-    text:
-      "Created another npm package called '@casper124578/useful'. This package includes useful React hooks and functions",
+    text: "Created another npm package called '@casper124578/useful'. This package includes useful React hooks and functions",
     url: "https://npm.im/@casper124578/useful",
     full_date: "May 1, 2021",
   },
   {
     date: "April 2021",
     title: "Pastebin clone",
-    text:
-      "Created a Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators. Again, an amazing developer experience 💻",
+    text: "Created a Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators. Again, an amazing developer experience 💻",
     url: "https://paste.caspertheghost.me",
     full_date: "April 25, 2021",
   },
   {
     date: "April 2021",
     title: "ctgs.ga",
-    text:
-      "Created a simple URL shortener using Next.js, FaunaDB and tailwindCSS. Very fun and great developer experience 👨‍💻!",
+    text: "Created a simple URL shortener using Next.js, FaunaDB and tailwindCSS. Very fun and great developer experience 👨‍💻!",
     url: "https://ctgs.ga",
     full_date: "April 6, 2021",
   },
@@ -131,8 +127,7 @@ const timeline: TimelineItem[] = [
   {
     date: "March 2020",
     title: "Quarantine",
-    text:
-      "Quarantine was pretty cool, had a lot of time to learn more about ReactJs and could work on a lot of projects!",
+    text: "Quarantine was pretty cool, had a lot of time to learn more about ReactJs and could work on a lot of projects!",
   },
   {
     date: "End 2019 - Present",

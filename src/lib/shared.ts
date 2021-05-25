@@ -19,7 +19,7 @@ export function getAllItems<T extends Post>(type: Types, fields: Fields<T> = [])
     .map((slug) => getItemBySlug<T>(slug, type, fields))
     .sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
-  return (posts as unknown) as Pick<T, keyof T>[];
+  return posts as unknown as Pick<T, keyof T>[];
 }
 
 export function getItemBySlug<T = unknown>(

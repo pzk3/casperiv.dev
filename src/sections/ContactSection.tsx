@@ -15,6 +15,7 @@ const ContactSection: React.FC = () => {
   const [message, setMessage] = React.useState("");
   const [open, setOpen] = React.useState<boolean>(false);
   const [response, setResponse] = React.useState<{ title: string; body: string }>(null);
+  const [loading, setLoading] = React.useState(false);
   const ref = React.useRef<HTMLInputElement>(null);
 
   const focusHandler = () => {
@@ -27,6 +28,8 @@ const ContactSection: React.FC = () => {
     e.preventDefault();
 
     try {
+      setLoading(true);
+
       const res = await fetch(process.env.NEXT_PUBLIC_CONTACT_URL, {
         method: "POST",
         body: JSON.stringify({
@@ -59,6 +62,8 @@ const ContactSection: React.FC = () => {
     } catch (e) {
       setResponse({ title: "Error!", body: "An error occurred" });
       setOpen(true);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -110,7 +115,7 @@ const ContactSection: React.FC = () => {
             Send me an email directly
           </a>
           <button style={{ float: "right" }} className="btn btn__light" type="submit">
-            Submit
+            {loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </form>

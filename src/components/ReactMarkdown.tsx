@@ -63,12 +63,12 @@ const components = {
       </h6>
     );
   },
-  p: (dynamic(() => import("./Markdown/Paragraph"), {
+  p: dynamic(() => import("./Markdown/Paragraph"), {
     loading: () => <>Loading text..</>,
-  }) as unknown) as () => Element,
-  code: (dynamic(() => import("./Markdown/Code"), {
+  }) as unknown as () => Element,
+  code: dynamic(() => import("./Markdown/Code"), {
     loading: () => <>Loading code..</>,
-  }) as unknown) as () => Element,
+  }) as unknown as () => Element,
 };
 
 const ReactMarkdown: React.FC<{ content: string }> = ({ content }) => {

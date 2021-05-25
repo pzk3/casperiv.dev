@@ -4,14 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
     "@casper124578/eslint-config",
     "@casper124578/eslint-config-react",
-    "prettier"
+    "@casper124578/eslint-config-next"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,13 +17,5 @@
     },
     "ecmaVersion": 12,
     "sourceType": "module"
-  },
-  "rules": {
-    "prettier/prettier": [
-      "warn",
-      {
-        "endOfLine": "auto"
-      }
-    ]
   }
 }
