@@ -68,7 +68,7 @@ ${body.text}`,
       return;
     }
     default: {
-      return res.json({ error: "Method not allowed", status: "error" });
+      return res.redirect("/404");
     }
   }
 }
