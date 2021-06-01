@@ -33,10 +33,10 @@
   },
   "devDependencies": {
     "@casper124578/eslint-config": "^0.0.12",
-    "@casper124578/eslint-config-next": "^0.0.1",
+    "@casper124578/eslint-config-next": "^0.0.2",
     "@casper124578/eslint-config-react": "0.0.4",
     "@types/express-rate-limit": "^5.1.1",
-    "@types/node": "^15.0.2",
+    "@types/node": "^15.6.1",
     "@types/nodemailer": "^6.4.1",
     "@types/react": "^17.0.5",
     "@types/react-syntax-highlighter": "^13.5.0",
