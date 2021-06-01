@@ -42,7 +42,7 @@
     "@types/react-syntax-highlighter": "^13.5.0",
     "@types/showdown": "^1.9.3",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
+    "@typescript-eslint/parser": "^4.26.0",
     "concurrently": "^6.1.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
