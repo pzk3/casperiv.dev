@@ -41,12 +41,13 @@
 
 .btnContainer a {
   margin: 0;
-  transition: 200ms;
+  transition: filter 200ms, transform 200ms;
 }
 
 .btnContainer a:hover,
-.btn:focus {
+.btnContainer a:focus {
   transform: translateY(-0.2rem);
+  filter: brightness(150%);
 }
 
 @media (min-width: 768px) {
@@ -54,6 +55,7 @@
     display: flex;
     justify-content: center;
   }
+
   .btnContainer .btn:nth-child(2n + 2) {
     margin: 0 10px;
   }

@@ -50,17 +50,6 @@ a {
 * {
   font-family: "Catamaran", sans-serif;
   box-sizing: border-box;
-  outline: 1px dotted transparent;
-  outline-offset: 2px;
-
-  &:focus {
-    outline-color: gray;
-  }
-
-  &:focus-visible {
-    border-radius: 0.2rem;
-    outline: 2px solid #c4cccc;
-  }
 }
 
 .container {
