@@ -1,7 +1,7 @@
 import * as React from "react";
+import Head from "next/head";
 import mdStyles from "css/utils/md-html.module.scss";
 import contactStyles from "css/contact.module.scss";
-import Head from "next/head";
 import Seo from "@components/Seo";
 
 type NumberString = `${number}`;

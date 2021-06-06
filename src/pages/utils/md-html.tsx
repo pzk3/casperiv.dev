@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Converter } from "showdown";
-import styles from "css/utils/md-html.module.scss";
 import Head from "next/head";
+import styles from "css/utils/md-html.module.scss";
 import Seo from "@components/Seo";
 
 const converter = new Converter({
