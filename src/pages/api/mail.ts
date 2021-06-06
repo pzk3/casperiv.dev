@@ -59,7 +59,7 @@ ${body.text}`,
 
       transporter.sendMail(mail, (err) => {
         if (err) {
-          console.log(err);
+          console.error(err);
           return res.json({ error: "An error occurred when sending the email" });
         }
 

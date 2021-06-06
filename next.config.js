@@ -44,6 +44,11 @@ const config = {
         destination: "/utils/md-html",
         permanent: true,
       },
+      {
+        source: "/per",
+        destination: "/utils/percentage-calculator",
+        permanent: true,
+      },
     ];
   },
   async headers() {
