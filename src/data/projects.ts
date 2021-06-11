@@ -6,6 +6,17 @@ const OPEN_PROJECT = "Open Project";
 
 const projects: Project[] = [
   {
+    title: "Home inventory",
+    description:
+      "A home inventory app to keep track of items in your home (food items, tech, medical supplies, etc.).",
+    buttons: [
+      {
+        url: `${url}/home-inventory`,
+        name: VIEW_CODE,
+      },
+    ],
+  },
+  {
     title: "pastebin clone",
     description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
     buttons: [
@@ -84,21 +95,6 @@ const projects: Project[] = [
       {
         name: OPEN_PROJECT,
         url: "https://ghostybot.tk",
-      },
-    ],
-  },
-  {
-    title: "Statistics Dashboard",
-    description:
-      "A fully responsive statistics dashboard made with plain CSS, HTML and a little bit of JavaScript",
-    buttons: [
-      {
-        url: `${url}/css-statistic-dashboard`,
-        name: VIEW_CODE,
-      },
-      {
-        name: OPEN_PROJECT,
-        url: "https://dev-caspertheghost.github.io/css-statistic-dashboard/",
       },
     ],
   },

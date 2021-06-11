@@ -2,6 +2,13 @@ import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "June 2021",
+    title: "home-inventory",
+    text: "Created a project called 'home-inventory' to keep track of items in your home (food items, tech, medical supplies, etc.). Started this project to learn more and keep track of stuff in my house 😄.",
+    url: "https://github.com/dev-caspertheghost/home-inventory",
+    full_date: "May 7, 2021",
+  },
+  {
     date: "May 2021",
     title: "@casper124578/mysql.ts",
     text: "Created yet another npm package called '@casper124578/mysql.ts'. A wrapper to interact with MySQL databases with ease",
