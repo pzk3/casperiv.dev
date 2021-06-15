@@ -64,9 +64,6 @@ const config = {
       },
     ];
   },
-  future: {
-    webpack5: true,
-  },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       config.resolve.alias = {
