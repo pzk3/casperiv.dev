@@ -26,6 +26,8 @@ class CasperTheGhostDotMe extends Document {
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="@casper124578" />
+
+          <meta name="author" content="Casper Iversen" />
         </Head>
         <body>
           <script>0</script>
