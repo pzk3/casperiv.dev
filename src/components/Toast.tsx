@@ -15,52 +15,52 @@ export const Toast = (props: Props) => {
   const portal = usePortal("Toast");
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const [shouldClose, setShouldClose] = React.useState(true);
+  const handleCloseAnimation = React.useCallback(
+    (ms: number) => {
+      const timeouts = [];
+
+      if (ref.current) {
+        const timeout1 = setTimeout(() => {
+          // first animate the removal of the toast
+          ref.current.classList.add(styles.toastHidden);
+        }, ms);
+
+        // then fully close the toast
+        const timeout2 = setTimeout(() => {
+          props.onClose();
+
+          // +500ms, 500ms is the time to animate the toast
+        }, ms + 500);
+
+        // so these can be cleared when the component un-mounts
+        timeouts.push(timeout1, timeout2);
+      }
+
+      return () => {
+        timeouts.forEach(clearTimeout);
+      };
+    },
+    [props],
+  );
 
   React.useEffect(() => {
-    const timeouts = [];
+    const handler = handleCloseAnimation(props.closeAfterMs);
 
-    if (props.closeAfterMs && shouldClose && ref.current) {
-      const timeout1 = setTimeout(() => {
-        // first animate the removal of the toast
-        ref.current.classList.add(styles.toastHidden);
-      }, props.closeAfterMs);
-
-      // then fully close the toast
-      const timeout2 = setTimeout(() => {
-        props.onClose();
-
-        // +500ms, 500ms is the time to animate the toast
-      }, props.closeAfterMs + 500);
-
-      // so these can be cleared when the component un-mounts
-      timeouts.push(timeout1, timeout2);
-    }
-
-    return () => {
-      timeouts.forEach(clearTimeout);
-    };
-  }, [shouldClose, props]);
+    return handler();
+  }, [handleCloseAnimation, props.closeAfterMs]);
 
   function handleClick() {
     if (!props.active) return;
     if (!props.onClose) return;
 
-    props.onClose();
+    handleCloseAnimation(1);
   }
 
   if (!portal) return null;
 
   // do this so it doesn't take time to create the portal initially.
   const html = props.active ? (
-    <div
-      ref={ref}
-      onMouseOut={() => setShouldClose(true)}
-      onMouseEnter={() => setShouldClose(false)}
-      onMouseOver={() => setShouldClose(false)}
-      onClick={handleClick}
-      className={styles.toast}
-    >
+    <div ref={ref} onClick={handleClick} className={styles.toast}>
       <p>{props.message}</p>
     </div>
   ) : (
