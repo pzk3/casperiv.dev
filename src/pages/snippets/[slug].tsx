@@ -37,6 +37,9 @@ const PostPage = ({ snippet }: Props) => {
       />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
+
+        <meta name="authors" content="Casper Iversen" />
+        <meta name="created" content={snippet.createdAt} />
       </Head>
 
       <BlogHeader post={snippet} />
