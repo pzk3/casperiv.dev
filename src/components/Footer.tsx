@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "css/footer.module.scss";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>

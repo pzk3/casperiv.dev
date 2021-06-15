@@ -1,10 +1,9 @@
-import { NextPage } from "next";
 import experience from "../data/experience";
 import Experience from "types/Experience";
 import styles from "css/experience.module.scss";
 import Seo from "@components/Seo";
 
-const ExperiencePage: NextPage = () => {
+const ExperiencePage = () => {
   return (
     <>
       <Seo
@@ -30,7 +29,7 @@ interface Props {
   item: Experience;
 }
 
-export const ExperienceItem: React.FC<Props> = ({ item }: Props) => {
+export const ExperienceItem = ({ item }: Props) => {
   return (
     <div className={styles.experienceItem}>
       <a

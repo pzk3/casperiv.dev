@@ -1,12 +1,12 @@
 import * as React from "react";
 import timeline from "../data/timeline";
 import TimelineItem from "types/Timeline";
-import ArrowDown from "@components/icons/ArrowDown";
+import { ArrowDown } from "@components/icons/ArrowDown";
 import styles from "css/timeline.module.scss";
 import { classes } from "@lib/classes";
 import { tooltip } from "css/skills.module.scss";
 
-const TimelineSection: React.FC = () => {
+const TimelineSection = () => {
   const [viewOlderText, setViewOlderText] = React.useState<string>("View All");
   const [length, setLength] = React.useState<number>(7);
 

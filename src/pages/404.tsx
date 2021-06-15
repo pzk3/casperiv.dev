@@ -1,8 +1,7 @@
-import { NextPage } from "next";
 import Head from "next/head";
 import styles from "css/404.module.scss";
 
-const Custom404: NextPage = () => {
+const Custom404 = () => {
   return (
     <>
       <Head>

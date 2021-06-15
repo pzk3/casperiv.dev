@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { FC } from "react";
-import XIcon from "./icons/XIcon";
+import { XIcon } from "./icons/XIcon";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import styles from "css/nav.module.scss";
 
-const Menu: FC = () => {
+const Menu = () => {
   const router = useRouter();
   const is404 = router.pathname !== "/";
   const { dispatch } = useEmitEvent("focusOnContact", true);

@@ -1,26 +1,27 @@
 import * as React from "react";
 import { useWindowEvent } from "@casper124578/useful/hooks/useWindowEvent";
-import ContactModal from "@components/ContactModal";
 import styles from "css/contact.module.scss";
 import { classes } from "src/lib/classes";
+import { Toast } from "@components/Toast";
 
 const Messages = {
   Success: "Successfully sent your message my way! I should respond soon.",
   RateLimit: "Too many requests, please slow wait 15 more minutes before sending a new mail",
+  UnknownError: "An unexpected error occurred! Please try again later.",
 };
 
-const ContactSection: React.FC = () => {
+const ContactSection = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
-  const [open, setOpen] = React.useState<boolean>(false);
-  const [response, setResponse] = React.useState<{ title: string; body: string }>(null);
   const [loading, setLoading] = React.useState(false);
+  const [toast, setToast] = React.useState({ active: false, message: "" });
+
   const ref = React.useRef<HTMLInputElement>(null);
 
-  const focusHandler = () => {
+  function focusHandler() {
     ref.current.focus();
-  };
+  }
 
   useWindowEvent("focusOnContact", focusHandler);
 
@@ -40,28 +41,22 @@ const ContactSection: React.FC = () => {
       });
 
       if (res.status === 429) {
-        setOpen(true);
-        return setResponse({
-          title: "Error!",
-          body: Messages.RateLimit,
-        });
+        return setToast({ active: true, message: Messages.RateLimit });
       }
 
       const data = await res.json();
 
       if (data.status === "success") {
-        setOpen(true);
+        setToast({ active: true, message: Messages.Success });
+
         setEmail("");
         setName("");
         setMessage("");
-        setResponse({ title: "Success!", body: Messages.Success });
       } else {
-        setOpen(true);
-        setResponse({ title: "Error!", body: data.error || data });
+        setToast({ active: true, message: data?.error || Messages.UnknownError });
       }
     } catch (e) {
-      setResponse({ title: "Error!", body: "An error occurred" });
-      setOpen(true);
+      setToast({ active: true, message: Messages.UnknownError });
     } finally {
       setLoading(false);
     }
@@ -69,7 +64,13 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact">
-      {open ? <ContactModal onClose={() => setOpen(false)} options={response} /> : null}
+      <Toast
+        closeAfterMs={5000}
+        active={toast.active}
+        message={toast.message}
+        onClose={() => setToast({ active: false, message: "" })}
+      />
+
       <h1 className="section__title">Contact me</h1>
       <form onSubmit={onSubmit}>
         <div className={styles.formGroup}>
@@ -114,7 +115,12 @@ const ContactSection: React.FC = () => {
           >
             Send me an email directly
           </a>
-          <button style={{ float: "right" }} className="btn btn__light" type="submit">
+          <button
+            disabled={loading}
+            style={{ float: "right" }}
+            className="btn btn__light"
+            type="submit"
+          >
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>

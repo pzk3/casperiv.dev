@@ -1,9 +1,9 @@
-import { FC } from "react";
+import * as React from "react";
 import projects from "../data/projects";
 import Project from "types/Project";
 import styles from "css/projects.module.scss";
 
-const ProjectSection: FC = () => {
+const ProjectSection = () => {
   return (
     <section id="projects">
       <h1 className="section__title">Projects</h1>

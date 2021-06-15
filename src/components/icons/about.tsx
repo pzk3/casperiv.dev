@@ -1,4 +1,4 @@
-export const ContactIcon: React.FC = () => {
+export const ContactIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -17,7 +17,7 @@ export const ContactIcon: React.FC = () => {
   );
 };
 
-export const GitHubIcon: React.FC = () => {
+export const GitHubIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -36,7 +36,7 @@ export const GitHubIcon: React.FC = () => {
   );
 };
 
-export const TwitterIcon: React.FC = () => {
+export const TwitterIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -55,7 +55,7 @@ export const TwitterIcon: React.FC = () => {
   );
 };
 
-export const LinkedInIcon: React.FC = () => {
+export const LinkedInIcon = () => {
   return (
     <svg
       aria-hidden="true"

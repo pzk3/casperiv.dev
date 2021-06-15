@@ -18,7 +18,7 @@ const defaults: Props = {
   keywords: [],
 };
 
-const Seo: React.FC<Props> = (props) => {
+const Seo = (props: Props) => {
   const tags = {
     ...defaults,
     ...props,

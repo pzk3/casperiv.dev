@@ -1,16 +1,16 @@
+import * as React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useRef, useEffect, FC } from "react";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import styles from "css/nav.module.scss";
 
-const Nav: FC = () => {
-  const ref = useRef<HTMLDivElement>();
+const Nav = () => {
+  const ref = React.useRef<HTMLDivElement>();
   const router = useRouter();
   const is404 = router.pathname !== "/";
   const { dispatch } = useEmitEvent("focusOnContact", true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.onscroll = function updateNav() {
       if (isPageOffset()) {
         ref.current.classList.add(styles.navActive);

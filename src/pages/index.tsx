@@ -1,5 +1,4 @@
 import * as React from "react";
-import { NextPage } from "next";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import TimelineSection from "@sections/TimelineSection";
 import ProjectSection from "@sections/ProjectsSection";
@@ -9,7 +8,7 @@ import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about
 import Seo from "@components/Seo";
 import mainStyles from "css/main.module.scss";
 
-const Index: NextPage = () => {
+const Index = () => {
   const age = calculateAge();
   const { dispatch } = useEmitEvent("focusOnContact", true);
 

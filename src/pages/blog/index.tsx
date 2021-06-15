@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
 import { Post } from "types/Post";
@@ -10,7 +10,7 @@ interface Props {
   posts: Post[];
 }
 
-const BlogPage: NextPage<Props> = ({ posts }) => {
+const BlogPage = ({ posts }: Props) => {
   return (
     <>
       <Seo

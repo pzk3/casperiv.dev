@@ -10,7 +10,7 @@ interface Props {
   post: Post | Snippet;
 }
 
-const BlogHeader: React.FC<Props> = ({ post }) => {
+const BlogHeader = ({ post }: Props) => {
   const createdAt = format(new Date(post.createdAt), "yyyy-MM-dd");
   const updatedAt = format(new Date(post.updatedAt), "yyyy-MM-dd");
   const router = useRouter();

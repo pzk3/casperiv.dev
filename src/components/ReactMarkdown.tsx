@@ -71,7 +71,11 @@ const components = {
   }) as unknown as () => Element,
 };
 
-const ReactMarkdown: React.FC<{ content: string }> = ({ content }) => {
+interface Props {
+  content: string;
+}
+
+const ReactMarkdown = ({ content }: Props) => {
   return (
     <Markdown components={components} linkTarget="_blank" className={styles.reactMarkdown}>
       {content}

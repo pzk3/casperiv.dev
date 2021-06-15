@@ -57,15 +57,14 @@ ${body.text}`,
         cc: process.env.EXTRA_EMAIL,
       };
 
-      transporter.sendMail(mail, (err) => {
+      await transporter.sendMail(mail, (err) => {
         if (err) {
           console.error(err);
           return res.json({ error: "An error occurred when sending the email" });
         }
-
-        return res.json({ status: "success" });
       });
-      return;
+
+      return res.json({ status: "success" });
     }
     default: {
       return res.redirect("/404");

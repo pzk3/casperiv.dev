@@ -1,4 +1,6 @@
-const XIcon: React.FC = () => {
+type Props = React.SVGAttributes<SVGElement>;
+
+export const XIcon = (props: Props) => {
   return (
     <svg
       width="1em"
@@ -6,6 +8,7 @@ const XIcon: React.FC = () => {
       viewBox="0 0 16 16"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         fillRule="evenodd"
@@ -14,5 +17,3 @@ const XIcon: React.FC = () => {
     </svg>
   );
 };
-
-export default XIcon;

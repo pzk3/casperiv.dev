@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
 import { getAllItems } from "src/lib/shared";
@@ -10,7 +10,7 @@ interface Props {
   snippets: Snippet[];
 }
 
-const BlogPage: NextPage<Props> = ({ snippets }) => {
+const BlogPage = ({ snippets }: Props) => {
   return (
     <>
       <Seo

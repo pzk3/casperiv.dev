@@ -3,11 +3,12 @@ import Image from "next/image";
 import { imageSizes } from "types/ImageSizes";
 
 interface Props {
+  children: React.ReactNode;
   inline: boolean;
   className: string;
 }
 
-const MDParagraph: React.FC<Props> = (props) => {
+const MDParagraph = (props: Props) => {
   const hasImage = (props.children as Array<Record<string, unknown>>).find(
     (c) => typeof c !== "string" && c.type === "img",
   );

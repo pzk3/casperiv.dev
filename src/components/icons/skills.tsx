@@ -1,4 +1,4 @@
-export const TypescriptIcon: React.FC = () => {
+export const TypescriptIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
       <path
@@ -9,7 +9,7 @@ export const TypescriptIcon: React.FC = () => {
   );
 };
 
-export const JavaScriptIcon: React.FC = () => {
+export const JavaScriptIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -28,7 +28,7 @@ export const JavaScriptIcon: React.FC = () => {
   );
 };
 
-export const NodejsIcon: React.FC = () => {
+export const NodejsIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -47,7 +47,7 @@ export const NodejsIcon: React.FC = () => {
   );
 };
 
-export const HtmlIcon: React.FC = () => {
+export const HtmlIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -66,7 +66,7 @@ export const HtmlIcon: React.FC = () => {
   );
 };
 
-export const CSSIcon: React.FC = () => {
+export const CSSIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -85,7 +85,7 @@ export const CSSIcon: React.FC = () => {
   );
 };
 
-export const ReactIcon: React.FC = () => {
+export const ReactIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -104,7 +104,7 @@ export const ReactIcon: React.FC = () => {
   );
 };
 
-export const BootstrapIcon: React.FC = () => {
+export const BootstrapIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -123,7 +123,7 @@ export const BootstrapIcon: React.FC = () => {
   );
 };
 
-export const DatabaseIcon: React.FC = () => {
+export const DatabaseIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -142,7 +142,7 @@ export const DatabaseIcon: React.FC = () => {
   );
 };
 
-export const NpmIcon: React.FC = () => {
+export const NpmIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -161,7 +161,7 @@ export const NpmIcon: React.FC = () => {
   );
 };
 
-export const TerminalIcon: React.FC = () => {
+export const TerminalIcon = () => {
   return (
     <svg
       aria-hidden="true"
@@ -180,7 +180,7 @@ export const TerminalIcon: React.FC = () => {
   );
 };
 
-export const GitIcon: React.FC = () => {
+export const GitIcon = () => {
   return (
     <svg
       aria-hidden="true"

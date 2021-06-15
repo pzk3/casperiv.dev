@@ -1,4 +1,4 @@
-import { FC } from "react";
+import * as React from "react";
 import {
   BootstrapIcon,
   CSSIcon,
@@ -15,7 +15,7 @@ import {
 import styles from "css/skills.module.scss";
 import { classes } from "src/lib/classes";
 
-const SkillsSection: FC = () => {
+const SkillsSection = () => {
   return (
     <section id="skills">
       <h1 className="section__title">My Backpack</h1>

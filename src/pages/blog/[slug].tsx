@@ -1,5 +1,5 @@
 import BlogHeader from "@components/BlogHeader";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -12,7 +12,7 @@ interface Props {
   post: Post;
 }
 
-const PostPage: NextPage<Props> = ({ post }) => {
+const PostPage = ({ post }: Props) => {
   const router = useRouter();
 
   React.useEffect(() => {

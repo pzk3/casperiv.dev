@@ -1,10 +1,10 @@
-import LinkIcon from "./icons/Link";
+import { LinkIcon } from "./icons/Link";
 
 interface Props {
   slug: string;
 }
 
-const HeaderLink: React.FC<Props> = ({ slug }) => {
+const HeaderLink = ({ slug }: Props) => {
   return (
     <a href={`#${slug}`}>
       <LinkIcon />

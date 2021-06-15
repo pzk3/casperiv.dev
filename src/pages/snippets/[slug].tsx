@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import * as React from "react";
 import { getAllItems, getItemBySlug } from "src/lib/shared";
@@ -11,7 +11,7 @@ interface Props {
   snippet: Snippet;
 }
 
-const PostPage: NextPage<Props> = ({ snippet }) => {
+const PostPage = ({ snippet }: Props) => {
   React.useEffect(() => {
     const mdLinks = document.querySelectorAll<HTMLAnchorElement>("#react-markdown a");
 

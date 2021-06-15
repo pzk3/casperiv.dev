@@ -4,11 +4,12 @@ import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
 import styles from "css/blog.module.scss";
 
 interface Props {
+  children: React.ReactNode;
   inline: boolean;
   className: string;
 }
 
-const MDCode: React.FC<Props> = (props) => {
+const MDCode = (props: Props) => {
   const { inline, className, children } = props;
   const match = /language-(\w+)/.exec(className || "");
   const text = String(children).replace(/\n$/, "");
