@@ -65,7 +65,7 @@ const ContactSection = () => {
   return (
     <section id="contact">
       <Toast
-        closeAfterMs={2000}
+        closeAfterMs={5000}
         active={toast.active}
         message={toast.message}
         onClose={() => setToast({ active: false, message: "" })}
