@@ -25,7 +25,7 @@
 }
 
 .projectItemFooter {
-  padding-top: 0.5rem;
+  margin-top: 1.5rem;
   display: flex;
 
   a {
@@ -35,6 +35,10 @@
 
   @media (max-width: 400px) {
     flex-direction: column;
+
+    a {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 

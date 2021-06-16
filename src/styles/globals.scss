@@ -6,13 +6,19 @@
   --content-width: 90%;
 }
 
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  padding: 0;
-  margin: 0;
   font-weight: 400;
   color: var(--text-color);
   background: var(--bg);

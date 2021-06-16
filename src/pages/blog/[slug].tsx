@@ -71,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const slug = `${ctx.params.slug}`;
+  const slug = ctx.params.slug.toString();
   const exists = getAllItems("posts", ["slug"]).find(
     (p) => p?.slug?.toLowerCase() === slug?.toLowerCase(),
   );

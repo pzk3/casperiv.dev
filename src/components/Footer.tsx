@@ -19,7 +19,7 @@ const Footer = () => {
         <p>
           Created by{" "}
           <a href="https://github.com/dev-caspertheghost/caspertheghost.me">CasperTheGhost</a> with
-          ❤️, Colors: GitHub dark mode
+          ❤️, Colors: GitHub dark mode. Built with <a href="https://nextjs.org">Next.js</a>
         </p>
 
         <div className={styles.footerLinks}>
