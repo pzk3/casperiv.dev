@@ -46,6 +46,10 @@ const PostPage = ({ post }: Props) => {
       />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
+
+        {/* why not "author": https://github.com/postlight/mercury-parser/blob/HEAD/src/extractors/generic/author/constants.js#L5 */}
+        <meta name="authors" content="Casper Iversen" />
+        <meta name="created" content={post.createdAt} />
       </Head>
 
       <BlogHeader post={post} />
