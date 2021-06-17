@@ -4,7 +4,7 @@ import * as React from "react";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
 import Seo from "@components/Seo";
-import { getAllItems } from "src/lib/shared";
+import { getAllItems } from "@lib/shared";
 
 interface Props {
   posts: Post[];
@@ -39,7 +39,7 @@ const BlogPage = ({ posts }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllItems<Post>("posts", ["slug", "title", "createdAt", "intro"]);
+  const posts = await getAllItems<Post>("posts", ["slug", "title", "createdAt", "intro"]);
 
   return {
     props: {

@@ -54,15 +54,13 @@ const PostPage = ({ post }: Props) => {
 
       <BlogHeader post={post} />
 
-      <div id="react-markdown">
-        <ReactMarkdown content={post.content} />
-      </div>
+      <ReactMarkdown content={post.mdxSource} />
     </>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllItems<Post>("posts", ["slug"]);
+  const posts = await getAllItems<Post>("posts", ["slug"]);
 
   return {
     fallback: false,
@@ -76,19 +74,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params.slug.toString();
-  const exists = getAllItems("posts", ["slug"]).find(
-    (p) => p?.slug?.toLowerCase() === slug?.toLowerCase(),
-  );
 
-  if (!exists) {
-    return {
-      props: {
-        post: null,
-      },
-    };
-  }
-
-  const post = getItemBySlug<Post>(slug, "posts", [
+  const post = await getItemBySlug<Post>(slug, "posts", [
     "content",
     "createdAt",
     "updatedAt",
@@ -97,11 +84,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     "intro",
     "keywords",
     "readingTime",
+    "mdxSource",
   ]);
 
   return {
     props: {
-      post,
+      post: post ?? null,
     },
   };
 };

@@ -1,13 +1,13 @@
-import Markdown from "react-markdown";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import * as React from "react";
 import slugify from "slugify";
-import styles from "css/blog.module.scss";
-import HeaderLink from "./HeaderLink";
 import dynamic from "next/dynamic";
 
+import styles from "css/blog.module.scss";
+import HeaderLink from "./HeaderLink";
+
 function getSlug(props): string {
-  const node = props.node.children?.[0]?.value;
-  return slugify(node, {
+  return slugify(props.children, {
     lower: true,
     replacement: "-",
     strict: true,
@@ -63,7 +63,10 @@ const components = {
       </h6>
     );
   },
-  p: dynamic(() => import("./Markdown/Paragraph"), {
+  a: dynamic(() => import("./Markdown/Link"), {
+    loading: () => <>Loading links..</>,
+  }) as unknown as () => Element,
+  Image: dynamic(() => import("./Markdown/Image"), {
     loading: () => <>Loading text..</>,
   }) as unknown as () => Element,
   code: dynamic(() => import("./Markdown/Code"), {
@@ -72,14 +75,14 @@ const components = {
 };
 
 interface Props {
-  content: string;
+  content: MDXRemoteSerializeResult<Record<string, unknown>>;
 }
 
 const ReactMarkdown = ({ content }: Props) => {
   return (
-    <Markdown components={components} linkTarget="_blank" className={styles.reactMarkdown}>
-      {content}
-    </Markdown>
+    <main className={styles.reactMarkdown}>
+      <MDXRemote {...content} components={components} />
+    </main>
   );
 };
 

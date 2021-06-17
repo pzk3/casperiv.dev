@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
-import { getAllItems } from "src/lib/shared";
+import { getAllItems } from "@lib/shared";
 import styles from "css/blog.module.scss";
 import Seo from "@components/Seo";
 import { Snippet } from "types/Snippet";
@@ -39,7 +39,7 @@ const BlogPage = ({ snippets }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets = getAllItems<Snippet>("snippets", ["slug", "title", "createdAt", "intro"]);
+  const snippets = await getAllItems<Snippet>("snippets", ["slug", "title", "createdAt", "intro"]);
 
   return {
     props: {
