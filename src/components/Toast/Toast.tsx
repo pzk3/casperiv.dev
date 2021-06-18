@@ -22,7 +22,7 @@ export const Toast = (props: Props) => {
       if (ref.current) {
         const timeout1 = setTimeout(() => {
           // first animate the removal of the toast
-          ref.current.classList.add(styles.toastHidden);
+          ref.current?.classList.add(styles.toastHidden);
         }, ms);
 
         // then fully close the toast
@@ -36,17 +36,17 @@ export const Toast = (props: Props) => {
         timeouts.push(timeout1, timeout2);
       }
 
-      return () => {
-        timeouts.forEach(clearTimeout);
-      };
+      return timeouts;
     },
     [props],
   );
 
   React.useEffect(() => {
-    const handler = handleCloseAnimation(props.closeAfterMs);
+    const timeouts = handleCloseAnimation(props.closeAfterMs);
 
-    return handler();
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
   }, [handleCloseAnimation, props.closeAfterMs]);
 
   function handleClick() {
