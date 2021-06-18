@@ -5,7 +5,7 @@ import ProjectSection from "@sections/ProjectsSection";
 import ContactSection from "@sections/ContactSection";
 import SkillsSection from "@sections/SkillsSection";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
-import Seo from "@components/Seo";
+import { Seo } from "@components/Seo";
 import mainStyles from "css/main.module.scss";
 
 const Index = () => {

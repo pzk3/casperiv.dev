@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "css/footer.module.scss";
+import styles from "./footer.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
@@ -49,5 +49,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

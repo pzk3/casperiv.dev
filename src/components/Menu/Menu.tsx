@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { XIcon } from "./icons/XIcon";
+import { XIcon } from "@icons/XIcon";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
-import styles from "css/nav.module.scss";
+import styles from "./menu.module.scss";
 
-const Menu = () => {
+export const Menu = () => {
   const router = useRouter();
   const is404 = router.pathname !== "/";
   const { dispatch } = useEmitEvent("focusOnContact", true);
@@ -67,5 +67,3 @@ const Menu = () => {
     </>
   );
 };
-
-export default Menu;

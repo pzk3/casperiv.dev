@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import * as React from "react";
 import { getAllItems, getItemBySlug } from "src/lib/shared";
 import { Post } from "types/Post";
-import Seo from "@components/Seo";
+import { Seo } from "@components/Seo";
 import ReactMarkdown from "@components/ReactMarkdown";
 
 interface Props {

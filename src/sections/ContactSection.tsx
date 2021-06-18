@@ -2,7 +2,7 @@ import * as React from "react";
 import { useWindowEvent } from "@casper124578/useful/hooks/useWindowEvent";
 import styles from "css/contact.module.scss";
 import { classes } from "src/lib/classes";
-import { Toast } from "@components/Toast";
+import { Toast } from "@components/index";
 
 const Messages = {
   Success: "Successfully sent your message my way! I should respond soon.",

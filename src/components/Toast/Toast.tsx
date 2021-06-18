@@ -1,7 +1,7 @@
 import * as React from "react";
 import { usePortal } from "@casper124578/useful";
 import { createPortal } from "react-dom";
-import styles from "css/toast.module.scss";
+import styles from "./toast.module.scss";
 
 interface Props {
   message: string;

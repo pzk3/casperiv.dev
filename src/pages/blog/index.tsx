@@ -3,7 +3,7 @@ import Link from "next/link";
 import * as React from "react";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
-import Seo from "@components/Seo";
+import { Seo } from "@components/Seo";
 import { getAllItems } from "@lib/shared";
 
 interface Props {

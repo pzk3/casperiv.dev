@@ -3,9 +3,10 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
-import styles from "css/nav.module.scss";
+import styles from "./nav.module.scss";
+import { menuNavActive, menuBgActive } from "@components/Menu/menu.module.scss";
 
-const Nav = () => {
+export const Nav = () => {
   const ref = React.useRef<HTMLDivElement>();
   const router = useRouter();
   const is404 = router.pathname !== "/";
@@ -28,8 +29,8 @@ const Nav = () => {
   }
 
   function handleHamburgerClick() {
-    document.getElementById("menu")?.classList.add(styles.menuNavActive);
-    document.getElementById("menu__bg")?.classList.add(styles.menuBgActive);
+    document.getElementById("menu")?.classList.add(menuNavActive);
+    document.getElementById("menu__bg")?.classList.add(menuBgActive);
     document.body.classList.add("disable-scroll");
   }
 
@@ -100,5 +101,3 @@ const Nav = () => {
     </div>
   );
 };
-
-export default Nav;

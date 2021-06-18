@@ -57,14 +57,16 @@ ${body.text}`,
         cc: process.env.EXTRA_EMAIL,
       };
 
-      await transporter.sendMail(mail, (err) => {
-        if (err) {
-          console.error(err);
-          return res.json({ error: "An error occurred when sending the email" });
-        }
-      });
+      try {
+        await transporter.sendMail(mail);
 
-      return res.json({ status: "success" });
+        return res.json({ status: "success" });
+      } catch (e) {
+        return res.json({
+          status: "error",
+          error: "An unexpected error occurred. Please try again later.",
+        });
+      }
     }
     default: {
       return res.redirect("/404");

@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import * as React from "react";
 import { getAllItems, getItemBySlug } from "@lib/shared";
-import Seo from "@components/Seo";
+import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";
 import BlogHeader from "@components/BlogHeader";
 import ReactMarkdown from "@components/ReactMarkdown";
