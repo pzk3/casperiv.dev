@@ -8,3 +8,4 @@ export const disableScroll: string;
 export const next: string;
 export const sectionTitle: string;
 export const srOnly: string;
+export const tooltipOverwrite: string;

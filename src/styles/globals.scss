@@ -148,3 +148,10 @@ a {
     --content-width: 1400px;
   }
 }
+
+.tooltip-overwrite {
+  color: var(--text-color) !important;
+  background-color: var(--secondary) !important;
+  font-size: 1rem !important;
+  border-radius: 0.5rem !important;
+}

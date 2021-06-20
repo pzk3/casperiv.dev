@@ -1,10 +1,10 @@
 import * as React from "react";
+import ReactTooltip from "react-tooltip";
 import timeline from "../data/timeline";
 import TimelineItem from "types/Timeline";
 import { ArrowDown } from "@components/icons/ArrowDown";
 import styles from "css/timeline.module.scss";
 import { classes } from "@lib/classes";
-import { tooltip } from "css/skills.module.scss";
 
 const TimelineSection = () => {
   const [viewOlderText, setViewOlderText] = React.useState<string>("View All");
@@ -37,9 +37,23 @@ const TimelineSection = () => {
               >
                 <header className={styles.timelineItemHeader}>
                   <h1>{item.title}</h1>
-                  <p aria-label={item.full_date} className={item.full_date ? tooltip : null}>
+
+                  <p data-tip data-for={`timeline-item-${idx}`}>
                     {item.date}
                   </p>
+
+                  {item.full_date ? (
+                    <ReactTooltip
+                      id={`timeline-item-${idx}`}
+                      place="top"
+                      effect="solid"
+                      className="tooltip-overwrite"
+                      offset={{ top: 10 }}
+                      arrowColor="transparent"
+                    >
+                      {item.full_date}
+                    </ReactTooltip>
+                  ) : null}
                 </header>
                 {item.text}
               </a>

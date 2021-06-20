@@ -34,30 +34,3 @@
     font-size: 1.1rem;
   }
 }
-
-.tooltip {
-  &:hover::after {
-    opacity: 1;
-  }
-
-  &::after {
-    text-align: center;
-    z-index: 20;
-    position: absolute;
-    content: attr(aria-label);
-    opacity: 0;
-    width: 100%;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity 200ms;
-    background: var(--secondary);
-    color: var(--text-color);
-    padding: 7px 10px;
-    border-radius: 0.5rem;
-    box-shadow: 0 8px 16px rgb(22, 27, 34, 0.2);
-    pointer-events: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-}
