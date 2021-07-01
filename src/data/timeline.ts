@@ -3,6 +3,13 @@ import TimelineItem from "types/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "June 2021",
+    title: "FreeCodeCamp",
+    text: "Started doing some more courses on FreeCodeCamp and got their Responsive Web Design Certificate!",
+    url: "https://www.freecodecamp.org/certification/fcc968322b7-44c5-4410-bae5-6b2964c87f4f/responsive-web-design",
+    full_date: "June 28, 2021",
+  },
+  {
+    date: "June 2021",
     title: "home-inventory",
     text: "Created a project called 'home-inventory' to keep track of items in your home (food items, tech, medical supplies, etc.). Started this project to learn more and keep track of stuff in my house 😄.",
     url: "https://github.com/dev-caspertheghost/home-inventory",

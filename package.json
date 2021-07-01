@@ -12,14 +12,14 @@
     "build:typed-css": "tsm src -w"
   },
   "dependencies": {
-    "@casper124578/useful": "^0.0.12",
+    "@casper124578/useful": "^0.0.13",
     "date-fns": "^2.22.1",
     "express-rate-limit": "^5.2.6",
     "gray-matter": "^4.0.3",
-    "next": "^11.0.0",
+    "next": "^11.0.1",
     "next-mdx-remote": "^3.0.2",
     "next-pwa": "^5.2.21",
-    "next-sitemap": "^1.6.116",
+    "next-sitemap": "^1.6.124",
     "nodemailer": "^6.6.2",
     "nprogress": "^0.2.0",
     "preact": "^10.5.13",
@@ -35,25 +35,25 @@
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
-    "@casper124578/eslint-config": "^0.0.14",
-    "@casper124578/eslint-config-next": "^0.0.3",
+    "@casper124578/eslint-config": "^0.0.15",
+    "@casper124578/eslint-config-next": "^0.0.4",
     "@casper124578/eslint-config-react": "0.0.5",
     "@types/express-rate-limit": "^5.1.2",
-    "@types/node": "^15.12.2",
+    "@types/node": "^15.12.5",
     "@types/nodemailer": "^6.4.2",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
-    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/react-syntax-highlighter": "^13.5.1",
     "@types/showdown": "^1.9.3",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
     "concurrently": "^6.2.0",
-    "eslint": "^7.28.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
-    "prettier": "^2.3.1",
+    "prettier": "^2.3.2",
     "typed-scss-modules": "^4.1.1",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.5"
   }
 }
