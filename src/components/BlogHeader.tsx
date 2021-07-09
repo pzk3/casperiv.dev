@@ -1,6 +1,4 @@
-import Link from "next/link";
 import * as React from "react";
-import { useRouter } from "next/router";
 import format from "date-fns/format";
 import { Post } from "types/Post";
 import styles from "css/blog.module.scss";
@@ -11,10 +9,7 @@ interface Props {
 }
 
 const BlogHeader = ({ post }: Props) => {
-  const createdAt = format(new Date(post.createdAt), "yyyy-MM-dd");
-  const updatedAt = format(new Date(post.updatedAt), "yyyy-MM-dd");
-  const router = useRouter();
-  const backUrl = router.pathname.includes("/snippets") ? "/snippets" : "/blog";
+  const createdAt = format(new Date(post.createdAt), "MMMM dd, yyyy");
 
   return (
     <header className={styles.blogHeader}>
@@ -22,12 +17,7 @@ const BlogHeader = ({ post }: Props) => {
         <div>
           <h1 className={styles.blogTitle}>{post.title}</h1>
           <h2 className={styles.blogDate}>
-            Created: <span>{createdAt}</span>{" "}
-            {post.updatedAt ? (
-              <>
-                - Last updated: <span>{updatedAt}</span>
-              </>
-            ) : null}
+            Casper Iversen <span>•</span> {createdAt}{" "}
             {post.readingTime ? (
               <>
                 - <span>{post.readingTime}</span>
@@ -35,12 +25,6 @@ const BlogHeader = ({ post }: Props) => {
             ) : null}
           </h2>
         </div>
-      </div>
-
-      <div className={styles.rightContainer}>
-        <Link href={backUrl}>
-          <a href={backUrl}>Return</a>
-        </Link>
       </div>
     </header>
   );

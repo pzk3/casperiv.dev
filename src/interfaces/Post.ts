@@ -1,5 +1,3 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-
 export interface Post {
   title: string | null;
   createdAt: string | null;
@@ -9,5 +7,7 @@ export interface Post {
   intro: string | null;
   keywords: string | null;
   readingTime: number;
-  mdxSource: MDXRemoteSerializeResult<Record<string, unknown>>;
+  frontmatter: {
+    [key: string]: any;
+  };
 }

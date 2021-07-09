@@ -1,9 +1,11 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
+import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
 import { Post } from "types/Post";
+
+import slugPlugin from "remark-slug";
 
 export function getSlugsFromDir(dir: string): string[] {
   return fs.readdirSync(dir);
@@ -37,22 +39,23 @@ export async function getItemBySlug<T = unknown>(
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-  const { text } = readingTime(content);
 
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
+  const { code: content, frontmatter } = await bundleMDX(fileContents, {
+    xdmOptions: (options) => {
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), slugPlugin];
+
+      return options;
     },
-    scope: data,
   });
+
+  const { data } = matter(fileContents);
+  const { text } = readingTime(content);
 
   return fields.reduce((acc, curr) => {
     if (curr === "slug") return { ...acc, slug: realSlug };
     if (curr === "content") return { ...acc, content };
     if (curr === "readingTime") return { ...acc, readingTime: text };
-    if (curr === "mdxSource") return { ...acc, mdxSource };
+    if (curr === "frontmatter") return { ...acc, frontmatter };
 
     return { ...acc, [curr]: data[curr as string] ?? null };
   }, {} as PickT<T>);

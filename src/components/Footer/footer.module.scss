@@ -19,23 +19,23 @@
   @media (max-width: 450px) {
     text-align: center;
     flex-direction: column;
-  }
-}
 
-.footerIcon {
-  width: 100px;
-  height: 100px;
-
-  @media (max-width: 1050px) {
-    display: none;
+    .footerLinks {
+      margin-top: 1rem;
+    }
   }
 }
 
 .footerLinks {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   a {
     font-size: 1.1rem;
+    margin: 0 0.2rem;
+  }
+
+  @media (max-width: 635px) {
+    flex-direction: column;
   }
 }

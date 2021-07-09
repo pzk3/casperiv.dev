@@ -54,7 +54,7 @@ const PostPage = ({ post }: Props) => {
 
       <BlogHeader post={post} />
 
-      <ReactMarkdown content={post.mdxSource} />
+      <ReactMarkdown content={post.content} />
     </>
   );
 };
@@ -84,7 +84,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     "intro",
     "keywords",
     "readingTime",
-    "mdxSource",
   ]);
 
   return {

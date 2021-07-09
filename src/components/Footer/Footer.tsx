@@ -1,25 +1,15 @@
-import Image from "next/image";
 import styles from "./footer.module.scss";
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        <div className={styles.footerIcon}>
-          <Image
-            decoding="async"
-            loading="lazy"
-            src="/icons/icon-1080.png"
-            alt="footer"
-            width="100"
-            height="100"
-          />
-        </div>
-
         <p>
           Created by{" "}
           <a href="https://github.com/dev-caspertheghost/caspertheghost.me">CasperTheGhost</a> with
-          ❤️, Colors: GitHub dark mode. Built with <a href="https://nextjs.org">Next.js</a>
+          ❤️
+          <br />
+          Colors: GitHub dark mode. Built with <a href="https://nextjs.org">Next.js</a>
         </p>
 
         <div className={styles.footerLinks}>

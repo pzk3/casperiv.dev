@@ -1,7 +1,7 @@
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import * as React from "react";
 import slugify from "slugify";
 import dynamic from "next/dynamic";
+import { getMDXComponent } from "mdx-bundler/client";
 
 import styles from "css/blog.module.scss";
 import HeaderLink from "./HeaderLink";
@@ -75,13 +75,15 @@ const components = {
 };
 
 interface Props {
-  content: MDXRemoteSerializeResult<Record<string, unknown>>;
+  content: string;
 }
 
 const ReactMarkdown = ({ content }: Props) => {
+  const Component = React.useMemo(() => getMDXComponent(content), [content]);
+
   return (
     <main className={styles.reactMarkdown}>
-      <MDXRemote {...content} components={components} />
+      <Component components={components as any} />
     </main>
   );
 };

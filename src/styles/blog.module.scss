@@ -21,18 +21,15 @@
 }
 
 .blogTitle {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 0;
 }
 
 .blogDate {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
   font-weight: normal;
-}
-
-.blogDate span {
-  font-weight: bold;
+  opacity: 0.9;
 }
 
 .rightContainer a {
@@ -128,7 +125,9 @@
   }
 
   li {
-    margin-left: 1.2rem;
+    margin-bottom: 0.3rem;
+    margin-left: 1.5rem;
+    list-style-type: "- ";
   }
 }
 

@@ -41,7 +41,7 @@ const PostPage = ({ snippet }: Props) => {
 
       <BlogHeader post={snippet} />
 
-      <ReactMarkdown content={snippet.mdxSource} />
+      <ReactMarkdown content={snippet.content} />
     </>
   );
 };
@@ -70,7 +70,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     "keywords",
     "intro",
     "updatedAt",
-    "mdxSource",
   ]);
 
   return {
