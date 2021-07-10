@@ -6,6 +6,7 @@ import readingTime from "reading-time";
 import { Post } from "types/Post";
 
 import slugPlugin from "remark-slug";
+import gfm from "remark-gfm";
 
 export function getSlugsFromDir(dir: string): string[] {
   return fs.readdirSync(dir);
@@ -23,14 +24,16 @@ export async function getAllItems<T extends Post>(
     /\.mdx?$/.test(v),
   );
 
-  const posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<T>(slug, type, fields)));
+  const posts = await Promise.all(
+    slugs.map(async (slug) => getBlogOrSnippetBySlug<T>(slug, type, fields)),
+  );
 
   posts.sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
   return posts as unknown as Pick<T, keyof T>[];
 }
 
-export async function getItemBySlug<T = unknown>(
+export async function getBlogOrSnippetBySlug<T = unknown>(
   slug: string,
   type: Types,
   fields: Fields<T> = [],
@@ -42,7 +45,7 @@ export async function getItemBySlug<T = unknown>(
 
   const { code: content, frontmatter } = await bundleMDX(fileContents, {
     xdmOptions: (options) => {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), slugPlugin];
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), slugPlugin, gfm];
 
       return options;
     },

@@ -1,14 +1,14 @@
 import * as React from "react";
 import format from "date-fns/format";
 import { Post } from "types/Post";
-import styles from "css/blog.module.scss";
+import styles from "./header.module.scss";
 import { Snippet } from "types/Snippet";
 
 interface Props {
   post: Post | Snippet;
 }
 
-const BlogHeader = ({ post }: Props) => {
+export const BlogHeader = ({ post }: Props) => {
   const createdAt = format(new Date(post.createdAt), "MMMM dd, yyyy");
 
   return (
@@ -29,5 +29,3 @@ const BlogHeader = ({ post }: Props) => {
     </header>
   );
 };
-
-export default BlogHeader;

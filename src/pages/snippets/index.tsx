@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import * as React from "react";
-import { getAllItems } from "@lib/shared";
+import { getAllItems } from "@lib/blog";
 import styles from "css/blog.module.scss";
 import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";

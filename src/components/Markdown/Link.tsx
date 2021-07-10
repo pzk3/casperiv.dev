@@ -8,15 +8,15 @@ interface Props {
 }
 
 function Link(props: Props) {
-  if (props.internal) {
-    return <NextLink href={props.href}>{props.children}</NextLink>;
+  if (props.href.startsWith("http")) {
+    return (
+      <a href={props.href} target="_blank" rel="noopener noreferrer">
+        {props.children}
+      </a>
+    );
   }
 
-  return (
-    <a href={props.href} target="_blank" rel="noopener noreferrer">
-      {props.children}
-    </a>
-  );
+  return <NextLink href={props.href}>{props.children}</NextLink>;
 }
 
 export default Link;

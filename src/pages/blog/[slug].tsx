@@ -1,9 +1,9 @@
-import BlogHeader from "@components/BlogHeader";
+import { BlogHeader } from "@components/BlogHeader";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as React from "react";
-import { getAllItems, getItemBySlug } from "src/lib/shared";
+import { getAllItems, getBlogOrSnippetBySlug } from "@lib/blog";
 import { Post } from "types/Post";
 import { Seo } from "@components/Seo";
 import ReactMarkdown from "@components/ReactMarkdown";
@@ -14,16 +14,6 @@ interface Props {
 
 const PostPage = ({ post }: Props) => {
   const router = useRouter();
-
-  React.useEffect(() => {
-    const mdLinks = document.querySelectorAll<HTMLAnchorElement>("#react-markdown a");
-
-    // open all links in a new tab & add `rel="noopener noreferrer" to anchor element`
-    mdLinks.forEach((link) => {
-      link.rel = "noopener noreferrer";
-      link.target = "_blank";
-    });
-  }, []);
 
   React.useEffect(() => {
     if (!post) {
@@ -75,7 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params.slug.toString();
 
-  const post = await getItemBySlug<Post>(slug, "posts", [
+  const post = await getBlogOrSnippetBySlug<Post>(slug, "posts", [
     "content",
     "createdAt",
     "updatedAt",

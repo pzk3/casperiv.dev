@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { getMDXComponent } from "mdx-bundler/client";
 
 import styles from "css/blog.module.scss";
-import HeaderLink from "./HeaderLink";
+import { HeaderLink } from "./HeaderLink";
 
 function getSlug(props): string {
   return slugify(props.children, {
