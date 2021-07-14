@@ -11,3 +11,4 @@ Third version of my portfolio
 - Better understanding of scss
 - Better understanding of next.js
 - Better understanding of SEO
+
