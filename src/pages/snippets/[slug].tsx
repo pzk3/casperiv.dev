@@ -5,29 +5,19 @@ import { getAllItems, getBlogOrSnippetBySlug } from "@lib/blog";
 import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";
 import { BlogHeader } from "@components/BlogHeader";
-import ReactMarkdown from "@components/ReactMarkdown";
+import { Markdown } from "@components/Markdown";
 
 interface Props {
   snippet: Snippet;
 }
 
 const PostPage = ({ snippet }: Props) => {
-  React.useEffect(() => {
-    const mdLinks = document.querySelectorAll<HTMLAnchorElement>("#react-markdown a");
-
-    // open all links in a new tab & add `rel="noopener noreferrer" to anchor element`
-    mdLinks.forEach((link) => {
-      link.rel = "noopener noreferrer";
-      link.target = "_blank";
-    });
-  }, []);
-
   const keywords = snippet.keywords?.split(", ") ?? [];
 
   return (
     <>
       <Seo
-        title={`${snippet.title} - Casper's Code Snippets`}
+        title={`${snippet.title} - Casper Iversen`}
         description={snippet.intro ?? undefined}
         keywords={["code snippets", "snippets casper iversen", ...keywords]}
         url={`https://caspertheghost.me/snippets/${snippet.slug}`}
@@ -41,7 +31,7 @@ const PostPage = ({ snippet }: Props) => {
 
       <BlogHeader post={snippet} />
 
-      <ReactMarkdown content={snippet.content} />
+      <Markdown content={snippet.content} />
     </>
   );
 };

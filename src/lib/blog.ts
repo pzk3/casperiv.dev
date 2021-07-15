@@ -1,6 +1,5 @@
 import fs from "fs";
 import { join } from "path";
-import matter from "gray-matter";
 import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
 import { Post } from "types/Post";
@@ -51,7 +50,6 @@ export async function getBlogOrSnippetBySlug<T = unknown>(
     },
   });
 
-  const { data } = matter(fileContents);
   const { text } = readingTime(content);
 
   return fields.reduce((acc, curr) => {
@@ -60,6 +58,6 @@ export async function getBlogOrSnippetBySlug<T = unknown>(
     if (curr === "readingTime") return { ...acc, readingTime: text };
     if (curr === "frontmatter") return { ...acc, frontmatter };
 
-    return { ...acc, [curr]: data[curr as string] ?? null };
+    return { ...acc, [curr]: frontmatter[curr as string] ?? null };
   }, {} as PickT<T>);
 }

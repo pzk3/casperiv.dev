@@ -78,7 +78,7 @@ interface Props {
   content: string;
 }
 
-const ReactMarkdown = ({ content }: Props) => {
+export const Markdown = ({ content }: Props) => {
   const Component = React.useMemo(() => getMDXComponent(content), [content]);
 
   return (
@@ -87,5 +87,3 @@ const ReactMarkdown = ({ content }: Props) => {
     </main>
   );
 };
-
-export default ReactMarkdown;

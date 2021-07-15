@@ -6,7 +6,7 @@ import * as React from "react";
 import { getAllItems, getBlogOrSnippetBySlug } from "@lib/blog";
 import { Post } from "types/Post";
 import { Seo } from "@components/Seo";
-import ReactMarkdown from "@components/ReactMarkdown";
+import { Markdown } from "@components/Markdown";
 
 interface Props {
   post: Post;
@@ -29,7 +29,7 @@ const PostPage = ({ post }: Props) => {
   return (
     <>
       <Seo
-        title={`${post.title} - Casper's Blog`}
+        title={`${post.title} - Casper Iversen`}
         description={post.intro ?? undefined}
         keywords={["blog", "blog casper iversen", ...keywords]}
         url={`https://caspertheghost.me/blog/${post.slug}`}
@@ -44,7 +44,7 @@ const PostPage = ({ post }: Props) => {
 
       <BlogHeader post={post} />
 
-      <ReactMarkdown content={post.content} />
+      <Markdown content={post.content} />
     </>
   );
 };
