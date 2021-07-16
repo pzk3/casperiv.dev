@@ -24,10 +24,6 @@ const projects: Project[] = [
         url: `${url}/faunadb-pastebin-clone`,
         name: VIEW_CODE,
       },
-      {
-        url: "https://paste.caspertheghost.me",
-        name: OPEN_PROJECT,
-      },
     ],
   },
   {
