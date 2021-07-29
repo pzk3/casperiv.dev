@@ -2,6 +2,19 @@ import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "July 2021",
+    title: "Q-Music player",
+    text: "A website to listen to all Q-Music channels in one place with ease!",
+    full_date: "July 28, 2021",
+    url: "https://qmusic-fetcher.vercel.app",
+  },
+  {
+    date: "July 2021",
+    title: "Birthday",
+    text: "This day was my birthday! I had a good day.",
+    full_date: "July 21, 2021",
+  },
+  {
     date: "June 2021",
     title: "FreeCodeCamp",
     text: "Started doing some more courses on FreeCodeCamp and got their Responsive Web Design Certificate!",

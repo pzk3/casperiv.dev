@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://caspertheghost.me</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/experience</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/snippets</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/utils/md-html</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/utils/percentage-calculator</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/snippets/use-mount</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/snippets/use-portal</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/snippets/use-search</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/faunadb-next-js</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/hello-world</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/my-uses</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/pastebin-api</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/setting-up-snailycad-linux</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/setting-up-snailycad-windows</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
-<url><loc>https://caspertheghost.me/blog/update-snailycad</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-09T19:26:02.216Z</lastmod></url>
+<url><loc>https://caspertheghost.me</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/experience</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/snippets</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/utils/md-html</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/utils/percentage-calculator</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/snippets/use-mount</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/snippets/use-portal</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/snippets/use-search</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/faunadb-next-js</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/hello-world</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/my-uses</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/pastebin-api</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/setting-up-snailycad-linux</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/setting-up-snailycad-windows</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
+<url><loc>https://caspertheghost.me/blog/update-snailycad</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-07-15T09:12:10.045Z</lastmod></url>
 </urlset>
