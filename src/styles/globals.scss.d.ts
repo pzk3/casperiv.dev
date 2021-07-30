@@ -1,4 +1,5 @@
 export const btn: string;
+export const btnDark: string;
 export const btnIcon: string;
 export const btnLight: string;
 export const btnLighter: string;

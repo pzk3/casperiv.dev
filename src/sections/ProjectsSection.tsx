@@ -36,7 +36,7 @@ const ProjectItem = ({ project }: Props) => {
             <a
               target="_blank"
               rel="noreferrer noopener"
-              className="btn btn__lighter"
+              className="btn btn__dark"
               href={button.url}
               key={idx}
             >

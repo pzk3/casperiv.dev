@@ -45,6 +45,11 @@
   a {
     text-decoration: underline;
     color: var(--text-color);
+    transition: background 200ms ease-in;
+
+    &:hover {
+      background: var(--dark);
+    }
   }
 
   pre {
@@ -137,7 +142,7 @@
 .blogItem {
   display: block;
   width: 100%;
-  background: #0e131a;
+  background: var(--secondary);
   padding: 0.8rem 1rem;
   border-radius: 0.3rem;
 

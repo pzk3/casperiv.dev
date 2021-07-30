@@ -29,10 +29,10 @@ const Index = () => {
         </div>
 
         <p className={mainStyles.mainText}>
-          Hello, I am Casper! I am a {age} year old programmer and student. I enjoy programming a
-          lot. I&apos;ve created websites, Discord bots, npm packages, etc. I am a self taught
-          developer and I have been programming for ~2 years and still learning new technologies
-          every day, mostly focusing on React, TypeScript and design.
+          Hello, I am Casper! I am a {age} year old programmer and student. I create websites,
+          Discord bots, npm packages, etc. I&apos;m a self taught developer and I have been
+          programming for ~2 years and still learning new technologies every day, mostly focusing on
+          frontend related technologies (preferably ReactJS, TS/JS).
         </p>
 
         <div className={mainStyles.btnContainer}>

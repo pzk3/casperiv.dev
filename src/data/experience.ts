@@ -5,7 +5,7 @@ const experience: Experience[] = [
     title: "Zyndicate",
     year: "01/2021 - Present",
     description:
-      "Working mostly on the frontend. Working on settings, QuickCapture, LifeOS and more!",
+      "Working mostly on the frontend. Working on settings, QuickCapture, LifeOS, Workspace and more!",
     stack: ["react.js", "next.js", "graphql", "typescript"],
     href: "https://zyndicate.app",
   },
