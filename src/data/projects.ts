@@ -90,7 +90,7 @@ const projects: Project[] = [
       },
       {
         name: OPEN_PROJECT,
-        url: "https://ghostybot.tk",
+        url: "https://ghostybot.caspertheghost.me",
       },
     ],
   },
