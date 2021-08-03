@@ -90,12 +90,20 @@ export const Nav = () => {
             </Link>
           </div>
 
-          <button onClick={handleHamburgerClick} className={styles.hamburger}>
-            <p className="sr-only">Open Menu</p>
-            <span className={styles.hamburgerItem} />
-            <span className={styles.hamburgerItem} />
-            <span className={styles.hamburgerItem} />
-          </button>
+          <div className={styles.hamburgerContainer}>
+            <Link href={is404 ? "/#contact" : "#contact"}>
+              <a onClick={dispatch} className={styles.navLink}>
+                Contact
+              </a>
+            </Link>
+
+            <button onClick={handleHamburgerClick} className={styles.hamburger}>
+              <p className="sr-only">Open Menu</p>
+              <span className={styles.hamburgerItem} />
+              <span className={styles.hamburgerItem} />
+              <span className={styles.hamburgerItem} />
+            </button>
+          </div>
         </div>
       </nav>
     </div>

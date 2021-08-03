@@ -1,4 +1,5 @@
 export const hamburger: string;
+export const hamburgerContainer: string;
 export const hamburgerItem: string;
 export const nav: string;
 export const navActive: string;

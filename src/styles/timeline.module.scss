@@ -29,6 +29,7 @@
   display: block;
   position: relative;
   width: 50%;
+  cursor: default;
 
   &::after {
     z-index: 80;

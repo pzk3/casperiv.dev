@@ -58,6 +58,15 @@
   }
 }
 
+.hamburgerContainer {
+  display: flex;
+  align-items: center;
+
+  & a {
+    margin-right: 1rem;
+  }
+}
+
 .hamburger {
   background: none;
   border: none;
