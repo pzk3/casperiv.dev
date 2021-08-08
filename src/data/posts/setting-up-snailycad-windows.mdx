@@ -6,6 +6,13 @@ intro: How to setup SnailyCADv3 on Windows 10 - In-depth guide.
 keywords: snaily-cad, CAD, fivem
 ---
 
+import XamppControlPanel from "public/blog/xampp-control-panel.png";
+import CreateDB from "public/blog/create-database.png";
+import ImportButton from "public/blog/import-button.png";
+import DatabaseBrowse from "public/blog/database-browse.png";
+import CadRootFolder from "public/blog/snaily-cad-root-folder.png";
+import ServerConfig from "public/blog/server-folder-config.png";
+
 # Getting started
 
 This is a Windows guide for installing SnailyCAD. You [can view the Linux (Ubuntu) guide here](/blog/setting-up-snailycad-linux).
@@ -26,7 +33,12 @@ After successfully installing XAMPP, open the XAMPP Control Panel
 
 You should see something like this:
 
-<Image src="/blog/xampp-control-panel.webp" alt="xampp-control-panel" />
+<Image
+  src="/blog/xampp-control-panel.png"
+  alt="xampp-control-panel"
+  placeholder="blur"
+  blurDataURL={XamppControlPanel}
+/>
 
 Now we'll start both `Apache` and `MySQL` by clicking the `Start` button.
 
@@ -38,17 +50,32 @@ Let's create the database and insert the `snaily-cad.sql` file
 
 In the sidebar you can see a link: "New", click that, it should look something like this:
 
-<Image src="/blog/create-database.webp" alt="create-database" />
+<Image
+  alt="create-database"
+  src="/blog/create-database.png"
+  placeholder="blur"
+  blurDataURL={CreateDB}
+/>
 
 Enter `snaily-cad` in the input field then click `Create`.
 
 Once finished creating the database, you can should see a navbar at the top, click the `import` button:
 
-<Image src="/blog/import-button.webp" alt="import-button" />
+<Image
+  alt="import-button"
+  src="/blog/import-button.png"
+  placeholder="blur"
+  blurDataURL={ImportButton}
+/>
 
 Now a new window should appear, click the `browse...` button and select the `snaily-cad.sql` file. It's located in the root folder of SnailyCAD. After selecting it you can click the `Go` button on the bottom right corner.
 
-<Image src="/blog/database-browse.webp" alt="database-browse" />
+<Image
+  src="/blog/database-browse.png"
+  alt="database-browse"
+  placeholder="blur"
+  blurDataURL={DatabaseBrowse}
+/>
 
 🎉 You've successfully setup XAMPP and MySQL for SnailyCAD! If you're experiencing issues, [feel free to join our Discord server](https://discord.gg/eGnrPqEH7U).
 
@@ -80,7 +107,12 @@ Once it has finished installing, you [can open windows file explorer](https://ww
 
 Now you should see the following files and folders:
 
-<Image alt="snaily-cad-root-folder" src="/blog/snaily-cad-root-folder.webp" />
+<Image
+  alt="snaily-cad-root-folder"
+  src="/blog/snaily-cad-root-folder.png"
+  placeholder="blur"
+  blurDataURL={CadRootFolder}
+/>
 
 If you don't see the file extensions (`.js`, `.md`, `.sql`, ...) I [recommend enabling this](https://www.msftnext.com/show-file-extensions-windows-10-explorer/)
 
@@ -90,7 +122,12 @@ Now navigate into the `src` folder and look for the `config.example.ts` file. **
 
 Your server folder should look like this now:
 
-<Image src="/blog/server-folder-config.webp" alt="server-folder-config" />
+<Image
+  src="/blog/server-folder-config.png"
+  alt="server-folder-config"
+  placeholder="blur"
+  blurDataURL={ServerConfig}
+/>
 
 Now open the `config.ts` file with `notepad` or any other text-editor. You can [view more information about what the values mean here](https://github.com/Dev-CasperTheGhost/snaily-cadv3/wiki/Config-file).
 

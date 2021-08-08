@@ -1,4 +1,5 @@
 import * as React from "react";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import format from "date-fns/format";
 import { Post } from "types/Post";
 import styles from "./header.module.scss";
@@ -9,7 +10,8 @@ interface Props {
 }
 
 export const BlogHeader = ({ post }: Props) => {
-  const createdAt = format(new Date(post.createdAt), "MMMM dd, yyyy");
+  const published = formatDistanceToNow(new Date(post.createdAt));
+  const createdAtFull = format(new Date(post.createdAt), "yyyy-MM-dd");
 
   return (
     <header className={styles.blogHeader}>
@@ -17,7 +19,7 @@ export const BlogHeader = ({ post }: Props) => {
         <div>
           <h1 className={styles.blogTitle}>{post.title}</h1>
           <h2 className={styles.blogDate}>
-            Casper Iversen <span>•</span> {createdAt}{" "}
+            <span title={createdAtFull}>Published {published} ago </span>
             {post.readingTime ? (
               <>
                 - <span>{post.readingTime}</span>

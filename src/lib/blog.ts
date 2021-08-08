@@ -48,6 +48,14 @@ export async function getBlogOrSnippetBySlug<T = unknown>(
 
       return options;
     },
+    esbuildOptions: (options) => {
+      options.loader = {
+        ...options.loader,
+        ".png": "dataurl",
+      };
+
+      return options;
+    },
   });
 
   const { text } = readingTime(content);

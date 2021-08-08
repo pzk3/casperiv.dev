@@ -2,7 +2,7 @@ import * as React from "react";
 import format from "date-fns/format";
 import styles from "./footer.module.scss";
 
-async function fetchLastUpdated(setLastUpdated) {
+async function fetchLastUpdated(setLastUpdated: React.Dispatch<React.SetStateAction<string>>) {
   const data = await fetch("https://api.github.com/repos/dev-caspertheghost/caspertheghost.me")
     .then((v) => v.json())
     .catch(() => null);

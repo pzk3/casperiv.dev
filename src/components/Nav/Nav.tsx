@@ -34,17 +34,6 @@ export const Nav = () => {
     document.body.classList.add("disable-scroll");
   }
 
-  function handleAboutClick() {
-    if (is404) {
-      return router.push("/#");
-    }
-    if (isPageOffset()) {
-      window.location.href = "#";
-    } else {
-      window.scrollTo(0, 60);
-    }
-  }
-
   return (
     <div className={styles.navContainer}>
       <nav ref={ref} className={styles.nav} id="nav">
@@ -56,24 +45,10 @@ export const Nav = () => {
           </h1>
 
           <div className={styles.navLinks}>
-            <button onClick={handleAboutClick} className={styles.navLink}>
-              About
-            </button>
-            <Link href={is404 ? "/#skills" : "#skills"}>
-              <a className={styles.navLink}>Skills</a>
-            </Link>
             <Link href={is404 ? "/#projects" : "#projects"}>
               <a className={styles.navLink}>Projects</a>
             </Link>
-            <Link href={is404 ? "/#timeline" : "#timeline"}>
-              <a className={styles.navLink}>Timeline</a>
-            </Link>
-            <Link href={is404 ? "/#contact" : "#contact"}>
-              <a onClick={dispatch} className={styles.navLink}>
-                Contact
-              </a>
-            </Link>
-            <Link href="/experience">
+            <Link scroll href="/experience">
               <a href="/experience" className={styles.navLink}>
                 Experience
               </a>

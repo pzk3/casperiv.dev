@@ -19,6 +19,7 @@ const MdImage = (props: Props) => {
         height={size.height}
         src={props.src}
         alt={props.alt}
+        {...props}
       />
     </div>
   );
