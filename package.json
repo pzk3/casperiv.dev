@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"npm run build:typed-css\"",
+    "dev": "concurrently \"next dev\" \"npm run build:typed-css:w\"",
     "dev1": "next dev",
     "build": "next build && next-sitemap",
     "start": "next start",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "lint": "eslint ./src --ext .tsx,.ts,.jsx,.js",
-    "build:typed-css": "tsm src -w"
+    "build:typed-css:w": "tsm src -w",
+    "build:typed-css": "tsm src",
+    "test-tsc": "npm run build:typed-css && tsc --noEmit"
   },
   "dependencies": {
     "@casper124578/useful": "^0.0.15",
