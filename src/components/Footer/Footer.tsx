@@ -57,6 +57,9 @@ export const Footer = () => {
           >
             LinkedIn
           </a>
+          <a target="_blank" rel="noreferrer noopener" href={process.env.NEXT_PUBLIC_NPM_URL}>
+            npm
+          </a>
         </div>
       </div>
     </footer>

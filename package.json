@@ -32,6 +32,7 @@
     "remark-gfm": "^1.0.0",
     "remark-slug": "^6.1.0",
     "sass": "^1.37.5",
+    "sharp": "^0.28.3",
     "showdown": "^1.9.1",
     "slugify": "^1.6.0",
     "zenscroll": "^4.0.2"
@@ -49,7 +50,7 @@
     "@types/showdown": "^1.9.4",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "concurrently": "^6.2.0",
+    "concurrently": "^6.2.1",
     "esbuild": "^0.12.19",
     "eslint": "^7.32.0",
     "prettier": "^2.3.2",

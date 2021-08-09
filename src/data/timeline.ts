@@ -2,6 +2,13 @@ import TimelineItem from "types/Timeline";
 
 const timeline: TimelineItem[] = [
   {
+    date: "August 2021",
+    title: "Flag guesser",
+    text: "Created a flag guessing game to learn the flags of countries.",
+    full_date: "August 7, 2021",
+    url: "https://flag-guesser.vercel.app",
+  },
+  {
     date: "July 2021",
     title: "Q-Music player",
     text: "A website to listen to all Q-Music channels in one place with ease!",
@@ -79,7 +86,7 @@ const timeline: TimelineItem[] = [
   {
     date: "February 2021",
     title: "pastebin-api",
-    text: "Created a simple NPM package to interact with the Pastebin API 💻",
+    text: "Created a simple npm package to interact with the Pastebin API 💻",
     url: "https://www.npmjs.com/package/pastebin-api",
     full_date: "February 23, 2021",
   },
@@ -134,7 +141,7 @@ const timeline: TimelineItem[] = [
   {
     date: "July 2020",
     title: "React Timeline",
-    text: "Created my first NPM package! Create cool and good looking timelines with ease.",
+    text: "Created my first npm package! Create cool and good looking timelines with ease.",
     url: "https://www.npmjs.com/package/react-timelinev2",
     full_date: "July 15, 2020",
   },

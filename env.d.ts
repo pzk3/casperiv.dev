@@ -8,5 +8,6 @@ declare namespace NodeJS {
     NEXT_PUBLIC_LINKEDIN_PROFILE_URL: string;
     NEXT_PUBLIC_YOUTUBE_REDIRECT_URL: string;
     NEXT_PUBLIC_CONTACT_URL: string;
+    NEXT_PUBLIC_NPM_URL: string;
   }
 }

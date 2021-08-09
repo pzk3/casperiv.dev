@@ -60,7 +60,7 @@ const projects: Project[] = [
         name: VIEW_CODE,
       },
       {
-        name: "View on NPM",
+        name: "View on npm",
         url: "https://www.npmjs.com/package/pastebin-api",
       },
     ],
@@ -74,7 +74,7 @@ const projects: Project[] = [
         name: VIEW_CODE,
       },
       {
-        name: "View on NPM",
+        name: "View on npm",
         url: "https://www.npmjs.com/package/@casper124578/mysql.ts",
       },
     ],
