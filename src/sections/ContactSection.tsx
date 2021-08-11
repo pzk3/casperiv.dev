@@ -5,7 +5,8 @@ import { classes } from "src/lib/classes";
 import { Toast } from "@components/index";
 
 const Messages = {
-  Success: "Successfully sent your message my way! I should respond soon.",
+  Success:
+    "Thank you for your message! The message has been sent my way and I will respond as soon as I can. The email you entered below should've also gotten CC'd",
   RateLimit: "Too many requests, please slow wait 15 more minutes before sending a new mail",
   UnknownError: "An unexpected error occurred! Please try again later.",
 };

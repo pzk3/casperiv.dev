@@ -9,7 +9,13 @@ interface Props {
 }
 
 // these should be displayed on all pages.
-const DEFAULT_KEYWORDS = ["dev-caspertheghost", "casper iversen", "ghostybot", "snaily cad"];
+const DEFAULT_KEYWORDS = [
+  "dev-caspertheghost",
+  "casper iversen",
+  "ghostybot",
+  "snaily cad",
+  "belgium",
+];
 
 const defaults: Props = {
   title: "Casper Iversen - Web Developer",

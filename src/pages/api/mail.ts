@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import rateLimit from "express-rate-limit";
-import nodeMailer from "nodemailer";
-import { MailOptions } from "nodemailer/lib/json-transport";
+import * as sgMail from "@sendgrid/mail";
+
+sgMail.setApiKey(process.env["SEND_GRID_API_KEY"]);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -25,13 +26,6 @@ export default async function handler(
   res: NextApiResponse,
 ): Promise<void | NextApiResponse> {
   const { method } = req;
-  const transporter = nodeMailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
 
   switch (method) {
     case "POST": {
@@ -46,22 +40,27 @@ export default async function handler(
         });
       }
 
-      const mail: MailOptions = {
-        from: body.email,
-        to: process.env.EXTRA_EMAIL,
+      const mail: sgMail.MailDataRequired = {
+        to: process.env["TO_EMAIL"],
+        from: process.env["TO_EMAIL"],
         subject: `New email from ${body.name}`,
-        text: `
-Email from: ${body.email}:
+        html: `
+Email from: <strong>${body.email}</strong>:
+
+<br />
+<br />
 
 ${body.text}`,
-        cc: process.env.EXTRA_EMAIL,
+        cc: body.email,
       };
 
       try {
-        await transporter.sendMail(mail);
+        await sgMail.send(mail);
 
         return res.json({ status: "success" });
       } catch (e) {
+        console.log(e);
+
         return res.json({
           status: "error",
           error: "An unexpected error occurred. Please try again later.",
