@@ -4,9 +4,6 @@ import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
 import { Post } from "types/Post";
 
-import slugPlugin from "remark-slug";
-import gfm from "remark-gfm";
-
 export function getSlugsFromDir(dir: string): string[] {
   return fs.readdirSync(dir);
 }
@@ -44,7 +41,11 @@ export async function getBlogOrSnippetBySlug<T = unknown>(
 
   const { code: content, frontmatter } = await bundleMDX(fileContents, {
     xdmOptions: (options) => {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), slugPlugin, gfm];
+      options.remarkPlugins = [
+        ...(options?.remarkPlugins ?? []),
+        require("remark-slug"),
+        require("remark-gfm"),
+      ];
 
       return options;
     },

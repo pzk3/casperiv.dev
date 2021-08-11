@@ -76,6 +76,7 @@ const config = {
 
     return config;
   },
+  experimental: { esmExternals: "loose" },
 };
 
 module.exports = withPWA({
