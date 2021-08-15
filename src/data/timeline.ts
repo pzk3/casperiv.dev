@@ -3,6 +3,13 @@ import TimelineItem from "types/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "August 2021",
+    title: "JavaScript questions quiz",
+    text: "Created a markdown parser that creates a JavaScript questions quiz to get better at JavaScript!",
+    full_date: "August 14, 2021",
+    url: "https://js-questions-quiz.vercel.app",
+  },
+  {
+    date: "August 2021",
     title: "Flag guesser",
     text: "Created a flag guessing game to learn the flags of countries.",
     full_date: "August 7, 2021",
