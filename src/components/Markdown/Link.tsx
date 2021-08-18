@@ -1,22 +1,27 @@
 import * as React from "react";
 import NextLink from "next/link";
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactChild;
-  internal: boolean;
 }
 
 function Link(props: Props) {
-  if (props.href.startsWith("http")) {
+  const { href, children, ...rest } = props;
+
+  if (href.startsWith("http")) {
     return (
-      <a href={props.href} target="_blank" rel="noopener noreferrer">
-        {props.children}
+      <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+        {children}
       </a>
     );
   }
 
-  return <NextLink href={props.href}>{props.children}</NextLink>;
+  return (
+    <NextLink href={href}>
+      <a {...rest}>{children}</a>
+    </NextLink>
+  );
 }
 
 export default Link;

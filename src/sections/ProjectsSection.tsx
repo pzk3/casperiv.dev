@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "@components/Markdown/Link";
 import projects from "../data/projects";
 import Project from "types/Project";
 import styles from "css/projects.module.scss";
@@ -33,15 +34,9 @@ const ProjectItem = ({ project }: Props) => {
       <footer className={styles.projectItemFooter}>
         {project.buttons.map((button, idx: number) => {
           return (
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              className="btn btn__dark"
-              href={button.url}
-              key={idx}
-            >
+            <Link className="btn btn__dark" href={button.url} key={idx}>
               {button.name}
-            </a>
+            </Link>
           );
         })}
       </footer>

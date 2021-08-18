@@ -57,8 +57,8 @@ const projects: Project[] = [
     description: "A notes app to keep track of important things and share notes with others",
     buttons: [
       {
-        url: `${url}/notey.app`,
-        name: VIEW_CODE,
+        url: "/case-study/notey.app",
+        name: "View case study",
       },
       {
         url: "https://notey.caspertheghost.me",

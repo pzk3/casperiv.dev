@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import * as React from "react";
-import { getAllItems, getBlogOrSnippetBySlug } from "@lib/blog";
+import { getAllItems, getItemBySlug } from "@lib/blog";
 import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";
 import { BlogHeader } from "@components/BlogHeader";
@@ -52,7 +52,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params.slug.toString();
 
-  const snippet = await getBlogOrSnippetBySlug<Snippet>(slug, "snippets", [
+  const snippet = await getItemBySlug<Snippet>(slug, "snippets", [
     "content",
     "createdAt",
     "slug",

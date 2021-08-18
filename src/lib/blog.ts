@@ -10,7 +10,7 @@ export function getSlugsFromDir(dir: string): string[] {
 
 export type Fields<T> = (keyof T)[];
 export type PickT<T> = Pick<T, keyof T>;
-type Types = "posts" | "snippets";
+type Types = "posts" | "snippets" | "case-studies";
 
 export async function getAllItems<T extends Post>(
   type: Types,
@@ -20,16 +20,14 @@ export async function getAllItems<T extends Post>(
     /\.mdx?$/.test(v),
   );
 
-  const posts = await Promise.all(
-    slugs.map(async (slug) => getBlogOrSnippetBySlug<T>(slug, type, fields)),
-  );
+  const posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<T>(slug, type, fields)));
 
   posts.sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
   return posts as unknown as Pick<T, keyof T>[];
 }
 
-export async function getBlogOrSnippetBySlug<T = unknown>(
+export async function getItemBySlug<T = unknown>(
   slug: string,
   type: Types,
   fields: Fields<T> = [],

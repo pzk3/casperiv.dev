@@ -6,7 +6,7 @@ interface Props {
 
 export const HeaderLink = ({ slug }: Props) => {
   return (
-    <a href={`#${slug}`}>
+    <a aria-label={`Go to ${slug}`} href={`#${slug}`}>
       <LinkIcon />
     </a>
   );

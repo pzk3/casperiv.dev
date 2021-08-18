@@ -31,13 +31,11 @@ const PostPage = ({ post }: Props) => {
       <Seo
         title={`${post.title} - Casper Iversen`}
         description={post.intro ?? undefined}
-        keywords={["blog", "blog casper iversen", ...keywords]}
-        url={`https://caspertheghost.me/blog/${post.slug}`}
+        keywords={["blog", "case studies casper iversen", ...keywords]}
+        url={`https://caspertheghost.me/case-study/${post.slug}`}
       />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
-
-        {/* why not "author": https://github.com/postlight/mercury-parser/blob/HEAD/src/extractors/generic/author/constants.js#L5 */}
         <meta name="authors" content="Casper Iversen" />
         <meta name="created" content={post.createdAt} />
       </Head>
@@ -50,7 +48,7 @@ const PostPage = ({ post }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>("posts", ["slug"]);
+  const posts = await getAllItems<Post>("case-studies", ["slug"]);
 
   return {
     fallback: false,
@@ -65,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params.slug.toString();
 
-  const post = await getItemBySlug<Post>(slug, "posts", [
+  const post = await getItemBySlug<Post>(slug, "case-studies", [
     "content",
     "createdAt",
     "updatedAt",
