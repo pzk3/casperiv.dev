@@ -17,6 +17,32 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "SnailyCAD",
+    description:
+      "An open source Computer Aided Dispatch (CAD) for a game called FiveM, this is a web based integration for communities who love police roleplaying and dispatching.",
+    buttons: [
+      {
+        url: `${url}/snaily-cadv3`,
+        name: VIEW_CODE,
+      },
+    ],
+  },
+  {
+    title: "GhostyBot",
+    description:
+      "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
+    buttons: [
+      {
+        url: `${url}/ghostybot`,
+        name: VIEW_CODE,
+      },
+      {
+        name: OPEN_PROJECT,
+        url: "https://ghostybot.caspertheghost.me",
+      },
+    ],
+  },
+  {
     title: "pastebin clone",
     description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
     buttons: [
@@ -37,17 +63,6 @@ const projects: Project[] = [
       {
         url: "https://notey.caspertheghost.me",
         name: OPEN_PROJECT,
-      },
-    ],
-  },
-  {
-    title: "SnailyCAD",
-    description:
-      "An open source Computer Aided Dispatch (CAD) for a game called FiveM, this is a web based integration for communities who love police roleplaying and dispatching.",
-    buttons: [
-      {
-        url: `${url}/snaily-cadv3`,
-        name: VIEW_CODE,
       },
     ],
   },
@@ -76,21 +91,6 @@ const projects: Project[] = [
       {
         name: "View on npm",
         url: "https://www.npmjs.com/package/@casper124578/mysql.ts",
-      },
-    ],
-  },
-  {
-    title: "GhostyBot",
-    description:
-      "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
-    buttons: [
-      {
-        url: `${url}/ghostybot`,
-        name: VIEW_CODE,
-      },
-      {
-        name: OPEN_PROJECT,
-        url: "https://ghostybot.caspertheghost.me",
       },
     ],
   },

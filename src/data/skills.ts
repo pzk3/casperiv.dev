@@ -6,7 +6,14 @@ export interface SkillItem {
 export const skills: SkillItem[] = [
   {
     header: "Frontend",
-    items: ["HTML, CSS & SCSS", "styled-components", "JavaScript", "TypeScript", "React & Next.js"],
+    items: [
+      "HTML, CSS & SCSS",
+      "styled-components",
+      "JavaScript",
+      "TypeScript",
+      "React & Next.js",
+      "State management (React redux, MobX)",
+    ],
   },
   {
     header: "Backend",

@@ -3,6 +3,13 @@ import TimelineItem from "types/Timeline";
 const timeline: TimelineItem[] = [
   {
     date: "August 2021",
+    title: "React Redux -> MobX",
+    text: "Rewrote notey.app to use MobX instead of Redux. A lot of boilerplate code gone 👏!",
+    full_date: "August 18, 2021",
+    url: "https://notey.caspertheghost.me",
+  },
+  {
+    date: "August 2021",
     title: "JavaScript questions quiz",
     text: "Created a markdown parser that creates a JavaScript questions quiz to get better at JavaScript!",
     full_date: "August 14, 2021",
