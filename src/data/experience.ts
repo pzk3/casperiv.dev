@@ -6,7 +6,7 @@ const experience: Experience[] = [
     year: "01/2021 - Present",
     description:
       "Working mostly on the frontend. Working on settings, QuickCapture, LifeOS, Workspace and more!",
-    stack: ["react.js", "next.js", "graphql", "typescript"],
+    stack: ["react.js", "next.js", "graphql", "typescript", "mobx"],
     href: "https://zyndicate.app",
   },
   {
@@ -21,7 +21,7 @@ const experience: Experience[] = [
     title: "Notey.app",
     year: "08/2020 - Present",
     description: "An awesome notes application that supports markdown.",
-    stack: ["react.js", "redux", "express", "mongodb", "typescript", "javascript"],
+    stack: ["react.js", "next.js", "mobx", "express", "mongodb", "typescript"],
     href: "https://notey.caspertheghost.me",
   },
   {
