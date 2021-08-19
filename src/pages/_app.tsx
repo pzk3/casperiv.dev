@@ -7,8 +7,11 @@ import { Nav, Menu, Footer } from "@components/index";
 import "css/globals.scss";
 import "css/nprogress.css";
 import "css/fonts.scss";
+import { useScrollTop } from "src/hooks/useScrollTop";
 
 function App({ Component, pageProps }: AppProps) {
+  useScrollTop();
+
   React.useEffect(() => {
     function handleRouteStart() {
       NProgress.start();
