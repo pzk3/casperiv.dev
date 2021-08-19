@@ -165,18 +165,29 @@
   }
 }
 
-.warning {
+.alert {
   display: flex;
   align-items: center;
-
-  background: #42381f;
 
   padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
   font-size: 1rem;
 
-  p {
+  p,
+  span {
     margin: 0;
     margin-left: 0.5rem;
+  }
+
+  &.info {
+    background: var(--dark);
+  }
+
+  &.error {
+    background: rgb(145, 6, 6);
+  }
+
+  &.warn {
+    background: #42381f;
   }
 }

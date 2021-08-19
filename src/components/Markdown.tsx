@@ -72,7 +72,7 @@ const components = {
   code: dynamic(() => import("./Markdown/Code").then((v) => v.MDCode), {
     loading: () => <>Loading code..</>,
   }),
-  Warn: dynamic(() => import("./Markdown/Warn").then((v) => v.Warn), {
+  Alert: dynamic(() => import("./Markdown/Alert").then((v) => v.Alert), {
     loading: () => <>Loading text..</>,
   }),
 };
