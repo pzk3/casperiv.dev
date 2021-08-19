@@ -11,7 +11,7 @@ export const projects: Project[] = [
       "A home inventory app to keep track of items in your home (food items, tech, medical supplies, etc.).",
     buttons: [
       {
-        url: `/case-study/home-inventory`,
+        url: "/case-study/home-inventory",
         name: "View case study",
       },
       {
