@@ -4,8 +4,6 @@ createdAt: August 19, 2021
 intro: Learn about the ideas and technogolies used in home-inventory
 ---
 
-<Alert type="warn">This is still a draft. Not sure how you even got here 🤔!</Alert>
-
 ## Introduction
 
 home-inventory is a web application to keep track of stuff that is in your house such as food items, medical supplies, tech, etc.
@@ -35,10 +33,17 @@ home-inventory is built with [Next.js](https://nextjs.org) and [React.js](https:
 
 ### Frontend technogolies
 
+home-inventory uses [redux](https://redux.js.org/) for state management, I have pretty good experience in redux.
+Hence the reason I chose to use it again.
+I'm also using [sass (scss) modules](https://nextjs.org/docs/basic-features/built-in-css-support) to get a bit more experience in scss.
+Found a package that can generate `.d.ts` files for these scss modules: [typed-scss-modules](https://github.com/skovy/typed-scss-modules),
+100% recommended if you're using TypeScript and scss modules.
+
 ### Backend technogolies
 
-First time using Prisma and postgress, I'm in love! Amazing developer experience.
+First time using [Prisma](https://prisma.io) and postgress, I'm in love! Amazing developer experience.
 Using [yup](https://npm.im/yup) as user validation module,
+Created an [npm helper module](https://npm.im/@casper124578/utils) for yup so I can use it across my other projects.
 
 ## Features
 

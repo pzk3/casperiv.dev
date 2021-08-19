@@ -13,7 +13,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Alert = ({ children, type, ...rest }: Props) => {
   return (
-    <div className={classes(styles.alert, styles[type])} {...rest}>
+    <div role="alert" className={classes(styles.alert, styles[type])} {...rest}>
       <Icon type={type} />
       <span>{children}</span>
     </div>
