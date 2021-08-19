@@ -18,6 +18,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/** smooth breaks next.js in firefox :/  */
+@-moz-document url-prefix() {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-weight: 400;
   color: var(--text-color);
