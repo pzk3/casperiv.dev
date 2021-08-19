@@ -6,7 +6,7 @@ interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactChild;
 }
 
-function Link(props: Props) {
+export const Link = (props: Props) => {
   const { href, children, ...rest } = props;
 
   if (href.startsWith("http")) {
@@ -22,6 +22,4 @@ function Link(props: Props) {
       <a {...rest}>{children}</a>
     </NextLink>
   );
-}
-
-export default Link;
+};

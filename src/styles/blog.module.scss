@@ -164,3 +164,19 @@
     background: var(--dark);
   }
 }
+
+.warning {
+  display: flex;
+  align-items: center;
+
+  background: #42381f;
+
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+
+  p {
+    margin: 0;
+    margin-left: 0.5rem;
+  }
+}

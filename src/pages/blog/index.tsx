@@ -1,10 +1,10 @@
-import { GetStaticProps } from "next";
-import Link from "next/link";
 import * as React from "react";
+import Link from "next/link";
+import { GetStaticProps } from "next";
 import { Post } from "types/Post";
-import styles from "css/blog.module.scss";
 import { Seo } from "@components/Seo";
 import { getAllItems } from "@lib/blog";
+import styles from "css/blog.module.scss";
 
 interface Props {
   posts: Post[];

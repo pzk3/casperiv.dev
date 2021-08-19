@@ -1,10 +1,10 @@
-import Project from "types/Project";
+import { Project } from "types/Project";
 const url = "https://github.com/dev-caspertheghost";
 
 const VIEW_CODE = "View Code";
 const OPEN_PROJECT = "Open Project";
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     title: "Home inventory",
     description:
@@ -105,5 +105,3 @@ const projects: Project[] = [
     ],
   },
 ];
-
-export default projects;

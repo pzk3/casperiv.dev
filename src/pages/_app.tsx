@@ -4,10 +4,10 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import "zenscroll/zenscroll-min";
 import { Nav, Menu, Footer } from "@components/index";
+import { useScrollTop } from "src/hooks/useScrollTop";
 import "css/globals.scss";
 import "css/nprogress.css";
 import "css/fonts.scss";
-import { useScrollTop } from "src/hooks/useScrollTop";
 
 function App({ Component, pageProps }: AppProps) {
   useScrollTop();

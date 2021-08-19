@@ -63,15 +63,18 @@ const components = {
       </h6>
     );
   },
-  a: dynamic(() => import("./Markdown/Link"), {
+  a: dynamic(() => import("./Markdown/Link").then((v) => v.Link), {
     loading: () => <>Loading links..</>,
-  }) as unknown as () => Element,
-  Image: dynamic(() => import("./Markdown/Image"), {
+  }),
+  Image: dynamic(() => import("./Markdown/Image").then((v) => v.MdImage), {
     loading: () => <>Loading text..</>,
-  }) as unknown as () => Element,
-  code: dynamic(() => import("./Markdown/Code"), {
+  }),
+  code: dynamic(() => import("./Markdown/Code").then((v) => v.MDCode), {
     loading: () => <>Loading code..</>,
-  }) as unknown as () => Element,
+  }),
+  Warn: dynamic(() => import("./Markdown/Warn").then((v) => v.Warn), {
+    loading: () => <>Loading text..</>,
+  }),
 };
 
 interface Props {

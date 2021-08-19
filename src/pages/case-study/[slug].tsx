@@ -1,9 +1,9 @@
-import { BlogHeader } from "@components/BlogHeader";
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
 import * as React from "react";
+import Head from "next/head";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import { getAllItems, getItemBySlug } from "@lib/blog";
+import { BlogHeader } from "@components/BlogHeader";
 import { Post } from "types/Post";
 import { Seo } from "@components/Seo";
 import { Markdown } from "@components/Markdown";

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
-import TimelineSection from "@sections/TimelineSection";
-import ProjectSection from "@sections/ProjectsSection";
-import ContactSection from "@sections/ContactSection";
-import SkillsSection from "@sections/SkillsSection";
+import { TimelineSection } from "@sections/TimelineSection";
+import { ProjectSection } from "@sections/ProjectsSection";
+import { ContactSection } from "@sections/ContactSection";
+import { SkillsSection } from "@sections/SkillsSection";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
 import { Seo } from "@components/Seo";
 import mainStyles from "css/main.module.scss";

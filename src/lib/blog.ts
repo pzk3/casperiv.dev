@@ -1,11 +1,11 @@
-import fs from "fs";
-import { join } from "path";
-import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { bundleMDX } from "mdx-bundler";
 import { Post } from "types/Post";
 
 export function getSlugsFromDir(dir: string): string[] {
-  return fs.readdirSync(dir);
+  return readdirSync(dir);
 }
 
 export type Fields<T> = (keyof T)[];
@@ -35,7 +35,7 @@ export async function getItemBySlug<T = unknown>(
   const dir = join(process.cwd(), "src", "data", type);
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = readFileSync(fullPath, "utf8");
 
   const { code: content, frontmatter } = await bundleMDX(fileContents, {
     xdmOptions: (options) => {

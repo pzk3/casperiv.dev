@@ -1,8 +1,8 @@
 import * as React from "react";
-import styles from "css/skills.module.scss";
 import { skills } from "../data/skills";
+import styles from "css/skills.module.scss";
 
-const SkillsSection = () => {
+export const SkillsSection = () => {
   return (
     <section id="skills">
       <h1 className="section__title">My Backpack</h1>
@@ -29,5 +29,3 @@ const SkillsSection = () => {
     </section>
   );
 };
-
-export default SkillsSection;

@@ -4,3 +4,4 @@ export const copyBtn: string;
 export const headerLink: string;
 export const reactMarkdown: string;
 export const rightContainer: string;
+export const warning: string;

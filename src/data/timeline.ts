@@ -1,6 +1,6 @@
-import TimelineItem from "types/Timeline";
+import { TimelineItem } from "types/Timeline";
 
-const timeline: TimelineItem[] = [
+export const timeline: TimelineItem[] = [
   {
     date: "August 2021",
     title: "React Redux -> MobX",
@@ -187,5 +187,3 @@ const timeline: TimelineItem[] = [
     text: "2018, '19 were the years I fully got into programming and computers",
   },
 ];
-
-export default timeline;

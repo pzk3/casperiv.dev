@@ -6,7 +6,7 @@ interface Props {
   alt: string;
 }
 
-const MdImage = (props: Props) => {
+export const MdImage: React.FC<Props> = (props: Props) => {
   const size = imageSizes[props.alt];
 
   return (
@@ -24,5 +24,3 @@ const MdImage = (props: Props) => {
     </div>
   );
 };
-
-export default MdImage;

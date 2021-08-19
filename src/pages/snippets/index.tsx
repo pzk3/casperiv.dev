@@ -1,10 +1,10 @@
-import { GetStaticProps } from "next";
-import Link from "next/link";
 import * as React from "react";
+import Link from "next/link";
+import { GetStaticProps } from "next";
 import { getAllItems } from "@lib/blog";
-import styles from "css/blog.module.scss";
 import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";
+import styles from "css/blog.module.scss";
 
 interface Props {
   snippets: Snippet[];

@@ -1,10 +1,10 @@
 import * as React from "react";
-import Link from "@components/Markdown/Link";
-import projects from "../data/projects";
-import Project from "types/Project";
+import { Link } from "@components/Markdown/Link";
+import { projects } from "../data/projects";
+import { Project } from "types/Project";
 import styles from "css/projects.module.scss";
 
-const ProjectSection = () => {
+export const ProjectSection = () => {
   return (
     <section id="projects">
       <h1 className="section__title">Projects</h1>
@@ -43,5 +43,3 @@ const ProjectItem = ({ project }: Props) => {
     </div>
   );
 };
-
-export default ProjectSection;

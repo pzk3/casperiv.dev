@@ -1,6 +1,6 @@
-import Experience from "types/Experience";
+import { Experience } from "types/Experience";
 
-const experience: Experience[] = [
+export const experience: Experience[] = [
   {
     title: "Zyndicate",
     year: "01/2021 - Present",
@@ -47,5 +47,3 @@ const experience: Experience[] = [
     href: "#",
   },
 ];
-
-export default experience;

@@ -1,12 +1,12 @@
 import * as React from "react";
 import ReactTooltip from "react-tooltip";
-import timeline from "../data/timeline";
-import TimelineItem from "types/Timeline";
+import { timeline } from "../data/timeline";
+import { TimelineItem } from "types/Timeline";
 import { ArrowDown } from "@components/icons/ArrowDown";
-import styles from "css/timeline.module.scss";
 import { classes } from "@lib/classes";
+import styles from "css/timeline.module.scss";
 
-const TimelineSection = () => {
+export const TimelineSection = () => {
   const [viewOlderText, setViewOlderText] = React.useState<string>("View All");
   const [length, setLength] = React.useState<number>(7);
 
@@ -69,5 +69,3 @@ const TimelineSection = () => {
     </section>
   );
 };
-
-export default TimelineSection;

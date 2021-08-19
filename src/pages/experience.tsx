@@ -1,7 +1,7 @@
-import experience from "../data/experience";
-import Experience from "types/Experience";
-import styles from "css/experience.module.scss";
+import { experience } from "../data/experience";
+import { Experience } from "types/Experience";
 import { Seo } from "@components/Seo";
+import styles from "css/experience.module.scss";
 
 const ExperiencePage = () => {
   return (

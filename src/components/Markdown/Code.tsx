@@ -9,7 +9,7 @@ interface Props {
   className: string;
 }
 
-const MDCode = (props: Props) => {
+export const MDCode = (props: Props) => {
   const { inline, className, children } = props;
   const match = /language-(\w+)/.exec(className || "");
   const text = String(children).replace(/\n$/, "");
@@ -38,5 +38,3 @@ const MDCode = (props: Props) => {
     <code className={className}>{props.children}</code>
   );
 };
-
-export default MDCode;
