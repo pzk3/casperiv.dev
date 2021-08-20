@@ -26,10 +26,11 @@ export const TimelineSection = () => {
       <div className={styles.timeline}>
         {timeline.slice(0, length).map((item: TimelineItem, idx: number) => {
           const side = idx % 2 === 0 ? styles.left : styles.right;
+          const Component = item.url ? "a" : "div";
 
           return (
             <div key={idx} className={classes(styles.timelineItem, side)}>
-              <a
+              <Component
                 target="_blank"
                 rel="noopener noreferrer"
                 href={item.url}
@@ -56,7 +57,7 @@ export const TimelineSection = () => {
                   ) : null}
                 </header>
                 {item.text}
-              </a>
+              </Component>
             </div>
           );
         })}
