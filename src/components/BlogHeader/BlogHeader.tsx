@@ -22,7 +22,7 @@ export const BlogHeader = ({ post }: Props) => {
           <h1 className={styles.blogTitle}>{post.title}</h1>
           <h2 className={styles.blogDate}>
             <span title={publishDateFull}>Published {published} ago </span>
-            {post.updatedAt ? <span> - Updated</span> : null}
+            {post.updatedAt ? <span> - Updated </span> : null}
             {post.readingTime ? (
               <>
                 - <span>{post.readingTime}</span>

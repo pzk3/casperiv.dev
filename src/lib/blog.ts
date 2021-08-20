@@ -4,6 +4,10 @@ import { join } from "node:path";
 import { bundleMDX } from "mdx-bundler";
 import { Post } from "types/Post";
 
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeCodeTitles from "rehype-code-titles";
+
 export function getSlugsFromDir(dir: string): string[] {
   return readdirSync(dir);
 }
@@ -39,11 +43,9 @@ export async function getItemBySlug<T = unknown>(
 
   const { code: content, frontmatter } = await bundleMDX(fileContents, {
     xdmOptions: (options) => {
-      options.remarkPlugins = [
-        ...(options?.remarkPlugins ?? []),
-        require("remark-slug"),
-        require("remark-gfm"),
-      ];
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+
+      options.rehypePlugins = [...(options?.rehypePlugins ?? []), rehypeSlug, rehypeCodeTitles];
 
       return options;
     },

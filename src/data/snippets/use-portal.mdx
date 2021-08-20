@@ -1,7 +1,8 @@
 ---
 title: usePortal React hook
 intro: A simple react hook for creating portals for next.js.
-createdAt: 04/04/2021
+createdAt: April 4, 2021
+updatedAt: August 20, 2021
 keywords: use-portal, react hooks
 ---
 
@@ -9,7 +10,7 @@ A simple [React](https://github.com/facebook/react) hook for creating portals fo
 
 ## The hook
 
-```tsx
+```tsx:src/hooks/usePortal.ts
 import * as React from "react";
 
 export function usePortal(id = "unknown") {
@@ -46,9 +47,10 @@ export function usePortal(id = "unknown") {
 
 ## Usage
 
-```tsx
+```tsx:src/App.ts
 import * as React from "react";
 import ReactDOM from "react-dom";
+import { usePortal } from "hooks/usePortal"
 
 export const MyCoolModal = () => {
   const [isOpen, setOpen] = React.useState(false);

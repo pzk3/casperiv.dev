@@ -1,6 +1,7 @@
 ---
 title: FaunaDB with Next.js
 createdAt: May 6, 2021
+updatedAt: August 20, 2021
 intro: Setting up FaunaDB with Next.js and TypeScript
 ---
 
@@ -47,7 +48,7 @@ While the dependencies are installing we can create the folder structure.
 ```bash
 ├── pages
 ├── ├── api
-├── ├── ├── hello.ts
+├── ├── ├── index.ts
 │   ├── index.tsx
 ├── lib
 │   ├── faunadb.ts
@@ -60,11 +61,13 @@ While the dependencies are installing we can create the folder structure.
 
 In the `lib/faunadb.ts` file we created above, we will create and export the client. I recommend adding a `.env` file with the following contents:
 
-```txt
+```txt:.env
 FAUNADB_KEY="KEY_HERE"
 ```
 
-```tsx
+<div style={{ margin: "0.5rem 0" }} />
+
+```tsx:lib/faunadb.ts
 import { Client } from "faunadb";
 
 if (!process.env.FAUNADB_KEY) {
@@ -78,10 +81,9 @@ export const client = new Client({ secret: process.env.FAUNADB_KEY });
 
 Bellow you can see how to use the client in your api pages.
 
-```tsx
-// pages/api/hello.ts
+```tsx:pages/api/index.ts
 import { NextApiRequest, NextApiResponse } from "next";
-import { client } from "../../lib/faunadb";
+import { client } from "lib/faunadb";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {

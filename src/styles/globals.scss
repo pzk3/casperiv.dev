@@ -166,3 +166,18 @@ a {
   font-size: 1rem !important;
   border-radius: 0.5rem !important;
 }
+
+.rehype-code-title {
+  background: var(--secondary);
+  border-bottom: 1.5px solid #2e3746;
+  padding: 0.2rem 0.8rem;
+  padding-top: 0.5rem;
+
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+
+  + pre {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+}
