@@ -21,6 +21,6 @@ export const skills: SkillItem[] = [
   },
   {
     header: "Other",
-    items: ["NGINX", "DigitalOcean", "VSCode", "Git"],
+    items: ["Git & GitHub", "NGINX", "DigitalOcean", "VSCode"],
   },
 ];

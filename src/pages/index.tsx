@@ -31,8 +31,8 @@ const Index = () => {
         <p className={mainStyles.mainText}>
           Hello, I am Casper! I am a {age} year old programmer and student based in Belgium. I
           create websites, Discord bots, npm packages, etc. I&apos;m a self taught developer and I
-          have been programming for ~2 years and still learning new technologies every day, mostly
-          focusing on frontend related technologies.
+          have been programming for about 2 years and still learning new technologies every day,
+          mostly focusing on frontend related technologies.
         </p>
 
         <div className={mainStyles.btnContainer}>
