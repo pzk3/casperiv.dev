@@ -72,8 +72,11 @@ export const Nav = () => {
               </a>
             </Link>
 
-            <button onClick={handleHamburgerClick} className={styles.hamburger}>
-              <p className="sr-only">Open Menu</p>
+            <button
+              aria-label="Open Menu"
+              onClick={handleHamburgerClick}
+              className={styles.hamburger}
+            >
               <span className={styles.hamburgerItem} />
               <span className={styles.hamburgerItem} />
               <span className={styles.hamburgerItem} />

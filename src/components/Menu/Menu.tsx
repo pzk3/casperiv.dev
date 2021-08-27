@@ -19,8 +19,7 @@ export const Menu = () => {
     <>
       <div onClick={handleClose} id="menu__bg" className={styles.menuBg} />
       <nav id="menu" className={styles.menuNav}>
-        <button onClick={handleClose} className={styles.closeMenu}>
-          <p className="sr-only">Close menu</p>
+        <button aria-label="Close menu" onClick={handleClose} className={styles.closeMenu}>
           <XIcon />
         </button>
 
