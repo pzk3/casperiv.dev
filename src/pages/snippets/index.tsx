@@ -39,7 +39,7 @@ const BlogPage = ({ snippets }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets = await getAllItems<Snippet>("snippets", ["slug", "title", "createdAt", "intro"]);
+  const snippets = await getAllItems<Snippet>("snippets");
 
   return {
     props: {
