@@ -50,7 +50,7 @@ const PostPage = ({ post }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>("posts", ["slug"]);
+  const posts = await getAllItems<Post>("posts", true);
 
   return {
     fallback: false,
@@ -65,16 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params.slug.toString();
 
-  const post = await getItemBySlug<Post>(slug, "posts", [
-    "content",
-    "createdAt",
-    "updatedAt",
-    "slug",
-    "title",
-    "intro",
-    "keywords",
-    "readingTime",
-  ]);
+  const post = await getItemBySlug<Post>(slug, "posts");
 
   return {
     props: {

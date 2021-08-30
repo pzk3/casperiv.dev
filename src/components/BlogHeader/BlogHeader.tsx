@@ -27,7 +27,7 @@ export const BlogHeader = ({ post }: Props) => {
             </span>
             {post.readingTime ? (
               <>
-                - <span>{post.readingTime}</span>
+                <span> - {post.readingTime}</span>
               </>
             ) : null}
           </h2>

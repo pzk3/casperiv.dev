@@ -13,29 +13,29 @@ export function getSlugsFromDir(dir: string): string[] {
 }
 
 export type Fields<T> = (keyof T)[];
-export type PickT<T> = Pick<T, keyof T>;
 type Types = "posts" | "snippets" | "case-studies";
 
 export async function getAllItems<T extends Post>(
   type: Types,
-  fields: Fields<T> = [],
-): Promise<PickT<T>[]> {
+  includeDrafts = false,
+): Promise<T[]> {
   const slugs = getSlugsFromDir(join(process.cwd(), "src", "data", type)).filter((v) =>
     /\.mdx?$/.test(v),
   );
 
-  const posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<T>(slug, type, fields)));
+  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<T>(slug, type)));
+  posts = posts.sort((post1, post2) =>
+    new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
+  );
 
-  posts.sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
+  if (!includeDrafts) {
+    posts = posts.filter((v) => !v.draft);
+  }
 
   return posts as unknown as Pick<T, keyof T>[];
 }
 
-export async function getItemBySlug<T = unknown>(
-  slug: string,
-  type: Types,
-  fields: Fields<T> = [],
-): Promise<PickT<T>> {
+export async function getItemBySlug<T = unknown>(slug: string, type: Types): Promise<T> {
   const dir = join(process.cwd(), "src", "data", type);
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
@@ -61,12 +61,16 @@ export async function getItemBySlug<T = unknown>(
 
   const { text } = readingTime(content);
 
-  return fields.reduce((acc, curr) => {
-    if (curr === "slug") return { ...acc, slug: realSlug };
-    if (curr === "content") return { ...acc, content };
-    if (curr === "readingTime") return { ...acc, readingTime: text };
-    if (curr === "frontmatter") return { ...acc, frontmatter };
-
-    return { ...acc, [curr]: frontmatter[curr as string] ?? null };
-  }, {} as PickT<T>);
+  return {
+    slug: realSlug,
+    content,
+    readingTime: text,
+    frontmatter,
+    createdAt: frontmatter.createdAt,
+    intro: frontmatter.intro,
+    keywords: frontmatter.keywords ?? "",
+    title: frontmatter.title,
+    updatedAt: frontmatter.updateAt ?? null,
+    draft: frontmatter.draft ?? false,
+  } as any as T;
 }

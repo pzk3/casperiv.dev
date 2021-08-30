@@ -39,7 +39,7 @@ const BlogPage = ({ posts }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllItems<Post>("posts", ["slug", "title", "createdAt", "intro"]);
+  const posts = await getAllItems<Post>("posts");
 
   return {
     props: {

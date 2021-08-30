@@ -59,8 +59,8 @@
 
 .btnContainer a:hover,
 .btnContainer a:focus {
-  transform: translateY(-0.2rem);
-  filter: brightness(150%);
+  transform: translateY(-0.2rem) !important;
+  filter: brightness(150%) !important;
 }
 
 @media (min-width: 768px) {

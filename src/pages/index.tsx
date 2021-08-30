@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
+import { motion } from "framer-motion";
 import { TimelineSection } from "@sections/TimelineSection";
 import { ProjectSection } from "@sections/ProjectsSection";
 import { ContactSection } from "@sections/ContactSection";
@@ -7,6 +8,29 @@ import { SkillsSection } from "@sections/SkillsSection";
 import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about";
 import { Seo } from "@components/Seo";
 import mainStyles from "css/main.module.scss";
+
+const LINKS = [
+  {
+    name: "Contact",
+    href: "#contact",
+    Icon: ContactIcon,
+  },
+  {
+    name: "GitHub",
+    href: process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL,
+    Icon: GitHubIcon,
+  },
+  {
+    name: "Twitter",
+    href: process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL,
+    Icon: TwitterIcon,
+  },
+  {
+    name: "LinkedIn",
+    href: process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL,
+    Icon: LinkedInIcon,
+  },
+];
 
 const Index = () => {
   const age = calculateAge();
@@ -36,37 +60,26 @@ const Index = () => {
         </p>
 
         <div className={mainStyles.btnContainer}>
-          <a onClick={dispatch} className="btn btn__light btn__icon" href="#contact">
-            <ContactIcon />
-            Contact
-          </a>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            className="btn btn__light btn__icon"
-            href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            className="btn btn__light btn__icon"
-            href={process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL}
-          >
-            <TwitterIcon />
-            Twitter
-          </a>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            className="btn btn__light btn__icon"
-            href={process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL}
-          >
-            <LinkedInIcon />
-            LinkedIn
-          </a>
+          {LINKS.map((link, idx) => (
+            <motion.a
+              key={link.name}
+              initial={{
+                opacity: 0,
+                translateY: -10,
+              }}
+              animate={{
+                opacity: 1,
+                translateY: 0,
+              }}
+              transition={{ duration: 0.3, delay: 0.1 * idx }}
+              onClick={link.name === "Contact" ? dispatch : null}
+              className="btn btn__light btn__icon"
+              href={link.href}
+            >
+              <link.Icon />
+              {link.name}
+            </motion.a>
+          ))}
         </div>
       </main>
 

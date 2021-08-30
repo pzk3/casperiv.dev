@@ -42,3 +42,8 @@ yarn-error.log*
 public/*.js
 public/*.js.map
 public/sitemap.xml
+
+# blog posts
+
+# will be public at the end of the year!
+2021-recap.mdx
