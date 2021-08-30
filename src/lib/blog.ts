@@ -7,6 +7,7 @@ import { Post } from "types/Post";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export function getSlugsFromDir(dir: string): string[] {
   return readdirSync(dir);
@@ -44,7 +45,12 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
     xdmOptions: (options) => {
       options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
 
-      options.rehypePlugins = [...(options?.rehypePlugins ?? []), rehypeSlug, rehypeCodeTitles];
+      options.rehypePlugins = [
+        ...(options?.rehypePlugins ?? []),
+        rehypeSlug,
+        rehypeCodeTitles,
+        rehypeAutolinkHeadings,
+      ];
 
       return options;
     },
