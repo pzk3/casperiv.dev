@@ -70,7 +70,7 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
     intro: frontmatter.intro,
     keywords: frontmatter.keywords ?? "",
     title: frontmatter.title,
-    updatedAt: frontmatter.updateAt ?? null,
+    updatedAt: frontmatter.updatedAt ?? null,
     draft: frontmatter.draft ?? false,
   } as any as T;
 }

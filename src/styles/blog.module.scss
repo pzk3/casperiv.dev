@@ -130,9 +130,8 @@
 }
 
 .blogItems {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
@@ -144,10 +143,8 @@
 }
 
 .blogItem {
-  display: block;
-  width: 100%;
-  background: var(--secondary);
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0;
+  margin: 0.2rem 0;
   border-radius: 0.3rem;
 
   transition: background 200ms;
@@ -158,16 +155,19 @@
   }
 
   p {
+    font-size: 1.05rem;
     margin-top: 0.3rem;
     margin-bottom: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover h2 {
+      text-decoration: underline;
+    }
   }
 }
 
 @media (hover: hover) {
-  .blogItem:hover {
-    background: var(--dark);
-  }
-
   .rightContainer a:hover {
     background: var(--dark);
   }
