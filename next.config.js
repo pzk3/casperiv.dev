@@ -1,6 +1,9 @@
 /* eslint-disable */
 const withPWA = require("next-pwa");
 
+/**
+ * @type {import("next/dist/server/config-shared").NextConfig}
+ */
 const config = {
   async redirects() {
     return [
@@ -76,7 +79,9 @@ const config = {
 
     return config;
   },
-  experimental: { esmExternals: "loose" },
+  experimental: {
+    esmExternals: "loose",
+  },
 };
 
 module.exports = withPWA({
