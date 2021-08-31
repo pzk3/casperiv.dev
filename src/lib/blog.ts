@@ -16,6 +16,10 @@ export function getSlugsFromDir(dir: string): string[] {
 export type Fields<T> = (keyof T)[];
 type Types = "posts" | "snippets" | "case-studies";
 
+/**
+ * @param type The type of item (blog post, snippet, case study)
+ * @param includeDrafts Defaults to `false`
+ */
 export async function getAllItems<T extends Post>(
   type: Types,
   includeDrafts = false,

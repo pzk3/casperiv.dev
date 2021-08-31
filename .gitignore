@@ -42,6 +42,7 @@ yarn-error.log*
 public/*.js
 public/*.js.map
 public/sitemap.xml
+public/rss.xml
 
 # blog posts
 

@@ -5,6 +5,7 @@ import { Post } from "types/Post";
 import { Seo } from "@components/Seo";
 import { getAllItems } from "@lib/blog";
 import styles from "css/blog.module.scss";
+import { generateRSSFeed } from "@lib/rss";
 
 interface Props {
   posts: Post[];
@@ -40,6 +41,7 @@ const BlogPage = ({ posts }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllItems<Post>("posts");
+  await generateRSSFeed();
 
   return {
     props: {
