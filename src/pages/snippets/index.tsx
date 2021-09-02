@@ -1,9 +1,9 @@
 import * as React from "react";
-import Link from "next/link";
 import { GetStaticProps } from "next";
 import { getAllItems } from "@lib/blog";
 import { Seo } from "@components/Seo";
 import { Snippet } from "types/Snippet";
+import { BlogItem } from "@components/BlogItem";
 import styles from "css/blog.module.scss";
 
 interface Props {
@@ -23,15 +23,7 @@ const BlogPage = ({ snippets }: Props) => {
 
       <div className={styles.blogItems}>
         {snippets.map((snippet) => {
-          return (
-            <Link href={`/snippets/${snippet.slug}`} key={snippet.slug}>
-              <a href={`/snippets/${snippet.slug}`} className={styles.blogItem}>
-                <h2>{snippet.title}</h2>
-
-                <p>{snippet.intro}</p>
-              </a>
-            </Link>
-          );
+          return <BlogItem type="snippet" post={snippet} key={snippet.slug} />;
         })}
       </div>
     </>
