@@ -47,16 +47,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "pastebin clone",
-    description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
-    buttons: [
-      {
-        url: `${url}/faunadb-pastebin-clone`,
-        name: VIEW_CODE,
-      },
-    ],
-  },
-  {
     title: "notey.app",
     description: "A notes app to keep track of important things and share notes with others",
     buttons: [
@@ -70,6 +60,29 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    title: "Network share",
+    description:
+      "A project to share files, images, videos, etc to other devices on the same network.",
+    buttons: [
+      {
+        url: `${url}/network-share`,
+        name: VIEW_CODE,
+      },
+    ],
+  },
+
+  {
+    title: "pastebin clone",
+    description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
+    buttons: [
+      {
+        url: `${url}/faunadb-pastebin-clone`,
+        name: VIEW_CODE,
+      },
+    ],
+  },
+
   {
     title: "pastebin-api",
     description: "A very simple pastebin npm package to interact with the pastebin api! ",
@@ -99,12 +112,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Other projects",
+    title: "More projects",
     description: "You can view all my other projects on GitHub below",
     buttons: [
       {
         url: `${url}?tab=repositories`,
-        name: "Show projects",
+        name: "View all projects",
       },
     ],
   },
