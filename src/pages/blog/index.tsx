@@ -1,5 +1,6 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
+import { motion } from "framer-motion";
 import { Post } from "types/Post";
 import { Seo } from "@components/Seo";
 import { getAllItems } from "@lib/blog";
@@ -20,13 +21,24 @@ const BlogPage = ({ posts }: Props) => {
         keywords={["blog casper iversen", "caspertheghost blog"]}
         description="My blog - Casper Iversen"
       />
-      <h1>Blog posts</h1>
+      <motion.h1
+        transition={{ duration: 0.3 }}
+        initial={{ translateY: 10, opacity: 0 }}
+        animate={{ translateY: 0, opacity: 1 }}
+      >
+        Blog posts
+      </motion.h1>
 
-      <div className={styles.blogItems}>
+      <motion.div
+        transition={{ duration: 0.3 }}
+        initial={{ translateY: 15, opacity: 0 }}
+        animate={{ translateY: 0, opacity: 1 }}
+        className={styles.blogItems}
+      >
         {posts.map((post) => {
           return <BlogItem type="blog" post={post} key={post.slug} />;
         })}
-      </div>
+      </motion.div>
     </>
   );
 };
