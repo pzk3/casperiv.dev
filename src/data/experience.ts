@@ -15,7 +15,7 @@ export const experience: Experience[] = [
     description:
       "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
     stack: ["mongodb", "typescript", "next.js"],
-    href: "https://ghostybot.tk",
+    href: "https://ghostybot.caspertheghost.me",
   },
   {
     title: "Notey.app",
