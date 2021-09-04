@@ -23,7 +23,7 @@ const BlogPage = ({ snippets }: Props) => {
 
       <div className={styles.blogItems}>
         {snippets.map((snippet) => {
-          return <BlogItem type="snippet" post={snippet} key={snippet.slug} />;
+          return <BlogItem type="snippets" post={snippet} key={snippet.slug} />;
         })}
       </div>
     </>
