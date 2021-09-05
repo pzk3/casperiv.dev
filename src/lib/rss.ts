@@ -21,11 +21,11 @@ export async function generateRSSFeed() {
     for (const post of posts) {
       rss.item({
         title: post.title,
+        date: post.createdAt,
+        author: "Casper Iversen",
+        description: post.intro ?? "",
         guid: `${SITE_URL}/blog/${post.slug}`,
         url: `${SITE_URL}/blog/${post.slug}`,
-        date: post.createdAt,
-        description: post.intro ?? "",
-        author: "Casper Iversen",
       });
     }
 

@@ -1,9 +1,9 @@
 export interface Post {
-  title: string | null;
-  createdAt: string | null;
+  title: string;
+  createdAt: string;
   updatedAt: string | null;
-  slug: string | null;
-  content: string | null;
+  slug: string;
+  content: string;
   intro: string | null;
   keywords: string | null;
   readingTime: number;
