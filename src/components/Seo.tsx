@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   keywords?: string[];
   url?: string;
+  date?: string;
 }
 
 // these should be displayed on all pages.
@@ -45,6 +46,16 @@ export const Seo = (props: Props) => {
       <meta property="og:url" content={tags.url} />
 
       <meta name="keywords" content={[...DEFAULT_KEYWORDS, ...tags.keywords].join(", ")} />
+
+      {tags.date ? (
+        <>
+          <meta property="article:published_time" content={tags.date} />
+          <meta name="publish_date" property="og:publish_date" content={tags.date} />
+          <meta name="author" property="article:author" content="Casper Iversen" />
+          <meta name="authors" content="Casper Iversen" />
+          <meta name="created" content={tags.date} />
+        </>
+      ) : null}
     </Head>
   );
 };

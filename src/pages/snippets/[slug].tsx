@@ -21,12 +21,10 @@ const PostPage = ({ snippet }: Props) => {
         description={snippet.intro ?? undefined}
         keywords={["code snippets", "snippets casper iversen", ...keywords]}
         url={`https://caspertheghost.me/snippets/${snippet.slug}`}
+        date={snippet.createdAt}
       />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
-
-        <meta name="authors" content="Casper Iversen" />
-        <meta name="created" content={snippet.createdAt} />
       </Head>
 
       <BlogHeader post={snippet} />

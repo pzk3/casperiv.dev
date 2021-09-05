@@ -33,11 +33,10 @@ const PostPage = ({ post }: Props) => {
         description={post.intro ?? undefined}
         keywords={["blog", "case studies casper iversen", ...keywords]}
         url={`https://caspertheghost.me/case-study/${post.slug}`}
+        date={post.createdAt}
       />
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
-        <meta name="authors" content="Casper Iversen" />
-        <meta name="created" content={post.createdAt} />
       </Head>
 
       <BlogHeader post={post} />

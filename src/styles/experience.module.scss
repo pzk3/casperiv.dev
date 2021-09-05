@@ -1,8 +1,9 @@
 .header {
-  > h1 {
+  h1 {
     margin-bottom: 0;
   }
-  > p {
+
+  p {
     margin-top: 0.5rem;
     font-size: 1.1rem;
   }
@@ -54,7 +55,7 @@
   @media (hover: hover) {
     &:hover {
       opacity: 1;
-      transform: translateY(-0.1rem);
+      transform: translateY(-2px) scale(1.05);
       box-shadow: 0 0px 8px 2px rgb(22, 27, 34, 0.3);
     }
   }
