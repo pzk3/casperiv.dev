@@ -1,7 +1,15 @@
 import * as f from "faunadb";
 import { client } from "@lib/faunadb";
+import rateLimit from "express-rate-limit";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Query, Views } from "types/Fauna";
+import { middleWare } from "../mail";
+
+// max 100 tries per 10 minutes
+const limiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 100,
+});
 
 async function getViewsBySlug(slug: string): Promise<Query<Views> | null> {
   return client
@@ -16,6 +24,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const handlers = {
     POST: async () => {
+      await middleWare(req, res, limiter);
+
       const data = await getViewsBySlug(slug);
 
       if (!data) {

@@ -9,7 +9,7 @@ const limiter = rateLimit({
   max: 2,
 });
 
-function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
+export function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
@@ -21,14 +21,11 @@ function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
   });
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-): Promise<void | NextApiResponse> {
-  const { method } = req;
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const method = req.method as keyof typeof handlers;
 
-  switch (method) {
-    case "POST": {
+  const handlers = {
+    POST: async () => {
       await middleWare(req, res, limiter);
       const body = JSON.parse(req.body);
 
@@ -66,9 +63,13 @@ ${body.text}`,
           error: "An unexpected error occurred. Please try again later.",
         });
       }
-    }
-    default: {
-      return res.redirect("/404");
-    }
+    },
+  };
+
+  const handler = handlers[method];
+  if (!handler) {
+    return res.status(405).send("Method not allowed");
   }
+
+  return handler();
 }
