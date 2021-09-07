@@ -121,6 +121,11 @@
     margin-left: 1.5rem;
     list-style-type: "- ";
   }
+
+  summary {
+    cursor: pointer;
+    transition: 200ms;
+  }
 }
 
 .copyBtn {
