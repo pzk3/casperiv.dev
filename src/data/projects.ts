@@ -3,6 +3,7 @@ const url = "https://github.com/dev-caspertheghost";
 
 const VIEW_CODE = "View Code";
 const OPEN_PROJECT = "Open Project";
+const VIEW_CASE_STUDY = "View case study";
 
 export const projects: Project[] = [
   {
@@ -12,7 +13,7 @@ export const projects: Project[] = [
     buttons: [
       {
         url: "/case-study/home-inventory",
-        name: "View case study",
+        name: VIEW_CASE_STUDY,
       },
       {
         url: `${url}/home-inventory`,
@@ -52,7 +53,7 @@ export const projects: Project[] = [
     buttons: [
       {
         url: "/case-study/notey.app",
-        name: "View case study",
+        name: VIEW_CASE_STUDY,
       },
       {
         url: "https://notey.caspertheghost.me",
@@ -65,6 +66,10 @@ export const projects: Project[] = [
     description:
       "A project to share files, images, videos, etc to other devices on the same network.",
     buttons: [
+      {
+        url: "/case-study/network-share",
+        name: VIEW_CASE_STUDY,
+      },
       {
         url: `${url}/network-share`,
         name: VIEW_CODE,
