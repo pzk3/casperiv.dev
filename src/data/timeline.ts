@@ -3,8 +3,15 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     date: "September 2021",
+    title: "new-tab",
+    text: "Published my first Firefox addon",
+    full_date: "September 13, 2021",
+    url: "https://ctgs.caspertheghost.me/new-tab",
+  },
+  {
+    date: "September 2021",
     title: "Polywork",
-    text: "Created a Polywork page. Will be using that as my new timeline, make sure to follow me 😆!",
+    text: "Created a Polywork page. Make sure to follow me 😆!",
     full_date: "September 7, 2021",
     url: "https://p.caspertheghost.me",
   },
