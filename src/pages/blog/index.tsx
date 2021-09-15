@@ -1,4 +1,3 @@
-import * as React from "react";
 import { GetStaticProps } from "next";
 import { motion } from "framer-motion";
 import { Post } from "types/Post";

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import { motion } from "framer-motion";
 import { TimelineSection } from "@sections/TimelineSection";
