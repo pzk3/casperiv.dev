@@ -1,5 +1,6 @@
 import { useEmitEvent } from "@casper124578/useful/hooks/useEmitEvent";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { TimelineSection } from "@sections/TimelineSection";
 import { ProjectSection } from "@sections/ProjectsSection";
 import { ContactSection } from "@sections/ContactSection";
@@ -55,7 +56,10 @@ const Index = () => {
           Hello, I am Casper! I am a {age} year old programmer and student based in Belgium. I
           create websites, Discord bots, npm packages, etc. I&apos;m a self taught developer and I
           have been programming for about 2 years and still learning new technologies every day,
-          mostly focusing on frontend related technologies.
+          mostly focusing on frontend related technologies.{" "}
+          <Link href="/about">
+            <a>Read more.</a>
+          </Link>
         </p>
 
         <div className={mainStyles.btnContainer}>

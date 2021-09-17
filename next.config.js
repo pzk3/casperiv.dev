@@ -81,6 +81,8 @@ const config = {
   },
   experimental: {
     esmExternals: "loose",
+    swcLoader: true,
+    swcMinify: true,
   },
 };
 
