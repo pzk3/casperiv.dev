@@ -15,7 +15,7 @@ const Index = () => {
 
   return (
     <main className={mainStyles.main}>
-      <Seo title="Casper Iversen - Web Developer" />
+      <Seo title="About Me - Casper Iversen" />
 
       <motion.h1 {...animationProps} style={{ marginBottom: "1rem" }}>
         A bit more about me 👨‍💻
