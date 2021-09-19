@@ -9,7 +9,7 @@ import { ContactIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from "@icons/about
 import { Seo } from "@components/Seo";
 import mainStyles from "css/main.module.scss";
 
-const LINKS = [
+export const LINKS = [
   {
     name: "Contact",
     href: "#contact",

@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Seo } from "@components/Seo";
 import { getMyAge } from "@lib/utils";
-import mainStyles from "css/main.module.scss";
+import { LINKS } from ".";
 import styles from "css/about.module.scss";
+import mainStyles from "css/main.module.scss";
 
 const animationProps = {
   initial: { opacity: 0, translateY: 5 },
@@ -70,6 +71,35 @@ const Index = () => {
           </Link>
           !
         </em>
+
+        <div style={{ justifyContent: "start" }} className={mainStyles.btnContainer}>
+          {LINKS.map((v) => {
+            if (v.name === "Contact") {
+              v.href = "/#contact";
+            }
+
+            return v;
+          }).map((link, idx) => (
+            <motion.a
+              key={link.name}
+              initial={{
+                opacity: 0,
+                translateY: -10,
+              }}
+              animate={{
+                opacity: 1,
+                translateY: 0,
+              }}
+              transition={{ duration: 0.3, delay: 0.1 * idx }}
+              className="btn btn__light btn__icon"
+              href={link.href}
+              style={{ textDecoration: "none" }}
+            >
+              <link.Icon />
+              {link.name}
+            </motion.a>
+          ))}
+        </div>
       </motion.div>
     </main>
   );
