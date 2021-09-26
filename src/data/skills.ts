@@ -12,6 +12,7 @@ export const skills: SkillItem[] = [
       "JavaScript",
       "TypeScript",
       "React & Next.js",
+      "TailwindCSS",
       "State management (React redux, MobX)",
     ],
   },
