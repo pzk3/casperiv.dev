@@ -103,16 +103,16 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "mysql.ts",
-    description: "A simple node.js wrapper for mysql, simplified",
+    title: "ctgs.xyz",
+    description: "A simple URL shortener built with TypeScript, Next.js, Prisma and PlanetScale",
     buttons: [
       {
-        url: `${url}/mysql.ts`,
+        url: `${url}/ctgs.xyz`,
         name: VIEW_CODE,
       },
       {
-        name: "View on npm",
-        url: "https://www.npmjs.com/package/@casper124578/mysql.ts",
+        name: OPEN_PROJECT,
+        url: "https://ctgs.xyz",
       },
     ],
   },
