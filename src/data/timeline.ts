@@ -2,6 +2,13 @@ import { TimelineItem } from "types/Timeline";
 
 export const timeline: TimelineItem[] = [
   {
+    date: "October 2021",
+    title: "SnailyCAD",
+    text: "Re-creating SnailyCADv3 as SnailyCADv4 with tons of improvements and new features.",
+    full_date: "October 5, 2021",
+    url: "https://github.com/SnailyCAD/snaily-cadv4",
+  },
+  {
     date: "September 2021",
     title: "new-tab",
     text: "Published my first Firefox addon",
