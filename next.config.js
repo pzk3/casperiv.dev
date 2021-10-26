@@ -79,11 +79,6 @@ const config = {
 
     return config;
   },
-  experimental: {
-    esmExternals: "loose",
-    swcLoader: true,
-    swcMinify: true,
-  },
 };
 
 module.exports = withPWA({
