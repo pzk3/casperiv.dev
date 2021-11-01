@@ -55,7 +55,7 @@
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "concurrently": "^6.3.0",
-    "esbuild": "^0.13.9",
+    "esbuild": "^0.13.12",
     "eslint": "^7.32.0",
     "prettier": "^2.4.1",
     "typed-scss-modules": "^4.1.1",
