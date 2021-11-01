@@ -14,7 +14,7 @@
     "test-tsc": "npm run build:typed-css && tsc --noEmit"
   },
   "dependencies": {
-    "@casper124578/useful": "^1.4.1",
+    "@casper124578/useful": "^1.4.2",
     "@sendgrid/mail": "^7.5.0",
     "date-fns": "^2.25.0",
     "express-rate-limit": "^5.5.0",
