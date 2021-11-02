@@ -1,6 +1,5 @@
 import * as React from "react";
 import { AppProps } from "next/app";
-import Script from "next/script";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "zenscroll/zenscroll-min";
