@@ -29,8 +29,8 @@ export const experience: Experience[] = [
     year: "02/2019 - Present",
     description:
       "A project I created to give gaming communities a free CAD/MDT to help with management of Police, EMS and dispatch roleplay.",
-    stack: ["react.js", "redux", "mysql", "express", "typescript"],
-    href: "https://github.com/Dev-CasperTheGhost/snaily-cadv3",
+    stack: ["react.js", "next.js", "postgres", "Ts.ED", "typescript"],
+    href: "https://github.com/SnailyCAD/snaily-cadv4",
   },
   {
     title: "Open Source",
