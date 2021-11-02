@@ -1,5 +1,6 @@
 import * as React from "react";
 import { AppProps } from "next/app";
+import Script from "next/script";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "zenscroll/zenscroll-min";
@@ -30,6 +31,14 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      {process.env.NODE_ENV === "production" ? (
+        <Script
+          async
+          defer
+          data-website-id={process.env.UMAMI_SITE_ID}
+          src={process.env.UMAMI_URL}
+        />
+      ) : null}
       <Nav />
       <Menu />
       <div id="container" className="container">
