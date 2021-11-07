@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
-class CasperTheGhostDotMe extends Document {
+export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
@@ -10,8 +10,12 @@ class CasperTheGhostDotMe extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preload" href="/fonts/Catamaran-Regular.ttf" as="font" type="font/ttf" />
-          <link rel="preload" href="/fonts/Catamaran-Medium.ttf" as="font" type="font/ttf" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+          />
 
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
@@ -30,7 +34,6 @@ class CasperTheGhostDotMe extends Document {
           <meta name="author" content="Casper Iversen" />
         </Head>
         <body>
-          <script>0</script>
           <Main />
           <NextScript />
         </body>
@@ -38,5 +41,3 @@ class CasperTheGhostDotMe extends Document {
     );
   }
 }
-
-export default CasperTheGhostDotMe;

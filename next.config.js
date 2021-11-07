@@ -1,45 +1,27 @@
-/* eslint-disable */
-const withPWA = require("next-pwa");
-
-/**
- * @type {import("next/dist/server/config-shared").NextConfig}
- */
-const config = {
+/** @type {import('next').NextConfig} */
+module.exports = {
+  cleanDistDir: true,
+  reactStrictMode: true,
   async redirects() {
     return [
       {
         source: "/twitter",
-        destination: process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL || "https://twitter.com",
+        destination: "https://twitter.com/casper124578",
         permanent: true,
       },
       {
         source: "/github",
-        destination: process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL || "https://github.com",
+        destination: "https://github.com/dev-caspertheghost",
         permanent: true,
       },
       {
         source: "/linkedin",
-        destination: process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL || "https://linkedin.com",
-        permanent: true,
-      },
-      {
-        source: "/youtube",
-        destination: process.env.NEXT_PUBLIC_YOUTUBE_REDIRECT_URL || "https://youtube.com",
+        destination: "https://linkedin.com/in/casper-iversen",
         permanent: true,
       },
       {
         source: "/uses",
         destination: "/blog/my-uses",
-        permanent: true,
-      },
-      {
-        source: "/code-snippets/:slug",
-        destination: "/snippets/:slug",
-        permanent: true,
-      },
-      {
-        source: "/blog/setting-up-snailycad",
-        destination: "/blog/setting-up-snailycad-windows",
         permanent: true,
       },
       {
@@ -80,11 +62,3 @@ const config = {
     return config;
   },
 };
-
-module.exports = withPWA({
-  ...config,
-  pwa: {
-    dest: "public",
-    disable: process.env.NODE_ENV !== "production",
-  },
-});

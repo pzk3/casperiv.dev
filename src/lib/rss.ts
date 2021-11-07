@@ -1,7 +1,7 @@
 import * as Log from "next/dist/build/output/log";
 import RSS from "rss";
 import fs from "node:fs/promises";
-import { getAllItems } from "./blog";
+import { getAllItems } from "./mdx";
 
 const OUT_FILE_PATH = "./public/rss.xml";
 const SITE_URL = "https://caspertheghost.me";
@@ -13,7 +13,7 @@ export async function generateRSSFeed() {
     const posts = await getAllItems("posts");
 
     const rss = new RSS({
-      title: "Casper Blog",
+      title: "Casper's Blog",
       site_url: SITE_URL,
       feed_url: `${SITE_URL}/rss.xml`,
     });

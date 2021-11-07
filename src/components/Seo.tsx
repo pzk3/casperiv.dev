@@ -1,8 +1,8 @@
-import * as React from "react";
+import type * as React from "react";
 import Head from "next/head";
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   keywords?: string[];
   url?: string;
@@ -26,7 +26,7 @@ const defaults: Props = {
 };
 
 export const Seo = (props: Props) => {
-  const tags = {
+  const tags: Props = {
     ...defaults,
     ...props,
   };
@@ -45,7 +45,7 @@ export const Seo = (props: Props) => {
       <link rel="canonical" href={tags.url} />
       <meta property="og:url" content={tags.url} />
 
-      <meta name="keywords" content={[...DEFAULT_KEYWORDS, ...tags.keywords].join(", ")} />
+      <meta name="keywords" content={[...DEFAULT_KEYWORDS, ...(tags.keywords ?? [])].join(", ")} />
 
       {tags.date ? (
         <>

@@ -1,55 +1,33 @@
-import * as React from "react";
-import { motion } from "framer-motion";
+import { Layout } from "components/Layout";
+import { getAllItems } from "lib/mdx";
 import { GetStaticProps } from "next";
-import { getAllItems } from "@lib/blog";
-import { Seo } from "@components/Seo";
-import { Snippet } from "types/Snippet";
-import { BlogItem } from "@components/BlogItem";
-import styles from "css/blog.module.scss";
+import { Post } from "types/Post";
+import { generateRSSFeed } from "lib/rss";
+import { ArticlesList } from "components/blog/ArticlesList";
+import { Seo } from "components/Seo";
 
-interface Props {
-  snippets: Snippet[];
-}
-
-const BlogPage = ({ snippets }: Props) => {
+export default function CodeSnippets({ snippets }: { snippets: Post[] }) {
   return (
-    <>
+    <Layout>
       <Seo
         title="Code snippets - Casper Iversen"
         description="Small code snippets that I have found useful"
         keywords={["code snippets", "code examples", "react hooks"]}
         url="https://caspertheghost.me/snippets"
       />
-      <motion.h1
-        transition={{ duration: 0.3 }}
-        initial={{ translateY: 10, opacity: 0 }}
-        animate={{ translateY: 0, opacity: 1 }}
-      >
-        Code snippets
-      </motion.h1>
 
-      <motion.div
-        transition={{ duration: 0.3 }}
-        initial={{ translateY: 15, opacity: 0 }}
-        animate={{ translateY: 0, opacity: 1 }}
-        className={styles.blogItems}
-      >
-        {snippets.map((snippet) => {
-          return <BlogItem type="snippets" post={snippet} key={snippet.slug} />;
-        })}
-      </motion.div>
-    </>
+      <h1 className="section-title">Code Snippets</h1>
+
+      <ArticlesList articles={snippets} type="snippets" />
+    </Layout>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets = await getAllItems<Snippet>("snippets");
+  const snippets = await getAllItems<Post>("snippets");
+  await generateRSSFeed();
 
   return {
-    props: {
-      snippets,
-    },
+    props: { snippets },
   };
 };
-
-export default BlogPage;

@@ -1,17 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import mail from "@sendgrid/mail";
 import rateLimit from "express-rate-limit";
-import * as sgMail from "@sendgrid/mail";
-
-sgMail.setApiKey(process.env["SEND_GRID_API_KEY"]);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 2,
 });
 
-export function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
+export function middleWare(req: NextApiRequest, res: NextApiResponse, fn: any) {
   return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
+    fn(req, res, (result: any) => {
       if (result instanceof Error) {
         return reject(result);
       }
@@ -21,55 +19,50 @@ export function middleWare(req: NextApiRequest, res: NextApiResponse, fn) {
   });
 }
 
+mail.setApiKey(process.env.MAIL_API_KEY!);
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const method = req.method as keyof typeof handlers;
-
-  const handlers = {
-    POST: async () => {
-      await middleWare(req, res, limiter);
-      const body = JSON.parse(req.body);
-
-      if (!body.name || !body.email || !body.text) {
-        return res.json({
-          error: "Please fill in all fields",
-          status: "error",
-          required_fields: ["name", "email", "text"],
-        });
-      }
-
-      const mail: sgMail.MailDataRequired = {
-        to: process.env["TO_EMAIL"],
-        from: process.env["TO_EMAIL"],
-        subject: `New email from ${body.name}`,
-        html: `
-Email from: <strong>${body.email}</strong>:
-
-<br />
-<br />
-
-${body.text}`,
-        cc: body.email,
-      };
-
-      try {
-        await sgMail.send(mail);
-
-        return res.json({ status: "success" });
-      } catch (e) {
-        console.log(e);
-
-        return res.json({
-          status: "error",
-          error: "An unexpected error occurred. Please try again later.",
-        });
-      }
-    },
-  };
-
-  const handler = handlers[method];
-  if (!handler) {
-    return res.status(405).send("Method not allowed");
+  if (req.method !== "POST") {
+    return res.status(405).send("Method Not Allowed");
   }
 
-  return handler();
+  await middleWare(req, res, limiter);
+
+  const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+
+  if (!["email", "name", "message"].every((k) => body[k])) {
+    return res.status(500).send({ error: "email, name and message are required." });
+  }
+
+  const msg = {
+    to: [process.env.MAIL_CC_EMAIL!, { name: body.name, email: body.email }],
+    from: process.env.MAIL_VERIFIED_SENDER!,
+    subject: "RE: Confirmation email caspertheghost.me",
+    text: `
+Hello ${body.name},
+
+You received this email because you sent me an email via my contact form on caspertheghost.me.
+I will respond back to you as soon as I can :). Below you can find your message:
+
+
+${body.message}`,
+    html: `
+Hello ${body.name},<br/>
+<br/>
+You received this email because you sent me an email via my contact form on caspertheghost.me.<br/>
+I will respond back to you as soon as I can :). Below you can find your message:
+
+<br/>
+<br/>
+
+<q>${body.message}</q>`,
+  };
+
+  const data = await mail.send(msg).catch(() => null);
+
+  if (!data) {
+    return res.status(500).send({ error: "could not send email" });
+  }
+
+  return res.status(200).send({});
 }

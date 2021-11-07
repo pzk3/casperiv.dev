@@ -1,50 +1,30 @@
-import * as React from "react";
 import Head from "next/head";
+import { Layout } from "components/Layout";
+import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
-import { BlogHeader } from "@components/BlogHeader";
-import { getAllItems, getItemBySlug } from "@lib/blog";
 import { Post } from "types/Post";
-import { Seo } from "@components/Seo";
-import { Markdown } from "@components/Markdown";
+import { Article } from "components/blog/Article";
+import { Seo } from "components/Seo";
 
-interface Props {
-  post: Post;
-}
-
-const PostPage = ({ post }: Props) => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    if (!post) {
-      router.push("/404");
-    }
-  }, [post, router]);
-
-  if (!post) {
-    return null;
-  }
-
-  const keywords = post.keywords?.split(", ") ?? [];
+export default function BlogPost({ post }: { post: Post }) {
   return (
-    <>
+    <Layout>
       <Seo
         title={`${post.title} - Casper Iversen`}
         description={post.intro ?? undefined}
-        keywords={["blog", "blog casper iversen", ...keywords]}
+        keywords={["blog", "blog casper iversen", ...(post.keywords ?? [])]}
         url={`https://caspertheghost.me/blog/${post.slug}`}
         date={post.createdAt}
       />
+
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
 
-      <BlogHeader post={post} />
-
-      <Markdown content={post.content} />
-    </>
+      <Article article={post} />
+    </Layout>
   );
-};
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllItems<Post>("posts", true);
@@ -59,16 +39,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const slug = ctx.params.slug.toString();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = await getItemBySlug<Post>(params?.slug as string, "posts");
 
-  const post = await getItemBySlug<Post>(slug, "posts");
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: {
-      post: post ?? null,
-    },
+    props: { post },
   };
 };
-
-export default PostPage;

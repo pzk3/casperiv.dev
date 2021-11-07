@@ -1,74 +1,54 @@
-import * as React from "react";
 import Head from "next/head";
+import { Layout } from "components/Layout";
+import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
-import { getAllItems, getItemBySlug } from "@lib/blog";
-import { BlogHeader } from "@components/BlogHeader";
 import { Post } from "types/Post";
-import { Seo } from "@components/Seo";
-import { Markdown } from "@components/Markdown";
+import { Article } from "components/blog/Article";
+import { Seo } from "components/Seo";
 
-interface Props {
-  post: Post;
-}
-
-const PostPage = ({ post }: Props) => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    if (!post) {
-      router.push("/404");
-    }
-  }, [post, router]);
-
-  if (!post) {
-    return null;
-  }
-
-  const keywords = post.keywords?.split(", ") ?? [];
+export default function BlogPost({ caseStudy }: { caseStudy: Post }) {
   return (
-    <>
+    <Layout>
       <Seo
-        title={`${post.title} - Casper Iversen`}
-        description={post.intro ?? undefined}
-        keywords={["blog", "case studies casper iversen", ...keywords]}
-        url={`https://caspertheghost.me/case-study/${post.slug}`}
-        date={post.createdAt}
+        title={`${caseStudy.title} - Casper Iversen`}
+        description={caseStudy.intro ?? undefined}
+        keywords={["blog", "case studies casper iversen", ...(caseStudy.keywords ?? [])]}
+        url={`https://caspertheghost.me/case-study/${caseStudy.slug}`}
+        date={caseStudy.createdAt}
       />
+
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />
       </Head>
 
-      <BlogHeader post={post} />
-
-      <Markdown content={post.content} />
-    </>
+      <Article article={caseStudy} />
+    </Layout>
   );
-};
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>("case-studies");
+  const caseStudies = await getAllItems<Post>("case-studies", true);
 
   return {
     fallback: false,
-    paths: posts.map((post) => ({
+    paths: caseStudies.map((snippet) => ({
       params: {
-        slug: post.slug,
+        slug: snippet.slug,
       },
     })),
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const slug = ctx.params.slug.toString();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const caseStudy = await getItemBySlug<Post>(params?.slug as string, "case-studies");
 
-  const post = await getItemBySlug<Post>(slug, "case-studies");
+  if (!caseStudy) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: {
-      post: post ?? null,
-    },
+    props: { caseStudy },
   };
 };
-
-export default PostPage;
