@@ -15,15 +15,15 @@ export const BlogHeader = ({ post }: Props) => {
   return (
     <header className="pb-2 border-b-2 border-blue-1">
       <h1 className="mb-3 text-3xl font-bold md:text-4xl">{post.title}</h1>
-      <div className="flex gap-5">
-        <p className="font-medium">{publishDateFull}</p>
+      <div style={{ scrollbarWidth: "thin" }} className="flex gap-2 overflow-x-auto md:gap-5">
+        <p className="font-medium min-w-[180px]">{publishDateFull}</p>
         {post.readingTime ? (
-          <p className="flex items-center gap-2">
+          <p className="flex items-center gap-2 min-w-[120px]">
             <Clock className="text-gray-400" /> {post.readingTime}
           </p>
         ) : null}
 
-        <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2 min-w-[100px]">
           <Eye className="text-gray-400" /> {views ? Intl.NumberFormat().format(views) : "—"}{" "}
           {viewsText}
         </p>

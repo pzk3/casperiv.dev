@@ -11,10 +11,10 @@ export const HeroSection = () => {
           </span>{" "}
           Hello! I am
         </h4>
-        <h1 className="text-6xl font-bold md:text-7xl lg:text-8xl">
+        <h1 className="text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
           Casper<span className="hidden sm:inline"> Iversen</span>,
         </h1>
-        <h2 className="mt-5 text-4xl font-bold md:text-5xl lg:text-6xl">
+        <h2 className="mt-2 text-4xl font-bold sm:mt-5 sm:text-4xl md:text-5xl lg:text-6xl">
           and {"I'm"} a web developer.
         </h2>
       </div>

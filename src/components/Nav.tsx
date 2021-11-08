@@ -6,6 +6,7 @@ import classNames from "clsx";
 import { useViewport } from "lib/useViewport";
 
 export const Nav = () => {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
 
@@ -14,6 +15,10 @@ export const Nav = () => {
       setMenuOpen(false);
     }
   }, [viewport]);
+
+  React.useEffect(() => {
+    setMenuOpen(false);
+  }, [router]);
 
   return (
     <header
