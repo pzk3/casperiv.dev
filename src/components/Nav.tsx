@@ -1,39 +1,63 @@
-import { useRouter } from "next/dist/client/router";
+import * as React from "react";
+import { useRouter } from "next/router";
 import NextLink from "next/link";
-import { Github, Twitter } from "react-bootstrap-icons";
+import { Github, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
+import { useViewport } from "lib/useViewport";
 
 export const Nav = () => {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const viewport = useViewport();
+
+  React.useEffect(() => {
+    if (viewport > 768) {
+      setMenuOpen(false);
+    }
+  }, [viewport]);
+
   return (
     <header
       className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-blue"
       id="nav"
     >
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
-        {/* <h1 className="text-2xl font-bold">
-          <a href="/">
-            Casper <span className="hidden sm:inline">Iversen</span>
-          </a>
-        </h1> */}
-
-        <ul className="flex items-center h-full space-x-1">
+        <ul
+          className={classNames(
+            "h-full space-x-1 md:items-center",
+            menuOpen
+              ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-blue p-5 shadow-lg"
+              : "hidden md:flex",
+          )}
+        >
           <li>
-            <Link href="/">Home</Link>
+            <Link menuOpen={menuOpen} href="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/#projects">Projects</Link>
+            <Link menuOpen={menuOpen} href="/#projects">
+              Projects
+            </Link>
           </li>
           <li>
-            <Link href="/#contact">Contact</Link>
+            <Link menuOpen={menuOpen} href="/#contact">
+              Contact
+            </Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <Link menuOpen={menuOpen} href="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <Link menuOpen={menuOpen} href="/blog">
+              Blog
+            </Link>
           </li>
           <li>
-            <Link href="/snippets">Code Snippets</Link>
+            <Link menuOpen={menuOpen} href="/snippets">
+              Code Snippets
+            </Link>
           </li>
         </ul>
 
@@ -49,12 +73,20 @@ export const Nav = () => {
             </a>
           </li>
         </ul>
+
+        <button
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Open menu"
+          className="z-50 flex flex-col w-8 md:hidden"
+        >
+          {menuOpen ? <X width={35} height={35} /> : <List width={30} height={30} />}
+        </button>
       </nav>
     </header>
   );
 };
 
-const Link = (props: JSX.IntrinsicElements["a"]) => {
+const Link = ({ menuOpen, ...props }: JSX.IntrinsicElements["a"] & { menuOpen: boolean }) => {
   const router = useRouter();
 
   const isActive = props.href === router.pathname;
@@ -64,8 +96,9 @@ const Link = (props: JSX.IntrinsicElements["a"]) => {
       <a
         {...props}
         className={classNames(
-          { "bg-blue-1 font-medium": isActive },
+          { "bg-blue-1 font-medium": isActive && !menuOpen },
           "p-1.5 px-3 duration-200 transition-colors rounded-md hover:bg-blue-1",
+          { "my-2 block": menuOpen },
         )}
       >
         {props.children}
