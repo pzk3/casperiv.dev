@@ -15,6 +15,11 @@ import ServerConfig from "public/blog/server-folder-config.png";
 
 # Getting started
 
+<Alert type="warn">
+  SnailyCADv3 will be archived on `2021-12-31`. SnailyCADv4 is currently in stable beta and ready to
+  be used! [Check SnailyCADv4 out here](https://github.com/SnailyCAD/snaily-cadv4)
+</Alert>
+
 This is a Windows guide for installing SnailyCAD. You [can view the Linux (Ubuntu) guide here](/blog/setting-up-snailycad-linux).
 
 ## Requirements
@@ -34,6 +39,8 @@ After successfully installing XAMPP, open the XAMPP Control Panel
 You should see something like this:
 
 <Image
+  width={1333}
+  height={684}
   src="/blog/xampp-control-panel.png"
   alt="xampp-control-panel"
   placeholder="blur"
@@ -51,6 +58,8 @@ Let's create the database and insert the `snaily-cad.sql` file
 In the sidebar you can see a link: "New", click that, it should look something like this:
 
 <Image
+  width={847}
+  height={469}
   alt="create-database"
   src="/blog/create-database.png"
   placeholder="blur"
@@ -62,6 +71,8 @@ Enter `snaily-cad` in the input field then click `Create`.
 Once finished creating the database, you can should see a navbar at the top, click the `import` button:
 
 <Image
+  width={1587}
+  height={83}
   alt="import-button"
   src="/blog/import-button.png"
   placeholder="blur"
@@ -71,13 +82,16 @@ Once finished creating the database, you can should see a navbar at the top, cli
 Now a new window should appear, click the `browse...` button and select the `snaily-cad.sql` file. It's located in the root folder of SnailyCAD. After selecting it you can click the `Go` button on the bottom right corner.
 
 <Image
+  width={1135}
+  height={376}
   src="/blog/database-browse.png"
   alt="database-browse"
   placeholder="blur"
   blurDataURL={DatabaseBrowse}
 />
 
-🎉 You've successfully setup XAMPP and MySQL for SnailyCAD! If you're experiencing issues, [feel free to join our Discord server](https://discord.gg/eGnrPqEH7U).
+🎉 You've successfully setup XAMPP and MySQL for SnailyCAD! If you're experiencing issues, [feel free
+to join our Discord server](https://discord.gg/eGnrPqEH7U).
 
 ## Installing SnailyCAD
 
@@ -108,6 +122,8 @@ Once it has finished installing, you [can open windows file explorer](https://ww
 Now you should see the following files and folders:
 
 <Image
+  width={1360}
+  height={978}
   alt="snaily-cad-root-folder"
   src="/blog/snaily-cad-root-folder.png"
   placeholder="blur"
@@ -123,6 +139,8 @@ Now navigate into the `src` folder and look for the `config.example.ts` file. **
 Your server folder should look like this now:
 
 <Image
+  width={1102}
+  height={433}
   src="/blog/server-folder-config.png"
   alt="server-folder-config"
   placeholder="blur"

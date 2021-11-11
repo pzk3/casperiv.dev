@@ -40,7 +40,7 @@
 
   code {
     font-family: "CascadiaMono", "Courier New", monospace !important;
-    @apply rounded-md p-1 px-1.5 bg-blue-1 font-light;
+    @apply rounded-md p-1 px-1.5 bg-blue-1 font-light text-white;
   }
 
   h4,
@@ -49,6 +49,10 @@
   h1 {
     @apply font-semibold;
     scroll-margin-top: 3em;
+  }
+
+  h1 {
+    font-size: 1.9rem;
   }
 
   h2 {

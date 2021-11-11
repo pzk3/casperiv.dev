@@ -8,23 +8,34 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactChild;
 }
 
+const labels = {
+  info: "Info",
+  warn: "Warning",
+  error: "Error",
+};
+
 export const Alert = ({ children, type, ...rest }: Props) => {
   const styles = {
     info: "bg-blue-1/50",
     error: "bg-red-500",
-    warn: "bg-yellow-500",
+    warn: "bg-yellow-500 text-black font-medium",
   };
 
   return (
     <div
       role="alert"
       className={classNames(
-        "text-white p-1 px-3 rounded-md flex items-center text-base",
+        "text-white p-1 px-3 rounded-md flex items-start relative text-base",
+
         styles[type],
       )}
       {...rest}
     >
-      <Icon type={type} />
+      <p className="relative min-w-[25px]">
+        <span aria-label={labels[type]} className="absolute top-2 left-1">
+          <Icon type={type} />
+        </span>
+      </p>
       <span className="ml-3">{children}</span>
     </div>
   );
@@ -33,11 +44,27 @@ export const Alert = ({ children, type, ...rest }: Props) => {
 const Icon = ({ type }: { type: AlertIconType }) => {
   switch (type) {
     case "error":
-      return <ExclamationCircle height={20} width={20} />;
+      return (
+        <ExclamationCircle
+          aria-label={labels[type]}
+          className="min-w-[20px]"
+          height={20}
+          width={20}
+        />
+      );
     case "info":
-      return <InfoCircle height={20} width={20} />;
+      return (
+        <InfoCircle aria-label={labels[type]} className="min-w-[20px]" height={20} width={20} />
+      );
     case "warn":
-      return <ExclamationTriangle height={20} width={20} />;
+      return (
+        <ExclamationTriangle
+          aria-label={labels[type]}
+          className="min-w-[20px]"
+          height={20}
+          width={20}
+        />
+      );
     default:
       return null;
   }
