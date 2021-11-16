@@ -3,6 +3,13 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2021,
+    title: "Remix.run",
+    text: "Heard a lot of good things about Remix.run and decided to try it out myself. I really like it, great DX and super fast ⚡!",
+    url: "https://remix.run",
+    date: "November 2021",
+  },
+  {
+    year: 2021,
     title: "Created SnailyCADv4",
     text: "Re-creating SnailyCADv3 as SnailyCADv4 with tons of improvements and new features.",
     url: "https://github.com/SnailyCAD/snaily-cadv4",
