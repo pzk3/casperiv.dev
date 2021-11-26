@@ -6,8 +6,8 @@ export const Age = () => {
   const ageRef = useAge();
 
   return (
-    <span className="cursor-pointer" ref={ageRef}>
+    <button className="inline-block cursor-pointer" ref={ageRef}>
       {age}
-    </span>
+    </button>
   );
 };

@@ -4,11 +4,15 @@ import NextLink from "next/link";
 import { Github, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/useViewport";
+import { useId } from "@react-aria/utils";
 
 export const Nav = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
+
+  const twitterId = useId();
+  const githubId = useId();
 
   React.useEffect(() => {
     if (viewport > 768) {
@@ -68,13 +72,17 @@ export const Nav = () => {
 
         <ul className="flex items-center h-full space-x-3">
           <li>
-            <a aria-label="GitHub profile" href="https://github.com/dev-caspertheghost">
-              <Github width={21} height={21} />
+            <a
+              id={githubId}
+              aria-label="GitHub profile"
+              href="https://github.com/dev-caspertheghost"
+            >
+              <Github aria-labelledby={githubId} width={21} height={21} />
             </a>
           </li>
           <li>
-            <a aria-label="Twitter profile" href="https://twitter.com/casper124578">
-              <Twitter width={21} height={21} />
+            <a id={twitterId} aria-label="Twitter profile" href="https://twitter.com/casper124578">
+              <Twitter aria-labelledby={twitterId} width={21} height={21} />
             </a>
           </li>
         </ul>

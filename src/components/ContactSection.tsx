@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as yup from "yup";
-import { Form, Formik, ErrorMessage, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { Button } from "./Button";
 import { FormField } from "./form/Field";
 import { Input } from "./form/Input";
@@ -66,7 +66,7 @@ export const ContactSection = () => {
           <Form className="mt-3" onSubmit={handleSubmit}>
             {message ? <p className="p-2 px-3 mb-3 rounded-md bg-blue-2">{message}</p> : null}
 
-            <FormField id="name" label="Name">
+            <FormField errorMessage={errors.name} id="name" label="Name">
               <Input
                 value={values.name}
                 hasError={errors.name && touched.name}
@@ -74,14 +74,9 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 id="name"
               />
-              <ErrorMessage
-                render={(msg) => <span className="text-red-500">{msg}</span>}
-                component="span"
-                name="name"
-              />
             </FormField>
 
-            <FormField id="email" label="Email">
+            <FormField errorMessage={errors.email} id="email" label="Email">
               <Input
                 value={values.email}
                 hasError={errors.email && touched.email}
@@ -89,25 +84,15 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 id="email"
               />
-              <ErrorMessage
-                render={(msg) => <span className="text-red-500">{msg}</span>}
-                component="span"
-                name="email"
-              />
             </FormField>
 
-            <FormField className="mb-0" id="message" label="Message">
+            <FormField errorMessage={errors.message} className="mb-0" id="message" label="Message">
               <Textarea
                 value={values.message}
                 hasError={errors.message && touched.message}
                 name="message"
                 onChange={handleChange}
                 id="message"
-              />
-              <ErrorMessage
-                render={(msg) => <span className="text-red-500">{msg}</span>}
-                component="span"
-                name="message"
               />
             </FormField>
 

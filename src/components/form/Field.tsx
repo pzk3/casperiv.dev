@@ -1,18 +1,32 @@
-import type * as React from "react";
+import * as React from "react";
+import { useField } from "@react-aria/label";
 import classNames from "clsx";
 
-type Props = JSX.IntrinsicElements["fieldset"] & {
-  label: string | React.ReactFragment;
-  children: React.ReactNode;
+type Props = JSX.IntrinsicElements["div"] & {
+  label: string | null;
+  errorMessage?: string;
+  children?: React.ReactElement<any>;
+  checkbox?: boolean;
 };
 
-export const FormField = ({ id, label, children, ...rest }: Props) => {
+export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: Props) => {
+  const { labelProps, fieldProps, errorMessageProps } = useField({ label, errorMessage });
+
+  const element = React.cloneElement(children as React.ReactElement<any>, fieldProps);
+
   return (
-    <fieldset {...rest} className={classNames("mb-4", rest.className)}>
-      <label className="inline-block mb-1" htmlFor={id}>
+    <div {...rest} className={classNames("flex mb-3", !checkbox && "flex-col", rest.className)}>
+      <label {...labelProps} className={classNames("mb-1", checkbox && "mr-3")}>
         {label}
       </label>
-      {children}
-    </fieldset>
+
+      {element}
+
+      {errorMessage ? (
+        <span {...errorMessageProps} className="mt-1 font-medium text-red-400">
+          {errorMessage}
+        </span>
+      ) : null}
+    </div>
   );
 };
