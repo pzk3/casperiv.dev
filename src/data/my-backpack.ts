@@ -8,7 +8,7 @@ export const myBackpack: [string, string[]][] = [
       "TypeScript",
       "React & Next.js",
       "TailwindCSS",
-      "State management (React redux, MobX)",
+      "State Management",
     ],
   ],
   ["Backend", ["Node", "REST APIs", "MongoDB & MySQL", "Prisma"]],

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Age } from "components/Age";
 import { Layout } from "components/Layout";
 import { GetStaticProps } from "next";
@@ -7,6 +8,7 @@ import { Timeline } from "components/Timeline/Timeline";
 import { Seo } from "components/Seo";
 
 export default function About({ timelineData }: { timelineData: TimelineItem[] }) {
+  const started = new Date("2019-08-08");
   return (
     <Layout>
       <Seo title="About - Casper Iversen" />
@@ -16,8 +18,11 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
 
         <div className="max-w-3xl mt-5">
           <p>
-            Hello, I am Casper! {"I'm"} a <Age /> year old programmer and student based in Belgium.
-            I adore building accessible and fast code. {"I'm"} also a big fan of open-source, I
+            Hello, I am Casper! {"I'm"} a <Age withColor /> year old programmer and student{" "}
+            <span className="bg-gradient-to-tr px-1.5 py-0.5 rounded-md from-[#1150d4] to-[#a245fc]">
+              based in Belgium
+            </span>
+            . I adore building accessible and fast code. {"I'm"} also a big fan of open-source, I
             contribute to open-source as much as I can, I also have{" "}
             <a
               target="_blank"
@@ -30,7 +35,10 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
             of my own.
           </p>
           <p className="mt-5">
-            I have been developing web applications, Discord bots and npm packages for about 2 years
+            I have been developing web applications, Discord bots and npm packages for{" "}
+            <span className="bg-gradient-to-tr px-1.5 py-0.5 rounded-md from-[#1150d4] to-[#a245fc]">
+              {formatDistanceToNow(started)}
+            </span>{" "}
             and love it! {"I'm"} learning something new almost every day! I am currently focusing on
             frontend web development. Specifically working with React.js, TypeScript, CSS, HTML and
             much more!

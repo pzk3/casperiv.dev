@@ -6,8 +6,6 @@ export const HeroSection = () => {
   // this is roughly the date I started programing according to GitHub 😅!
   const started = new Date("2019-08-08");
 
-  console.log();
-
   return (
     <section className="flex flex-col justify-center mx-auto h-[40em]" id="top">
       <div>

@@ -24,7 +24,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
       <div className="my-3">
         <h2 className="text-2xl font-semibold">Featured</h2>
 
-        <div className="z-10 my-3.5 p-1 bg-gradient-to-tr from-purple-400 to-pink-700 rounded-md hover:shadow-lg transition-shadow">
+        <div className="z-10 my-3.5 p-1 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] rounded-md hover:shadow-lg transition-shadow">
           <Link href={`/blog/${FEATURED.slug}`}>
             {/* 3.5 = smooth border of gradient background */}
             <a style={{ borderRadius: 3.5 }} className="z-20 block p-2 bg-blue">

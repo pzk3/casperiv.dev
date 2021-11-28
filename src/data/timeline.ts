@@ -126,6 +126,7 @@ export const timeline: TimelineItem[] = [
     text: "Joined the amazing team at Zyndicate 🎉!",
     url: "https://zyndicate.app",
     full_date: "January 1, 2021",
+    tag: "job",
   },
   {
     year: 2020,
