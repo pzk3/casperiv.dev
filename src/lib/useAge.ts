@@ -27,6 +27,11 @@ export function useAge() {
     let interval: NodeJS.Timer;
 
     if (withMagic) {
+      if (ref.current) {
+        ref.current.classList.add("underline");
+        ref.current.textContent = calculateAge(true);
+      }
+
       interval = setInterval(() => {
         if (ref.current) {
           ref.current.classList.add("underline");
