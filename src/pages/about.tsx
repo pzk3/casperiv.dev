@@ -72,14 +72,11 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // get data from github
   const timelineData = await (await import("../data/timeline")).timeline;
 
   return {
     props: {
       timelineData,
     },
-    // 1 week
-    revalidate: 604_800,
   };
 };
