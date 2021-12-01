@@ -14,7 +14,7 @@ intro: Learn about Notey.app's ideas and technologies.
 
 ## Idea
 
-The idea behind Notey.app was to create a simple and good looking notes taking web application. It had to be easy to create notes and categorize them,
+The idea behind Notey.app was to create a simple and good looking notes taking web application that was also accessible. It had to be easy to create notes and categorize them,
 it also had to be responsive so it could be used as a [PWA](https://web.dev/pwa) on a mobile phone.
 
 All of these ideas are pretty much fully implemented.
@@ -26,28 +26,8 @@ this would be very beneficial for categorizing notes and great to get experience
 
 ## Technologies
 
-[Notey.app](https://notey.caspertheghost.me) is fully built with [Next.js](https://nextjs.org) and [React.js](https://reactjs.org).
-It uses [MobX](https://mobx.js.org) for state management and [next-api-decorators](https://github.com/storyofams/next-api-decorators) for API management.
-I chose for MobX as state management so I could learn more about MobX and not always use Redux in my projects 😅, it was a great learning experience!
-
-next-api-decorators allows me to use TypeScript decorators,
-it also allows me to use [expressjs](https://expressjs.com/) middlewares with ease which isn't really possible in such an easy way when using plain Next.js.
-
-```typescript
-import { Get, UseMiddleware createHandler } from "@storyofams/next-api-decorators";
-
-// Middleware for the entire handler!
-// cors and helmet now able to be used in Next.js!
-@UseMiddleware(Cors, Helmet)
-class MyAPIHandler {
-  @Get()
-  async getStuff() {
-    return db.doStuff();
-  }
-}
-
-export default createHandler(MyAPIHandler);
-```
+[Notey.app](https://notey.caspertheghost.me) is fully built with [Remix](https://remix.run) and [React.js](https://reactjs.org).
+Notey.app also uses [TailwindCSS](https://tailwindcss.com) for the styling of the app, TailwindCSS allows me to easily create amazing looking styles fast!
 
 ## Features
 
@@ -56,22 +36,21 @@ export default createHandler(MyAPIHandler);
 - Markdown support within notes
 - Great UI/UX
 - Privacy focused
+- Great accessiblitiy
 
 ## Full tech stack
 
 ### Frontend
 
 - React.js
-- Next.js
-- MobX
-- styled-components
+- Remix
+- TailwindCSS
 
 ### API
 
-- next-api-decorators
 - bcryptjs
 - marked, dompurify and jsdom
-- yup
+- zod
 
 ### Other
 
