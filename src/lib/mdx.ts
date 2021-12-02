@@ -1,7 +1,7 @@
 import readingTime from "reading-time";
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import { bundleMDXFile } from "mdx-bundler";
+import { bundleMDX } from "mdx-bundler";
 import { Post } from "types/Post";
 
 import remarkGfm from "remark-gfm";
@@ -45,7 +45,8 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
 
-  const { code: content, frontmatter } = await bundleMDXFile(fullPath, {
+  const { code: content, frontmatter } = await bundleMDX({
+    file: fullPath,
     xdmOptions: (options) => {
       options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
 

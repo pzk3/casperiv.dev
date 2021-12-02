@@ -3,7 +3,7 @@ const DATE_OF_BIRTH = "2005-07-21";
 
 export function useAge() {
   const [withMagic, setWithMagic] = React.useState(false);
-  const ref = React.useRef<HTMLSpanElement>(null);
+  const ref = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     const currentRef = ref.current;
@@ -27,6 +27,11 @@ export function useAge() {
     let interval: NodeJS.Timer;
 
     if (withMagic) {
+      if (ref.current) {
+        ref.current.classList.add("underline");
+        ref.current.textContent = calculateAge(true);
+      }
+
       interval = setInterval(() => {
         if (ref.current) {
           ref.current.classList.add("underline");
