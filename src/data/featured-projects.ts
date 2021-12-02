@@ -78,12 +78,17 @@ export const projects: Project[] = [
   },
 
   {
-    title: "pastebin clone",
-    description: "A Pastebin clone using next.js, faunaDB, next-auth and next-api-decorators.",
+    title: "new-tab",
+    description:
+      "This replaces the new-tab screen with a great looking dashboard that display the current time and weather with more widgets available.",
     buttons: [
       {
-        url: `${url}/faunadb-pastebin-clone`,
+        url: `${url}/new-tab`,
         name: VIEW_CODE,
+      },
+      {
+        url: "https://addons.mozilla.org/en-US/firefox/addon/new_tab1/",
+        name: "Install addon",
       },
     ],
   },
