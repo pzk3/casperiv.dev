@@ -4,15 +4,15 @@ import NextLink from "next/link";
 import { Github, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/useViewport";
-import { useId } from "@react-aria/utils";
+import { useSSRSafeId } from "@react-aria/ssr";
 
 export const Nav = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
 
-  const twitterId = useId();
-  const githubId = useId();
+  const twitterId = useSSRSafeId();
+  const githubId = useSSRSafeId();
 
   React.useEffect(() => {
     if (viewport > 768) {
@@ -109,8 +109,8 @@ const Link = ({ menuOpen, ...props }: JSX.IntrinsicElements["a"] & { menuOpen: b
       <a
         {...props}
         className={classNames(
-          { "bg-blue-1 font-medium": isActive && !menuOpen },
-          "p-1.5 px-3 duration-200 transition-colors rounded-md hover:bg-blue-1",
+          { "bg-blue-1 font-medium shadow-sm": isActive && !menuOpen },
+          "p-1.5 px-3 duration-200 transition-colors rounded-md hover:shadow-sm hover:bg-blue-1",
           { "my-2 block": menuOpen },
         )}
       >

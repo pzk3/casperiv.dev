@@ -1,4 +1,4 @@
-import { useId } from "@react-aria/utils";
+import { useSSRSafeId } from "@react-aria/ssr";
 import format from "date-fns/format";
 import { useViews } from "lib/useViews";
 import { Clock, Eye } from "react-bootstrap-icons";
@@ -13,8 +13,8 @@ export const BlogHeader = ({ post }: Props) => {
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
 
-  const viewsId = useId();
-  const readTimeId = useId();
+  const viewsId = useSSRSafeId();
+  const readTimeId = useSSRSafeId();
 
   return (
     <header className="pb-2 border-b-2 border-blue-1">

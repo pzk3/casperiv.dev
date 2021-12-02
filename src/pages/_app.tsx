@@ -6,11 +6,9 @@ import { Footer } from "components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <SSRProvider>
       <Nav />
-      <SSRProvider>
-        <Component {...pageProps} />
-      </SSRProvider>
+      <Component {...pageProps} />
 
       <Footer />
 
@@ -22,6 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
           src={process.env.UMAMI_URL}
         />
       ) : null}
-    </>
+    </SSRProvider>
   );
 }
