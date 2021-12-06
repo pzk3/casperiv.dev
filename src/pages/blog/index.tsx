@@ -21,8 +21,8 @@ export default function Blog({ posts }: { posts: Post[] }) {
 
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Blog Posts</h1>
 
-      <div className="my-3">
-        <h2 className="text-2xl font-semibold">Featured</h2>
+      <div className="my-3 md:mt-6">
+        <h2 className="text-2xl font-semibold md:text-3xl">Featured</h2>
 
         <div className="z-10 my-3.5 p-1 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] rounded-md hover:shadow-lg transition-shadow">
           <Link href={`/blog/${FEATURED.slug}`}>
@@ -36,7 +36,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
       </div>
 
       <div>
-        <h2 className="text-2xl font-semibold">All posts</h2>
+        <h2 className="text-2xl font-semibold md:text-3xl">All posts</h2>
 
         <ArticlesList articles={posts} type="blog" />
       </div>

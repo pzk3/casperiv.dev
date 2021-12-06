@@ -9,8 +9,16 @@
 .reactMarkdown {
   margin-top: 1rem;
 
+  p {
+    @apply text-gray-300;
+  }
+
   a {
-    @apply underline;
+    @apply underline text-white;
+  }
+
+  > pre {
+    @apply drop-shadow;
   }
 
   pre {
@@ -40,7 +48,7 @@
 
   code {
     font-family: "CascadiaMono", "Courier New", monospace !important;
-    @apply rounded-md p-1 px-1.5 bg-blue-1 font-light text-white;
+    @apply rounded-md p-1 px-1.5 bg-blue-1/60 font-light text-gray-200;
   }
 
   h4,

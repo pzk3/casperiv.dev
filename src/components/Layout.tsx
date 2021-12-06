@@ -6,8 +6,12 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
   React.useEffect(() => {
     const hash = window.location.hash;
+    const includesHash =
+      router.pathname === "/blog/[slug]"
+        ? !!hash
+        : router.pathname === "/" && ["#projects", "#contact"].includes(hash);
 
-    if (!["#projects", "#contact"].includes(hash)) {
+    if (!includesHash) {
       window.scrollTo({ top: 1, behavior: "smooth" });
     }
   }, [router]);
