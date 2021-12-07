@@ -58,3 +58,7 @@ body {
     border-top-right-radius: 0 !important;
   }
 }
+
+details > .rehype-code-title {
+  background: rgba(36, 44, 56, 1) !important;
+}

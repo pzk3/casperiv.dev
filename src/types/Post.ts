@@ -7,7 +7,8 @@ export interface Post {
   intro: string | null;
   keywords: string | null;
   readingTime: number;
-  draft: boolean;
+  draft?: boolean;
+  featured?: boolean;
   frontmatter: {
     [key: string]: any;
   };

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Layout } from "components/Layout";
 import { getAllItems } from "lib/mdx";
 import { GetStaticProps } from "next";
@@ -6,9 +5,10 @@ import { Post } from "types/Post";
 import { generateRSSFeed } from "lib/rss";
 import { ArticlesList } from "components/blog/ArticlesList";
 import { Seo } from "components/Seo";
+import { ArticleListItem } from "components/blog/ArticleListItem";
 
 export default function Blog({ posts }: { posts: Post[] }) {
-  const FEATURED = posts.find((v) => v.slug === "my-uses") as Post;
+  const FEATURED = posts.filter((v) => v.featured);
 
   return (
     <Layout>
@@ -24,15 +24,11 @@ export default function Blog({ posts }: { posts: Post[] }) {
       <div className="my-3 md:mt-6">
         <h2 className="text-2xl font-semibold md:text-3xl">Featured</h2>
 
-        <div className="z-10 my-3.5 p-1 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] rounded-md hover:shadow-lg transition-shadow">
-          <Link href={`/blog/${FEATURED.slug}`}>
-            {/* 3.5 = smooth border of gradient background */}
-            <a style={{ borderRadius: 3.5 }} className="z-20 block p-2 bg-blue">
-              <h3 className="text-xl font-semibold">{FEATURED.title}</h3>
-              <p className="mt-1 text-gray-300">{FEATURED.intro}</p>
-            </a>
-          </Link>
-        </div>
+        <ul className="grid grid-cols-2 gap-3 mt-3">
+          {FEATURED.map((article) => (
+            <ArticleListItem article={article} key={article.slug} type="blog" isFeatured />
+          ))}
+        </ul>
       </div>
 
       <div>

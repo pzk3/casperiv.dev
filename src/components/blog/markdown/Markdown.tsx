@@ -1,13 +1,20 @@
 import * as React from "react";
-import dynamic from "next/dynamic";
 import { getMDXComponent } from "mdx-bundler/client";
 import styles from "styles/blog.module.scss";
 
+import { Link } from "./Link";
+import { MDCode } from "./Code";
+import { Info } from "./Info";
+import { Alert } from "./Alert";
+import Image from "next/image";
+
+// importing this with next/dynamic will have some flickers..
 const components = {
-  a: dynamic(async () => (await import("./Link")).Link),
-  code: dynamic(async () => (await import("./Code")).MDCode),
-  Alert: dynamic(async () => (await import("./Alert")).Alert),
-  Image: dynamic(async () => (await import("next/image")).default),
+  a: Link,
+  code: MDCode,
+  Info,
+  Alert,
+  Image,
 };
 
 interface Props {

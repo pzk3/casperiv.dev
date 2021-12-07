@@ -30,10 +30,10 @@ module.exports = withNextPWA({
 })
 ```
 
-<Alert style={{ marginTop: "1rem" }} type="info">
-  Tip: You can create a `manifest.json` file in your `public` folder. This file will hold the rest
-  of your [PWA configuration](https://web.dev/add-manifest/).
-</Alert>
+<Info>
+  **Tip:** You can create a `manifest.json` file in your `public` folder. This file will hold the
+  rest of your [PWA configuration](https://web.dev/add-manifest/).
+</Info>
 
 ## Configuring next-pwa
 
@@ -52,6 +52,7 @@ module.exports = withNextPWA({
   pwa: {
     // disable for development.
     disable: process.env.NODE_ENV === "development",
+    // this is the path where the sw.js file will be located.
     dest: "public"
     /** View more options here: https://www.npmjs.com/package/next-pwa#available-options */
   }
@@ -63,9 +64,19 @@ module.exports = withNextPWA({
 When building your next app (`next build`). This will automatically pick up the next-pwa configuration and build the PWA too.
 Once it's done building, you should see 2 new files in your `public` folder created by next-pwa.
 
-<Alert style={{ margin: "1.5rem 0" }} type="info">
-  Tip: Add these files to a `.gitignore` to avoid conflicts when using version control.
-</Alert>
+<Info style={{ margin: "1.5rem 0" }}>
+  **Tip:** Add these files to a `.gitignore` to avoid conflicts when using version control.
+
+  <details>
+    <summary>Sample .gitignore</summary>
+
+```txt:.gitignore
+public/*.js
+public/*.js.map
+```
+
+</details>
+</Info>
 
 ## Weird Error
 

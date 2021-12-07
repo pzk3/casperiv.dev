@@ -71,13 +71,15 @@
     font-size: 1.35rem;
   }
 
-  h6,
-  h5,
+  h4 {
+    font-size: 1.2rem;
+  }
+
   h4,
   h3,
   h2,
   h1 {
-    @apply w-full my-3 relative;
+    @apply w-full mb-3 mt-5 relative;
 
     a {
       position: absolute;
@@ -101,9 +103,15 @@
     list-style-type: "- ";
   }
 
+  strong,
+  b {
+    @apply text-gray-100;
+  }
+
   summary {
     cursor: pointer;
     transition: 200ms;
     margin-bottom: 0.5em;
+    @apply text-gray-200 text-base;
   }
 }

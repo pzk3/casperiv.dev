@@ -27,12 +27,24 @@ npm install --save-dev @types/nprogress
 
 ### Importing styles
 
-<p>
-  To use the module, open your `_app.tsx` file. If you do not have an app file yet, [checkout Next.js'
-  docs](https://nextjs.org/docs/advanced-features/custom-app).
-  <br />
-  First we must import the required styles from nprogress.
-</p>
+To use the module, open your `_app.tsx` file. First we must import the required styles from
+nprogress.
+
+<Info title="Custom app">
+  If you do not have an app file, you can copy this template below. This example comes [from Next.js' docs](https://nextjs.org/docs/advanced-features/custom-app).
+
+  <details>
+    <summary>Open template</summary>
+
+```tsx
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+```
+
+</details>
+
+</Info>
 
 ```tsx:pages/app.tsx
 import "nprogress/nprogress.css";

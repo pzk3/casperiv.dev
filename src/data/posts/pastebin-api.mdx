@@ -3,55 +3,51 @@ title: Pastebin API
 createdAt: March 27, 2021 17:20:00
 intro: Learn more about my npm package.
 keywords: pastebin-api, pastebin, haste, hastebin
+featured: true
 ---
 
-On February 23rd I created my second [npm](https://npmjs.com) package "pastebin-api", it's a package to interact with the [Pastebin](https://pastebin.com) api.
+On February 23rd I created my second [npm](https://npmjs.com) package "pastebin-api".
+This package can be used to interacte with the [Pastebin API](https://pastebin.com/doc_api) to create pastes, list pastes and delete pastes.
 
-## Getting started
+## Installation
 
-### install
-
-<Alert type="info">
-  No need to install types since pastebin-api was created using Typescript and includes built in
-  types!
-</Alert>
-
-#### npm
+**npm**
 
 ```bash
+# pastebin-api comes with its own types!
 npm install pastebin-api
 ```
 
-#### yarn
+**yarn**
 
 ```bash
 yarn add pastebin-api
 ```
 
-### Creating the client
+## Creating the client
 
-We will first import the client using:
+First, we must import the `PasteClient` class from `pastebin-api`.
 
 ```typescript:src/index.ts
-// import/export
+// es6
 import PasteClient from "pastebin-api";
 
 // commonjs
 const PasteClient = require("pastebin-api").default;
 ```
 
-#### After importing, we'll create the client
+### Instantiating the client
 
-<Alert type="info" style={{ margin: "0.8rem 0" }}>
-  Replace <code>process.env["API_KEY_HERE"]</code> with your own api key from Pastebin. You can also
-  add it in a <code>.env</code> file.
-</Alert>
+<Info>
+  Replace <code>process.env["API_KEY_HERE"]</code> with your own api key from Pastebin. I recommend
+  you add this key into a `.env` file.
+</Info>
 
 ```typescript:src/index.ts
 const client = new PasteClient(process.env["API_KEY_HERE"]);
 ```
 
-### Creating a new paste
+## Creating a new paste
 
 Now we'll create a new paste using the [`.createPaste`](https://github.com/Dev-CasperTheGhost/pastebin-api/blob/main/docs/README.md#create-a-paste) method
 
