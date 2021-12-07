@@ -12,7 +12,7 @@ export default function BlogPost({ post }: { post: Post }) {
       <Seo
         title={`${post.title} - Casper Iversen`}
         description={post.intro ?? undefined}
-        keywords={["blog", "blog casper iversen", ...(post.keywords ?? [])]}
+        keywords={["blog", "blog casper iversen", post.keywords ?? ""]}
         url={`https://caspertheghost.me/blog/${post.slug}`}
         date={post.createdAt}
       />

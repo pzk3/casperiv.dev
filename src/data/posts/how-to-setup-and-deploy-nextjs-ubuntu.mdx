@@ -1,0 +1,130 @@
+---
+title: How to deploy a Next.js project on Ubuntu with NGINX
+createdAt: December 7, 2021
+intro: TODO
+keywords: NGINX, next.js, ubuntu, deploy, nextjs, react, howto
+draft: true
+---
+
+<Info color="#f43f5e" title="Whoops!">
+  <p>Not sure how you got here 🤔! This is still a draft!</p>
+</Info>
+
+## Requirements
+
+There are a few things you must have.
+
+- A Next.js project
+- <abbr title="Virtual Private Server">VPS</abbr> with Ubtuntu 20.04
+- Minimal experience in the terminal
+- A domain (only required for NGINX proxy)
+
+## Getting Started
+
+To get started, we must first clone and install our Next.js project on our VPS.
+
+### Next.js project setup on a VPS
+
+First, we must be logged into our VPS. We will clone the Next.js project from Github into our VPS.
+
+```bash
+# replace this URL with your repo
+git clone https://github.com/Dev-CasperTheGhost/nextjs-ts-eslint-template.git
+```
+
+<br />
+
+Now we must install the dependencies
+
+```bash
+npm install
+# OR
+yarn
+```
+
+<br />
+
+Once all the dependencies are installed, we can build the client so it's ready to be deployed.
+
+```bash
+npm run build
+# OR
+yarn build
+```
+
+### Prepare VPS for deployment
+
+There are few more steps that we must perform so we can properly deploy our Next.js project.
+
+#### Installing required packages
+
+##### Node.js
+
+To install Node.js there are few simple steps required.
+Get the Node.js insall via [Nodesource](https://github.com/nodesource/distributions#readme).
+
+```bash
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+```
+
+Run the Nodesource setup file to prepare the correct version of Node.js
+
+```bash
+sudo bash nodesource_setup.sh
+```
+
+Install Node.js from the installed nodesource
+
+```bash
+sudo apt install nodejs
+```
+
+Verify installation:
+
+```bash
+node -v
+```
+
+<br />
+
+##### NGINX
+
+NGINX will be used as a proxy to serve our Next.js project.
+
+```bash
+sudo apt install nginx
+```
+
+<br />
+
+#### Firewall
+
+We must setup a firewall to only allow sertain ports on our VPS. We will only allow `22` for SSH, `80` for HTTP and `443` for HTTPS
+
+```bash
+sudo ufw allow ssh # 22
+sudo ufw allow "Nignx Full" # 80 and 443
+```
+
+<br />
+
+To verify this worked, you can run the following command
+
+```bash
+sudo ufw status
+```
+
+<Info title="Firewall disabled?">
+
+  <details>
+    <summary>If your firewall is disabled, you can run this simple command 👉</summary>
+
+```
+sudo ufw enable
+```
+
+  </details>
+
+</Info>
+
+#### NGINX configuration
