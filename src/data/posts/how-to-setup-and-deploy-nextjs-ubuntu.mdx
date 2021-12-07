@@ -1,31 +1,103 @@
 ---
 title: How to deploy a Next.js project on Ubuntu with NGINX
 createdAt: December 7, 2021
-intro: TODO
+intro: How to deploy a Next.js project on Ubuntu with NGINX explained in a simple steps.
 keywords: NGINX, next.js, ubuntu, deploy, nextjs, react, howto
-draft: true
+featured: true
+readingTime: "10 min read" # more like "how long will this take?"
 ---
-
-<Info color="#f43f5e" title="Whoops!">
-  <p>Not sure how you got here 🤔! This is still a draft!</p>
-</Info>
 
 ## Requirements
 
 There are a few things you must have.
 
 - A Next.js project
-- <abbr title="Virtual Private Server">VPS</abbr> with Ubtuntu 20.04
+- <abbr title="Virtual Private Server">VPS</abbr> with Ubuntu 20.04
 - Minimal experience in the terminal
 - A domain (only required for NGINX proxy)
 
 ## Getting Started
 
-To get started, we must first clone and install our Next.js project on our VPS.
+### Prepare VPS for deployment
+
+There are a extra steps that we must perform so we can properly deploy our Next.js project to our domain.
+
+#### Installing required packages
+
+##### Node.js
+
+To install Node.js there are few simple steps required.
+Get the Node.js install via [Nodesource](https://github.com/nodesource/distributions#readme).
+
+```bash
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+```
+
+Run the Nodesource setup file to prepare the correct version of Node.js
+
+```bash
+sudo bash nodesource_setup.sh
+```
+
+Install Node.js from the installed Nodesource
+
+```bash
+sudo apt install nodejs
+```
+
+Verify installation:
+
+```bash
+node -v # 16.x.x
+```
+
+<br />
+
+##### NGINX
+
+NGINX will be used as a proxy to serve our Next.js project.
+
+```bash
+sudo apt install nginx
+```
+
+<br />
+
+#### Firewall
+
+We must set up a firewall to only allow certain ports on our VPS. We will only allow `22` for SSH, `80` for HTTP and `443` for HTTPS
+
+```bash
+sudo ufw allow ssh # 22
+sudo ufw allow "Nignx Full" # 80 and 443
+```
+
+<br />
+
+To verify this worked, you can run the following command
+
+```bash
+sudo ufw status
+```
+
+<Info title="Firewall disabled?">
+
+  <details>
+    <summary>If your firewall is disabled, you can run this simple command to enable it 👉</summary>
+
+```
+sudo ufw enable
+```
+
+  </details>
+
+</Info>
+
+<br />
 
 ### Next.js project setup on a VPS
 
-First, we must be logged into our VPS. We will clone the Next.js project from Github into our VPS.
+First, we must be logged into our VPS. We will clone the Next.js project from GitHub onto our VPS.
 
 ```bash
 # replace this URL with your repo
@@ -44,7 +116,7 @@ yarn
 
 <br />
 
-Once all the dependencies are installed, we can build the client so it's ready to be deployed.
+Once all the dependencies are installed, we can build the client so it is ready to be deployed.
 
 ```bash
 npm run build
@@ -52,79 +124,111 @@ npm run build
 yarn build
 ```
 
-### Prepare VPS for deployment
-
-There are few more steps that we must perform so we can properly deploy our Next.js project.
-
-#### Installing required packages
-
-##### Node.js
-
-To install Node.js there are few simple steps required.
-Get the Node.js insall via [Nodesource](https://github.com/nodesource/distributions#readme).
-
-```bash
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-```
-
-Run the Nodesource setup file to prepare the correct version of Node.js
-
-```bash
-sudo bash nodesource_setup.sh
-```
-
-Install Node.js from the installed nodesource
-
-```bash
-sudo apt install nodejs
-```
-
-Verify installation:
-
-```bash
-node -v
-```
-
 <br />
+Now we can start the project in the background using `pm2`.
 
-##### NGINX
+<Info >
+  <details  style={{marginTop: 10}}>
+    <summary>If you don't have `pm2` installed yet, see the following command 👉</summary>
 
-NGINX will be used as a proxy to serve our Next.js project.
-
-```bash
-sudo apt install nginx
-```
-
-<br />
-
-#### Firewall
-
-We must setup a firewall to only allow sertain ports on our VPS. We will only allow `22` for SSH, `80` for HTTP and `443` for HTTPS
-
-```bash
-sudo ufw allow ssh # 22
-sudo ufw allow "Nignx Full" # 80 and 443
-```
-
-<br />
-
-To verify this worked, you can run the following command
-
-```bash
-sudo ufw status
-```
-
-<Info title="Firewall disabled?">
-
-  <details>
-    <summary>If your firewall is disabled, you can run this simple command 👉</summary>
-
-```
-sudo ufw enable
+```sh
+sudo npm install --global pm2
 ```
 
   </details>
-
 </Info>
 
+```bash
+# `run start` is the command that will be executed.
+pm2 start npm --name my-project -- run start
+```
+
+<br />
+
+This will have successfully started the project.
+You can verify this with `pm2 logs` or open the IP with the port in your browser.
+
 #### NGINX configuration
+
+Once we've installed all the required packages, we can configure NGINX to serve our Next.js project.
+
+##### NGINX proxy setup
+
+Start by opening the following file with a text-editor: `/etc/nginx/sites-available/default`. I will use nano for this.
+
+```bash
+nano /etc/nginx/sites-available/default
+```
+
+_You might already see some configurations, you can safely remove this._
+
+<br />
+We can now start editing this file and add our own `server` block.
+
+```bash
+server {
+  # the name of your domain, www is optional.
+  server_name my-domain.com www.my-domain.com;
+
+  location / {
+    # this must stay localhost. The port must be the same as your Next.js project
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+
+  # simple headers
+  add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+  add_header X-XSS-Protection          "1; mode=block" always;
+  add_header X-Frame-Options DENY always;
+
+  # this will serve the project on port 80
+  listen 80;
+}
+```
+
+Once done editing, save and exit the editor and verify the config file with the following command:
+
+```bash
+nginx -t
+```
+
+<br />
+
+You may have noticed that we are serving the project on port 80. This is fine for now, since we haven't installed our certificates yet.
+If you **do not** need a secure site, you can skip to [#final-deployment-steps](#final-deployment-steps)! Continue reading on how to install certificates with [Certbot](https://certbot.eff.org/).
+
+<br />
+
+#### Installing certificates with Cerbot
+
+Cerbot can be installed in many ways and on many machines with different configurations, therefore please follow [Cerbot's installation guide](https://certbot.eff.org/instructions).
+
+<br />
+
+After following Cerbot's instructions, you should verify if it changed the NGINX config, open the config file and see changes made.
+
+```bash
+nano /etc/nginx/sites-available/default
+```
+
+Now you should see that the `server` block will serve the project on port 443 (HTTPS)!
+
+<br />
+
+### Final Deployment steps
+
+As our last step, we must restart NGINX with this simple command:
+
+```bash
+sudo systemctl reload nginx
+```
+
+Now verify that all is running, head over to your domain and see the project in action 🎉!
+
+## The end
+
+That's it! You've successfully set up NGINX on Ubuntu and deployed a Next.js project to it

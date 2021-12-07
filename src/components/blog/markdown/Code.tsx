@@ -38,14 +38,6 @@ export const MDCode = (props: Props) => {
       <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
         {text}
       </SyntaxHighlighter>
-
-      <p
-        // overwrite default styles
-        style={{ margin: 0, fontSize: "0.9rem", color: "rgb(156, 163, 175)" }}
-        className="absolute -bottom-0.5 text-sm text-gray-400 right-1"
-      >
-        {match[1]}
-      </p>
     </>
   ) : (
     <code className={className}>{props.children}</code>

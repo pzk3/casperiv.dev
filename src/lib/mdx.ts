@@ -69,7 +69,9 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
     },
   });
 
-  const { text } = readingTime(content);
+  const { text } = frontmatter.readingTime
+    ? { text: frontmatter.readingTime }
+    : readingTime(content);
 
   return {
     slug: realSlug,

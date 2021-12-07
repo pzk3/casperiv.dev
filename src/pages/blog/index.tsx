@@ -9,6 +9,7 @@ import { ArticleListItem } from "components/blog/ArticleListItem";
 
 export default function Blog({ posts }: { posts: Post[] }) {
   const FEATURED = posts.filter((v) => v.featured);
+  const cols = `grid-cols-${FEATURED.length || 1}`;
 
   return (
     <Layout>
@@ -24,7 +25,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
       <div className="my-3 md:mt-6">
         <h2 className="text-2xl font-semibold md:text-3xl">Featured</h2>
 
-        <ul className="grid grid-cols-2 gap-3 mt-3">
+        <ul className={`grid gap-3 mt-3 ${cols}`}>
           {FEATURED.map((article) => (
             <ArticleListItem article={article} key={article.slug} type="blog" isFeatured />
           ))}

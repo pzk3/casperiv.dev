@@ -14,7 +14,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
   const extraAProps = isFeatured
     ? {
         style: { borderRadius: 3.5 },
-        className: "z-20 block p-3 bg-blue",
+        className: "z-20 block p-3 bg-blue w-full h-full",
       }
     : {};
 
@@ -28,7 +28,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
     >
       <Link href={`/${type}/${article.slug}`}>
         <a {...extraAProps}>
-          <h3 className="text-xl font-semibold">{article.title}</h3>
+          <h3 className="text-lg font-semibold">{article.title}</h3>
           <p className="mt-1 text-gray-100">{article.intro}</p>
 
           {isFeatured ? null : (

@@ -1,8 +1,9 @@
 import type * as React from "react";
 
-interface Props {
+type DivProps = JSX.IntrinsicElements["div"];
+
+interface Props extends DivProps {
   title?: string;
-  children: React.ReactNode;
   color?: string;
 }
 
@@ -12,7 +13,7 @@ export function Info({ children, title, color, ...rest }: Props) {
   return (
     <div
       {...rest}
-      style={{ borderColor }}
+      style={{ borderColor, ...rest.style }}
       className="p-2 px-4 my-3 mb-5 text-lg border-l-[3px] rounded-md rounded-l-none shadow bg-blue-1/60"
     >
       {title ? (
