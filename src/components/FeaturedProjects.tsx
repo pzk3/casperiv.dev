@@ -25,7 +25,10 @@ const ProjectItem = ({ project }: { project: Project }) => {
       <ul className="flex gap-1 mt-2">
         {project.buttons.map((button) => (
           <li key={button.name}>
-            <Link href={button.url} className="p-1.5 px-3 rounded-md bg-blue">
+            <Link
+              href={button.url}
+              className="p-1.5 px-3 rounded-md bg-blue focus:bg-blue-2 hover:bg-blue-2 transition-colors"
+            >
               {button.name}
             </Link>
           </li>
