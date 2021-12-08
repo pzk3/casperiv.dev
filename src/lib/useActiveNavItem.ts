@@ -39,11 +39,13 @@ export function useActiveNavItem(wrapperRef: React.RefObject<HTMLUListElement>) 
     const children = (wrapperRef.current?.children ?? []) as HTMLLIElement[];
 
     if (children.length > 0) {
-      const pathname = router.pathname;
+      const pathname = ["/blog/[slug]", "/snippets/[slug]"].includes(router.pathname)
+        ? router.pathname.replace("/[slug]", "")
+        : router.pathname;
       const hash = window.location.hash;
       const href = `${pathname}${hash}`;
 
-      const child = [...children].find((v) => v.dataset.href === href);
+      const child = [...children].find((v) => v.dataset.href === href) ?? [...children][0];
 
       if (child) {
         handleMouseOver({ target: child });
