@@ -88,7 +88,7 @@ export function Nav() {
           {menuOpen ? null : (
             <div
               style={styles}
-              className="absolute bg-blue-1 p-1.5 px-3 duration-200 rounded-md shadow-sm hover:bg-blue-2 top-1/2"
+              className="absolute bg-blue-2/70 p-1.5 px-3 duration-200 rounded-md shadow-sm top-1/2"
             />
           )}
 
