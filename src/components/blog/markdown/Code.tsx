@@ -1,3 +1,4 @@
+import { useSSRSafeId } from "@react-aria/ssr";
 import { Button } from "components/Button";
 import * as React from "react";
 import { Clipboard, ClipboardCheck } from "react-bootstrap-icons";
@@ -11,10 +12,13 @@ interface Props {
 }
 
 export const MDCode = (props: Props) => {
+  const [copied, setCopied] = React.useState(false);
+
   const { inline, className, children } = props;
   const match = /language-(\w+)/.exec(className || "");
   const text = String(children).replace(/\n$/, "");
-  const [copied, setCopied] = React.useState(false);
+
+  const copyId = useSSRSafeId();
 
   function handleCopy() {
     if (typeof window !== "undefined" && window.navigator?.clipboard) {
@@ -28,11 +32,17 @@ export const MDCode = (props: Props) => {
   return !inline && match ? (
     <>
       <Button
-        aria-label={copied ? "Code was copied" : "Copy Code"}
+        title="Copy code"
+        aria-label="Copy code"
         onClick={handleCopy}
+        id={copyId}
         className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100"
       >
-        {copied ? <ClipboardCheck width={20} height={20} /> : <Clipboard width={20} height={20} />}
+        {copied ? (
+          <ClipboardCheck aria-labelledby={copyId} width={20} height={20} />
+        ) : (
+          <Clipboard aria-labelledby={copyId} width={20} height={20} />
+        )}
       </Button>
 
       <SyntaxHighlighter style={Theme} language={match[1]} {...props}>

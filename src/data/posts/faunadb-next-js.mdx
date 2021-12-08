@@ -43,9 +43,9 @@ tsc --init
 
 ### Folder structure
 
-While the dependencies are installing we can create the folder structure.
+Once that has all finished installing, we can create the folder structure as seen below.
 
-```bash
+```txt
 ├── pages
 ├── ├── api
 ├── ├── ├── index.ts
@@ -65,7 +65,7 @@ In the `lib/faunadb.ts` file we created above, we will create and export the cli
 FAUNADB_KEY="KEY_HERE"
 ```
 
-<div style={{ margin: "0.5rem 0" }} />
+<br />
 
 ```tsx:lib/faunadb.ts
 import { Client } from "faunadb";
@@ -83,7 +83,7 @@ Bellow you can see how to use the client in your api pages.
 
 ```tsx:pages/api/index.ts
 import { NextApiRequest, NextApiResponse } from "next";
-import { client } from "lib/faunadb";
+import { client } from "../../lib/faunadb";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
