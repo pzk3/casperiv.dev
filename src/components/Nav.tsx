@@ -44,6 +44,7 @@ export function Nav() {
   const [wrapperRect, setWrapperRect] = React.useState<DOMRect | null>(null);
   const [activeRect, setActiveRect] = React.useState<DOMRect | null>(null);
   const [clickedRoute, setClickedRoute] = React.useState<boolean>(false);
+  const [hover, setHover] = React.useState(false);
   const wrapperRef = React.useRef<HTMLUListElement>(null);
 
   const styles =
@@ -52,6 +53,7 @@ export function Nav() {
           width: activeRect.width,
           height: 33.333,
           transform: `translateY(-50%) translateX(${activeRect.left - wrapperRect.left}px)`,
+          transition: hover ? "all 150ms cubic-bezier(0.4, 0, 0.2, 1)" : "none",
         }
       : {};
 
@@ -65,6 +67,12 @@ export function Nav() {
 
     setWrapperRect(wrapperRef.current.getBoundingClientRect() ?? null);
     setActiveRect(target.getBoundingClientRect());
+  }
+
+  function handleMouseLeave() {
+    // timeout = wait for transition to finish
+    findActiveElement();
+    setTimeout(() => setHover(false), 150);
   }
 
   function findActiveElement() {
@@ -82,6 +90,10 @@ export function Nav() {
       }
     }
   }
+
+  React.useEffect(() => {
+    setHover(false);
+  }, [router]);
 
   React.useEffect(() => {
     findActiveElement();
@@ -107,7 +119,7 @@ export function Nav() {
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
         <ul
           // reset back to the active item
-          onMouseLeave={!clickedRoute ? findActiveElement : undefined}
+          onMouseLeave={!clickedRoute ? handleMouseLeave : undefined}
           ref={wrapperRef}
           className={classNames(
             "h-full space-x-1 md:items-center",
@@ -119,14 +131,17 @@ export function Nav() {
           {menuOpen ? null : (
             <div
               style={styles}
-              className="absolute bg-blue-1 p-1.5 px-3 duration-200 rounded-md shadow-sm hover:bg-blue-2 top-1/2 transition-all"
+              className="absolute bg-blue-1 p-1.5 px-3 duration-200 rounded-md shadow-sm hover:bg-blue-2 top-1/2"
             />
           )}
 
           {links.map((link) => (
             <li
               className="z-50"
-              onMouseOver={handleMouseOver}
+              onMouseOver={(event) => {
+                setHover(true);
+                handleMouseOver(event);
+              }}
               key={link.href}
               data-href={link.href}
             >
