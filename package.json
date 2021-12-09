@@ -21,7 +21,7 @@
     "express-rate-limit": "^5.5.1",
     "formik": "^2.2.9",
     "mdx-bundler": "^8.0.0",
-    "next": "12.0.4",
+    "next": "^12.0.7",
     "next-sitemap": "^1.6.203",
     "prisma": "^3.6.0",
     "react": "17.0.2",
@@ -45,13 +45,15 @@
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.4.0",
+    "esbuild": "^0.13.15",
     "eslint": "^7.32.0",
-    "eslint-config-next": "12.0.4",
+    "eslint-config-next": "12.0.7",
     "postcss": "^8.4.4",
     "preact": "10.5",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "sass": "^1.44.0",
     "tailwindcss": "^2.2.19",
     "typescript": "4.5.2"
-  }
+  },
+  "sideEffects": false
 }
