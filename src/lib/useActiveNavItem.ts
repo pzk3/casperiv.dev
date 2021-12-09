@@ -1,7 +1,12 @@
 import { useRouter } from "next/router";
 import * as React from "react";
 
-export function useActiveNavItem(wrapperRef: React.RefObject<HTMLUListElement>) {
+interface Options {
+  wrapperRef: React.RefObject<HTMLUListElement>;
+  isDisabled?: boolean;
+}
+
+export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
   const router = useRouter();
   const [wrapperRect, setWrapperRect] = React.useState<DOMRect | null>(null);
   const [activeRect, setActiveRect] = React.useState<DOMRect | null>(null);
@@ -18,6 +23,8 @@ export function useActiveNavItem(wrapperRef: React.RefObject<HTMLUListElement>) 
       : {};
 
   function handleMouseOver(e: Pick<React.MouseEvent<HTMLLIElement>, "target">) {
+    if (isDisabled) return;
+
     const target = e.target as HTMLLinkElement;
 
     if (!wrapperRef.current) {
@@ -30,12 +37,16 @@ export function useActiveNavItem(wrapperRef: React.RefObject<HTMLUListElement>) 
   }
 
   function handleMouseLeave() {
+    if (isDisabled) return;
+
     // timeout = wait for transition to finish
     findActiveElement();
     setTimeout(() => setHover(false), 150);
   }
 
   function findActiveElement() {
+    if (isDisabled) return;
+
     const children = (wrapperRef.current?.children ?? []) as HTMLLIElement[];
 
     if (children.length > 0) {

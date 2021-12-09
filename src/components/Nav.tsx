@@ -46,7 +46,7 @@ export function Nav() {
   const wrapperRef = React.useRef<HTMLUListElement>(null);
 
   const { styles, hasActiveItem, handleMouseLeave, handleMouseOver, findActiveElement, setHover } =
-    useActiveNavItem(wrapperRef);
+    useActiveNavItem({ wrapperRef, isDisabled: menuOpen });
 
   React.useEffect(() => {
     setHover(false);
