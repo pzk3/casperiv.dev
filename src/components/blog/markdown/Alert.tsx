@@ -18,7 +18,7 @@ export const Alert = ({ children, type, ...rest }: Props) => {
   const styles = {
     info: "bg-blue-1/50",
     error: "bg-red-500",
-    warn: "bg-yellow-500 text-black font-medium",
+    warn: "bg-amber-500 text-black font-medium",
   };
 
   return (
