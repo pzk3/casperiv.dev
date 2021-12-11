@@ -16,15 +16,14 @@ There are a few things you must have.
 - Minimal experience in the terminal
 - A domain (only required for NGINX proxy)
 
-## Getting Started
-
-### Prepare VPS for deployment
+## Prepare VPS for deployment
 
 There are a extra steps that we must perform so we can properly deploy our Next.js project to our domain.
+This includes installing Node.js, installing NGINX and setting up the firewall.
 
-#### Installing required packages
+### Installing required packages
 
-##### Node.js
+#### Node.js
 
 To install Node.js there are few simple steps required.
 Get the Node.js install via [Nodesource](https://github.com/nodesource/distributions#readme).
@@ -51,9 +50,7 @@ Verify installation:
 node -v # 16.x.x
 ```
 
-<br />
-
-##### NGINX
+#### NGINX
 
 NGINX will be used as a proxy to serve our Next.js project.
 
@@ -61,9 +58,7 @@ NGINX will be used as a proxy to serve our Next.js project.
 sudo apt install nginx
 ```
 
-<br />
-
-#### Firewall
+### Firewall
 
 We must set up a firewall to only allow certain ports on our VPS. We will only allow `22` for SSH, `80` for HTTP and `443` for HTTPS
 
@@ -71,8 +66,6 @@ We must set up a firewall to only allow certain ports on our VPS. We will only a
 sudo ufw allow ssh # 22
 sudo ufw allow "Nignx Full" # 80 and 443
 ```
-
-<br />
 
 To verify this worked, you can run the following command
 
@@ -93,9 +86,7 @@ sudo ufw enable
 
 </Info>
 
-<br />
-
-### Next.js project setup on a VPS
+## Next.js project setup on a VPS
 
 First, we must be logged into our VPS. We will clone the Next.js project from GitHub onto our VPS.
 
@@ -103,8 +94,6 @@ First, we must be logged into our VPS. We will clone the Next.js project from Gi
 # replace this URL with your repo
 git clone https://github.com/Dev-CasperTheGhost/nextjs-ts-eslint-template.git
 ```
-
-<br />
 
 Now we must install the dependencies
 
@@ -114,8 +103,6 @@ npm install
 yarn
 ```
 
-<br />
-
 Once all the dependencies are installed, we can build the client so it is ready to be deployed.
 
 ```bash
@@ -124,7 +111,6 @@ npm run build
 yarn build
 ```
 
-<br />
 Now we can start the project in the background using `pm2`.
 
 <Info >
@@ -143,16 +129,14 @@ sudo npm install --global pm2
 pm2 start npm --name my-project -- run start
 ```
 
-<br />
-
 This will have successfully started the project.
 You can verify this with `pm2 logs` or open the IP with the port in your browser.
 
-#### NGINX configuration
+### NGINX configuration
 
 Once we've installed all the required packages, we can configure NGINX to serve our Next.js project.
 
-##### NGINX proxy setup
+#### NGINX proxy setup
 
 Start by opening the following file with a text-editor: `/etc/nginx/sites-available/default`. I will use nano for this.
 
@@ -162,7 +146,6 @@ nano /etc/nginx/sites-available/default
 
 _You might already see some configurations, you can safely remove this._
 
-<br />
 We can now start editing this file and add our own `server` block.
 
 ```bash
@@ -196,18 +179,12 @@ Once done editing, save and exit the editor and verify the config file with the 
 nginx -t
 ```
 
-<br />
-
 You may have noticed that we are serving the project on port 80. This is fine for now, since we haven't installed our certificates yet.
 If you **do not** need a secure site, you can skip to [#final-deployment-steps](#final-deployment-steps)! Continue reading on how to install certificates with [Certbot](https://certbot.eff.org/).
 
-<br />
-
-#### Installing certificates with Cerbot
+### Installing certificates with Cerbot
 
 Cerbot can be installed in many ways and on many machines with different configurations, therefore please follow [Cerbot's installation guide](https://certbot.eff.org/instructions).
-
-<br />
 
 After following Cerbot's instructions, you should verify if it changed the NGINX config, open the config file and see changes made.
 
@@ -217,9 +194,7 @@ nano /etc/nginx/sites-available/default
 
 Now you should see that the `server` block will serve the project on port 443 (HTTPS)!
 
-<br />
-
-### Final Deployment steps
+## Final Deployment steps
 
 As our last step, we must restart NGINX with this simple command:
 

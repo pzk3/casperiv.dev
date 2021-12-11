@@ -19,7 +19,7 @@ export function Info({ children, title, color, ...rest }: Props) {
       {title ? (
         <h1
           style={{
-            fontSize: "1.45rem",
+            fontSize: "1.35rem",
             lineHeight: "1.75rem",
             margin: "10px 0",
           }}
