@@ -7,6 +7,9 @@ module.exports = {
         "blue-1": "#242C38",
         "blue-2": "#171E29",
       },
+      screens: {
+        xs: "400px",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
