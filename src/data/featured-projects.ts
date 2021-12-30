@@ -15,6 +15,10 @@ export const projects: Project[] = [
         url: "https://github.com/SnailyCAD/snaily-cadv4",
         name: VIEW_CODE,
       },
+      {
+        url: "https://snailycad.caspertheghost.me",
+        name: OPEN_PROJECT,
+      },
     ],
   },
   {
