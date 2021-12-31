@@ -1,6 +1,5 @@
 import Link from "next/link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { Age } from "./Age";
 
 export const HeroSection = () => {
   // this is roughly the date I started programing according to GitHub 😅!
@@ -24,9 +23,9 @@ export const HeroSection = () => {
       </div>
 
       <p className="max-w-3xl mt-8 text-gray-300 md:text-xl">
-        I am a <Age /> year old programmer and student based in Belgium. {"I'm"} a self taught
-        developer and I have been programming for {formatDistanceToNow(started)} and still learning
-        new technologies every day, mostly focusing on frontend related technologies.{" "}
+        I am an extremely motivated programmer and student from Belgium. {"I'm"} a self-taught
+        developer and have been programming for {formatDistanceToNow(started)} and still learning
+        new technologies every week, mostly focusing on frontend related technologies.{" "}
         <Link href="/about">
           <a className="font-medium underline">Read more.</a>
         </Link>
