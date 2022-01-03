@@ -4,7 +4,7 @@ import { Age } from "components/Age";
 import { Layout } from "components/Layout";
 import { GetStaticProps } from "next";
 import { TimelineItem } from "types/Timeline";
-import { Timeline } from "components/Timeline/Timeline";
+import { Timeline } from "components/timeline/Timeline";
 import { Seo } from "components/Seo";
 
 export default function About({ timelineData }: { timelineData: TimelineItem[] }) {

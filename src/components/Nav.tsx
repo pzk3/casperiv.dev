@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useRouter } from "next/router";
-import NextLink from "next/link";
 import { Github, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/useViewport";
 import { useActiveNavItem } from "lib/useActiveNavItem";
 import { IconLink } from "./nav/IconLink";
+import { Link } from "./nav/NavLink";
 
 const links = [
   {
@@ -134,25 +134,5 @@ export function Nav() {
         </button>
       </nav>
     </header>
-  );
-}
-
-function Link({
-  menuOpen,
-  isActive,
-  ...props
-}: JSX.IntrinsicElements["a"] & { isActive: boolean; menuOpen: boolean }) {
-  return (
-    <NextLink href={props.href!}>
-      <a
-        {...(props as any)}
-        className={classNames("p-2 px-3 duration-200 transition-colors rounded-md ", {
-          "my-2 block": menuOpen,
-          "bg-blue-1/80 shadow-md font-medium": isActive,
-        })}
-      >
-        {props.children}
-      </a>
-    </NextLink>
   );
 }

@@ -10,6 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const handlers = {
     GET: async () => {
       if (!view) {
+        // create the db entry if it hasn't been created yet.
         return handlers.POST();
       }
       return view;
