@@ -50,11 +50,7 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
     const children = (wrapperRef.current?.children ?? []) as HTMLLIElement[];
 
     if (children.length > 0) {
-      const pathname = ["/blog/[slug]", "/snippets/[slug]"].includes(router.pathname)
-        ? router.pathname.replace("/[slug]", "")
-        : router.pathname;
-      const hash = pathname === "/" ? window.location.hash : "";
-      const href = `${pathname}${hash}`;
+      const href = makeHref();
 
       const child = [...children].find((v) => v.dataset.href === href) ?? [...children][0];
 
@@ -64,12 +60,28 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
     }
   }
 
+  function isCurrent(link: string) {
+    const href = makeHref();
+    return href === link;
+  }
+
+  function makeHref() {
+    const pathname = ["/blog/[slug]", "/snippets/[slug]"].includes(router.pathname)
+      ? router.pathname.replace("/[slug]", "")
+      : router.pathname;
+    const hash =
+      pathname === "/" ? (typeof window !== "undefined" ? window.location.hash : "") : "";
+    const href = `${pathname}${hash}`;
+
+    return href;
+  }
+
   return {
     handleMouseOver,
     handleMouseLeave,
     findActiveElement,
     setHover,
-    hasActiveItem: activeRect !== null,
+    isCurrent,
     styles,
   };
 }

@@ -27,7 +27,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
           <li key={button.name}>
             <Link
               href={button.url}
-              className="p-1.5 px-3 rounded-md bg-blue focus:bg-blue-2 hover:bg-blue-2 transition-colors"
+              className="p-2 px-3.5 rounded-md bg-blue focus:bg-blue-2 hover:bg-blue-2 transition-colors"
             >
               {button.name}
             </Link>

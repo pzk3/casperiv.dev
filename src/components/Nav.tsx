@@ -4,8 +4,8 @@ import NextLink from "next/link";
 import { Github, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/useViewport";
-import { useSSRSafeId } from "@react-aria/ssr";
 import { useActiveNavItem } from "lib/useActiveNavItem";
+import { IconLink } from "./nav/IconLink";
 
 const links = [
   {
@@ -39,13 +39,10 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
 
-  const twitterId = useSSRSafeId();
-  const githubId = useSSRSafeId();
-
   const [clickedRoute, setClickedRoute] = React.useState<boolean>(false);
   const wrapperRef = React.useRef<HTMLUListElement>(null);
 
-  const { styles, hasActiveItem, handleMouseLeave, handleMouseOver, findActiveElement, setHover } =
+  const { styles, isCurrent, handleMouseLeave, handleMouseOver, findActiveElement, setHover } =
     useActiveNavItem({ wrapperRef, isDisabled: menuOpen });
 
   React.useEffect(() => {
@@ -88,7 +85,7 @@ export function Nav() {
           {menuOpen ? null : (
             <div
               style={styles}
-              className="absolute bg-blue-2/70 p-1.5 px-3 duration-200 rounded-md shadow-sm top-1/2"
+              className="absolute bg-blue-2/70 p-2 px-3 duration-200 rounded-md shadow-sm top-1/2"
             />
           )}
 
@@ -97,16 +94,17 @@ export function Nav() {
               className="z-50"
               key={link.href}
               data-href={link.href}
+              data-current={isCurrent(link.href)}
               onMouseOver={(event) => {
                 setHover(true);
                 handleMouseOver(event);
               }}
             >
               <Link
-                hasActiveItem={hasActiveItem}
                 onClick={() => setClickedRoute(true)}
                 menuOpen={menuOpen}
                 href={link.href}
+                isActive={isCurrent(link.href)}
               >
                 {link.name}
               </Link>
@@ -116,18 +114,14 @@ export function Nav() {
 
         <ul className="flex items-center h-full space-x-3">
           <li>
-            <a
-              id={githubId}
-              aria-label="GitHub profile"
-              href="https://github.com/dev-caspertheghost"
-            >
-              <Github aria-labelledby={githubId} width={21} height={21} />
-            </a>
+            <IconLink aria-label="GitHub profile" href="https://github.com/dev-caspertheghost">
+              <Github />
+            </IconLink>
           </li>
           <li>
-            <a id={twitterId} aria-label="Twitter profile" href="https://twitter.com/casper124578">
-              <Twitter aria-labelledby={twitterId} width={21} height={21} />
-            </a>
+            <IconLink aria-label="Twitter profile" href="https://twitter.com/casper124578">
+              <Twitter />
+            </IconLink>
           </li>
         </ul>
 
@@ -145,22 +139,16 @@ export function Nav() {
 
 function Link({
   menuOpen,
-  hasActiveItem,
+  isActive,
   ...props
-}: JSX.IntrinsicElements["a"] & { menuOpen: boolean; hasActiveItem: boolean }) {
-  const router = useRouter();
-  const pathname = router.pathname;
-  const hash = typeof window !== "undefined" && window.location.hash;
-  const href = `${pathname}${hash}`;
-  const isActive = props.href === href;
-
+}: JSX.IntrinsicElements["a"] & { isActive: boolean; menuOpen: boolean }) {
   return (
     <NextLink href={props.href!}>
       <a
-        {...props}
-        className={classNames("p-1.5 px-3 duration-200 transition-colors rounded-md ", {
+        {...(props as any)}
+        className={classNames("p-2 px-3 duration-200 transition-colors rounded-md ", {
           "my-2 block": menuOpen,
-          "bg-blue-1 shadow-sm": !hasActiveItem && isActive,
+          "bg-blue-1/80 shadow-md font-medium": isActive,
         })}
       >
         {props.children}

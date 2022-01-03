@@ -28,7 +28,9 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
     >
       <Link href={`/${type}/${article.slug}`}>
         <a {...extraAProps}>
-          <h3 className="text-lg font-semibold">{article.title}</h3>
+          <h3 style={{ fontSize: "1.25rem" }} className="font-semibold">
+            {article.title}
+          </h3>
           <p className="mt-1 text-gray-100">{article.intro}</p>
 
           {isFeatured ? null : (

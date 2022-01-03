@@ -35,16 +35,12 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
           <p className="mt-5">
             I have been developing web applications, Discord bots and npm packages for{" "}
             {formatDistanceToNow(started)} and love it! I learn something new almost every day!
-            Currently, I am focusing on frontend web development. Specifically working with
+            Currently, {"I'm"} focusing on frontend web development, specifically working with
             React.js, TypeScript, CSS, HTML and much more!
           </p>
           <p className="mt-5">
-            I also like interacting with GitHub repositories to expand my knowledge about
-            technologies and web development in general.
-          </p>
-          <p className="mt-5">
-            When {"I'm"} not programming or in school, I enjoy going mountain biking in my local
-            town. I also love skiing!
+            When {"I'm"} not programming or in school, I enjoy going mountain biking. I also love
+            skiing!
           </p>
           <p className="mt-5 text-base italic">
             PS: If there is something that {"you'd"} like to know more about me, {"don't"} hesitate
