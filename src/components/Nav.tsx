@@ -112,7 +112,7 @@ export function Nav() {
           ))}
         </ul>
 
-        <ul className="flex items-center h-full space-x-3">
+        <ul className="flex items-center h-full space-x-1">
           <li>
             <IconLink aria-label="GitHub profile" href="https://github.com/dev-caspertheghost">
               <Github />
