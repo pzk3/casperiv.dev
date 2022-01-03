@@ -18,13 +18,17 @@ const schema = yup.object().shape({
   message: yup.string().min(5),
 });
 
+type State = "loading" | "completed" | "error";
 export const ContactSection = () => {
   const [message, setMessage] = React.useState<string | null>(null);
+  const [state, setState] = React.useState<State | null>(null);
 
   async function onSubmit(
     data: typeof initialValues,
     helpers: FormikHelpers<typeof initialValues>,
   ) {
+    setState("loading");
+
     const res = await fetch("/api/mail", {
       method: "POST",
       body: JSON.stringify(data),
@@ -34,9 +38,11 @@ export const ContactSection = () => {
     });
 
     if (res.ok) {
+      setState("completed");
       setMessage("Successfully sent message! You should get an email with a confirmation.");
       helpers.resetForm();
     } else {
+      setState("error");
       if (res.status === 429) {
         setMessage("Woah! You're moving to fast. Please try again in several minutes.");
       } else {
@@ -64,7 +70,9 @@ export const ContactSection = () => {
       >
         {({ handleSubmit, handleChange, errors, values, touched }) => (
           <Form className="mt-3" onSubmit={handleSubmit}>
-            {message ? <p className="p-2 px-3 mb-3 rounded-md bg-blue-2">{message}</p> : null}
+            {message && state === "completed" ? (
+              <p className="p-2 px-3 mb-3 rounded-md bg-blue-2">{message}</p>
+            ) : null}
 
             <FormField errorMessage={errors.name} id="name" label="Name">
               <Input
@@ -73,6 +81,7 @@ export const ContactSection = () => {
                 name="name"
                 onChange={handleChange}
                 id="name"
+                disabled={state === "loading"}
               />
             </FormField>
 
@@ -83,6 +92,7 @@ export const ContactSection = () => {
                 name="email"
                 onChange={handleChange}
                 id="email"
+                disabled={state === "loading"}
               />
             </FormField>
 
@@ -93,6 +103,7 @@ export const ContactSection = () => {
                 name="message"
                 onChange={handleChange}
                 id="message"
+                disabled={state === "loading"}
               />
             </FormField>
 
@@ -100,7 +111,9 @@ export const ContactSection = () => {
               <a className="italic underline" href="mailto:casper.iversen2@gmail.com">
                 Send me an email directly
               </a>
-              <Button type="submit">Submit</Button>
+              <Button disabled={state === "loading"} type="submit">
+                {state === "loading" ? "Submitting..." : "Submit"}
+              </Button>
             </div>
           </Form>
         )}

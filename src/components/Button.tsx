@@ -7,6 +7,7 @@ export const Button = React.forwardRef<HTMLButtonElement, JSX.IntrinsicElements[
       {...props}
       className={classNames(
         "p-1.5 px-3 duration-200 transition-colors rounded-md bg-blue-1 hover:bg-gray-700/60",
+        "disabled:cursor-not-allowed opacity-80",
         props.className,
       )}
       ref={ref}
