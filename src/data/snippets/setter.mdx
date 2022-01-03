@@ -13,13 +13,13 @@ type Set<T> = React.Dispatch<React.SetStateAction<T>>;
 type ChangeEvent<E> = React.ChangeEvent<E>;
 type Input = HTMLInputElement | HTMLTextAreaElement;
 
-export const setter =
-  <T, E extends Input = HTMLInputElement>(setX: Set<T>) =>
-  (e: ChangeEvent<E>) => {
-    const value = e.target.value;
-
-    setX(value as unknown as T);
+export function setter<T extends number | string | Date, E extends Input = HTMLInputElement>(
+  setX: Set<T>,
+) {
+  return (e: ChangeEvent<E>) => {
+    setX(e.target.value as T);
   };
+}
 ```
 
 ## Usage
