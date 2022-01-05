@@ -8,7 +8,9 @@ import { Timeline } from "components/timeline/Timeline";
 import { Seo } from "components/Seo";
 
 export default function About({ timelineData }: { timelineData: TimelineItem[] }) {
+  // this is roughly the date I started programing according to GitHub 😅!
   const started = new Date("2019-08-08");
+
   return (
     <Layout>
       <Seo title="About - Casper Iversen" />
@@ -19,9 +21,9 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
         <div className="max-w-3xl mt-5 text-gray-200">
           <p>
             Hello, I am Casper! {"I'm"} a <Age />
-            -year-old programmer and student based in Belgium. I adore building accessible and fast
-            code. Furthermore, {"I'm"} also a big fan of open-source, I contribute to open-source as
-            much as I can, I also have{" "}
+            -year-old programmer and student based in Belgium. I adore building accessible,
+            responsive and fast code. Furthermore, {"I'm"} also a big fan of open-source, I
+            contribute to open-source as much as I can, I also have{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"

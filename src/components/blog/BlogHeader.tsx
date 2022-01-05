@@ -17,7 +17,7 @@ export const BlogHeader = ({ post }: Props) => {
   const readTimeId = useSSRSafeId();
 
   return (
-    <header className="pb-2 border-b-2 border-blue-1">
+    <header className="pb-2 pt-5 border-b-2 border-blue-1">
       <h1 className="mb-3 text-3xl font-bold md:text-4xl">{post.title}</h1>
       <div style={{ scrollbarWidth: "thin" }} className="flex gap-2 overflow-x-auto md:gap-5">
         <p className="font-medium min-w-max">{publishDateFull}</p>
