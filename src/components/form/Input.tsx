@@ -12,10 +12,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(({ hasError, ...r
     className={classNames(
       `
       w-full p-1.5 px-2 bg-blue-1 rounded-md border-[1.5px] border-gray-600
-      focus:border-gray-300
+      focus:border-gray-300/80 focus:outline-none
       disabled:cursor-not-allowed disabled:opacity-80
-      transition-all`,
-      { "border-red-500": Boolean(hasError) },
+      transition-colors`,
+      { "border-red-500 focus:border-red-700": Boolean(hasError) },
       rest.className,
     )}
   />
