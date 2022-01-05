@@ -27,7 +27,7 @@ export default function BlogPost({ post }: { post: Post }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>("posts", true);
+  const posts = await getAllItems<Post>("posts", true, true);
 
   return {
     fallback: false,

@@ -23,6 +23,7 @@ type Types = "posts" | "snippets" | "case-studies";
 export async function getAllItems<T extends Post>(
   type: Types,
   includeDrafts = false,
+  includeArchived = false,
 ): Promise<T[]> {
   const slugs = getSlugsFromDir(join(process.cwd(), "src", "data", type)).filter((v) =>
     /\.mdx?$/.test(v),
@@ -32,6 +33,10 @@ export async function getAllItems<T extends Post>(
   posts = posts.sort((post1, post2) =>
     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
   );
+
+  if (!includeArchived) {
+    posts = posts.filter((v) => !v.archived);
+  }
 
   if (!includeDrafts) {
     posts = posts.filter((v) => !v.draft);
@@ -85,5 +90,6 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
     updatedAt: frontmatter.updatedAt ?? null,
     draft: frontmatter.draft ?? false,
     featured: frontmatter.featured ?? false,
+    archived: frontmatter.archived ?? false,
   } as any as T;
 }

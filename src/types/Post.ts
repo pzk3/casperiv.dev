@@ -9,6 +9,7 @@ export interface Post {
   readingTime: number;
   draft?: boolean;
   featured?: boolean;
+  archived?: true;
   frontmatter: {
     [key: string]: any;
   };
