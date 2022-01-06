@@ -23,20 +23,11 @@ module.exports = {
               color: theme("colors.neutral.800"),
             },
             a: {
-              color: theme("colors.blue.500"),
-              "&:hover": {
-                color: theme("colors.blue.700"),
-              },
-              code: { color: theme("colors.blue.400") },
+              color: theme("colors.neutral.900"),
             },
             "h2,h3,h4": {
               "scroll-margin-top": spacing[32],
             },
-            thead: {
-              borderBottomColor: theme("colors.gray.200"),
-            },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
           },
         },
         dark: {
@@ -49,15 +40,11 @@ module.exports = {
             a: {
               color: theme("colors.gray.200"),
             },
-            blockquote: {
-              borderLeftColor: theme("colors.gray.700"),
-              color: theme("colors.gray.300"),
-            },
             "h2,h3,h4": {
               color: theme("colors.gray.200"),
               "scroll-margin-top": spacing[32],
             },
-            hr: { borderColor: theme("colors.gray.700") },
+            hr: { borderColor: theme("colors.neutral.700") },
             ol: {
               li: {
                 "&:before": { color: theme("colors.gray.500") },

@@ -20,7 +20,7 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
           transform: `translateY(-50%) translateX(${activeRect.left - wrapperRect.left}px)`,
           transition: hover ? "all 150ms cubic-bezier(0.4, 0, 0.2, 1)" : "none",
         }
-      : {};
+      : { opacity: 0 };
 
   function handleMouseOver(e: Pick<React.MouseEvent<HTMLLIElement>, "target">) {
     if (isDisabled) return;
@@ -39,6 +39,10 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
   function handleMouseLeave() {
     if (isDisabled) return;
 
+    if (router.pathname === "/404") {
+      setActiveRect(null);
+    }
+
     // timeout = wait for transition to finish
     findActiveElement();
     setTimeout(() => setHover(false), 150);
@@ -51,6 +55,7 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
 
     if (children.length > 0) {
       const href = makeHref();
+      if (!href) return;
 
       const child = [...children].find((v) => v.dataset.href === href) ?? [...children][0];
 
@@ -72,6 +77,10 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
     const hash =
       pathname === "/" ? (typeof window !== "undefined" ? window.location.hash : "") : "";
     const href = `${pathname}${hash}`;
+
+    if (href === "/404") {
+      return null;
+    }
 
     return href;
   }

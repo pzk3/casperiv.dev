@@ -36,7 +36,7 @@ export const MDCode = (props: Props) => {
         aria-label="Copy code"
         onClick={handleCopy}
         id={copyId}
-        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100"
+        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100 bg-blue-2 hover:bg-blue-2 focus:bg-blue-2"
       >
         {copied ? (
           <ClipboardCheck aria-labelledby={copyId} width={20} height={20} />
