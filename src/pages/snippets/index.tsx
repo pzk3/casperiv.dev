@@ -4,16 +4,31 @@ import { GetStaticProps } from "next";
 import { Post } from "types/Post";
 import { generateRSSFeed } from "lib/rss";
 import { ArticlesList } from "components/blog/ArticlesList";
-import { Seo } from "components/Seo";
+import { NextSeo } from "next-seo";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export default function CodeSnippets({ snippets }: { snippets: Post[] }) {
+  const pageTitle = "Code snippets - Casper Iversen";
+  const pageDescription = "Small code snippets that I have found useful or use a lot.";
+
   return (
     <Layout>
-      <Seo
-        title="Code snippets - Casper Iversen"
-        description="Small code snippets that I have found useful"
-        keywords={["code snippets", "code examples", "react hooks"]}
-        url="https://caspertheghost.me/snippets"
+      <NextSeo
+        openGraph={{
+          title: pageTitle,
+          description: pageDescription,
+        }}
+        canonical="https://caspertheghost.me/snippets"
+        title={pageTitle}
+        description={pageDescription}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: [...DEFAULT_KEYWORDS, "code snippets", "code examples", "react hooks"].join(
+              ", ",
+            ),
+          },
+        ]}
       />
 
       <h1 className="section-title">Code Snippets</h1>

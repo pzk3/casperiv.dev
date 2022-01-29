@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/google-font-preconnect */
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 
 export default class extends Document {
@@ -10,6 +11,8 @@ export default class extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preload" href="https://fonts.googleapis.com" />
+          <link rel="preload" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link

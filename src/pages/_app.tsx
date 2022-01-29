@@ -3,10 +3,14 @@ import "styles/globals.scss";
 import type { AppProps } from "next/app";
 import { Nav } from "components/Nav";
 import { Footer } from "components/Footer";
+import { DefaultSeo } from "next-seo";
+
+import { SEO } from "../../next-seo.config.js";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <SSRProvider>
+      <DefaultSeo {...SEO} />
       <Nav />
       <Component {...pageProps} />
 

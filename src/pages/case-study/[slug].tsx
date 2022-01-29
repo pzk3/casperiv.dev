@@ -4,17 +4,37 @@ import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Post } from "types/Post";
 import { Article } from "components/blog/Article";
-import { Seo } from "components/Seo";
+import { NextSeo } from "next-seo";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export default function BlogPost({ caseStudy }: { caseStudy: Post }) {
+  const pageTitle = `${caseStudy.title} - Casper Iversen`;
+  const pageDescription = caseStudy.intro ?? undefined;
+
   return (
     <Layout>
-      <Seo
-        title={`${caseStudy.title} - Casper Iversen`}
-        description={caseStudy.intro ?? undefined}
-        keywords={["blog", "case studies casper iversen", ...(caseStudy.keywords ?? [])]}
-        url={`https://caspertheghost.me/case-study/${caseStudy.slug}`}
-        date={caseStudy.createdAt}
+      <NextSeo
+        openGraph={{
+          article: {
+            publishedTime: caseStudy.createdAt,
+          },
+          title: pageTitle,
+          description: pageDescription,
+        }}
+        canonical={`https://caspertheghost.me/case-study/${caseStudy.slug}`}
+        title={pageTitle}
+        description={pageDescription}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: [
+              ...DEFAULT_KEYWORDS,
+              "case studies",
+              "case studies casper iversen",
+              ...(caseStudy.keywords ?? []),
+            ].join(", "),
+          },
+        ]}
       />
 
       <Head>

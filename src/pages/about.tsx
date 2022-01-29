@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Age } from "components/Age";
@@ -5,7 +6,9 @@ import { Layout } from "components/Layout";
 import { GetStaticProps } from "next";
 import { TimelineItem } from "types/Timeline";
 import { Timeline } from "components/timeline/Timeline";
-import { Seo } from "components/Seo";
+
+const pageTitle = "About - Casper Iversen";
+const pageDescription = "Get to know more about me and some of my accomplishments.";
 
 export default function About({ timelineData }: { timelineData: TimelineItem[] }) {
   // this is roughly the date I started programing according to GitHub 😅!
@@ -13,7 +16,12 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
 
   return (
     <Layout>
-      <Seo title="About - Casper Iversen" />
+      <NextSeo
+        openGraph={{ title: pageTitle, description: pageDescription }}
+        canonical="https://caspertheghost.me/about"
+        title={pageTitle}
+        description={pageDescription}
+      />
 
       <section id="about">
         <h1 className="section-title">About Me</h1>

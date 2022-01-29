@@ -4,19 +4,36 @@ import { GetStaticProps } from "next";
 import { Post } from "types/Post";
 import { generateRSSFeed } from "lib/rss";
 import { ArticlesList } from "components/blog/ArticlesList";
-import { Seo } from "components/Seo";
 import { ArticleListItem } from "components/blog/ArticleListItem";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { NextSeo } from "next-seo";
 
 export default function Blog({ posts }: { posts: Post[] }) {
   const FEATURED = posts.filter((v) => v.featured);
+  const pageTitle = "Blog - Casper Iversen";
+  const pageDescription = "A list of my blog posts with how-to's and more!";
 
   return (
     <Layout>
-      <Seo
-        title="Blog - Casper Iversen"
-        url="https://caspertheghost.me/blog"
-        keywords={["blog casper iversen", "caspertheghost blog"]}
-        description="My blog - Casper Iversen"
+      <NextSeo
+        openGraph={{
+          title: pageTitle,
+          description: pageDescription,
+        }}
+        canonical="https://caspertheghost.me/blog"
+        title={pageTitle}
+        description={pageDescription}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: [
+              ...DEFAULT_KEYWORDS,
+              "blog casper iversen",
+              "caspertheghost blog",
+              "react hooks",
+            ].join(", "),
+          },
+        ]}
       />
 
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Blog Posts</h1>

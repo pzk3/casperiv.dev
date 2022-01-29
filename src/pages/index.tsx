@@ -1,4 +1,3 @@
-import * as React from "react";
 import { HeroSection } from "components/HeroSection";
 import { Layout } from "components/Layout";
 import { MyBackpackSection } from "components/MyBackpackSection";
@@ -6,7 +5,6 @@ import { GetStaticProps } from "next";
 import { FeaturedProjectsSection } from "components/FeaturedProjects";
 import { Project } from "types/Project";
 import { ContactSection } from "components/ContactSection";
-import { Seo } from "components/Seo";
 
 interface Props {
   projects: Project[];
@@ -16,8 +14,6 @@ interface Props {
 export default function Home({ myBackpack, projects }: Props) {
   return (
     <Layout>
-      <Seo />
-
       <HeroSection />
       <MyBackpackSection myBackpack={myBackpack} />
       <FeaturedProjectsSection projects={projects} />

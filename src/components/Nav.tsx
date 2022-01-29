@@ -85,6 +85,7 @@ export function Nav() {
         >
           {menuOpen ? null : (
             <div
+              role="listitem"
               style={styles}
               className="absolute bg-neutral-300 dark:bg-blue-2/70 p-2 px-3 duration-200 rounded-md shadow-sm top-1/2"
             />

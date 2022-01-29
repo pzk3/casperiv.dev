@@ -33,7 +33,7 @@ prisma/*.db
 # remove service workers, will be present when running `npm run build`.
 public/*.js
 public/*.js.map
-public/sitemap.xml
+public/sitemap*
 public/rss.xml
 
 docker-compose.yml

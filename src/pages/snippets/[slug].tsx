@@ -4,17 +4,37 @@ import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Post } from "types/Post";
 import { Article } from "components/blog/Article";
-import { Seo } from "components/Seo";
+import { NextSeo } from "next-seo";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export default function BlogPost({ snippet }: { snippet: Post }) {
+  const pageTitle = `${snippet.title} - Casper Iversen`;
+  const pageDescription = snippet.intro ?? undefined;
+
   return (
     <Layout>
-      <Seo
-        title={`${snippet.title} - Casper Iversen`}
-        description={snippet.intro ?? undefined}
-        keywords={["code snippets", "snippets casper iversen", ...(snippet.keywords ?? [])]}
-        url={`https://caspertheghost.me/snippets/${snippet.slug}`}
-        date={snippet.createdAt}
+      <NextSeo
+        openGraph={{
+          article: {
+            publishedTime: snippet.createdAt,
+          },
+          title: pageTitle,
+          description: pageDescription,
+        }}
+        canonical={`https://caspertheghost.me/snippets/${snippet.slug}`}
+        title={pageTitle}
+        description={pageDescription}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: [
+              ...DEFAULT_KEYWORDS,
+              "code snippets",
+              "snippets casper iversen",
+              ...(snippet.keywords ?? []),
+            ].join(", "),
+          },
+        ]}
       />
 
       <Head>

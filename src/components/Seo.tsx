@@ -1,4 +1,3 @@
-import type * as React from "react";
 import Head from "next/head";
 
 interface Props {
@@ -19,9 +18,9 @@ const DEFAULT_KEYWORDS = [
 ];
 
 const defaults: Props = {
-  title: "Casper Iversen - Web Developer",
-  url: "https://caspertheghost.me",
-  description: "Hi I'm Casper Iversen! A Frontend Web Developer.",
+  title: "",
+  url: "",
+  description: "",
   keywords: [],
 };
 

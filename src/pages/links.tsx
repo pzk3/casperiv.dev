@@ -1,7 +1,7 @@
 import { Layout } from "components/Layout";
-import { Seo } from "components/Seo";
 import { Link } from "data/links";
 import { GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 
 interface Props {
   links: Link[];
@@ -10,7 +10,11 @@ interface Props {
 export default function Links({ links }: Props) {
   return (
     <Layout>
-      <Seo title="Links - Casper Iversen" />
+      <NextSeo
+        openGraph={{ title: "Links - Casper Iversen" }}
+        canonical="https://caspertheghost.me/links"
+        title="Links - Casper Iversen"
+      />
 
       <h1 className="section-title">Links</h1>
 
