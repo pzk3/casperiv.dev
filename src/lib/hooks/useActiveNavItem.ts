@@ -78,7 +78,7 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
       pathname === "/" ? (typeof window !== "undefined" ? window.location.hash : "") : "";
     const href = `${pathname}${hash}`;
 
-    if (href === "/404") {
+    if (["/404", "/links", "/case-study/[slug]"].includes(router.pathname)) {
       return null;
     }
 

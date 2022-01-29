@@ -1,4 +1,3 @@
-import * as React from "react";
 import NextLink from "next/link";
 
 export const Link = (props: JSX.IntrinsicElements["a"]) => {
