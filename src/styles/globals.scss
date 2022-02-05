@@ -48,6 +48,21 @@ body.dark {
   }
 }
 
+.open-nav-animation {
+  animation: open-nav 130ms alternate linear;
+}
+
+@keyframes open-nav {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .rehype-code-title {
   border-bottom: 1.5px solid #2e3746;
 

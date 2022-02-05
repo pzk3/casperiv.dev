@@ -9,7 +9,7 @@ export const projects: Project[] = [
   {
     title: "SnailyCAD",
     description:
-      "An open source Computer Aided Dispatch (CAD) for a game called FiveM, this is a web based integration for communities who love police roleplaying and dispatching.",
+      "An open source Computer Aided Dispatch (CAD) for a game called FiveM, this is a web based integration for communities who love police roleplaying and dispatching. Loved by many communities.",
     buttons: [
       {
         url: "https://github.com/SnailyCAD/snaily-cadv4",
@@ -24,7 +24,7 @@ export const projects: Project[] = [
   {
     title: "GhostyBot",
     description:
-      "A feature-rich Discord bot with +200 commands for Discord servers. Economy, util, fun, music, admin and more! Built with Next.js and Discord.js ",
+      "A feature-rich Discord bot with over 150 commands. Economy, util, fun, music, admin and more! Used in over 250 servers and 130 000 users.",
     buttons: [
       {
         url: `${url}/ghostybot`,
@@ -99,7 +99,8 @@ export const projects: Project[] = [
 
   {
     title: "pastebin-api",
-    description: "A very simple pastebin npm package to interact with the pastebin api! ",
+    description:
+      "A simple npm package to interact with the Pastebin api. Downloaded over 10 000 times on npm.",
     buttons: [
       {
         url: `${url}/pastebin-api`,
