@@ -7,4 +7,3 @@ Host: https://caspertheghost.me
 
 # Sitemaps
 Sitemap: https://caspertheghost.me/sitemap.xml
-Sitemap: https://caspertheghost.me/sitemap-0.xml
