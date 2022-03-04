@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  experimental: {
+    outputStandalone: true,
+  },
   cleanDistDir: true,
   reactStrictMode: true,
   async redirects() {
