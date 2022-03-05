@@ -41,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     text: `
 Hello ${body.name},
 
-You received this email because you sent me an email via my contact form on caspertheghost.me.
+You received this email because you entered the contact form on caspertheghost.me.
 I will respond back to you as soon as I can :). Below you can find your message:
 
 
@@ -49,7 +49,7 @@ ${body.message}`,
     html: `
 Hello ${body.name},<br/>
 <br/>
-You received this email because you sent me an email via my contact form on caspertheghost.me.<br/>
+You received this email because you entered the contact form on caspertheghost.me.<br/>
 I will respond back to you as soon as I can :). Below you can find your message:
 
 <br/>

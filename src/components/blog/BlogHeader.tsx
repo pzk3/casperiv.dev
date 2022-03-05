@@ -18,8 +18,9 @@ export const BlogHeader = ({ post }: Props) => {
 
   return (
     <header className="pb-2 pt-5 border-b-2 border-blue-1">
-      <h1 className="mb-3 text-3xl font-bold md:text-4xl">{post.title}</h1>
-      <div style={{ scrollbarWidth: "thin" }} className="flex gap-2 overflow-x-auto md:gap-5">
+      <h1 className="mb-5 text-3xl font-bold md:text-4xl">{post.title}</h1>
+
+      <div style={{ scrollbarWidth: "thin" }} className="flex gap-2 overflow-x-auto md:gap-6">
         <p className="font-medium min-w-max">{publishDateFull}</p>
         {post.readingTime ? (
           <p className="flex items-center gap-2 min-w-[120px]">
