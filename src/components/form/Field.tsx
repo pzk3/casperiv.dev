@@ -5,14 +5,14 @@ import classNames from "clsx";
 type Props = JSX.IntrinsicElements["div"] & {
   label: string | null;
   errorMessage?: string;
-  children?: React.ReactElement<any>;
+  children?: React.ReactElement;
   checkbox?: boolean;
 };
 
 export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: Props) => {
   const { labelProps, fieldProps, errorMessageProps } = useField({ label, errorMessage });
 
-  const element = React.cloneElement(children as React.ReactElement<any>, fieldProps);
+  const element = React.cloneElement(children as React.ReactElement, fieldProps);
 
   return (
     <div {...rest} className={classNames("flex mb-3", !checkbox && "flex-col", rest.className)}>

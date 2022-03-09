@@ -1,7 +1,7 @@
 export interface Project {
   title: string;
   description: string;
-  buttons: Array<Button>;
+  buttons: Button[];
 }
 
 export interface Button {
