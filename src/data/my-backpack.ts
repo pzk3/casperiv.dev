@@ -7,7 +7,7 @@ export const myBackpack: [string, string[]][] = [
       "TypeScript",
       "React & Next.js",
       "styled-components",
-      "TailwindCSS",
+      "Tailwind CSS",
       "State Management",
     ],
   ],

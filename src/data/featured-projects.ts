@@ -59,10 +59,6 @@ export const projects: Project[] = [
         url: "/case-study/notey.app",
         name: VIEW_CASE_STUDY,
       },
-      {
-        url: "https://notey.caspertheghost.me",
-        name: OPEN_PROJECT,
-      },
     ],
   },
   {
