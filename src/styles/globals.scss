@@ -11,14 +11,6 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
-body {
-  @apply bg-gray-50 text-neutral-900 min-h-screen;
-}
-
-body.dark {
-  @apply bg-blue text-white;
-}
-
 #__next {
   @apply min-h-screen;
 }
