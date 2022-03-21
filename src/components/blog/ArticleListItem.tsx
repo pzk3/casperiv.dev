@@ -20,8 +20,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
 
   return (
     <li
-      className={classNames({
-        "my-4 first:mt-0": true,
+      className={classNames("my-4 first:mt-0 group", {
         "z-10 mt-0 p-1 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] rounded-md hover:shadow-lg transition-shadow":
           isFeatured,
       })}
@@ -31,7 +30,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
           <h3 style={{ fontSize: "1.25rem" }} className="font-semibold">
             {article.title}
           </h3>
-          <p className="mt-1 text-neutral-800 dark:text-gray-100">{article.intro}</p>
+          <p className="mt-1 text-neutral-800 dark:text-gray-100 ">{article.intro}</p>
 
           {isFeatured ? null : (
             <span className="block mt-1.5 font-normal text-neutral-700 dark:text-gray-300">

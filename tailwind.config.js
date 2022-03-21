@@ -2,7 +2,7 @@ const { spacing } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.tsx"],
+  content: ["./src/**/*.tsx", "./src/**/*.mdx"],
   theme: {
     extend: {
       colors: {

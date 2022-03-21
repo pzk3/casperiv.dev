@@ -1,0 +1,83 @@
+---
+title: Using Preact with Next.js
+createdAt: March 21, 2022
+intro: How are you able to use Preact with Next.js to reduce bundle size.
+keywords: next.js, preact, reduce bundle size
+---
+
+import WithPreact from "public/blog/nextjs-with-preact/with-preact.png";
+import WithoutPreact from "public/blog/nextjs-with-preact/without-preact.png";
+
+## Getting Started
+
+This blog post will explain how you can easily add [Preact] to your Next.js application to reduce Next.js' bundle size.
+
+<Info style={{ margin: "1rem 0" }}>
+  **Note:** Some features in React.js that are not yet supported in Preact, [may break some parts in
+  your Next.js application](https://github.com/radix-ui/primitives/issues/863).
+</Info>
+
+### Preact installation
+
+Preact can be easily installed with the following command
+
+```bash
+npm install preact
+# or
+yarn add preact
+# or
+pnpm add preact
+```
+
+### Next.js configuration
+
+To enable Preact, we must edit our [Next config](https://nextjs.org/docs/api-reference/next.config.js/introduction).
+
+```js:next.config.js
+module.exports = {
+  webpack: (config, { dev, isServer }) => {
+
+
+    // Note, preact is only enabled for production builds (`next build`)
+    if (!dev && !isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+      };
+    }
+
+    return config;
+  },
+}
+```
+
+### Usage
+
+Once you build your Next.js application, you should see a decrease in bundle size.
+Below you can see the results on my site.
+
+<div className="flex items-center justify-center flex-col md:flex-row gap-3 -mt-5">
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="With Preact"
+      src="/blog/nextjs-with-preact/with-preact.png"
+      blurDataURL={WithPreact}
+    />
+    <figcaption>With Preact</figcaption>
+  </figure>
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="Without Preact"
+      src="/blog/nextjs-with-preact/without-preact.png"
+      blurDataURL={WithPreact}
+    />
+    <figcaption>Without Preact</figcaption>
+  </figure>
+</div>

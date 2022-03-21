@@ -37,9 +37,11 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
   }
 
   function handleMouseLeave() {
+    console.log("leave");
+
     if (isDisabled) return;
 
-    if (router.pathname === "/404") {
+    if (["/case-study/[slug]", "/404"].includes(router.pathname)) {
       setActiveRect(null);
     }
 

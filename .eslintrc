@@ -11,5 +11,9 @@
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "unicorn/new-for-builtins": "error",
+    "unicorn/no-array-for-each": "error"
   }
 }
