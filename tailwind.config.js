@@ -22,8 +22,8 @@ module.exports = {
               backgroundColor: theme("colors.gray.300"),
               color: theme("colors.neutral.800"),
             },
-            a: {
-              color: theme("colors.neutral.900"),
+            "a,figcaption": {
+              color: theme("colors.neutral.600"),
             },
             "h2,h3,h4": {
               "scroll-margin-top": spacing[32],
@@ -39,6 +39,9 @@ module.exports = {
             },
             a: {
               color: theme("colors.gray.200"),
+            },
+            figcaption: {
+              color: theme("colors.gray.400"),
             },
             "h2,h3,h4": {
               color: theme("colors.gray.200"),
