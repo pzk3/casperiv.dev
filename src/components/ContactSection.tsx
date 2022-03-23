@@ -68,7 +68,7 @@ export const ContactSection = () => {
         onSubmit={onSubmit}
         initialValues={initialValues}
       >
-        {({ handleSubmit, handleChange, isValid, errors, values, touched }) => (
+        {({ handleSubmit, handleChange, isValid, errors, values }) => (
           <Form className="mt-3" onSubmit={handleSubmit}>
             {message && state === "completed" ? (
               <p className="p-2 px-3 mb-3 rounded-md bg-gray-300/80 shadow-sm dark:bg-blue-2">
@@ -79,7 +79,7 @@ export const ContactSection = () => {
             <FormField errorMessage={errors.name} id="name" label="Name">
               <Input
                 value={values.name}
-                hasError={errors.name && touched.name}
+                hasError={errors.name}
                 name="name"
                 onChange={handleChange}
                 id="name"
@@ -90,7 +90,7 @@ export const ContactSection = () => {
             <FormField errorMessage={errors.email} id="email" label="Email">
               <Input
                 value={values.email}
-                hasError={errors.email && touched.email}
+                hasError={errors.email}
                 name="email"
                 onChange={handleChange}
                 id="email"
@@ -101,7 +101,7 @@ export const ContactSection = () => {
             <FormField errorMessage={errors.message} className="mb-0" id="message" label="Message">
               <Textarea
                 value={values.message}
-                hasError={errors.message && touched.message}
+                hasError={errors.message}
                 name="message"
                 onChange={handleChange}
                 id="message"
@@ -109,7 +109,7 @@ export const ContactSection = () => {
               />
             </FormField>
 
-            <div className="flex items-start justify-between mt-2">
+            <div className="flex items-start justify-between mt-6">
               <a className="italic underline" href="mailto:casper.iversen2@gmail.com">
                 Send me an email directly
               </a>
