@@ -13,6 +13,7 @@ export function Info({ children, title, color, ...rest }: Props) {
   return (
     <div
       {...rest}
+      data-info
       style={{ borderColor, ...rest.style }}
       className="p-2 px-4 my-3 mb-5 text-lg border-l-[3px] rounded-md rounded-l-none shadow bg-gray-300/80 dark:bg-blue-1/60"
     >

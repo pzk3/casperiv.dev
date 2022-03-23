@@ -22,6 +22,11 @@ module.exports = {
               backgroundColor: theme("colors.gray.300"),
               color: theme("colors.neutral.800"),
             },
+            "[data-info]": {
+              a: {
+                color: theme("colors.neutral.800"),
+              },
+            },
             "a,figcaption": {
               color: theme("colors.neutral.600"),
             },
@@ -38,7 +43,7 @@ module.exports = {
               color: theme("colors.gray.200"),
             },
             a: {
-              color: theme("colors.gray.200"),
+              color: theme("colors.gray.300"),
             },
             figcaption: {
               color: theme("colors.gray.400"),

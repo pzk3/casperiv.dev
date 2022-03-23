@@ -87,7 +87,7 @@ export function Nav() {
             <div
               role="listitem"
               style={styles}
-              className="absolute bg-neutral-300 dark:bg-blue-2/70 p-2 px-3 duration-200 rounded-md shadow-sm top-1/2"
+              className="absolute bg-gray-300 dark:bg-blue-2/70 p-2 px-3 duration-200 rounded-md shadow-sm top-1/2"
             />
           )}
 
