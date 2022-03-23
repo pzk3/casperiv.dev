@@ -1,13 +1,3 @@
-# Portfoliov3
+# [caspertheghost.me](https://caspertheghost.me)
 
-Third version of my portfolio
-
-## Performance
-
-![performance](./public/performance.png)
-
-## What I learned
-
-- Better understanding of scss
-- Better understanding of next.js
-- Better understanding of SEO
+![Website mockup](./public/website_mock.png)
