@@ -34,7 +34,7 @@ export async function getAllItems<T extends Post>(
     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
   );
 
-  if (!includeArchived) {
+  if (!includeArchived)  {
     posts = posts.filter((v) => !v.archived);
   }
 

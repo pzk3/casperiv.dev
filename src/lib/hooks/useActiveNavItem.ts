@@ -37,8 +37,6 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
   }
 
   function handleMouseLeave() {
-    console.log("leave");
-
     if (isDisabled) return;
 
     if (["/case-study/[slug]", "/404"].includes(router.pathname)) {

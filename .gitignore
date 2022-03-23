@@ -27,7 +27,7 @@ yarn-error.log*
 # local env files
 .env*
 
-prisma/*.db
+prisma/*.db*
 .vscode
 
 # remove service workers, will be present when running `npm run build`.
