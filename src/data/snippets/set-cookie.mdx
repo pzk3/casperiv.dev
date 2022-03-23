@@ -42,7 +42,9 @@ import { setCookie } from "lib/setCookie";
 export default async function handler(req, res) {
   /* ... */
 
-  const myValue = generateJWT({ /* ... */ })
+  const myValue = generateJWT({
+    /* ... */
+  });
   // expire after 3 hours
   setCookie({ res, name: "my-token", expires: 60 * 60 * 1000 * 3, value: myValue });
 
