@@ -52,6 +52,21 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "pastebin-api",
+    description:
+      "A simple npm package to interact with the Pastebin api. Downloaded over 10 000 times on npm.",
+    buttons: [
+      {
+        url: `${url}/pastebin-api`,
+        name: VIEW_CODE,
+      },
+      {
+        name: "View on npm",
+        url: "https://www.npmjs.com/package/pastebin-api",
+      },
+    ],
+  },
+  {
     title: "notey.app",
     description: "A notes app to keep track of important things and share notes with others",
     buttons: [
@@ -76,7 +91,6 @@ export const projects: Project[] = [
       },
     ],
   },
-
   {
     title: "new-tab",
     description:
@@ -89,22 +103,6 @@ export const projects: Project[] = [
       {
         url: "https://addons.mozilla.org/en-US/firefox/addon/new_tab1/",
         name: "Install addon",
-      },
-    ],
-  },
-
-  {
-    title: "pastebin-api",
-    description:
-      "A simple npm package to interact with the Pastebin api. Downloaded over 10 000 times on npm.",
-    buttons: [
-      {
-        url: `${url}/pastebin-api`,
-        name: VIEW_CODE,
-      },
-      {
-        name: "View on npm",
-        url: "https://www.npmjs.com/package/pastebin-api",
       },
     ],
   },
