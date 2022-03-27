@@ -47,7 +47,11 @@ export default function BlogPost({ caseStudy }: { caseStudy: Post }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const caseStudies = await getAllItems<Post>("case-studies", true);
+  const caseStudies = await getAllItems({
+    type: "case-studies",
+    includeArchived: true,
+    includeDrafts: true,
+  });
 
   return {
     fallback: false,
@@ -60,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const caseStudy = await getItemBySlug<Post>(params?.slug as string, "case-studies");
+  const caseStudy = await getItemBySlug(params?.slug as string, "case-studies");
 
   if (!caseStudy) {
     return {

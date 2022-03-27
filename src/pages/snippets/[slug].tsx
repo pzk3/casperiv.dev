@@ -47,7 +47,11 @@ export default function BlogPost({ snippet }: { snippet: Post }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const snippets = await getAllItems<Post>("snippets", true);
+  const snippets = await getAllItems({
+    type: "snippets",
+    includeDrafts: true,
+    includeArchived: true,
+  });
 
   return {
     fallback: false,
@@ -60,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const snippet = await getItemBySlug<Post>(params?.slug as string, "snippets");
+  const snippet = await getItemBySlug(params?.slug as string, "snippets");
 
   if (!snippet) {
     return {

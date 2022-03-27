@@ -39,7 +39,7 @@ export const ContactSection = () => {
 
     if (res.ok) {
       setState("completed");
-      setMessage("Successfully sent message! You should get an email with a confirmation.");
+      setMessage("Message successfully sent! You should get an email with a confirmation.");
       helpers.resetForm();
     } else {
       setState("error");
@@ -71,7 +71,7 @@ export const ContactSection = () => {
         {({ handleSubmit, handleChange, isValid, errors, values }) => (
           <Form className="mt-3" onSubmit={handleSubmit}>
             {message && state === "completed" ? (
-              <p className="p-2 px-3 mb-3 rounded-md bg-gray-300/80 shadow-sm dark:bg-blue-2">
+              <p className="p-2 px-3 mb-3 rounded-md bg-gray-200 shadow-sm dark:bg-blue-2">
                 {message}
               </p>
             ) : null}

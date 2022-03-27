@@ -12,7 +12,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         : router.pathname === "/" && ["#projects", "#contact"].includes(hash);
 
     if (!includesHash) {
-      window.scrollTo({ top: 1, behavior: "smooth" });
+      window.scrollTo({ top: 0.1, behavior: "smooth" });
     }
   }, [router]);
 

@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const slug = req.query.slug as string;
-  const method = req.method as keyof typeof handlers;
+  const method = req.method as string;
 
   const view = await prisma.view.findUnique({ where: { slug } });
 
@@ -32,12 +32,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   };
 
-  const handler = handlers[method];
+  if (doesMethodHaveHandler(method, handlers)) {
+    const handler = handlers[method];
 
-  if (!handler) {
-    return res.status(405).send("Method Not Allowed");
+    const json = await handler();
+    return res.status(200).json(json);
   }
 
-  const json = await handler();
-  return res.status(200).json(json);
+  return res.status(405).send("Method Not Allowed");
+}
+
+function doesMethodHaveHandler<Handlers>(
+  method: string | number | symbol,
+  handlers: Handlers,
+): method is keyof Handlers {
+  return method in handlers;
 }

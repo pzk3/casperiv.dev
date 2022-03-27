@@ -39,7 +39,7 @@ export default function CodeSnippets({ snippets }: { snippets: Post[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const snippets = await getAllItems<Post>("snippets");
+  const snippets = await getAllItems({ type: "snippets" });
   await generateRSSFeed();
 
   return {

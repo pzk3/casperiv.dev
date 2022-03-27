@@ -3,6 +3,13 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
+    title: "Svelte",
+    text: "Finally decided to learn a bit more about Svelte and SvelteKit. It's an amazing language to write in. It's super clean and simple!",
+    url: "https://caspertheghost.me",
+    date: "March 2022",
+  },
+  {
+    year: 2022,
     title: "Portfolio",
     text: "Wanted to refresh my portfolio a bit again. Added a new light theme and tons of improvements to my older blog posts.",
     url: "https://caspertheghost.me",

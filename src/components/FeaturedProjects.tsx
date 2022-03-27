@@ -17,7 +17,7 @@ export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) =
 
 const ProjectItem = ({ project }: { project: Project }) => {
   return (
-    <li className="flex flex-col justify-between p-4 transition-transform rounded-md shadow-sm bg-gray-200/80 dark:bg-blue-1 focus-within:scale-[1.008] hover:scale-[1.008] cursor-default">
+    <li className="flex flex-col justify-between p-4 transition-transform rounded-md shadow-sm bg-gray-200/80 dark:bg-blue-1 focus-within:scale-[1.004] hover:scale-[1.004] cursor-default">
       <h2 className="text-2xl font-semibold">{project.title}</h2>
 
       <p className="my-3 text-neutral-800 dark:text-gray-300">{project.description}</p>

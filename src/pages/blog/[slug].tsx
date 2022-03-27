@@ -44,7 +44,11 @@ export default function BlogPost({ post }: { post: Post }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>("posts", true, true);
+  const posts = await getAllItems({
+    type: "posts",
+    includeDrafts: true,
+    includeArchived: true,
+  });
 
   return {
     fallback: false,
@@ -57,7 +61,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getItemBySlug<Post>(params?.slug as string, "posts");
+  const post = await getItemBySlug(params?.slug as string, "posts");
 
   if (!post) {
     return {

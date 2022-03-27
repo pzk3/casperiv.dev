@@ -16,20 +16,22 @@ export function getSlugsFromDir(dir: string): string[] {
 export type Fields<T> = (keyof T)[];
 type Types = "posts" | "snippets" | "case-studies";
 
-/**
- * @param type The type of item (blog post, snippet, case study)
- * @param includeDrafts Defaults to `false`
- */
-export async function getAllItems<T extends Post>(
-  type: Types,
+interface GetAllProps {
+  /** the type of item (blog post, snippet, case study) */
+  type: Types;
+  includeDrafts?: boolean;
+  includeArchived?: boolean;
+}
+
+export async function getAllItems({
+  type,
   includeDrafts = false,
   includeArchived = false,
-): Promise<T[]> {
-  const slugs = getSlugsFromDir(join(process.cwd(), "src", "data", type)).filter((v) =>
-    /\.mdx?$/.test(v),
-  );
+}: GetAllProps): Promise<Post[]> {
+  const typeDir = join(process.cwd(), "src", "data", type);
+  const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
 
-  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<T>(slug, type)));
+  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug(slug, type)));
   posts = posts.sort((post1, post2) =>
     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
   );
@@ -42,10 +44,10 @@ export async function getAllItems<T extends Post>(
     posts = posts.filter((v) => !v.draft);
   }
 
-  return posts as unknown as Pick<T, keyof T>[];
+  return posts;
 }
 
-export async function getItemBySlug<T = unknown>(slug: string, type: Types): Promise<T> {
+export async function getItemBySlug(slug: string, type: Types): Promise<Post> {
   const dir = join(process.cwd(), "src", "data", type);
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
@@ -91,5 +93,5 @@ export async function getItemBySlug<T = unknown>(slug: string, type: Types): Pro
     draft: frontmatter.draft ?? false,
     featured: frontmatter.featured ?? false,
     archived: frontmatter.archived ?? false,
-  } as any as T;
+  };
 }

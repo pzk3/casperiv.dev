@@ -58,8 +58,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllItems<Post>("posts");
-  await generateRSSFeed();
+  const [posts] = await Promise.all([getAllItems({ type: "posts" }), generateRSSFeed()]);
 
   return {
     props: { posts },

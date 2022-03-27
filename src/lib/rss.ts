@@ -10,7 +10,7 @@ export async function generateRSSFeed() {
   try {
     if (process.env.NODE_ENV === "development") return;
 
-    const posts = await getAllItems("posts");
+    const posts = await getAllItems({ type: "posts" });
 
     const rss = new RSS({
       title: "Casper's Blog",
