@@ -30,8 +30,6 @@ export default class extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
           <link rel="mask-icon" href="/favicons//safari-pinned-tab.svg" color="#161b22" />
           <meta name="msapplication-TileColor" content="#161b22" />
-          <meta name="theme-color" content="#161b22" />
-          <meta property="og:color" content="#161b22" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="https://caspertheghost.me/icons/icon-128.png" />
 
