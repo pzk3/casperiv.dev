@@ -29,14 +29,18 @@ export const MDCode = (props: Props) => {
     }
   }
 
-  return !inline && match ? (
-    <>
+  if (inline || !match) {
+    return <code className={className}>{props.children}</code>;
+  }
+
+  return (
+    <div className="group relative w-full">
       <Button
         title="Copy code"
         aria-label="Copy code"
         onClick={handleCopy}
         id={copyId}
-        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100 bg-blue-2 hover:bg-blue-2 focus:bg-blue-2"
+        className="absolute z-50 transition-all opacity-0 top-0 right-0 focus:opacity-100 group-hover:opacity-100  bg-blue-2 hover:bg-blue-2 focus:bg-blue-2"
       >
         {copied ? (
           <ClipboardCheck aria-labelledby={copyId} width={20} height={20} />
@@ -48,8 +52,6 @@ export const MDCode = (props: Props) => {
       <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
         {text}
       </SyntaxHighlighter>
-    </>
-  ) : (
-    <code className={className}>{props.children}</code>
+    </div>
   );
 };

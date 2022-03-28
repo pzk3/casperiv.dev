@@ -5,6 +5,7 @@ import styles from "styles/blog.module.scss";
 import { Link } from "./Link";
 import { MDCode } from "./Code";
 import { Info } from "./Info";
+import { CommandLine } from "./CommandLine";
 import Image from "next/image";
 
 // importing this with next/dynamic will have some flickers..
@@ -13,6 +14,7 @@ const components = {
   code: MDCode,
   Info,
   Image,
+  CommandLine,
 };
 
 interface Props {
