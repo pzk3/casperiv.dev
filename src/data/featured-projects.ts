@@ -37,6 +37,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "notey.app",
+    description: "A notes app to keep track of important things and share notes with others",
+    buttons: [
+      {
+        url: "/case-study/notey.app",
+        name: VIEW_CASE_STUDY,
+      },
+      {
+        name: OPEN_PROJECT,
+        url: "https://notey.caspertheghost.me",
+      },
+    ],
+  },
+  {
     title: "Home inventory",
     description:
       "A home inventory app to keep track of items in your home (food items, tech, medical supplies, etc.).",
@@ -63,16 +77,6 @@ export const projects: Project[] = [
       {
         name: "View on npm",
         url: "https://www.npmjs.com/package/pastebin-api",
-      },
-    ],
-  },
-  {
-    title: "notey.app",
-    description: "A notes app to keep track of important things and share notes with others",
-    buttons: [
-      {
-        url: "/case-study/notey.app",
-        name: VIEW_CASE_STUDY,
       },
     ],
   },
