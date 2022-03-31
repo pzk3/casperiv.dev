@@ -31,7 +31,7 @@ export async function getAllItems({
   const typeDir = join(process.cwd(), "src", "data", type);
   const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
 
-  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug(slug, type)));
+  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<Post>(slug, type)));
   posts = posts.sort((post1, post2) =>
     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
   );
@@ -47,7 +47,7 @@ export async function getAllItems({
   return posts;
 }
 
-export async function getItemBySlug(slug: string, type: Types): Promise<Post> {
+export async function getItemBySlug<T extends Post | null>(slug: string, type: Types): Promise<T> {
   const dir = join(process.cwd(), "src", "data", type);
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
@@ -55,10 +55,10 @@ export async function getItemBySlug(slug: string, type: Types): Promise<Post> {
   const { code: content, frontmatter } = await bundleMDX({
     file: fullPath,
     xdmOptions: (options) => {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
 
       options.rehypePlugins = [
-        ...(options?.rehypePlugins ?? []),
+        ...(options.rehypePlugins ?? []),
         rehypeSlug,
         rehypeCodeTitles,
         rehypeAutolinkHeadings,
@@ -93,5 +93,5 @@ export async function getItemBySlug(slug: string, type: Types): Promise<Post> {
     draft: frontmatter.draft ?? false,
     featured: frontmatter.featured ?? false,
     archived: frontmatter.archived ?? false,
-  };
+  } as any;
 }

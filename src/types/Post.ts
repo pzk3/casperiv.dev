@@ -10,7 +10,5 @@ export interface Post {
   draft?: boolean;
   featured?: boolean;
   archived?: true;
-  frontmatter: {
-    [key: string]: any;
-  };
+  frontmatter: Record<string, any>;
 }

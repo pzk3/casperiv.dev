@@ -21,7 +21,7 @@ export const MDCode = (props: Props) => {
   const copyId = useSSRSafeId();
 
   function handleCopy() {
-    if (typeof window !== "undefined" && window.navigator?.clipboard) {
+    if (typeof window !== "undefined" && "navigator" in window) {
       navigator.clipboard.writeText(text);
 
       setCopied(true);

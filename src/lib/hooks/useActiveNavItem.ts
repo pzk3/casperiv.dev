@@ -32,7 +32,7 @@ export function useActiveNavItem({ wrapperRef, isDisabled }: Options) {
       return;
     }
 
-    setWrapperRect(wrapperRef.current.getBoundingClientRect() ?? null);
+    setWrapperRect(wrapperRef.current.getBoundingClientRect());
     setActiveRect(target.getBoundingClientRect());
   }
 

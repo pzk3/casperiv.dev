@@ -2,7 +2,7 @@ import * as React from "react";
 
 export function useViewport() {
   const [width, setWidth] = React.useState(
-    (typeof window !== "undefined" && window.innerWidth) ?? 0,
+    (typeof window !== "undefined" && window.innerWidth) || 0,
   );
 
   React.useEffect(() => {
