@@ -5,7 +5,7 @@ export const timeline: TimelineItem[] = [
     year: 2022,
     title: "Svelte",
     text: "Finally decided to learn a bit more about Svelte and SvelteKit. It's an amazing language to write in. It's super clean and simple!",
-    url: "https://caspertheghost.me",
+    url: "https://svelte.dev",
     date: "March 2022",
   },
   {
