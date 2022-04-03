@@ -12,5 +12,5 @@ export const myBackpack: [string, string[]][] = [
     ],
   ],
   ["Backend", ["Node", "REST APIs", "MongoDB & MySQL", "Prisma"]],
-  ["Other", ["Git & GitHub", "NGINX", "DigitalOcean", "VSCode", "Docker"]],
+  ["Other", ["Git & GitHub", "NGINX", "DigitalOcean", "VS Code", "Docker"]],
 ];
