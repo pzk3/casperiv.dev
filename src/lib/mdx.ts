@@ -54,7 +54,7 @@ export async function getItemBySlug<T extends Post | null>(slug: string, type: T
 
   const { code: content, frontmatter } = await bundleMDX({
     file: fullPath,
-    xdmOptions: (options) => {
+    mdxOptions: (options) => {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
 
       options.rehypePlugins = [
