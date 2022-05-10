@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4000",
-    "build": "next build && next-sitemap",
+    "dev": "pnpm next dev -p 4000",
+    "build": "pnpm next build && next-sitemap",
     "start:cf": "node .next/standalone/server.js",
-    "start": "next start",
-    "lint": "eslint ./src --ext .tsx,.ts,.jsx,.js",
-    "lint:fix": "eslint ./src --fix --ext .tsx,.ts,.jsx,.js",
-    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
-    "test-tsc": "tsc --noEmit"
+    "start": "pnpm next start",
+    "lint": "pnpm eslint ./src --ext .tsx,.ts,.jsx,.js",
+    "lint:fix": "pnpm eslint ./src --fix --ext .tsx,.ts,.jsx,.js",
+    "format": "pnpm prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
+    "test-tsc": "pnpm tsc --noEmit"
   },
   "dependencies": {
     "@prisma/client": "^3.13.0",
@@ -44,7 +44,6 @@
     "@casper124578/eslint-config": "^4.3.0",
     "@casper124578/eslint-config-next": "^4.3.0",
     "@casper124578/eslint-config-react": "^4.3.0",
-    "@types/express-rate-limit": "^6.0.0",
     "@types/node": "^17.0.30",
     "@types/react": "17.0.43",
     "@types/react-syntax-highlighter": "^15.5.1",
