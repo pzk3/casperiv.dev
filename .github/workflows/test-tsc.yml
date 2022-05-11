@@ -18,6 +18,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Run test-tsc
-        run: pnpm run test-tsc
+        run: npm run test-tsc
