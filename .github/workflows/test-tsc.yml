@@ -18,6 +18,6 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
       - name: Run test-tsc
-        run: npm run test-tsc
+        run: pnpm run test-tsc
