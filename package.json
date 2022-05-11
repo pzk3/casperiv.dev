@@ -10,7 +10,7 @@
     "lint": "pnpm eslint ./src --ext .tsx,.ts,.jsx,.js",
     "lint:fix": "pnpm eslint ./src --fix --ext .tsx,.ts,.jsx,.js",
     "format": "pnpm prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
-    "test-tsc": "pnpm tsc --noEmit"
+    "test-tsc": "pnpm prisma generate && pnpm tsc --noEmit"
   },
   "dependencies": {
     "@prisma/client": "^3.13.0",
