@@ -1,4 +1,4 @@
-import { View } from ".prisma/client";
+import { View } from "@prisma/client";
 import { useRouter } from "next/router";
 import * as React from "react";
 
