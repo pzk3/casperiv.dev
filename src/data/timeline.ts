@@ -3,6 +3,13 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
+    title: "SnailyCADv4 stable release",
+    text: "After many months of development SnailyCADv4 was finally released as stable! A total of 400 GitHub issues were closed and 300 pull requests merged 🚀.",
+    url: "https://snailycad.caspertheghost.me",
+    date: "May 2022",
+  },
+  {
+    year: 2022,
     title: "Svelte",
     text: "Finally decided to learn a bit more about Svelte and SvelteKit. It's an amazing language to write in. It's super clean and simple!",
     url: "https://svelte.dev",
