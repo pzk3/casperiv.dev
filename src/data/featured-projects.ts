@@ -9,7 +9,7 @@ export const projects: Project[] = [
   {
     title: "SnailyCAD",
     description:
-      "An open source Computer Aided Dispatch (CAD) for a game called FiveM, this is a web based integration for communities who love police roleplaying and dispatching. Loved by many communities.",
+      "An open source, web-based Computer Aided Dispatch (CAD) for communities who love police roleplaying and dispatching. Adored by many communities.",
     buttons: [
       {
         url: "https://github.com/SnailyCAD/snaily-cadv4",
@@ -24,7 +24,7 @@ export const projects: Project[] = [
   {
     title: "GhostyBot",
     description:
-      "A feature-rich Discord bot with over 150 commands. Economy, util, fun, music, admin and more! Used in over 250 servers and 130 000 users.",
+      "An open source and feature-rich Discord bot with over 160 commands. Used in over 250 servers and 130 000 users.",
     buttons: [
       {
         url: `${url}/ghostybot`,
@@ -38,7 +38,8 @@ export const projects: Project[] = [
   },
   {
     title: "notey.app",
-    description: "A notes app to keep track of important things and share notes with others",
+    description:
+      "A notes app to keep track of important things and share notes with others. Used to take personal notes for studies and quick notes.",
     buttons: [
       {
         url: "/case-study/notey.app",
