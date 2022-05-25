@@ -1,0 +1,81 @@
+---
+title: How to setup Vitest for Node.js testing
+intro: Learn how to easily setup Vitest.
+createdAt: May 25, 2022
+keywords: vitest, vite, testing, fast testing, nextjs, react, howto
+readingTime: "4 min read"
+---
+
+## Requirements
+
+- Node.js installed with **version v14 or higher**
+- Basic Node.js app
+
+## Installation
+
+Vitest is super simple to install. It can be installed via any node package manager such as [`npm`](https://npmjs.org), [`yarn`](https://yarnpkg.org) or [`pnpm`](https://pnpm.io). We will install [`vitest`](https://vitest.dev) as a devDependency.
+
+```bash
+npm install --save-dev vitest
+# OR
+yarn add -D vitest
+# OR
+pnpm add -D vitest
+```
+
+## Configuring the project
+
+We will now add a simple command to our `package.json`. This will allow us to run `npm run test` in the command line.
+
+```json
+{
+  "name": "my-nodejs-app",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "vitest"
+  }
+}
+```
+
+## Adding a test file
+
+Once we've updated our configuration, we can start adding test files, for example `maths.test.ts`. We import `test` and `expect` from `vitest`:
+
+```typescript:maths.test.ts
+import { expect, test } from 'vitest'
+
+test('Math.sqrt()', () => {
+  expect(Math.sqrt(4)).toBe(2)
+  expect(Math.sqrt(144)).toBe(12)
+  expect(Math.sqrt(2)).toBe(Math.SQRT2)
+})
+```
+
+## Testing the application
+
+To run these tests, simply run the `test` command we created earlier:
+
+<CommandLine>npm run test</CommandLine>
+
+This will show all passed and failed tests.
+
+<Info style={{ margin: "1rem 0" }}>
+  **Tip:** You can also view those tests in the browser! Simply create a new command shown below:
+
+```json
+{
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  }
+}
+```
+
+</Info>
+
+## More from Vitest
+
+You can use Vitest for many more project types, such as: React, Next.js, Vue, Svelte, etc.
+Read more about the awesomeness Vitest can do [at their documentation](https://vitest.dev)
+
+Personally, I use Vitest in many of my projects and I absolutely love it! It's simple to setup, fast and has a great community.
