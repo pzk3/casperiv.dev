@@ -82,16 +82,16 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Network share",
+    title: "Terminal",
     description:
-      "A project to share files, images, videos, etc to other devices on the same network.",
+      "Functional terminal clone with working keyboard shortcuts and commands, based on my personal ZSH theme made with React, Vite and Tailwind CSS.",
     buttons: [
       {
-        url: "/case-study/network-share",
-        name: VIEW_CASE_STUDY,
+        url: "https://terminal.caspertheghost.me",
+        name: OPEN_PROJECT,
       },
       {
-        url: `${url}/network-share`,
+        url: `${url}/terminal-site`,
         name: VIEW_CODE,
       },
     ],
