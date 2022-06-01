@@ -49,6 +49,7 @@ module.exports = {
       },
     ];
   },
+  // temporary disabled due to React 18 compatibility issues
   // webpack: (config, { dev, isServer }) => {
   //   if (!dev && !isServer) {
   //     config.resolve.alias = {
