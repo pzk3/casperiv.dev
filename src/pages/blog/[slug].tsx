@@ -10,6 +10,7 @@ import { DEFAULT_KEYWORDS } from "next-seo.config";
 export default function BlogPost({ post }: { post: Post }) {
   const pageTitle = `${post.title} - Casper Iversen`;
   const pageDescription = post.intro ?? undefined;
+  const keywords = [...DEFAULT_KEYWORDS, "blog", "blog casper iversen", post.keywords ?? ""];
 
   return (
     <Layout>
@@ -24,14 +25,7 @@ export default function BlogPost({ post }: { post: Post }) {
         canonical={`https://caspertheghost.me/blog/${post.slug}`}
         title={pageTitle}
         description={pageDescription}
-        additionalMetaTags={[
-          {
-            name: "keywords",
-            content: [...DEFAULT_KEYWORDS, "blog", "blog casper iversen", post.keywords ?? ""].join(
-              ", ",
-            ),
-          },
-        ]}
+        additionalMetaTags={[{ name: "keywords", content: keywords.join(", ") }]}
       />
 
       <Head>
