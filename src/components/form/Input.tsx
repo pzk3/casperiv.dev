@@ -2,7 +2,7 @@ import * as React from "react";
 import classNames from "clsx";
 
 type Props = JSX.IntrinsicElements["input"] & {
-  hasError?: boolean | string;
+  hasError?: boolean;
 };
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(({ hasError, ...rest }, ref) => (

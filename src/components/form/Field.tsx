@@ -1,16 +1,20 @@
 import * as React from "react";
 import { useField } from "@react-aria/label";
 import classNames from "clsx";
+import type { FieldError } from "react-hook-form";
 
 type Props = JSX.IntrinsicElements["div"] & {
   label: string | null;
-  errorMessage?: string;
+  errorMessage?: FieldError;
   children?: React.ReactElement;
   checkbox?: boolean;
 };
 
 export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: Props) => {
-  const { labelProps, fieldProps, errorMessageProps } = useField({ label, errorMessage });
+  const { labelProps, fieldProps, errorMessageProps } = useField({
+    label,
+    errorMessage: errorMessage?.message,
+  });
 
   const element = React.cloneElement(children as React.ReactElement, fieldProps);
 
@@ -22,9 +26,9 @@ export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: 
 
       {element}
 
-      {errorMessage ? (
+      {errorMessage?.message ? (
         <span {...errorMessageProps} className="mt-1 font-medium text-red-400">
-          {errorMessage}
+          {errorMessage.message}
         </span>
       ) : null}
     </div>

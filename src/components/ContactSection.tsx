@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as yup from "yup";
-import { Form, Formik, FormikHelpers } from "formik";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "./Button";
 import { FormField } from "./form/Field";
 import { Input } from "./form/Input";
@@ -23,10 +24,14 @@ export const ContactSection = () => {
   const [message, setMessage] = React.useState<string | null>(null);
   const [state, setState] = React.useState<State | null>(null);
 
-  async function onSubmit(
-    data: typeof initialValues,
-    helpers: FormikHelpers<typeof initialValues>,
-  ) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ defaultValues: initialValues, resolver: yupResolver(schema) });
+
+  async function onSubmit(data: typeof initialValues) {
     setState("loading");
 
     const res = await fetch("/api/mail", {
@@ -40,7 +45,7 @@ export const ContactSection = () => {
     if (res.ok) {
       setState("completed");
       setMessage("Message successfully sent! You should get an email with a confirmation.");
-      helpers.resetForm();
+      reset();
     } else {
       setState("error");
       if (res.status === 429) {
@@ -51,74 +56,45 @@ export const ContactSection = () => {
     }
   }
 
-  async function handleValidate(values: typeof initialValues) {
-    const { errors } = await schema.validate(values, { abortEarly: false }).catch((e) => e);
-
-    return errors?.reduce((ac: {}, v: string) => ({ ...ac, [v.split(" ")[0]!]: v }), {}) ?? {};
-  }
-
   return (
     <section className="pb-5 mt-10" id="contact">
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Contact Me</h1>
 
-      <Formik
-        validate={handleValidate}
-        validationSchema={schema}
-        onSubmit={onSubmit}
-        initialValues={initialValues}
-      >
-        {({ handleSubmit, handleChange, isValid, errors, values }) => (
-          <Form className="mt-3" onSubmit={handleSubmit}>
-            {message && state === "completed" ? (
-              <p className="p-2 px-3 mb-3 rounded-md bg-gray-200 shadow-sm dark:bg-blue-2">
-                {message}
-              </p>
-            ) : null}
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
+        {message && state === "completed" ? (
+          <p className="p-2 px-3 mb-3 rounded-md bg-gray-200 shadow-sm dark:bg-blue-2">{message}</p>
+        ) : null}
 
-            <FormField errorMessage={errors.name} id="name" label="Name">
-              <Input
-                value={values.name}
-                hasError={errors.name}
-                name="name"
-                onChange={handleChange}
-                id="name"
-                disabled={state === "loading"}
-              />
-            </FormField>
+        <FormField errorMessage={errors.name} id="name" label="Name">
+          <Input
+            hasError={!!errors.name}
+            {...register("name", { required: true, disabled: state === "loading" })}
+          />
+        </FormField>
 
-            <FormField errorMessage={errors.email} id="email" label="Email">
-              <Input
-                value={values.email}
-                hasError={errors.email}
-                name="email"
-                onChange={handleChange}
-                id="email"
-                disabled={state === "loading"}
-              />
-            </FormField>
+        <FormField errorMessage={errors.email} id="email" label="Email">
+          <Input
+            hasError={!!errors.email}
+            {...register("email", { required: true, disabled: state === "loading" })}
+          />
+        </FormField>
 
-            <FormField errorMessage={errors.message} className="mb-0" id="message" label="Message">
-              <Textarea
-                value={values.message}
-                hasError={errors.message}
-                name="message"
-                onChange={handleChange}
-                id="message"
-                disabled={state === "loading"}
-              />
-            </FormField>
+        <FormField errorMessage={errors.message} className="mb-0" id="message" label="Message">
+          <Textarea
+            hasError={!!errors.message}
+            {...register("message", { required: true, disabled: state === "loading" })}
+          />
+        </FormField>
 
-            <div className="flex items-start justify-between mt-6">
-              <a className="italic underline" href="mailto:casper.iversen2@gmail.com">
-                Send me an email directly
-              </a>
-              <Button disabled={!isValid || state === "loading"} type="submit">
-                {state === "loading" ? "Submitting..." : "Submit"}
-              </Button>
-            </div>
-          </Form>
-        )}
-      </Formik>
+        <div className="flex items-start justify-between mt-6">
+          <a className="italic underline" href="mailto:casper.iversen2@gmail.com">
+            Send me an email directly
+          </a>
+          <Button disabled={state === "loading"} type="submit">
+            {state === "loading" ? "Submitting..." : "Submit"}
+          </Button>
+        </div>
+      </form>
     </section>
   );
 };
