@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { Github, Linkedin, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/hooks/useViewport";
-import { useActiveNavItem } from "lib/hooks/useActiveNavItem";
 import { IconLink } from "./nav/IconLink";
 import { Link } from "./nav/NavLink";
 import { ThemeSwitcher } from "./nav/ThemeSwitcher";
@@ -40,22 +39,6 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
 
-  const [clickedRoute, setClickedRoute] = React.useState<boolean>(false);
-  const wrapperRef = React.useRef<HTMLUListElement>(null);
-
-  const { styles, isCurrent, handleMouseLeave, handleMouseOver, findActiveElement, setHover } =
-    useActiveNavItem({ wrapperRef, isDisabled: menuOpen });
-
-  React.useEffect(() => {
-    setHover(false);
-  }, [router]); // eslint-disable-line
-
-  React.useEffect(() => {
-    findActiveElement();
-    setClickedRoute(false);
-    // eslint-disable-next-line
-  }, [router]);
-
   React.useEffect(() => {
     if (viewport > 768) {
       setMenuOpen(false);
@@ -66,6 +49,11 @@ export function Nav() {
     setMenuOpen(false);
   }, [router]);
 
+  function isCurrent(path: string) {
+    const routerPath = router.asPath;
+    return routerPath === path;
+  }
+
   return (
     <header
       className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-gray-50 dark:bg-blue"
@@ -73,9 +61,6 @@ export function Nav() {
     >
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
         <ul
-          // reset back to the active item
-          onMouseLeave={!clickedRoute ? handleMouseLeave : undefined}
-          ref={wrapperRef}
           className={classNames(
             "h-full space-x-1 md:items-center",
             menuOpen
@@ -83,31 +68,9 @@ export function Nav() {
               : "hidden md:flex relative",
           )}
         >
-          {menuOpen ? null : (
-            <div
-              role="listitem"
-              style={styles}
-              className="absolute bg-gray-300 dark:bg-blue-2/70 p-2 px-3 duration-200 rounded-md shadow-sm top-1/2"
-            />
-          )}
-
           {links.map((link) => (
-            <li
-              className="z-50"
-              key={link.href}
-              data-href={link.href}
-              data-current={isCurrent(link.href)}
-              onMouseOver={(event) => {
-                setHover(true);
-                handleMouseOver(event);
-              }}
-            >
-              <Link
-                onClick={() => setClickedRoute(true)}
-                menuOpen={menuOpen}
-                href={link.href}
-                isActive={isCurrent(link.href)}
-              >
+            <li className="z-50" key={link.href} data-href={link.href}>
+              <Link menuOpen={menuOpen} href={link.href} isActive={isCurrent(link.href)}>
                 {link.name}
               </Link>
             </li>

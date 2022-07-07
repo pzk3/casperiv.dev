@@ -18,10 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     POST: async () => {
       if (!view) {
         return prisma.view.create({
-          data: {
-            count: 1,
-            slug,
-          },
+          data: { count: 1, slug },
         });
       }
 

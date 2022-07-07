@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: "#1F252E",
-        "blue-1": "#242C38",
+        blue: "#212529",
+        "blue-1": "#343A40",
         "blue-2": "#171E29",
+        "blue-3": "#495057",
+        "blue-4": "#3b4146",
       },
       screens: {
         xs: "400px",

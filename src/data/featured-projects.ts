@@ -30,10 +30,6 @@ export const projects: Project[] = [
         url: `${url}/ghostybot`,
         name: VIEW_CODE,
       },
-      {
-        name: OPEN_PROJECT,
-        url: "https://ghostybot.caspertheghost.me",
-      },
     ],
   },
   {
