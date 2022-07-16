@@ -27,10 +27,12 @@ const links = [
   {
     name: "Blog",
     href: "/blog",
+    types: ["/blog", "/blog/[slug]"],
   },
   {
     name: "Code Snippets",
     href: "/snippets",
+    types: ["/snippets", "/snippets/[slug]"],
   },
 ];
 
@@ -49,9 +51,9 @@ export function Nav() {
     setMenuOpen(false);
   }, [router]);
 
-  function isCurrent(path: string) {
-    const routerPath = router.asPath;
-    return routerPath === path;
+  function isCurrent(path: string | string[]) {
+    const array = Array.isArray(path) ? path : [path];
+    return array.includes(router.pathname);
   }
 
   return (
@@ -70,7 +72,11 @@ export function Nav() {
         >
           {links.map((link) => (
             <li className="z-50" key={link.href} data-href={link.href}>
-              <Link menuOpen={menuOpen} href={link.href} isActive={isCurrent(link.href)}>
+              <Link
+                menuOpen={menuOpen}
+                href={link.href}
+                isActive={isCurrent(link.types ?? link.href)}
+              >
                 {link.name}
               </Link>
             </li>

@@ -42,7 +42,7 @@ module.exports = {
           css: {
             color: theme("colors.gray.300"),
             code: {
-              backgroundColor: "rgb(36 44 56)",
+              backgroundColor: "#343a40",
               color: theme("colors.gray.200"),
             },
             a: {

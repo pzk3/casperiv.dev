@@ -62,7 +62,7 @@ body {
   border-top-right-radius: 0.3rem;
   font-family: "CascadiaMono", "Courier New", monospace;
 
-  @apply bg-blue-1/90 dark:bg-blue-1/40 border-b-[1.5px] px-4 p-2 text-gray-300;
+  @apply bg-blue-1/90 dark:bg-blue-3/90 border-b-[1.5px] px-4 p-2 text-gray-300;
 
   + pre {
     border-top-left-radius: 0 !important;
@@ -71,5 +71,5 @@ body {
 }
 
 details > .rehype-code-title {
-  background: rgba(36, 44, 56, 1) !important;
+  background: #495057 !important;
 }
