@@ -49,7 +49,7 @@ export const MDCode = (props: Props) => {
         )}
       </Button>
 
-      <SyntaxHighlighter style={Theme} language={match[1]} {...props}>
+      <SyntaxHighlighter style={Theme} language={match[1]}>
         {text}
       </SyntaxHighlighter>
     </div>

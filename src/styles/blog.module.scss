@@ -13,9 +13,9 @@
     @apply shadow;
   }
 
-  details code,
-  details pre {
-    background-color: #343a40 !important;
+  [data-info] code,
+  [data-info] pre {
+    background-color: #495057 !important;
   }
 
   pre {
