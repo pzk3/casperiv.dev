@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const caseStudy = await getItemBySlug(params?.slug as string, "case-studies");
+  const caseStudy = await getItemBySlug({ slug: params?.slug as string, type: "case-studies" });
 
   if (!caseStudy) {
     return {

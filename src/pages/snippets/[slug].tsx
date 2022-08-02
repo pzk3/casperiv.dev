@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const snippet = await getItemBySlug(params?.slug as string, "snippets");
+  const snippet = await getItemBySlug({ slug: params?.slug as string, type: "snippets" });
 
   if (!snippet) {
     return {

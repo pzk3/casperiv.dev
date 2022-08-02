@@ -5,6 +5,14 @@ import rateLimit from "express-rate-limit";
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 2,
+  keyGenerator(request) {
+    return (
+      request.ip ||
+      request.headers["x-forwarded-for"] ||
+      request.headers["x-real-ip"] ||
+      request.connection.remoteAddress
+    );
+  },
 });
 
 export function middleWare(req: NextApiRequest, res: NextApiResponse, fn: any) {

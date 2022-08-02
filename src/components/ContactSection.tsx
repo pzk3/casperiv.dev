@@ -61,7 +61,7 @@ export const ContactSection = () => {
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Contact Me</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
-        {message && state === "completed" ? (
+        {message ? (
           <p className="p-2 px-3 mb-3 rounded-md bg-gray-200 shadow-sm dark:bg-blue-2">{message}</p>
         ) : null}
 

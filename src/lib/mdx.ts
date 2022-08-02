@@ -23,33 +23,42 @@ interface GetAllProps {
   includeArchived?: boolean;
 }
 
-export async function getAllItems({
-  type,
-  includeDrafts = false,
-  includeArchived = false,
-}: GetAllProps): Promise<Post[]> {
-  const typeDir = join(process.cwd(), "src", "data", type);
+export async function getAllItems(options: GetAllProps): Promise<Post[]> {
+  const typeDir = join(process.cwd(), "src", "data", options.type);
   const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
 
-  let posts = await Promise.all(slugs.map(async (slug) => getItemBySlug<Post>(slug, type)));
+  let posts = await Promise.all(
+    slugs.map(async (slug) =>
+      getItemBySlug<Post>({ slug, type: options.type, includeContent: false }),
+    ),
+  );
   posts = posts.sort((post1, post2) =>
     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
   );
 
-  if (!includeArchived) {
+  if (!options.includeArchived) {
     posts = posts.filter((v) => !v.archived);
   }
 
-  if (!includeDrafts) {
+  if (!options.includeDrafts) {
     posts = posts.filter((v) => !v.draft);
   }
 
   return posts;
 }
 
-export async function getItemBySlug<T extends Post | null>(slug: string, type: Types): Promise<T> {
-  const dir = join(process.cwd(), "src", "data", type);
-  const realSlug = slug.replace(/\.mdx$/, "");
+interface GetItemBySlugOptions {
+  slug: string;
+  type: Types;
+  includeContent?: boolean;
+}
+
+export async function getItemBySlug<T extends Post | null>(
+  options: GetItemBySlugOptions,
+): Promise<T> {
+  const includeContent = options.includeContent ?? true;
+  const dir = join(process.cwd(), "src", "data", options.type);
+  const realSlug = options.slug.replace(/\.mdx$/, "");
   const fullPath = join(dir, `${realSlug}.mdx`);
 
   const { code: content, frontmatter } = await bundleMDX({
@@ -82,7 +91,7 @@ export async function getItemBySlug<T extends Post | null>(slug: string, type: T
 
   return {
     slug: realSlug,
-    content,
+    content: includeContent ? content : null,
     readingTime: text,
     frontmatter,
     createdAt: frontmatter.createdAt,
