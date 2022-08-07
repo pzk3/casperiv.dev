@@ -3,6 +3,20 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
+    title: "GitHub Sponsors",
+    text: "I was able to enable GitHub Sponsors for my GitHub account.",
+    url: "https://github.com/sponsors/dev-caspertheghost",
+    date: "August 2022",
+  },
+  {
+    year: 2022,
+    title: "Home-inventory Rewrite x2",
+    text: "Wanted to learn more about tRPC so I decided to rewrite the home-inventory service with tRPC and Next.js.",
+    url: "https://inventory.caspertheghost.me",
+    date: "August 2022",
+  },
+  {
+    year: 2022,
     title: "SnailyCADv4 stable release",
     text: "After many months of development SnailyCADv4 was finally released as stable! A total of 400 GitHub issues were closed and 300 pull requests merged 🚀.",
     url: "https://snailycad.caspertheghost.me",

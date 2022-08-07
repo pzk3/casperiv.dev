@@ -31,7 +31,7 @@ export const HeroSection = () => {
 
       <div className="mt-4 flex gap-2 h-9">
         <Link href="https://github.com/sponsors/Dev-CasperTheGhost">
-          <a className="flex w-fit items-center gap-2 rounded-md py-2 px-3 bg-gray-300 dark:bg-blue-3 hover:bg-gray-300 hover:dark:bg-blue-4 group">
+          <a className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 group">
             <svg
               aria-hidden="true"
               height="16"
@@ -39,7 +39,7 @@ export const HeroSection = () => {
               version="1.1"
               width="16"
               data-view-component="true"
-              className="fill-[#d25e9c] group-hover:scale-[1.15] transition-transform duration-200"
+              className="fill-[#d25e9c] group-hover:scale-110 transition-transform duration-200"
             >
               <path
                 fillRule="evenodd"
@@ -51,7 +51,7 @@ export const HeroSection = () => {
         </Link>
 
         <Link href="/about">
-          <a className="flex items-center gap-2 rounded-md py-2 px-3 bg-gray-300 dark:bg-blue-3 hover:bg-gray-300 hover:dark:bg-blue-4 group">
+          <a className="flex items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 group">
             About me
             <ArrowRight className="group-hover:scale-x-110" />
           </a>
