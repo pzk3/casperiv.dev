@@ -53,7 +53,7 @@ export const HeroSection = () => {
         <Link href="/about">
           <a className="flex items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 group">
             About me
-            <ArrowRight className="group-hover:scale-x-110" />
+            <ArrowRight className="group-hover:translate-x-0.5 transition-transform" />
           </a>
         </Link>
       </div>
