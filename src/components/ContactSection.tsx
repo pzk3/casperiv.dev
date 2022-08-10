@@ -44,7 +44,7 @@ export const ContactSection = () => {
 
     if (res.ok) {
       setState("completed");
-      setMessage("Message successfully sent! You should get an email with a confirmation.");
+      setMessage("Message successfully sent! You should receive a confirmation email.");
       reset();
     } else {
       setState("error");
@@ -87,7 +87,7 @@ export const ContactSection = () => {
         </FormField>
 
         <div className="flex items-start justify-between mt-6">
-          <a className="italic underline" href="mailto:casper.iversen2@gmail.com">
+          <a className="italic underline" href="mailto:hello@caspertheghost.me">
             Send me an email directly
           </a>
           <Button disabled={state === "loading"} type="submit">
