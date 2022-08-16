@@ -65,7 +65,7 @@ export const projects: Project[] = [
   {
     title: "pastebin-api",
     description:
-      "A simple npm package to interact with the Pastebin api. Downloaded over 10 000 times on npm.",
+      "A simple npm package to interact with the Pastebin api. Downloaded over 70.000 times on npm.",
     buttons: [
       {
         url: `${url}/pastebin-api`,

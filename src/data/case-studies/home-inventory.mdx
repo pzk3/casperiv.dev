@@ -1,6 +1,6 @@
 ---
 title: home-inventory case study
-createdAt: August 19, 2021
+createdAt: August 16, 2022
 intro: Learn about the ideas and technogolies used in home-inventory
 ---
 
@@ -8,48 +8,52 @@ intro: Learn about the ideas and technogolies used in home-inventory
 
 home-inventory is a web application to keep track of items in your house such as food items, medical supplies, tech, etc.
 
-**GitHub Repository:** [Open GitHub Repository](https://github.com/dev-caspertheghost/home-inventory)
+<div className="flex items-center gap-3">
+  <Link
+    href="https://github.com/dev-caspertheghost/home-inventory"
+    className="h-9 flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 font-normal no-underline group"
+  >
+    <span>Open GitHub Repository</span>
+  </Link>
+
+  <Link
+    href="https://inventory.caspertheghost.me"
+    className="h-9 flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 font-normal no-underline group"
+  >
+    <span>Open Application</span>
+  </Link>
+</div>
 
 ## Idea
 
-The main idea for home-inventory was to create a web app with an overview of what's in your house.
-The UI had to look modern and feel smooth. There had to be a dashboard to see a quick overview of what was low on quantity,
-was about to expire, how much was spend the last month, etc.
-There also had to be plenty of options to customize the product to its needs.
-Able to import and export products was also an important feature to add, this allows users to easily import/export products into new accounts or houses.
+I wanted to know what kinds of tech, foods, and miscellaneous items I have in my house so I could know when I should buy new ones or know when they almost expire.
+But that wasn't all, I wanted: a modern and good looking UI, a "quick-view dashboard" to see what is low on quantity or is almost expired.
 
-The ability to add users to a house was also a must so they could manage products and view the dashboard.
-
-All of these ideas are pretty much fully implemented.
+Sorting, filtering and categorization was also a must. Filtering and sorting was done with `@tanstack/react-table`. Administrators could manage the categories that could be given to a item.
+Another cool feature was to authenticate with an OAuth provider, I chose Google Oauth because it is the most popular. Administrators can also add or remove users from their houses.
 
 ## Future ideas
 
-I'm planning on adding image support so items can be easily identified by their image.
-Improvements to mobile responsiveness, notes field and user roles are also on the list.
+A way to import or export items will definitely be needed for faster and easier management.
 
 ## Technologies
 
-home-inventory is built with [Next.js](https://nextjs.org) and [React.js](https://reactjs.org) on the frontend. The backend uses [expressjs](https://expressjs.com) and [prisma](https://prisma.io).
+home-inventory is built with [Next.js](https://nextjs.org) and [React.js](https://reactjs.org) with a [tRPC](https://trpc.io) API. I chose this tech to learn about tRPC and see what I could build with it.
+At the same time, I also learned how to use `react-query`.
 
-### Frontend technogolies
+I will most likely use tRPC again in future projects because it's so fast to setup and easy to use.
 
-home-inventory uses [redux](https://redux.js.org/) for state management, I have pretty good experience in redux.
-Hence the reason I chose to use it again.
-I'm also using [sass (scss) modules](https://nextjs.org/docs/basic-features/built-in-css-support) to get a bit more experience in scss.
-Found a package that can generate TypeScript definition files for these scss modules: [typed-scss-modules](https://github.com/skovy/typed-scss-modules),
-100% recommended if you're using TypeScript and scss modules.
+I'm using [Tailwind CSS](https://tailwindcss.com) to style the UI. Using tRPC with react-query to manage server-state, client-state uses `React.useState` for local state.
+Using `react-hook-form` for building forms, validating them with `zod` schemas. The API uses the same schema as the frontend for body validation.
 
-### Backend technogolies
-
-First time using [Prisma](https://prisma.io) and postgress, I'm in love! Amazing developer experience.
-Using [yup](https://npm.im/yup) as user validation module,
-Created an [npm helper module](https://npm.im/@casper124578/utils) for yup so I can use it across my other projects.
+home-inventory's data is saved in a MongoDB database, I found it the easiest way to store the data in the cloud.
+Personally, I think [Prisma](https://prisma.io) is the best decision as database ORM.
 
 ## Features
 
 - Manage products
   - Set a name, price, quantity, category, expiration date and more.
-  - Select multiple products to delete, edit products
+  - Advanced sorting, filtering and selection
 - Create/edit categories to categorize products
 - Manage users
   - Add users to a house
@@ -59,18 +63,14 @@ Created an [npm helper module](https://npm.im/@casper124578/utils) for yup so I 
 
 ## Full tech stack
 
-### Frontend
+### Web/API
 
 - React.js
 - Next.js
-- Redux
-- scss modules
-
-### API
-
-- Expressjs
+- Tailwind CSS
+- tRPC
 - Prisma
-- PostgresSQL
+- MongoDB
 
 ### Other
 

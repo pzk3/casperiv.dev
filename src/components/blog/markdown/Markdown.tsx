@@ -10,6 +10,7 @@ import Image from "next/image";
 
 // importing this with next/dynamic will have some flickers..
 const components = {
+  Link,
   a: Link,
   code: MDCode,
   Info,
