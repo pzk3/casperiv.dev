@@ -2,12 +2,14 @@ import { Project } from "types/Project";
 import { Link } from "./blog/markdown/Link";
 
 export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) => {
+  const featuredProjects = projects.filter((v) => v.isFeatured);
+
   return (
     <section className="pb-5 mt-14" id="projects">
       <h1 className="section-title">Featured Projects</h1>
 
       <ul className="grid grid-cols-1 gap-3 mt-5 md:grid-cols-2">
-        {projects.map((project) => (
+        {featuredProjects.map((project) => (
           <ProjectItem key={project.title} project={project} />
         ))}
       </ul>
@@ -15,9 +17,9 @@ export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) =
   );
 };
 
-const ProjectItem = ({ project }: { project: Project }) => {
+export function ProjectItem({ project }: { project: Project }) {
   return (
-    <li className="flex flex-col justify-between p-4 py-6 transition-transform rounded-md shadow-sm bg-gray-200/80 dark:bg-blue-1 focus-within:scale-[1.004] hover:scale-[1.004] cursor-default">
+    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-gray-200/80 dark:bg-blue-1 cursor-default">
       <h2 className="text-2xl font-semibold">{project.title}</h2>
 
       <p className="my-3 text-neutral-800 dark:text-gray-300">{project.description}</p>
@@ -36,4 +38,4 @@ const ProjectItem = ({ project }: { project: Project }) => {
       </ul>
     </li>
   );
-};
+}

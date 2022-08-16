@@ -7,6 +7,7 @@ const VIEW_CASE_STUDY = "View case study";
 
 export const projects: Project[] = [
   {
+    isFeatured: true,
     title: "SnailyCAD",
     description:
       "An open source, web-based Computer Aided Dispatch (CAD) for communities who love police roleplaying and dispatching. Adored by many communities.",
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    isFeatured: true,
     title: "GhostyBot",
     description:
       "An open source and feature-rich Discord bot with over 160 commands. Used in over 250 servers and 130 000 users.",
@@ -29,6 +31,22 @@ export const projects: Project[] = [
       {
         url: `${url}/ghostybot`,
         name: VIEW_CODE,
+      },
+    ],
+  },
+  {
+    isFeatured: true,
+    title: "pastebin-api",
+    description:
+      "A simple npm package to interact with the Pastebin api. Downloaded over 70.000 times on npm.",
+    buttons: [
+      {
+        url: `${url}/pastebin-api`,
+        name: VIEW_CODE,
+      },
+      {
+        name: "View on npm",
+        url: "https://www.npmjs.com/package/pastebin-api",
       },
     ],
   },
@@ -48,6 +66,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    isFeatured: true,
     title: "Home inventory",
     description:
       "A home inventory app to keep track of items in your home (food items, tech, medical supplies, etc.).",
@@ -59,21 +78,6 @@ export const projects: Project[] = [
       {
         url: `${url}/home-inventory`,
         name: VIEW_CODE,
-      },
-    ],
-  },
-  {
-    title: "pastebin-api",
-    description:
-      "A simple npm package to interact with the Pastebin api. Downloaded over 70.000 times on npm.",
-    buttons: [
-      {
-        url: `${url}/pastebin-api`,
-        name: VIEW_CODE,
-      },
-      {
-        name: "View on npm",
-        url: "https://www.npmjs.com/package/pastebin-api",
       },
     ],
   },
@@ -108,12 +112,13 @@ export const projects: Project[] = [
     ],
   },
   {
+    isFeatured: true,
     title: "More projects",
-    description: "You can view all my other projects on GitHub below",
+    description: "You can view more projects on the Projects page.",
     buttons: [
       {
-        url: `${url}?tab=repositories`,
-        name: "View all projects",
+        url: "/projects",
+        name: "View more projects",
       },
     ],
   },

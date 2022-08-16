@@ -24,7 +24,7 @@ export default function Home({ myBackpack, projects }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
-  const projects = (await import("data/featured-projects")).projects;
+  const projects = (await import("data/projects")).projects;
 
   return {
     props: {
