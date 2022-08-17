@@ -3,6 +3,12 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
+    title: "Learning Rust",
+    text: "Wanted to learn rust for some time, finally was able to start learning it! It's quite a cool and powerful language.",
+    date: "August 2022",
+  },
+  {
+    year: 2022,
     title: "GitHub Sponsors",
     text: "I was able to enable GitHub Sponsors for my GitHub account.",
     url: "https://github.com/sponsors/dev-caspertheghost",
