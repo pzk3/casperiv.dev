@@ -3,9 +3,10 @@ import { TimelineItem } from "types/Timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
-    title: "Learning Rust",
-    text: "Wanted to learn rust for some time, finally was able to start learning it! It's quite a cool and powerful language.",
+    title: "Learning Vue",
+    text: "I used to watch The Coding Garden's videos on Vue.js, but never used it myself. However, with the release of version 3, I thought why not learn it! I find that Vue has a fairly simple learning curve which allows me to create a lot of projects quickly.",
     date: "August 2022",
+    url: "https://github.com/Dev-CasperTheGhost?tab=repositories&language=vue",
   },
   {
     year: 2022,
