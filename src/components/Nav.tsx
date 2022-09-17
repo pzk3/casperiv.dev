@@ -4,7 +4,7 @@ import { Github, Linkedin, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/hooks/useViewport";
 import { IconLink } from "./nav/IconLink";
-import { Link } from "./nav/NavLink";
+import { NavLink } from "./nav/NavLink";
 import { ThemeSwitcher } from "./nav/ThemeSwitcher";
 
 const links = [
@@ -72,13 +72,13 @@ export function Nav() {
         >
           {links.map((link) => (
             <li className="z-50" key={link.href} data-href={link.href}>
-              <Link
+              <NavLink
                 menuOpen={menuOpen}
                 href={link.href}
                 isActive={isCurrent(link.types ?? link.href)}
               >
                 {link.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

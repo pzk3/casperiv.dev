@@ -2,6 +2,10 @@
 module.exports = {
   cleanDistDir: true,
   reactStrictMode: true,
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+  },
   async redirects() {
     return [
       {
@@ -49,18 +53,4 @@ module.exports = {
       },
     ];
   },
-  // temporary disabled due to React 18 compatibility issues
-  // webpack: (config, { dev, isServer }) => {
-  //   if (!dev && !isServer) {
-  //     config.resolve.alias = {
-  //       ...config.resolve.alias,
-  //       "react/jsx-runtime.js": "preact/compat/jsx-runtime",
-  //       react: "preact/compat",
-  //       "react-dom/test-utils": "preact/test-utils",
-  //       "react-dom": "preact/compat",
-  //     };
-  //   }
-
-  //   return config;
-  // },
 };

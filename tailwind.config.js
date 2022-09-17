@@ -2,6 +2,9 @@ const { spacing } = require("tailwindcss/defaultTheme");
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   darkMode: "class",
   content: ["./src/**/*.tsx", "./src/**/*.mdx"],
   theme: {
