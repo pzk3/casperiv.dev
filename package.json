@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.8",
-    "@prisma/client": "^4.3.1",
+    "@prisma/client": "^4.4.0",
     "@react-aria/label": "^3.4.1",
     "@react-aria/ssr": "^3.3.0",
     "@sendgrid/mail": "^7.7.0",
