@@ -51,7 +51,7 @@
     "@types/react-syntax-highlighter": "^15.5.5",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.4.11",
-    "esbuild": "^0.15.7",
+    "esbuild": "^0.15.10",
     "eslint": "^8.23.1",
     "eslint-config-next": "12.3.0",
     "postcss": "^8.4.17",
