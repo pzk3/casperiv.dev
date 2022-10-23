@@ -18,7 +18,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
         transition-colors resize-y`,
         hasError
           ? "border-red-500 focus:border-red-700"
-          : "border-secondary-light focus:border-secondary",
+          : "border-secondary/50 focus:border-secondary",
         rest.className,
       )}
     />
