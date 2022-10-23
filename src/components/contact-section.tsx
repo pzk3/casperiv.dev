@@ -2,10 +2,10 @@ import * as React from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "./Button";
-import { FormField } from "./form/Field";
-import { Input } from "./form/Input";
-import { Textarea } from "./form/Textarea";
+import { Button } from "./button";
+import { FormField } from "./form/form-field";
+import { Input } from "./form/input";
+import { Textarea } from "./form/textarea";
 
 const initialValues = {
   name: "",
@@ -62,7 +62,9 @@ export const ContactSection = () => {
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
         {message ? (
-          <p className="p-2 px-3 mb-3 rounded-md bg-gray-200 shadow-sm dark:bg-blue-2">{message}</p>
+          <p role="alert" className="p-2 px-3 mb-3 rounded-md bg-secondary text-white shadow-sm">
+            {message}
+          </p>
         ) : null}
 
         <FormField errorMessage={errors.name} id="name" label="Name">

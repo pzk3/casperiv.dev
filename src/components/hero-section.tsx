@@ -9,12 +9,12 @@ export const HeroSection = () => {
   return (
     <section className="flex flex-col justify-center mx-auto min-h-[40em]" id="top">
       <div>
-        <h4 className="text-2xl sm: md:text-3xl mb-3 text-neutral-700 dark:text-[#CDD6E2]">
-          <span className="inline-block animate-wave" aria-label="Waving" role="img">
+        <p className="text-2xl sm: md:text-3xl mb-3 text-secondary-light">
+          <span className="inline-block animate-wave origin-bottom" aria-label="Waving" role="img">
             👋
           </span>{" "}
           Hello! I am
-        </h4>
+        </p>
         <h1 className="text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
           Casper<span className="hidden xs:inline"> Iversen</span>,
         </h1>
@@ -23,15 +23,28 @@ export const HeroSection = () => {
         </h2>
       </div>
 
-      <p className="max-w-3xl mt-8 text-neutral-800 dark:text-gray-300 md:text-xl">
+      <p className="max-w-3xl mt-6 text-secondary-light md:text-xl">
         I am an extremely motivated programmer and student from Belgium. {"I'm"} a self-taught
         developer and have been programming for {formatDistanceToNow(started)} and {"I'm"} still
         learning new technologies every week, mostly focusing on frontend related technologies.{" "}
       </p>
 
-      <div className="mt-4 flex gap-2 h-9">
+      <div className="mt-6 flex gap-2 h-9">
+        <Link href="/about">
+          <a className="flex items-center gap-2 rounded-md transition-colors py-2 px-3 bg-secondary text-white hover:brightness-125 focus:brightness-125 group">
+            About me
+            <ArrowRight
+              aria-hidden="true"
+              className="group-hover:translate-x-0.5 transition-transform"
+            />
+          </a>
+        </Link>
+
         <Link href="https://github.com/sponsors/Dev-CasperTheGhost">
-          <a className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 group">
+          <a
+            target="_blank"
+            className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white focus:bg-secondary focus:text-white group"
+          >
             <svg
               aria-hidden="true"
               height="16"
@@ -47,13 +60,6 @@ export const HeroSection = () => {
               />
             </svg>
             Sponsor
-          </a>
-        </Link>
-
-        <Link href="/about">
-          <a className="flex items-center gap-2 rounded-md transition-colors py-2 px-3 bg-gray-300 dark:bg-blue-3 focus:bg-gray-400/80 hover:bg-gray-400/80 hover:dark:bg-blue-4 group">
-            About me
-            <ArrowRight className="group-hover:translate-x-0.5 transition-transform" />
           </a>
         </Link>
       </div>

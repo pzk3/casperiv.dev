@@ -8,30 +8,30 @@ interface Props extends DivProps {
 }
 
 export function Info({ children, title, color, ...rest }: Props) {
-  const borderColor = color || "#60A5FA";
+  const borderColor = color || "#84a07c";
 
   return (
     <div
       {...rest}
       data-info
       style={{ borderColor, ...rest.style }}
-      className="p-2 px-4 my-3 mb-5 text-lg border-l-[3px] rounded-md rounded-l-none shadow bg-gray-200 dark:bg-blue-4"
+      className="p-2 px-4 my-3 mb-5 text-lg border-l-[3px] rounded-md rounded-l-none shadow bg-secondary"
     >
       {title ? (
-        <h1
+        <h3
           style={{
             fontSize: "1.35rem",
             lineHeight: "1.75rem",
             margin: "10px 0",
             fontWeight: 700,
           }}
-          className="dark:text-gray-100  text-neutral-900"
+          className="text-white"
         >
           {title}
-        </h1>
+        </h3>
       ) : null}
 
-      <span>{children}</span>
+      <span className="text-gray-200">{children}</span>
     </div>
   );
 }

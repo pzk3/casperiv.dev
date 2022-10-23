@@ -38,7 +38,7 @@ export default class extends Document {
 
           <meta name="author" content="Casper Iversen" />
         </Head>
-        <body className="bg-gray-50 text-neutral-900 min-h-screen dark:bg-blue dark:text-white">
+        <body className="bg-primary text-secondary min-h-screen">
           <Main />
           <NextScript />
         </body>

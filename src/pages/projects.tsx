@@ -1,9 +1,9 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { GetStaticProps } from "next";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { NextSeo } from "next-seo";
 import { Project } from "types/Project";
-import { ProjectItem } from "components/FeaturedProjects";
+import { ProjectItem } from "components/featured-projects";
 import { Link } from "components/blog/markdown/Link";
 
 interface Props {

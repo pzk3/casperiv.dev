@@ -58,7 +58,7 @@ export function Nav() {
 
   return (
     <header
-      className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-gray-50 dark:bg-blue"
+      className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-primary"
       id="nav"
     >
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
@@ -66,7 +66,7 @@ export function Nav() {
           className={classNames(
             "h-full space-x-1 md:items-center",
             menuOpen
-              ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-gray-50 dark:bg-blue p-5 shadow-lg open-nav-animation"
+              ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-primary p-5 shadow-lg open-nav-animation"
               : "hidden md:flex relative",
           )}
         >

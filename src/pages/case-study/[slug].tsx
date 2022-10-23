@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Post } from "types/Post";

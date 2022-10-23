@@ -1,7 +1,7 @@
-import { Button } from "components/Button";
+import { Button } from "components/button";
 import * as React from "react";
 import { TimelineItem as TTimelineItem } from "types/Timeline";
-import { TimelineItem } from "./TimelineItem";
+import { TimelineItem } from "./timeline-item";
 
 export const Timeline = ({ timelineData }: { timelineData: TTimelineItem[] }) => {
   const [showAll, setShowAll] = React.useState(false);

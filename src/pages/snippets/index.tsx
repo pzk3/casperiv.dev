@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { getAllItems } from "lib/mdx";
 import { GetStaticProps } from "next";
 import { Post } from "types/Post";

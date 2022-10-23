@@ -1,5 +1,4 @@
-import { useSSRSafeId } from "@react-aria/ssr";
-import { Button } from "components/Button";
+import { Button } from "components/button";
 import * as React from "react";
 import { Clipboard, ClipboardCheck } from "react-bootstrap-icons";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-light";
@@ -18,7 +17,7 @@ export const MDCode = (props: Props) => {
   const match = /language-(\w+)/.exec(className || "");
   const text = String(children).replace(/\n$/, "");
 
-  const copyId = useSSRSafeId();
+  const copyId = React.useId();
 
   function handleCopy() {
     if (typeof window !== "undefined" && "navigator" in window) {

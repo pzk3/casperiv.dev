@@ -1,9 +1,9 @@
 export const MyBackpackSection = ({ myBackpack }: { myBackpack: [string, string[]][] }) => {
   return (
     <section id="skills">
-      <h1 className="section-title">My Backpack</h1>
+      <h2 className="section-title">My Backpack</h2>
 
-      <p className="my-4 text-neutral-800 dark:text-gray-300">
+      <p className="my-4 text-secondary-light">
         You can find the list of my top skills below. {"I'm"} also open to learn more frontend
         related frameworks, libraries, languages, etc!
       </p>
@@ -13,7 +13,7 @@ export const MyBackpackSection = ({ myBackpack }: { myBackpack: [string, string[
           return (
             <div key={header} className="flex flex-col my-3 sm:my-0">
               <header className="mb-1">
-                <h1 className="text-2xl font-semibold">{header}</h1>
+                <h3 className="text-2xl font-semibold">{header}</h3>
               </header>
 
               <ul>

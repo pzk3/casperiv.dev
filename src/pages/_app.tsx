@@ -1,8 +1,8 @@
 import { SSRProvider } from "@react-aria/ssr";
 import "styles/globals.scss";
 import type { AppProps } from "next/app";
-import { Nav } from "components/Nav";
-import { Footer } from "components/Footer";
+import { Nav } from "components/nav";
+import { Footer } from "components/footer";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 

@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { Link } from "data/links";
 import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
