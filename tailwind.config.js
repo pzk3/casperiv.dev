@@ -14,18 +14,9 @@ module.exports = {
       },
       colors: {
         primary: "#F9FBFC",
-        "primary-dark": "#F5F7F7",
+        "primary-dark": "#eaeaea",
         secondary: "#2b303a",
         "secondary-light": "#576175",
-        "secondary-extralight": "#B5CAF5",
-        "secondary-dark": "#282C36",
-        tertiary: "#262626",
-
-        blue: "#212529",
-        "blue-1": "#343A40",
-        "blue-2": "#171E29",
-        "blue-3": "#495057",
-        "blue-4": "#3b4146",
       },
       screens: {
         xs: "400px",
@@ -52,37 +43,37 @@ module.exports = {
             },
           },
         },
-        dark: {
-          css: {
-            color: theme("colors.gray.300"),
-            code: {
-              backgroundColor: "#343a40",
-              color: theme("colors.gray.200"),
-            },
-            a: {
-              color: theme("colors.gray.300"),
-            },
-            figcaption: {
-              color: theme("colors.gray.400"),
-            },
-            "h2,h3,h4": {
-              color: theme("colors.gray.200"),
-              "scroll-margin-top": spacing[32],
-            },
-            hr: { borderColor: theme("colors.neutral.700") },
-            ol: {
-              li: {
-                "&:before": { color: theme("colors.gray.500") },
-              },
-            },
-            ul: {
-              li: {
-                "&:before": { backgroundColor: theme("colors.gray.500") },
-              },
-            },
-            strong: { color: theme("colors.gray.200") },
-          },
-        },
+        // dark: {
+        //   css: {
+        //     color: theme("colors.gray.300"),
+        //     code: {
+        //       backgroundColor: "#343a40",
+        //       color: theme("colors.gray.200"),
+        //     },
+        //     a: {
+        //       color: theme("colors.gray.300"),
+        //     },
+        //     figcaption: {
+        //       color: theme("colors.gray.400"),
+        //     },
+        //     "h2,h3,h4": {
+        //       color: theme("colors.gray.200"),
+        //       "scroll-margin-top": spacing[32],
+        //     },
+        //     hr: { borderColor: theme("colors.neutral.700") },
+        //     ol: {
+        //       li: {
+        //         "&:before": { color: theme("colors.gray.500") },
+        //       },
+        //     },
+        //     ul: {
+        //       li: {
+        //         "&:before": { backgroundColor: theme("colors.gray.500") },
+        //       },
+        //     },
+        //     strong: { color: theme("colors.gray.200") },
+        //   },
+        // },
       }),
     },
   },

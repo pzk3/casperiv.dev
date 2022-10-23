@@ -21,7 +21,7 @@ export const BlogFooter = ({ post }: Props) => {
   const link = `${GITHUB_REPO_LINK}/${type}/${post.slug}.mdx`;
 
   return (
-    <footer className="flex justify-end pt-12 pb-2 mb-5 border-b border-blue-1">
+    <footer className="flex justify-end pt-12 pb-2 mb-5 border-b border-secondary">
       <a className="hover:underline" href={link}>
         Edit On GitHub
       </a>

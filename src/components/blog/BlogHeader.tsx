@@ -17,7 +17,7 @@ export const BlogHeader = ({ post }: Props) => {
   const readTimeId = useSSRSafeId();
 
   return (
-    <header className="pb-2 pt-5 border-b border-blue-1">
+    <header className="pb-2 pt-5 border-b border-secondary">
       <h1 className="mb-5 text-3xl font-bold md:text-4xl">{post.title}</h1>
 
       <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">

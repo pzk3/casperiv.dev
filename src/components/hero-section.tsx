@@ -43,7 +43,7 @@ export const HeroSection = () => {
         <Link href="https://github.com/sponsors/Dev-CasperTheGhost">
           <a
             target="_blank"
-            className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border border-secondary text-secondary hover:bg-secondary hover:text-white focus:bg-secondary focus:text-white group"
+            className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border border-primary-dark text-secondary hover:border-secondary focus:border-secondary focus:text-white group"
           >
             <svg
               aria-hidden="true"

@@ -1,7 +1,7 @@
 import { Project } from "types/Project";
 import { Link } from "./blog/markdown/Link";
 
-export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) => {
+export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
   const featuredProjects = projects.filter((v) => v.isFeatured);
 
   return (
@@ -15,11 +15,11 @@ export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) =
       </ul>
     </section>
   );
-};
+}
 
 export function ProjectItem({ project }: { project: Project }) {
   return (
-    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-[#eaeaea] cursor-default">
+    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-primary-dark cursor-default">
       <h3 className="text-2xl font-semibold">{project.title}</h3>
 
       <p className="my-3 text-secondary">{project.description}</p>
@@ -29,7 +29,7 @@ export function ProjectItem({ project }: { project: Project }) {
           <li key={button.name}>
             <Link
               href={button.url}
-              className="p-2 px-3.5 rounded-md transition border border-secondary text-secondary hover:bg-secondary hover:text-white"
+              className="p-2 px-3.5 rounded-md transition border border-secondary-light/50 text-secondary hover:border-secondary"
             >
               {button.name}
             </Link>
