@@ -10,7 +10,7 @@ type Props = JSX.IntrinsicElements["div"] & {
   checkbox?: boolean;
 };
 
-export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: Props) => {
+export function FormField({ label, checkbox, errorMessage, children, ...rest }: Props) {
   const { labelProps, fieldProps, errorMessageProps } = useField({
     label,
     errorMessage: errorMessage?.message,
@@ -33,4 +33,4 @@ export const FormField = ({ label, checkbox, errorMessage, children, ...rest }: 
       ) : null}
     </div>
   );
-};
+}

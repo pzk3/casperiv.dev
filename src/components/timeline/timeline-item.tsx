@@ -4,7 +4,7 @@ interface Props {
   item: TTimelineItem;
 }
 
-export const TimelineItem = ({ item }: Props) => {
+export function TimelineItem({ item }: Props) {
   return (
     <li className="my-5">
       <h4 className="text-lg font-medium text-secondary">
@@ -26,4 +26,4 @@ export const TimelineItem = ({ item }: Props) => {
       <p className="mt-1 text-base text-secondary-light">{item.text}</p>
     </li>
   );
-};
+}

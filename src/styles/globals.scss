@@ -72,7 +72,7 @@ body {
   background-color: theme("colors.primary");
   box-shadow: theme("dropShadow.sm");
 
-  + pre {
+  + [data-code-group] {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
   }

@@ -7,7 +7,7 @@ interface Props {
   article: Post;
 }
 
-export const Article = ({ article }: Props) => {
+export function Article({ article }: Props) {
   return (
     <article className="pb-5">
       <BlogHeader post={article} />
@@ -17,4 +17,4 @@ export const Article = ({ article }: Props) => {
       <BlogFooter post={article} />
     </article>
   );
-};
+}

@@ -20,7 +20,7 @@ const schema = yup.object().shape({
 });
 
 type State = "loading" | "completed" | "error";
-export const ContactSection = () => {
+export function ContactSection() {
   const [message, setMessage] = React.useState<string | null>(null);
   const [state, setState] = React.useState<State | null>(null);
 
@@ -99,4 +99,4 @@ export const ContactSection = () => {
       </form>
     </section>
   );
-};
+}

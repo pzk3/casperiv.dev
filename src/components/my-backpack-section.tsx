@@ -1,10 +1,10 @@
-export const MyBackpackSection = ({ myBackpack }: { myBackpack: [string, string[]][] }) => {
+export function MyBackpackSection({ myBackpack }: { myBackpack: [string, string[]][] }) {
   return (
     <section id="skills">
       <h2 className="section-title">My Backpack</h2>
 
       <p className="my-4 text-secondary-light">
-        You can find the list of my top skills below. {"I'm"} also open to learn more frontend
+        You can find the list of my top skills below.{"I'm"} also open to learn more frontend
         related frameworks, libraries, languages, etc!
       </p>
 
@@ -29,4 +29,4 @@ export const MyBackpackSection = ({ myBackpack }: { myBackpack: [string, string[
       </div>
     </section>
   );
-};
+}

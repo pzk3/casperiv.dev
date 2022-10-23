@@ -6,7 +6,7 @@ interface Props {
   type: "blog" | "snippets";
 }
 
-export const ArticlesList = ({ type, articles }: Props) => {
+export function ArticlesList({ type, articles }: Props) {
   return (
     <ul className="flex flex-col mt-5">
       {articles.map((article) => (
@@ -14,4 +14,4 @@ export const ArticlesList = ({ type, articles }: Props) => {
       ))}
     </ul>
   );
-};
+}

@@ -8,7 +8,7 @@ interface Props {
   post: Post;
 }
 
-export const BlogHeader = ({ post }: Props) => {
+export function BlogHeader({ post }: Props) {
   const views = useViews();
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
@@ -36,4 +36,4 @@ export const BlogHeader = ({ post }: Props) => {
       </div>
     </header>
   );
-};
+}

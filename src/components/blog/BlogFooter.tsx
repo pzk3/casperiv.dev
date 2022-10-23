@@ -11,7 +11,7 @@ const types = {
   "/case-study/[slug]": "case-studies",
 };
 
-export const BlogFooter = ({ post }: Props) => {
+export function BlogFooter({ post }: Props) {
   const router = useRouter();
 
   const type = types[router.pathname as keyof typeof types];
@@ -27,4 +27,4 @@ export const BlogFooter = ({ post }: Props) => {
       </a>
     </footer>
   );
-};
+}

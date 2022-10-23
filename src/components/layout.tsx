@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import * as React from "react";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   React.useEffect(() => {
@@ -25,4 +25,4 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="w-full max-w-4xl">{children}</main>
     </div>
   );
-};
+}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { ArrowRight } from "react-bootstrap-icons";
 
-export const HeroSection = () => {
+export function HeroSection() {
   // this is roughly the date I started programing according to GitHub 😅!
   const started = new Date("2019-08-08");
 
@@ -24,7 +24,7 @@ export const HeroSection = () => {
       </div>
 
       <p className="max-w-3xl mt-6 text-secondary-light md:text-xl">
-        I am an extremely motivated programmer and student from Belgium. {"I'm"} a self-taught
+        I am an extremely motivated programmer and student from Belgium.{"I'm"} a self-taught
         developer and have been programming for {formatDistanceToNow(started)} and {"I'm"} still
         learning new technologies every week, mostly focusing on frontend related technologies.{" "}
       </p>
@@ -65,4 +65,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+}

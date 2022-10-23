@@ -12,7 +12,7 @@ import Image from "next/image";
 const components = {
   Link,
   a: Link,
-  code: MDCode,
+  pre: MDCode,
   Info,
   Image,
   CommandLine,
@@ -22,7 +22,7 @@ interface Props {
   content: string;
 }
 
-export const Markdown = ({ content }: Props) => {
+export function Markdown({ content }: Props) {
   const Component = React.useMemo(() => getMDXComponent(content), [content]);
 
   return (
@@ -30,4 +30,4 @@ export const Markdown = ({ content }: Props) => {
       <Component components={components as any} />
     </main>
   );
-};
+}

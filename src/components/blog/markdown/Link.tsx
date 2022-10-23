@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 
-export const Link = (props: JSX.IntrinsicElements["a"]) => {
+export function Link(props: JSX.IntrinsicElements["a"]) {
   const { children, ...rest } = props;
   const href = rest.href as string;
   const isExternal = href.startsWith("http");
@@ -22,4 +22,4 @@ export const Link = (props: JSX.IntrinsicElements["a"]) => {
       </a>
     </NextLink>
   );
-};
+}

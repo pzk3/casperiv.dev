@@ -10,12 +10,8 @@ interface Props {
   className: string;
 }
 
-export const MDCode = (props: Props) => {
+export function MDCode(props: Props) {
   const [copied, setCopied] = React.useState(false);
-
-  const { inline, className, children } = props;
-  const match = /language-(\w+)/.exec(className || "");
-  const text = String(children).replace(/\n$/, "");
 
   const copyId = React.useId();
 
@@ -28,29 +24,48 @@ export const MDCode = (props: Props) => {
     }
   }
 
-  if (inline || !match) {
-    return <code className={className}>{props.children}</code>;
+  const isParent = typeof props.children === "object";
+  const classNameToParse = isParent
+    ? (props.children as React.ReactElement).props?.className
+    : props.className;
+  const codeText = isParent
+    ? (props.children as React.ReactElement).props?.children
+    : props.children;
+
+  const match = /language-(\w+)/.exec(classNameToParse || "");
+  const text = String(codeText).replace(/\n$/, "");
+
+  if ((props.inline || !match) && !isParent) {
+    return <code className={props.className}>{props.children}</code>;
   }
 
   return (
-    <div className="group relative w-full">
+    <div
+      data-code-group
+      className="group relative w-full border -mt-2 border-primary-dark shadow-sm bg-primary rounded-md overflow-x-auto p-1 px-2 overflow-y-hidden"
+    >
       <Button
         title="Copy code"
         aria-label="Copy code"
         onClick={handleCopy}
         id={copyId}
-        className="absolute z-20 transition-all opacity-0 top-0 right-0 focus:opacity-100 group-hover:opacity-100 bg-secondary"
+        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100 group-hover:opacity-100 border bg-white border-primary-dark shadow-sm hover:brightness-100 focus:brightness-100"
       >
         {copied ? (
-          <ClipboardCheck aria-labelledby={copyId} width={20} height={20} />
+          <ClipboardCheck
+            className="fill-secondary"
+            aria-labelledby={copyId}
+            width={20}
+            height={20}
+          />
         ) : (
-          <Clipboard aria-labelledby={copyId} width={20} height={20} />
+          <Clipboard className="fill-secondary" aria-labelledby={copyId} width={20} height={20} />
         )}
       </Button>
 
-      <SyntaxHighlighter style={Theme} language={match[1]}>
+      <SyntaxHighlighter style={Theme} language={match?.[1]}>
         {text}
       </SyntaxHighlighter>
     </div>
   );
-};
+}

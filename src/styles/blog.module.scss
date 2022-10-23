@@ -16,21 +16,13 @@
   }
 
   pre {
-    margin-top: -0.5em;
     border: none !important;
     font-family: "CascadiaMono", "Courier New", monospace !important;
     background-color: theme("colors.primary") !important;
-    border-radius: 0.3rem;
-    overflow-x: auto;
-    position: relative;
     padding: 0.25em 0.5em !important;
-    overflow-y: hidden;
 
     code {
-      font-family: "CascadiaMono", "Courier New", monospace !important;
       padding: 0;
-      background: none;
-      font-size: 16px !important;
     }
   }
 
