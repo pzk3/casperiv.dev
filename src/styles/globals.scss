@@ -68,8 +68,9 @@ body {
   padding: 0.5rem 1rem;
   padding-bottom: 0.8rem; // evenly space the text to the center (y-axis)
   color: theme("colors.secondary");
-  border: theme("borderWidth.DEFAULT") solid theme("colors.secondary");
+  border: theme("borderWidth.DEFAULT") solid theme("colors.primary-dark");
   background-color: theme("colors.primary");
+  box-shadow: theme("dropShadow.sm");
 
   + pre {
     border-top-left-radius: 0 !important;

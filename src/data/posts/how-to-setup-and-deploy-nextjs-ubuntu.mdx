@@ -28,35 +28,25 @@ This includes installing Node.js, installing NGINX and setting up the firewall.
 To install Node.js there are few simple steps required.
 Get the Node.js install via [Nodesource](https://github.com/nodesource/distributions#readme).
 
-```bash
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-```
+<CommandLine>`curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh`</CommandLine>
 
 Run the Nodesource setup file to prepare the correct version of Node.js
 
-```bash
-sudo bash nodesource_setup.sh
-```
+<CommandLine>sudo bash nodesource_setup.sh</CommandLine>
 
 Install Node.js from the installed Nodesource
 
-```bash
-sudo apt install nodejs
-```
+<CommandLine>sudo apt install nodejs -y</CommandLine>
 
 Verify installation:
 
-```bash
-node -v # 16.x.x
-```
+<CommandLine>node -v # 18.x.x</CommandLine>
 
 #### NGINX
 
 NGINX will be used as a proxy to serve our Next.js project.
 
-```bash
-sudo apt install nginx
-```
+<CommandLine>sudo apt install nginx</CommandLine>
 
 ### Firewall
 

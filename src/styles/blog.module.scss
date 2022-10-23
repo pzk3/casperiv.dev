@@ -11,7 +11,8 @@
 
   [data-info] code,
   [data-info] pre {
-    background-color: #495057 !important;
+    background-color: theme("colors.primary-dark") !important;
+    color: theme("colors.secondary") !important;
   }
 
   pre {
@@ -34,8 +35,8 @@
   }
 
   > pre {
-    border: 1.75px solid theme("colors.secondary") !important;
-    box-shadow: theme("dropShadow.DEFAULT");
+    border: 1.75px solid theme("colors.primary-dark") !important;
+    box-shadow: theme("dropShadow.sm");
   }
 
   code {

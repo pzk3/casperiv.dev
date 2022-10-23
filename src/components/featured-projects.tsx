@@ -22,7 +22,7 @@ export function ProjectItem({ project }: { project: Project }) {
     <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-primary-dark cursor-default">
       <h3 className="text-2xl font-semibold">{project.title}</h3>
 
-      <p className="my-3 text-secondary">{project.description}</p>
+      <p className="my-3 text-secondary-light">{project.description}</p>
 
       <ul className="flex gap-2 mt-2">
         {project.buttons.map((button) => (
