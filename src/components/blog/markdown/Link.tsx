@@ -1,12 +1,15 @@
+import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 
 export const Link = (props: JSX.IntrinsicElements["a"]) => {
   const { children, ...rest } = props;
   const href = rest.href as string;
+  const isExternal = href.startsWith("http");
+  const className = twMerge("text-neutral-700 hover:text-neutral-900", rest.className);
 
-  if (href.startsWith("http")) {
+  if (isExternal) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+      <a href={href} target="_blank" rel="noopener noreferrer" {...rest} className={className}>
         {children}
       </a>
     );
@@ -14,7 +17,9 @@ export const Link = (props: JSX.IntrinsicElements["a"]) => {
 
   return (
     <NextLink href={href}>
-      <a {...rest}>{children}</a>
+      <a {...rest} className={className}>
+        {children}
+      </a>
     </NextLink>
   );
 };

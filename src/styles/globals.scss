@@ -12,18 +12,24 @@ body {
 }
 
 #__next {
-  @apply min-h-screen;
+  min-height: theme("minHeight.screen");
 }
 
 @layer base {
   p {
-    @apply text-lg;
+    font-size: theme("fontSize.lg");
   }
 
   .section-title {
     padding-top: 2.5em;
     margin-top: -2.5em;
-    @apply text-3xl font-bold capitalize md:text-4xl;
+    font-size: theme("fontSize.3xl");
+    font-weight: theme("fontWeight.bold");
+    text-transform: capitalize;
+
+    @media (min-width: 768px) {
+      font-size: theme("fontSize.4xl");
+    }
   }
 }
 
@@ -56,13 +62,14 @@ body {
 }
 
 .rehype-code-title {
-  border-bottom: 1.5px solid #2e3746;
-
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
   font-family: "CascadiaMono", "Courier New", monospace;
-
-  @apply bg-blue-1/90 dark:bg-blue-3/90 border-b-[1.5px] px-4 p-2 text-gray-300;
+  padding: 0.5rem 1rem;
+  padding-bottom: 0.8rem; // evenly space the text to the center (y-axis)
+  color: theme("colors.secondary");
+  border: theme("borderWidth.DEFAULT") solid theme("colors.secondary");
+  background-color: theme("colors.primary");
 
   + pre {
     border-top-left-radius: 0 !important;

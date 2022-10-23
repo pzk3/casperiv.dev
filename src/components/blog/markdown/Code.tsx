@@ -2,7 +2,7 @@ import { Button } from "components/button";
 import * as React from "react";
 import { Clipboard, ClipboardCheck } from "react-bootstrap-icons";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async-light";
-import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
+import Theme from "react-syntax-highlighter/dist/cjs/styles/prism/vs";
 
 interface Props {
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export const MDCode = (props: Props) => {
         aria-label="Copy code"
         onClick={handleCopy}
         id={copyId}
-        className="absolute z-50 transition-all opacity-0 top-0 right-0 focus:opacity-100 group-hover:opacity-100  bg-blue-2 hover:bg-blue-2 focus:bg-blue-2"
+        className="absolute z-20 transition-all opacity-0 top-0 right-0 focus:opacity-100 group-hover:opacity-100 bg-secondary"
       >
         {copied ? (
           <ClipboardCheck aria-labelledby={copyId} width={20} height={20} />

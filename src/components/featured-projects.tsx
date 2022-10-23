@@ -19,17 +19,17 @@ export const FeaturedProjectsSection = ({ projects }: { projects: Project[] }) =
 
 export function ProjectItem({ project }: { project: Project }) {
   return (
-    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-secondary/20 cursor-default">
+    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-[#eaeaea] cursor-default">
       <h3 className="text-2xl font-semibold">{project.title}</h3>
 
       <p className="my-3 text-secondary">{project.description}</p>
 
-      <ul className="flex gap-1 mt-2">
+      <ul className="flex gap-2 mt-2">
         {project.buttons.map((button) => (
           <li key={button.name}>
             <Link
               href={button.url}
-              className="p-2 px-3.5 rounded-md transition bg-secondary/70 hover:bg-secondary/90 text-white"
+              className="p-2 px-3.5 rounded-md transition border border-secondary text-secondary hover:bg-secondary hover:text-white"
             >
               {button.name}
             </Link>

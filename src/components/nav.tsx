@@ -5,7 +5,7 @@ import classNames from "clsx";
 import { useViewport } from "lib/hooks/useViewport";
 import { IconLink } from "./nav/IconLink";
 import { NavLink } from "./nav/NavLink";
-import { ThemeSwitcher } from "./nav/ThemeSwitcher";
+// import { ThemeSwitcher } from "./nav/ThemeSwitcher";
 
 const links = [
   {
@@ -99,9 +99,9 @@ export function Nav() {
               <Twitter />
             </IconLink>
           </li>
-          <li>
+          {/* <li>
             <ThemeSwitcher />
-          </li>
+          </li> */}
         </ul>
 
         <button

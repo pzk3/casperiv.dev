@@ -9,7 +9,7 @@ createdAt: January 5, 2022
 The component will add the required accessibility attributes to the input, label and error message elements
 thanks to [react-aria](https://react-spectrum.adobe.com/react-aria/index.html).
 
-```tsx:components/Formfield.tsx
+```tsx:components/form-field.tsx
 import * as React from "react";
 import { useField } from "@react-aria/label";
 import classnames from "classnames";
@@ -29,7 +29,7 @@ interface Props {
   optional?: boolean;
 }
 
-export function Formfield({ children, label, className, errorMessage, optional }: Props) {
+export function FormField({ children, label, className, errorMessage, optional }: Props) {
   const { labelProps, fieldProps, errorMessageProps } = useField({ label, errorMessage });
 
   const labelClassnames = classnames("mb-1 dark:text-white");

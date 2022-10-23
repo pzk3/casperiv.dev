@@ -7,7 +7,7 @@ interface Props {
 export const TimelineItem = ({ item }: Props) => {
   return (
     <li className="my-5">
-      <h5 className="text-lg font-medium">
+      <h4 className="text-lg font-medium text-secondary">
         {item.tag ? (
           <span className="mr-2 px-2 p-1 text-base lowercase text-white rounded-md bg-gradient-to-tr from-[#1150d4] to-[#a245fc]">
             {item.tag}
@@ -21,9 +21,9 @@ export const TimelineItem = ({ item }: Props) => {
         ) : (
           item.title
         )}
-      </h5>
+      </h4>
 
-      <p className="mt-1 text-base  text-neutral-800 dark:text-gray-300">{item.text}</p>
+      <p className="mt-1 text-base text-secondary-light">{item.text}</p>
     </li>
   );
 };

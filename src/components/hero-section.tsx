@@ -7,7 +7,7 @@ export const HeroSection = () => {
   const started = new Date("2019-08-08");
 
   return (
-    <section className="flex flex-col justify-center mx-auto min-h-[40em]" id="top">
+    <section className="flex flex-col justify-center mx-auto min-h-[40em]">
       <div>
         <p className="text-2xl sm: md:text-3xl mb-3 text-secondary-light">
           <span className="inline-block animate-wave origin-bottom" aria-label="Waving" role="img">
@@ -43,7 +43,7 @@ export const HeroSection = () => {
         <Link href="https://github.com/sponsors/Dev-CasperTheGhost">
           <a
             target="_blank"
-            className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white focus:bg-secondary focus:text-white group"
+            className="flex w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border border-secondary text-secondary hover:bg-secondary hover:text-white focus:bg-secondary focus:text-white group"
           >
             <svg
               aria-hidden="true"

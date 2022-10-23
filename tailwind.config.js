@@ -9,8 +9,12 @@ module.exports = {
   content: ["./src/**/*.tsx", "./src/**/*.mdx"],
   theme: {
     extend: {
+      borderWidth: {
+        DEFAULT: "1.75px",
+      },
       colors: {
         primary: "#F9FBFC",
+        "primary-dark": "#F5F7F7",
         secondary: "#2b303a",
         "secondary-light": "#576175",
         "secondary-extralight": "#B5CAF5",
