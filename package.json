@@ -41,6 +41,7 @@
     "rss": "^1.2.2",
     "sharp": "^0.31.1",
     "tailwind-merge": "^1.7.0",
+    "yargs-parser": "^21.1.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -51,6 +52,7 @@
     "@types/react": "18.0.21",
     "@types/react-syntax-highlighter": "^15.5.5",
     "@types/rss": "^0.0.29",
+    "@types/yargs-parser": "^21.0.0",
     "autoprefixer": "^10.4.12",
     "esbuild": "^0.15.12",
     "eslint": "^8.26.0",

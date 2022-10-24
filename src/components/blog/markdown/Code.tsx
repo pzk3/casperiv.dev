@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Button } from "components/button";
 import * as React from "react";
 import { Clipboard, ClipboardCheck } from "react-bootstrap-icons";
@@ -8,6 +9,7 @@ interface Props {
   children: React.ReactNode;
   inline: boolean;
   className: string;
+  command?: "true" | "false";
 }
 
 export function MDCode(props: Props) {
@@ -24,6 +26,7 @@ export function MDCode(props: Props) {
     }
   }
 
+  const isCommand = props.command === "true";
   const isParent = typeof props.children === "object";
   const classNameToParse = isParent
     ? (props.children as React.ReactElement).props?.className
@@ -42,7 +45,10 @@ export function MDCode(props: Props) {
   return (
     <div
       data-code-group
-      className="group relative w-full border -mt-2 border-secondary-light/50 shadow-sm bg-primary rounded-md overflow-x-auto p-1 px-2 overflow-y-hidden"
+      className={clsx(
+        isCommand && "flex items-center",
+        "group relative w-full border -mt-2 border-secondary-light/50 shadow-sm bg-primary rounded-md overflow-x-auto p-1 px-2 overflow-y-hidden",
+      )}
     >
       <Button
         title="Copy code"
@@ -62,6 +68,8 @@ export function MDCode(props: Props) {
           <Clipboard className="fill-secondary" aria-labelledby={copyId} width={20} height={20} />
         )}
       </Button>
+
+      {isCommand ? <span className="!py-0 select-none opacity-70 text-sm">$</span> : null}
 
       <SyntaxHighlighter style={Theme} language={match?.[1]}>
         {text}
