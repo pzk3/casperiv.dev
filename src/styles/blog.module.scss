@@ -9,9 +9,8 @@
 .reactMarkdown {
   margin-top: 1rem;
 
-  [data-info] code,
   [data-info] pre {
-    background-color: theme("colors.primary-dark") !important;
+    background-color: theme("colors.primary") !important;
     color: theme("colors.secondary") !important;
   }
 

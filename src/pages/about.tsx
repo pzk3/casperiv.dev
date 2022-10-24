@@ -54,8 +54,8 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
           <p className="mt-5 text-base italic">
             PS: If there is something that {"you'd"} like to know more about me, {"don't"} hesitate
             to{" "}
-            <Link href="/#contact">
-              <a className="underline">contact me</a>
+            <Link className="underline" href="/#contact">
+              contact me
             </Link>
             !
           </p>
