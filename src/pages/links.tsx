@@ -29,7 +29,7 @@ export default function Links({ links }: Props) {
               title="This link will open in a new tab."
               target="_blank"
               rel="noreferrer noopener"
-              className="block p-1.5 px-3 my-1.5 rounded-md border border-primary-dark text-secondary text-center shadow-sm hover:border-secondary transition-colors"
+              className="block p-1.5 px-3 my-1.5 rounded-md border border-secondary-light/50 text-secondary text-center shadow-sm hover:border-secondary transition-colors"
               href={link.href}
             >
               {link.name}

@@ -19,7 +19,7 @@ export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
 
 export function ProjectItem({ project }: { project: Project }) {
   return (
-    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-primary-dark cursor-default">
+    <li className="flex flex-col justify-between p-4 py-6 rounded-md shadow-sm bg-white border border-secondary-light/50 cursor-default">
       <h3 className="text-2xl font-semibold">{project.title}</h3>
 
       <p className="my-3 text-secondary-light">{project.description}</p>

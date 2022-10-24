@@ -1,5 +1,5 @@
 import { Post } from "types/Post";
-import { ArticleListItem } from "./ArticleListItem";
+import { ArticleListItem } from "./articles-list-item";
 
 interface Props {
   articles: Post[];

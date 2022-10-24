@@ -42,14 +42,14 @@ export function MDCode(props: Props) {
   return (
     <div
       data-code-group
-      className="group relative w-full border -mt-2 border-primary-dark shadow-sm bg-primary rounded-md overflow-x-auto p-1 px-2 overflow-y-hidden"
+      className="group relative w-full border -mt-2 border-secondary-light/50 shadow-sm bg-primary rounded-md overflow-x-auto p-1 px-2 overflow-y-hidden"
     >
       <Button
         title="Copy code"
         aria-label="Copy code"
         onClick={handleCopy}
         id={copyId}
-        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100 group-hover:opacity-100 border bg-white border-primary-dark shadow-sm hover:brightness-100 focus:brightness-100"
+        className="absolute z-20 transition-all opacity-0 top-1 right-1 focus:opacity-100 group-hover:opacity-100 border bg-white border-secondary-light/50 shadow-sm hover:brightness-100 focus:brightness-100"
       >
         {copied ? (
           <ClipboardCheck

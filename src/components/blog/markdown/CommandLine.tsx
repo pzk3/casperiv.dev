@@ -15,7 +15,7 @@ export function CommandLine({ children }: Props) {
   }
 
   return (
-    <span className="flex w-full bg-blue-4 items-center px-3 py-1 mb-3 rounded-md border border-primary-dark shadow-sm">
+    <span className="flex w-full bg-blue-4 items-center px-3 py-1 mb-3 rounded-md border border-secondary-light/50 shadow-sm">
       <span className="!py-0 select-none opacity-70 text-sm">$</span>
 
       <MDCode inline={false} className="language-bash z-10 w-full">

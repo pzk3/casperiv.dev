@@ -1,6 +1,6 @@
 import { Post } from "types/Post";
-import { BlogFooter } from "./BlogFooter";
-import { BlogHeader } from "./BlogHeader";
+import { BlogFooter } from "./blog-footer";
+import { BlogHeader } from "./blog-header";
 import { Markdown } from "./markdown/Markdown";
 
 interface Props {
