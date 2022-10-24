@@ -1,10 +1,10 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { getAllItems } from "lib/mdx";
 import { GetStaticProps } from "next";
-import { Post } from "types/Post";
+import { Post } from "types/post";
 import { generateRSSFeed } from "lib/rss";
-import { ArticlesList } from "components/blog/ArticlesList";
-import { ArticleListItem } from "components/blog/ArticleListItem";
+import { ArticlesList } from "components/blog/articles-list";
+import { ArticleListItem } from "components/blog/articles-list-item";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { NextSeo } from "next-seo";
 

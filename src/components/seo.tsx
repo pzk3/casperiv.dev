@@ -24,7 +24,7 @@ const defaults: Props = {
   keywords: [],
 };
 
-export const Seo = (props: Props) => {
+export function Seo(props: Props) {
   const tags: Props = {
     ...defaults,
     ...props,
@@ -57,4 +57,4 @@ export const Seo = (props: Props) => {
       ) : null}
     </Head>
   );
-};
+}

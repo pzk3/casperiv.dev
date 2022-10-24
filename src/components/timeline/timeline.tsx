@@ -1,9 +1,9 @@
-import { Button } from "components/Button";
+import { Button } from "components/button";
 import * as React from "react";
-import { TimelineItem as TTimelineItem } from "types/Timeline";
-import { TimelineItem } from "./TimelineItem";
+import { TimelineItem as TTimelineItem } from "types/timeline";
+import { TimelineItem } from "./timeline-item";
 
-export const Timeline = ({ timelineData }: { timelineData: TTimelineItem[] }) => {
+export function Timeline({ timelineData }: { timelineData: TTimelineItem[] }) {
   const [showAll, setShowAll] = React.useState(false);
 
   const yearsArr = [...new Set([...timelineData.map((v) => v.year)])];
@@ -16,7 +16,7 @@ export const Timeline = ({ timelineData }: { timelineData: TTimelineItem[] }) =>
 
         return (
           <div
-            className="py-5 first:pt-0 border-b-[1px] border-blue-1 last-of-type:border-b-0"
+            className="py-5 first:pt-0 border-b border-secondary last-of-type:border-b-0"
             key={item}
           >
             <h3 className="mb-2 text-2xl font-semibold">{item}</h3>
@@ -35,4 +35,4 @@ export const Timeline = ({ timelineData }: { timelineData: TTimelineItem[] }) =>
       </Button>
     </div>
   );
-};
+}

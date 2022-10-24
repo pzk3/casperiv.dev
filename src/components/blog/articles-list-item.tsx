@@ -1,4 +1,4 @@
-import type { Post } from "types/Post";
+import type { Post } from "types/post";
 import Link from "next/link";
 import format from "date-fns/format";
 import classNames from "clsx";
@@ -14,7 +14,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
   const extraAProps = isFeatured
     ? {
         style: { borderRadius: 3.5 },
-        className: "z-20 block p-3 bg-gray-50 dark:bg-blue w-full h-full",
+        className: "z-20 block p-3 bg-gray-50 w-full h-full",
       }
     : {};
 
@@ -27,15 +27,13 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
     >
       <Link href={`/${type}/${article.slug}`}>
         <a {...extraAProps}>
-          <h3 style={{ fontSize: "1.25rem" }} className="font-semibold">
+          <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
             {article.title}
-          </h3>
-          <p className="mt-1 text-neutral-800 dark:text-gray-100 ">{article.intro}</p>
+          </h2>
+          <p className="mt-1 text-secondary">{article.intro}</p>
 
           {isFeatured ? null : (
-            <span className="block mt-1.5 font-normal text-neutral-700 dark:text-gray-300">
-              {publishedAt}
-            </span>
+            <span className="block mt-1.5 font-normal text-secondary-light">{publishedAt}</span>
           )}
         </a>
       </Link>

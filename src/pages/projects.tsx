@@ -1,10 +1,10 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { GetStaticProps } from "next";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { NextSeo } from "next-seo";
-import { Project } from "types/Project";
-import { ProjectItem } from "components/FeaturedProjects";
-import { Link } from "components/blog/markdown/Link";
+import { Project } from "types/project";
+import { ProjectItem } from "components/featured-projects";
+import { Link } from "components/blog/markdown/link";
 
 interface Props {
   projects: Project[];
@@ -39,7 +39,7 @@ export default function Projects({ projects }: Props) {
 
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Projects</h1>
 
-      <p className="mt-2 font-normal">
+      <p className="mt-2 font-normal text-secondary-light">
         {pageDescription} All my projects are{" "}
         <Link className="underline" href="https://github.com/dev-caspertheghost?tab=repositories">
           available on GitHub

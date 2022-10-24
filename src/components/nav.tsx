@@ -2,10 +2,9 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { Github, Linkedin, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
-import { useViewport } from "lib/hooks/useViewport";
-import { IconLink } from "./nav/IconLink";
-import { NavLink } from "./nav/NavLink";
-import { ThemeSwitcher } from "./nav/ThemeSwitcher";
+import { useViewport } from "lib/hooks/use-viewport";
+import { IconLink } from "./nav/icon-link";
+import { NavLink } from "./nav/nav-link";
 
 const links = [
   {
@@ -13,12 +12,12 @@ const links = [
     href: "/",
   },
   {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
     name: "Contact",
     href: "/#contact",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "About",
@@ -58,7 +57,7 @@ export function Nav() {
 
   return (
     <header
-      className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-gray-50 dark:bg-blue"
+      className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-primary"
       id="nav"
     >
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
@@ -66,7 +65,7 @@ export function Nav() {
           className={classNames(
             "h-full space-x-1 md:items-center",
             menuOpen
-              ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-gray-50 dark:bg-blue p-5 shadow-lg open-nav-animation"
+              ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-primary p-5 shadow-lg open-nav-animation"
               : "hidden md:flex relative",
           )}
         >
@@ -99,9 +98,9 @@ export function Nav() {
               <Twitter />
             </IconLink>
           </li>
-          <li>
+          {/* <li>
             <ThemeSwitcher />
-          </li>
+          </li> */}
         </ul>
 
         <button

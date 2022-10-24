@@ -12,16 +12,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
       {...rest}
       className={classNames(
         `
-        dark:bg-blue-1 bg-gray-200
-        w-full p-1.5 px-2 rounded-md border-[1.75px]
-        focus:outline-none
+        bg-white
+        w-full p-1.5 px-2 rounded-md border
         disabled:cursor-not-allowed disabled:opacity-80
         transition-colors resize-y`,
         hasError
           ? "border-red-500 focus:border-red-700"
-          : `
-          dark:border-gray-600 dark:focus:border-gray-300/80
-          border-gray-400 focus:border-gray-500`,
+          : "border-secondary/50 focus:border-secondary",
         rest.className,
       )}
     />

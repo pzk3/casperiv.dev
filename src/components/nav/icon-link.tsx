@@ -13,8 +13,7 @@ export function IconLink({ children, ...rest }: Props) {
     "aria-labelledby": githubId,
     width: 21,
     height: 21,
-    className:
-      "group-hover:text-white pointer-events-none z-10 fill-current text-neutral-800 dark:text-gray-200",
+    className: "group-hover:text-white pointer-events-none z-10 fill-current text-secondary",
   });
 
   return (

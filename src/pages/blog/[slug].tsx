@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { getAllItems, getItemBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Post } from "types/Post";
-import { Article } from "components/blog/Article";
+import { Post } from "types/post";
+import { Article } from "components/blog/article";
 import { NextSeo } from "next-seo";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 

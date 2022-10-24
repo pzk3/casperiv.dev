@@ -1,12 +1,12 @@
-import { Post } from "types/Post";
-import { ArticleListItem } from "./ArticleListItem";
+import { Post } from "types/post";
+import { ArticleListItem } from "./articles-list-item";
 
 interface Props {
   articles: Post[];
   type: "blog" | "snippets";
 }
 
-export const ArticlesList = ({ type, articles }: Props) => {
+export function ArticlesList({ type, articles }: Props) {
   return (
     <ul className="flex flex-col mt-5">
       {articles.map((article) => (
@@ -14,4 +14,4 @@ export const ArticlesList = ({ type, articles }: Props) => {
       ))}
     </ul>
   );
-};
+}

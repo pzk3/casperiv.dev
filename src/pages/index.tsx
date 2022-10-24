@@ -1,10 +1,10 @@
-import { HeroSection } from "components/HeroSection";
-import { Layout } from "components/Layout";
-import { MyBackpackSection } from "components/MyBackpackSection";
+import { HeroSection } from "components/hero-section";
+import { Layout } from "components/layout";
+import { MyBackpackSection } from "components/my-backpack-section";
 import { GetStaticProps } from "next";
-import { FeaturedProjectsSection } from "components/FeaturedProjects";
-import { Project } from "types/Project";
-import { ContactSection } from "components/ContactSection";
+import { FeaturedProjectsSection } from "components/featured-projects";
+import { Project } from "types/project";
+import { ContactSection } from "components/contact-section";
 
 interface Props {
   projects: Project[];

@@ -1,4 +1,4 @@
-import { useAge } from "lib/hooks/useAge";
+import { useAge } from "lib/hooks/use-age";
 import { calculateAge } from "lib/utils";
 import classNames from "clsx";
 
@@ -6,7 +6,7 @@ interface Props {
   withColor?: boolean;
 }
 
-export const Age = ({ withColor }: Props) => {
+export function Age({ withColor }: Props) {
   const age = calculateAge(false);
   const ageRef = useAge();
 
@@ -20,4 +20,4 @@ export const Age = ({ withColor }: Props) => {
       {age}
     </button>
   );
-};
+}

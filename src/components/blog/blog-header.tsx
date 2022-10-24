@@ -1,14 +1,14 @@
 import { useSSRSafeId } from "@react-aria/ssr";
 import format from "date-fns/format";
-import { useViews } from "lib/hooks/useViews";
+import { useViews } from "lib/hooks/use-views";
 import { Clock, Eye } from "react-bootstrap-icons";
-import { Post } from "types/Post";
+import { Post } from "types/post";
 
 interface Props {
   post: Post;
 }
 
-export const BlogHeader = ({ post }: Props) => {
+export function BlogHeader({ post }: Props) {
   const views = useViews();
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
@@ -17,7 +17,7 @@ export const BlogHeader = ({ post }: Props) => {
   const readTimeId = useSSRSafeId();
 
   return (
-    <header className="pb-2 pt-5 border-b-2 border-blue-1">
+    <header className="pb-2 pt-5 border-b border-secondary">
       <h1 className="mb-5 text-3xl font-bold md:text-4xl">{post.title}</h1>
 
       <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
@@ -36,4 +36,4 @@ export const BlogHeader = ({ post }: Props) => {
       </div>
     </header>
   );
-};
+}

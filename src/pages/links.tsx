@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { Link } from "data/links";
 import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
@@ -18,7 +18,7 @@ export default function Links({ links }: Props) {
 
       <h1 className="section-title">Links</h1>
 
-      <p className="my-1.5 text-gray-300">
+      <p className="my-1.5 text-secondary-light">
         Click any of the links to head to the requested profile.
       </p>
 
@@ -29,7 +29,7 @@ export default function Links({ links }: Props) {
               title="This link will open in a new tab."
               target="_blank"
               rel="noreferrer noopener"
-              className="block p-1.5 px-3 my-1.5 underline rounded-md bg-blue-1 text-center shadow-sm hover:bg-blue-2 transition-colors"
+              className="block p-1.5 px-3 my-1.5 rounded-md border border-secondary-light/50 text-secondary text-center shadow-sm hover:border-secondary transition-colors"
               href={link.href}
             >
               {link.name}
