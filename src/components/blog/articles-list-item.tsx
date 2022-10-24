@@ -1,4 +1,4 @@
-import type { Post } from "types/Post";
+import type { Post } from "types/post";
 import Link from "next/link";
 import format from "date-fns/format";
 import classNames from "clsx";

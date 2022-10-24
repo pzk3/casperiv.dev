@@ -1,5 +1,5 @@
-import { Project } from "types/Project";
-import { Link } from "./blog/markdown/Link";
+import { Project } from "types/project";
+import { Link } from "./blog/markdown/link";
 
 export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
   const featuredProjects = projects.filter((v) => v.isFeatured);

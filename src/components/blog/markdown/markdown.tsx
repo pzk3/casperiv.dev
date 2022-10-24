@@ -2,10 +2,9 @@ import * as React from "react";
 import { getMDXComponent } from "mdx-bundler/client";
 import styles from "styles/blog.module.scss";
 
-import { Link } from "./Link";
-import { MDCode } from "./Code";
-import { Info } from "./Info";
-import { CommandLine } from "./CommandLine";
+import { Link } from "./link";
+import { MDCode } from "./code";
+import { Info } from "./info";
 import Image from "next/image";
 
 // importing this with next/dynamic will have some flickers..
@@ -15,7 +14,6 @@ const components = {
   pre: MDCode,
   Info,
   Image,
-  CommandLine,
 };
 
 interface Props {

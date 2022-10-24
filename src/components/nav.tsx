@@ -2,10 +2,9 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { Github, Linkedin, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
-import { useViewport } from "lib/hooks/useViewport";
-import { IconLink } from "./nav/IconLink";
-import { NavLink } from "./nav/NavLink";
-// import { ThemeSwitcher } from "./nav/ThemeSwitcher";
+import { useViewport } from "lib/hooks/use-viewport";
+import { IconLink } from "./nav/icon-link";
+import { NavLink } from "./nav/nav-link";
 
 const links = [
   {
@@ -13,12 +12,12 @@ const links = [
     href: "/",
   },
   {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
     name: "Contact",
     href: "/#contact",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "About",

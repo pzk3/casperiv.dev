@@ -3,7 +3,7 @@ import { Layout } from "components/layout";
 import { MyBackpackSection } from "components/my-backpack-section";
 import { GetStaticProps } from "next";
 import { FeaturedProjectsSection } from "components/featured-projects";
-import { Project } from "types/Project";
+import { Project } from "types/project";
 import { ContactSection } from "components/contact-section";
 
 interface Props {

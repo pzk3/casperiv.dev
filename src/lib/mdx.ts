@@ -2,13 +2,13 @@ import readingTime from "reading-time";
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 import { bundleMDX } from "mdx-bundler";
-import { Post } from "types/Post";
+import { Post } from "types/post";
 
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { parseCodeFlags } from "./mdx/parseCodeFlags";
+import { parseCodeFlags } from "./mdx/parse-code-flags";
 
 export function getSlugsFromDir(dir: string): string[] {
   return readdirSync(dir);

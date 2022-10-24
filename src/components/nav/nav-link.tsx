@@ -12,7 +12,7 @@ export function NavLink({
         {...props}
         className={classNames("py-2 px-3 duration-200 transition rounded-md", {
           "my-2 block ": menuOpen,
-          "bg-secondary text-white hover:brightness-125 font-medium": isActive,
+          "bg-secondary text-white hover:brightness-125 font-medium shadow-md": isActive,
           "hover:bg-secondary-light hover:text-white": !isActive,
         })}
       >

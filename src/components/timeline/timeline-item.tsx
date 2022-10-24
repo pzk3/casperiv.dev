@@ -1,4 +1,4 @@
-import type { TimelineItem as TTimelineItem } from "types/Timeline";
+import type { TimelineItem as TTimelineItem } from "types/timeline";
 
 interface Props {
   item: TTimelineItem;

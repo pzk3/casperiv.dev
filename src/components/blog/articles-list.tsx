@@ -1,4 +1,4 @@
-import { Post } from "types/Post";
+import { Post } from "types/post";
 import { ArticleListItem } from "./articles-list-item";
 
 interface Props {

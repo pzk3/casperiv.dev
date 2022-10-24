@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Post } from "types/Post";
+import { Post } from "types/post";
 
 interface Props {
   post: Post;

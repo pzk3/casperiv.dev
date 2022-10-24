@@ -1,12 +1,11 @@
 import { NextSeo } from "next-seo";
-// import Link from "next/link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { Age } from "components/Age";
+import { Age } from "components/age";
 import { Layout } from "components/layout";
 import { GetStaticProps } from "next";
-import { TimelineItem } from "types/Timeline";
+import { TimelineItem } from "types/timeline";
 import { Timeline } from "components/timeline/timeline";
-import { Link } from "components/blog/markdown/Link";
+import { Link } from "components/blog/markdown/link";
 
 const pageTitle = "About - Casper Iversen";
 const pageDescription = "Get to know more about me and some of my accomplishments.";

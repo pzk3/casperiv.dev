@@ -1,6 +1,6 @@
 import { Button } from "components/button";
 import * as React from "react";
-import { TimelineItem as TTimelineItem } from "types/Timeline";
+import { TimelineItem as TTimelineItem } from "types/timeline";
 import { TimelineItem } from "./timeline-item";
 
 export function Timeline({ timelineData }: { timelineData: TTimelineItem[] }) {

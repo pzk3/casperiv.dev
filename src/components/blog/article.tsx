@@ -1,7 +1,7 @@
-import { Post } from "types/Post";
+import { Post } from "types/post";
 import { BlogFooter } from "./blog-footer";
 import { BlogHeader } from "./blog-header";
-import { Markdown } from "./markdown/Markdown";
+import { Markdown } from "./markdown/markdown";
 
 interface Props {
   article: Post;
