@@ -69,7 +69,7 @@ sudo ufw allow "Nignx Full" # 80 and 443
 
 To verify this worked, you can run the following command
 
-```bash
+```bash --command=true
 sudo ufw status
 ```
 
@@ -140,7 +140,7 @@ Once we've installed all the required packages, we can configure NGINX to serve 
 
 Start by opening the following file with a text-editor: `/etc/nginx/sites-available/default`. I will use nano for this.
 
-```bash
+```bash --command=true
 nano /etc/nginx/sites-available/default
 ```
 
@@ -175,7 +175,7 @@ server {
 
 Once done editing, save and exit the editor and verify the config file with the following command:
 
-```bash
+```bash --command=true
 nginx -t
 ```
 
@@ -188,7 +188,7 @@ Cerbot can be installed in many ways and on many machines with different configu
 
 After following Cerbot's instructions, you should verify if it changed the NGINX config, open the config file and see changes made.
 
-```bash
+```bash --command=true
 nano /etc/nginx/sites-available/default
 ```
 
@@ -198,7 +198,7 @@ Now you should see that the `server` block will serve the project on port 443 (H
 
 As our last step, we must restart NGINX with this simple command:
 
-```bash
+```bash --command=true
 sudo systemctl reload nginx
 ```
 
