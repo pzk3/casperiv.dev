@@ -7,17 +7,17 @@ export function NavLink({
   ...props
 }: JSX.IntrinsicElements["a"] & { isActive: boolean; menuOpen: boolean }) {
   return (
-    <NextLink href={props.href!}>
-      <a
-        {...props}
-        className={classNames("py-2 px-3 duration-200 transition rounded-md", {
-          "my-2 block ": menuOpen,
-          "bg-secondary text-white hover:brightness-125 font-medium shadow-md": isActive,
-          "hover:bg-secondary-light hover:text-white": !isActive,
-        })}
-      >
-        {props.children}
-      </a>
-    </NextLink>
+    (<NextLink
+      href={props.href!}
+      {...props}
+      className={classNames("py-2 px-3 duration-200 transition rounded-md", {
+        "my-2 block ": menuOpen,
+        "bg-secondary text-white hover:brightness-125 font-medium shadow-md": isActive,
+        "hover:bg-secondary-light hover:text-white": !isActive,
+      })}>
+
+      {props.children}
+
+    </NextLink>)
   );
 }

@@ -16,10 +16,10 @@ export function Link(props: JSX.IntrinsicElements["a"]) {
   }
 
   return (
-    <NextLink href={href}>
-      <a {...rest} className={className}>
-        {children}
-      </a>
-    </NextLink>
+    (<NextLink href={href} {...rest} className={className}>
+
+      {children}
+
+    </NextLink>)
   );
 }

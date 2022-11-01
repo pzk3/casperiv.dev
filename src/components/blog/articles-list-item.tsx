@@ -25,17 +25,14 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
           isFeatured,
       })}
     >
-      <Link href={`/${type}/${article.slug}`}>
-        <a {...extraAProps}>
-          <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
-            {article.title}
-          </h2>
-          <p className="mt-1 text-secondary">{article.intro}</p>
-
-          {isFeatured ? null : (
-            <span className="block mt-1.5 font-normal text-secondary-light">{publishedAt}</span>
-          )}
-        </a>
+      <Link href={`/${type}/${article.slug}`} {...extraAProps}>
+        <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
+          {article.title}
+        </h2>
+        <p className="mt-1 text-secondary">{article.intro}</p>
+        {isFeatured ? null : (
+          <span className="block mt-1.5 font-normal text-secondary-light">{publishedAt}</span>
+        )}
       </Link>
     </li>
   );
