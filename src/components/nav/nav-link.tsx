@@ -5,7 +5,7 @@ export function NavLink({
   menuOpen,
   isActive,
   ...props
-}: JSX.IntrinsicElements["a"] & { isActive: boolean; menuOpen: boolean }) {
+}: Omit<JSX.IntrinsicElements["a"], "ref"> & { isActive: boolean; menuOpen: boolean }) {
   return (
     <NextLink
       href={props.href!}

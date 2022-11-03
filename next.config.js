@@ -2,10 +2,6 @@
 module.exports = {
   cleanDistDir: true,
   reactStrictMode: true,
-  experimental: {
-    browsersListForSwc: true,
-    legacyBrowsers: false,
-  },
   async redirects() {
     return [
       {
