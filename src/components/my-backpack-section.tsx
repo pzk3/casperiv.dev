@@ -19,7 +19,7 @@ export function MyBackpackSection({ myBackpack }: { myBackpack: [string, string[
               <ul>
                 {items.map((item) => (
                   <li className="my-1" key={item}>
-                    <p>{item}</p>
+                    <p className="text-secondary-light">{item}</p>
                   </li>
                 ))}
               </ul>

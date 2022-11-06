@@ -10,7 +10,11 @@ export function HeroSection() {
     <section className="flex flex-col justify-center mx-auto min-h-[40em]">
       <div>
         <p className="text-2xl sm: md:text-3xl mb-3 text-secondary-light">
-          <span className="inline-block animate-wave origin-bottom" aria-label="Waving" role="img">
+          <span
+            className="inline-block animate-wave origin-bottom-right"
+            aria-label="Waving"
+            role="img"
+          >
             👋
           </span>{" "}
           Hello! I am
@@ -24,7 +28,7 @@ export function HeroSection() {
       </div>
 
       <p className="max-w-3xl mt-6 text-secondary-light md:text-xl">
-        I am an extremely motivated programmer and student from Belgium.{"I'm"} a self-taught
+        I am an extremely motivated programmer and student from Belgium. {"I'm"} a self-taught
         developer and have been programming for {formatDistanceToNow(started)} and {"I'm"} still
         learning new technologies every week, mostly focusing on frontend related technologies.{" "}
       </p>
@@ -53,7 +57,7 @@ export function HeroSection() {
             version="1.1"
             width="16"
             data-view-component="true"
-            className="fill-[#d25e9c] group-hover:scale-110 transition-transform duration-200"
+            className="fill-[#d25e9c] group-hover:scale-125 transition-transform duration-200"
           >
             <path
               fillRule="evenodd"
