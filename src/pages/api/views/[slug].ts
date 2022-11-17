@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   return res.status(405).send("Method Not Allowed");
 }
 
-function doesMethodHaveHandler<Handlers>(
+function doesMethodHaveHandler<Handlers extends object>(
   method: string | number | symbol,
   handlers: Handlers,
 ): method is keyof Handlers {
