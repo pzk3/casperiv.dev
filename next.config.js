@@ -2,6 +2,10 @@
 module.exports = {
   cleanDistDir: true,
   reactStrictMode: true,
+  images: {
+    minimumCacheTTL: 60,
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     return [
       {
