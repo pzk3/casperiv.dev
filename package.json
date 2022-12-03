@@ -39,10 +39,12 @@
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-code-titles": "^1.1.0",
+    "rehype-pretty-code": "^0.5.1",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "rss": "^1.2.2",
     "sharp": "^0.31.2",
+    "shiki": "^0.11.1",
     "tailwind-merge": "^1.8.0",
     "yargs-parser": "^21.1.1",
     "yup": "^0.32.11"

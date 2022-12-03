@@ -2,7 +2,7 @@ import styles from "styles/blog.module.scss";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { Link } from "./link";
-import { MDCode } from "./code";
+// import { MDCode } from "./code";
 import { Info } from "./info";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ import Image from "next/image";
 const components = {
   Link,
   a: Link,
-  pre: MDCode,
+  // pre: MDCode,
   Info,
   Image,
 };
