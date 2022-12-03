@@ -1,28 +1,22 @@
-import { NextSeo } from "next-seo";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Age } from "components/age";
-import { Layout } from "components/layout";
-import { GetStaticProps } from "next";
-import { TimelineItem } from "types/timeline";
 import { Timeline } from "components/timeline/timeline";
-import { Link } from "components/blog/markdown/link";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import Link from "next/link";
 
-const pageTitle = "About - Casper Iversen";
-const pageDescription = "Get to know more about me and some of my accomplishments.";
+async function fetchTimelineData() {
+  const timelineData = (await import("../../data/timeline")).timeline;
 
-export default function About({ timelineData }: { timelineData: TimelineItem[] }) {
-  // this is roughly the date I started programing according to GitHub 😅!
+  return {
+    timelineData,
+  };
+}
+
+export default async function AboutPage() {
+  const { timelineData } = await fetchTimelineData();
   const started = new Date("2019-08-08");
 
   return (
-    <Layout>
-      <NextSeo
-        openGraph={{ title: pageTitle, description: pageDescription }}
-        canonical="https://caspertheghost.me/about"
-        title={pageTitle}
-        description={pageDescription}
-      />
-
+    <>
       <section id="about">
         <h1 className="section-title">About Me</h1>
 
@@ -66,16 +60,6 @@ export default function About({ timelineData }: { timelineData: TimelineItem[] }
 
         <Timeline timelineData={timelineData} />
       </section>
-    </Layout>
+    </>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const timelineData = await (await import("../data/timeline")).timeline;
-
-  return {
-    props: {
-      timelineData,
-    },
-  };
-};

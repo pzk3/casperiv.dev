@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["var(--font-rubik)", ...fontFamily.sans],
         serif: ["PlayfairDisplay", ...fontFamily.serif],
       },
       borderWidth: {

@@ -1,6 +1,5 @@
-import * as React from "react";
-import { getMDXComponent } from "mdx-bundler/client";
 import styles from "styles/blog.module.scss";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { Link } from "./link";
 import { MDCode } from "./code";
@@ -17,11 +16,11 @@ const components = {
 };
 
 interface Props {
-  content: string;
+  code: string;
 }
 
-export function Markdown({ content }: Props) {
-  const Component = React.useMemo(() => getMDXComponent(content), [content]);
+export function Markdown({ code }: Props) {
+  const Component = useMDXComponent(code);
 
   return (
     <main className={["prose max-w-none", styles.reactMarkdown].join(" ")}>

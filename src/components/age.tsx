@@ -1,3 +1,5 @@
+"use client";
+
 import { useAge } from "lib/hooks/use-age";
 import { calculateAge } from "lib/utils";
 import classNames from "clsx";

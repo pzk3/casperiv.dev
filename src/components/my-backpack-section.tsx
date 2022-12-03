@@ -1,3 +1,5 @@
+"use client";
+
 export function MyBackpackSection({ myBackpack }: { myBackpack: [string, string[]][] }) {
   return (
     <section id="skills">

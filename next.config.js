@@ -1,10 +1,15 @@
+const { withContentlayer } = require("next-contentlayer");
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   cleanDistDir: true,
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    appDir: true,
   },
   async redirects() {
     return [
@@ -54,3 +59,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withContentlayer(nextConfig);

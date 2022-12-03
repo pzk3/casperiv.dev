@@ -1,5 +1,7 @@
+"use client";
+
 import * as React from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { Github, Linkedin, List, Twitter, X } from "react-bootstrap-icons";
 import classNames from "clsx";
 import { useViewport } from "lib/hooks/use-viewport";
@@ -36,7 +38,7 @@ const links = [
 ];
 
 export function Nav() {
-  const router = useRouter();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = React.useState(false);
   const viewport = useViewport();
 
@@ -48,11 +50,12 @@ export function Nav() {
 
   React.useEffect(() => {
     setMenuOpen(false);
-  }, [router]);
+  }, [pathname]);
 
   function isCurrent(path: string | string[]) {
     const array = Array.isArray(path) ? path : [path];
-    return array.includes(router.pathname);
+    if (!pathname) return false;
+    return array.includes(pathname);
   }
 
   return (
@@ -84,17 +87,32 @@ export function Nav() {
 
         <ul className="flex items-center h-full space-x-1">
           <li>
-            <IconLink aria-label="Linkedin profile" href="https://linkedin.com/in/casper-iversen">
+            <IconLink
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Linkedin profile"
+              href="https://linkedin.com/in/casper-iversen"
+            >
               <Linkedin />
             </IconLink>
           </li>
           <li>
-            <IconLink aria-label="GitHub profile" href="https://github.com/dev-caspertheghost">
+            <IconLink
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+              href="https://github.com/dev-caspertheghost"
+            >
               <Github />
             </IconLink>
           </li>
           <li>
-            <IconLink aria-label="Twitter profile" href="https://twitter.com/casper124578">
+            <IconLink
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Twitter profile"
+              href="https://twitter.com/casper124578"
+            >
               <Twitter />
             </IconLink>
           </li>

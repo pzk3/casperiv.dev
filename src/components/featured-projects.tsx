@@ -1,3 +1,5 @@
+"use client";
+
 import { Project } from "types/project";
 import { Link } from "./blog/markdown/link";
 

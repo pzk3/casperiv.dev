@@ -3,6 +3,14 @@ import { TimelineItem } from "types/timeline";
 export const timeline: TimelineItem[] = [
   {
     year: 2022,
+    title: "Stampix",
+    text: "Started a new job as a student at a Stampix. Working full-stack on admin & customer dashboards.",
+    date: "December 2022",
+    url: "https://stampix.com/en/",
+    tag: "job",
+  },
+  {
+    year: 2022,
     title: "Learning Vue",
     text: "I used to watch The Coding Garden's videos on Vue.js, but never used it myself. However, with the release of version 3, I thought why not learn it! I find that Vue has a fairly simple learning curve which allows me to create a lot of projects quickly.",
     date: "August 2022",

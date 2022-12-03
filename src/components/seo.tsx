@@ -41,11 +41,9 @@ export function Seo(props: Props) {
       <meta property="og:description" content={tags.description} />
       <meta name="twitter:description" content={tags.description} />
 
-      <link rel="canonical" href={tags.url} />
-      <meta property="og:url" content={tags.url} />
-
       <meta name="keywords" content={[...DEFAULT_KEYWORDS, ...(tags.keywords ?? [])].join(", ")} />
 
+      {/* todo: implement this */}
       {tags.date ? (
         <>
           <meta property="article:published_time" content={tags.date} />

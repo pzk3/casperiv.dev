@@ -42,3 +42,6 @@ tsconfig.tsbuildinfo
 
 # development - gallery
 gallery
+
+# contentlayer
+.contentlayer

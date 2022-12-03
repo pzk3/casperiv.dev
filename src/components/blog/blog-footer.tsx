@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import { Post } from "types/post";
+import { CodeSnippet } from "contentlayer/generated";
+import { usePathname } from "next/navigation";
 
 interface Props {
-  post: Post;
+  post: CodeSnippet;
 }
 
 const types = {
@@ -12,13 +12,14 @@ const types = {
 };
 
 export function BlogFooter({ post }: Props) {
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const type = types[router.pathname as keyof typeof types];
+  // todo: pathname doesn't work here
+  const type = types[pathname as keyof typeof types];
 
   const GITHUB_REPO_LINK =
     "https://github.com/Dev-CasperTheGhost/caspertheghost.me/edit/main/src/data";
-  const link = `${GITHUB_REPO_LINK}/${type}/${post.slug}.mdx`;
+  const link = `${GITHUB_REPO_LINK}/${type}/${post._raw.flattenedPath}`;
 
   return (
     <footer className="flex justify-end pt-12 pb-2 mb-5 border-b border-secondary">

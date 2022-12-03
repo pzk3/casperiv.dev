@@ -1,15 +1,18 @@
+"use client";
+
 import { useSSRSafeId } from "@react-aria/ssr";
+import { CodeSnippet } from "contentlayer/generated";
 import format from "date-fns/format";
 import { useViews } from "lib/hooks/use-views";
 import { Clock, Eye } from "react-bootstrap-icons";
-import { Post } from "types/post";
+import { getPostSlug } from "src/app/snippets/[slug]/page";
 
 interface Props {
-  post: Post;
+  post: CodeSnippet;
 }
 
 export function BlogHeader({ post }: Props) {
-  const views = useViews();
+  const views = useViews(getPostSlug(post));
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
 

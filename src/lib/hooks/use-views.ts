@@ -1,5 +1,6 @@
+"use client";
+
 import { View } from "@prisma/client";
-import { useRouter } from "next/router";
 import * as React from "react";
 
 export async function updateViews(slug: string): Promise<View | null> {
@@ -13,12 +14,11 @@ export async function updateViews(slug: string): Promise<View | null> {
   }
 }
 
-export function useViews(): number | null {
+export function useViews(slug: string): number | null {
   const [views, setViews] = React.useState<number | null>(null);
-  const router = useRouter();
 
   async function handleViews() {
-    const data = await updateViews(router.query.slug as string);
+    const data = await updateViews(slug);
     data && setViews(data.count);
   }
 

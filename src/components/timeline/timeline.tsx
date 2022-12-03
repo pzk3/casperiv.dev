@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "components/button";
 import * as React from "react";
 import { TimelineItem as TTimelineItem } from "types/timeline";

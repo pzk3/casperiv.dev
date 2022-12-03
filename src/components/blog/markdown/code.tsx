@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import { Button } from "components/button";
 import * as React from "react";
