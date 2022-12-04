@@ -60,24 +60,3 @@ body {
     transform: translateY(0);
   }
 }
-
-.rehype-code-title {
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-  font-family: "CascadiaMono", "Courier New", monospace;
-  padding: 0.5rem 1rem;
-  padding-bottom: 0.8rem; // evenly space the text to the center (y-axis)
-  color: theme("colors.secondary");
-  border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
-  background-color: theme("colors.primary");
-  box-shadow: theme("dropShadow.sm");
-
-  + [data-code-group] {
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-  }
-}
-
-details > .rehype-code-title {
-  background: #52585d !important;
-}

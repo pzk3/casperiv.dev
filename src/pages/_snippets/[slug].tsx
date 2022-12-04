@@ -8,30 +8,11 @@ import { NextSeo } from "next-seo";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export default function BlogPost({ snippet }: { snippet: Post }) {
-  const pageTitle = `${snippet.title} - Casper Iversen`;
-  const pageDescription = snippet.intro ?? undefined;
-  const keywords = [
-    ...DEFAULT_KEYWORDS,
-    "code snippets",
-    "snippets casper iversen",
-    ...(snippet.keywords ?? []),
-  ];
+
 
   return (
     <Layout>
-      <NextSeo
-        openGraph={{
-          article: {
-            publishedTime: snippet.createdAt,
-          },
-          title: pageTitle,
-          description: pageDescription,
-        }}
-        canonical={`https://caspertheghost.me/snippets/${snippet.slug}`}
-        title={pageTitle}
-        description={pageDescription}
-        additionalMetaTags={[{ name: "keywords", content: keywords.join(", ") }]}
-      />
+
 
       <Head>
         <link rel="preload" href="/fonts/CascadiaMono.woff2" as="font" type="font/woff2" />

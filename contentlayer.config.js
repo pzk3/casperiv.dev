@@ -35,24 +35,18 @@ export default makeSource({
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }];
             }
+
+            node.properties["data-line"] = true;
           },
           onVisitHighlightedLine(node) {
-            node.properties.className.push("line--highlighted");
+            node.properties["data-line-highlighted"] = true;
           },
           onVisitHighlightedWord(node) {
-            node.properties.className = ["word--highlighted"];
+            node.properties["data-word-highlighted"] = true;
           },
         },
       ],
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ["subheading-anchor"],
-            ariaLabel: "Link to section",
-          },
-        },
-      ],
+      [rehypeAutolinkHeadings, { properties: { ariaLabel: "Link to section" } }],
     ],
     remarkPlugins: [remarkGfm],
   },

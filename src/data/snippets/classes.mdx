@@ -16,6 +16,10 @@ export function classes(...arr: (string | boolean | null | undefined)[]): string
 
 ## Usage
 
-```tsx
-<div className={classes("myClass", isTrue && "anotherClass")}>Hello world!</div>
+```tsx {2}
+<div
+  className={classes("myClass", isTrue && "anotherClass")}
+>
+  Hello world!
+</div>
 ```
