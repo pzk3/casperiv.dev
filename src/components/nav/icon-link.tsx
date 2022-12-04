@@ -1,4 +1,3 @@
-import { useSSRSafeId } from "@react-aria/ssr";
 import * as React from "react";
 
 type AProps = JSX.IntrinsicElements["a"];
@@ -7,7 +6,7 @@ interface Props extends AProps {
 }
 
 export function IconLink({ children, ...rest }: Props) {
-  const githubId = useSSRSafeId();
+  const githubId = React.useId();
 
   const element = React.cloneElement(children, {
     "aria-labelledby": githubId,

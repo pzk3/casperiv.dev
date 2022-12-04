@@ -1,6 +1,6 @@
 "use client";
 
-import { useSSRSafeId } from "@react-aria/ssr";
+import * as React from "react";
 import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
 import format from "date-fns/format";
 import { useViews } from "lib/hooks/use-views";
@@ -16,8 +16,8 @@ export function BlogHeader({ post }: Props) {
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
 
-  const viewsId = useSSRSafeId();
-  const readTimeId = useSSRSafeId();
+  const viewsId = React.useId();
+  const readTimeId = React.useId();
 
   return (
     <header className="pb-2 pt-5 border-b border-secondary">

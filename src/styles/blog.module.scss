@@ -1,24 +1,16 @@
-@font-face {
-  font-family: "CascadiaMono";
-  src: url("/fonts/CascadiaMono.woff2");
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-}
-
 .reactMarkdown {
   margin-top: 1rem;
 
   [data-info] pre {
-    background-color: theme("colors.primary") !important;
-    color: theme("colors.secondary") !important;
+    background-color: theme("colors.primary");
+    color: theme("colors.secondary");
   }
 
   pre {
-    border: none !important;
-    font-family: "CascadiaMono", "Courier New", monospace !important;
-    background-color: theme("colors.primary") !important;
-    padding: 0.4em 0.5em !important;
+    border: none;
+    font-family: theme("fontFamily.mono");
+    background-color: theme("colors.primary");
+    padding: 0.4em 0.5em;
 
     code {
       padding: 0;
@@ -26,11 +18,11 @@
   }
 
   code {
-    font-family: "CascadiaMono", "Courier New", monospace !important;
-    font-size: 16px !important;
-    border-radius: 0 !important;
+    font-family: theme("fontFamily.mono");
+    font-size: 16px;
+    border-radius: theme("borderRadius.md");
     padding: theme("padding.1") theme("padding[1.5]");
-    font-weight: theme("fontWeight.light");
+    font-weight: theme("fontWeight.normal");
 
     &::before,
     &::after {
@@ -39,21 +31,21 @@
   }
 
   [data-rehype-pretty-code-fragment] {
-    border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5) !important;
+    border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
     box-shadow: theme("dropShadow.sm");
-    border-radius: theme("borderRadius.md") !important;
+    border-radius: theme("borderRadius.md");
 
     [data-rehype-pretty-code-title] {
-      font-family: "CascadiaMono", "Courier New", monospace;
+      font-family: theme("fontFamily.mono");
       padding: 0.2em 0.7em;
       color: theme("colors.secondary");
       box-shadow: theme("dropShadow.sm");
-      border-bottom: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5) !important;
+      border-bottom: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
     }
 
     > pre {
-      margin-top: 0px !important;
-      margin-bottom: 0px !important;
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
 
     [data-line="true"] {
@@ -65,7 +57,7 @@
       // position the background color from the container start to container end
       margin-left: -0.5em;
       width: calc(100% + 0.95em);
-      background-color: rgba(70 92 92 / 0.2) !important;
+      background-color: rgba(70 92 92 / 0.2);
     }
   }
 

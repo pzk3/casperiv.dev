@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        mono: ["var(--font-cascadia-mono)", ...fontFamily.mono],
         sans: ["var(--font-rubik)", ...fontFamily.sans],
         serif: ["PlayfairDisplay", ...fontFamily.serif],
       },
@@ -56,42 +57,8 @@ module.exports = {
             },
           },
         },
-        // dark: {
-        //   css: {
-        //     color: theme("colors.gray.300"),
-        //     code: {
-        //       backgroundColor: "#343a40",
-        //       color: theme("colors.gray.200"),
-        //     },
-        //     a: {
-        //       color: theme("colors.gray.300"),
-        //     },
-        //     figcaption: {
-        //       color: theme("colors.gray.400"),
-        //     },
-        //     "h2,h3,h4": {
-        //       color: theme("colors.gray.200"),
-        //       "scroll-margin-top": spacing[32],
-        //     },
-        //     hr: { borderColor: theme("colors.neutral.700") },
-        //     ol: {
-        //       li: {
-        //         "&:before": { color: theme("colors.gray.500") },
-        //       },
-        //     },
-        //     ul: {
-        //       li: {
-        //         "&:before": { backgroundColor: theme("colors.gray.500") },
-        //       },
-        //     },
-        //     strong: { color: theme("colors.gray.200") },
-        //   },
-        // },
       }),
     },
-  },
-  variants: {
-    typography: ["dark"],
   },
   plugins: [require("@tailwindcss/typography")],
 };
