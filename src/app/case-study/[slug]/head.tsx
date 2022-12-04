@@ -12,7 +12,7 @@ export default function CaseStudyHead({ params }: { params: { slug: string } }) 
   }
 
   const pageTitle = `${caseStudy.title} - Casper Iversen`;
-  const pageDescription = caseStudy.intro ?? undefined;
+  const pageDescription = caseStudy.intro;
   const keywords = [
     ...DEFAULT_KEYWORDS,
     "case studies",

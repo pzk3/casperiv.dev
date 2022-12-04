@@ -1,5 +1,5 @@
-import NextLink from "next/link";
 import classNames from "clsx";
+import { Link } from "components/blog/markdown/link";
 
 export function NavLink({
   menuOpen,
@@ -7,8 +7,9 @@ export function NavLink({
   ...props
 }: Omit<JSX.IntrinsicElements["a"], "ref"> & { isActive: boolean; menuOpen: boolean }) {
   return (
-    <NextLink
+    <Link
       href={props.href!}
+      isNav
       {...props}
       className={classNames("py-2 px-3 duration-200 transition rounded-md", {
         "my-2 block ": menuOpen,
@@ -17,6 +18,6 @@ export function NavLink({
       })}
     >
       {props.children}
-    </NextLink>
+    </Link>
   );
 }

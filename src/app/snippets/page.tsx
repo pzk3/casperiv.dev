@@ -6,7 +6,7 @@ export default async function CodeSnippetsSlugPage() {
     <>
       <h1 className="section-title">Code Snippets</h1>
 
-      <ArticlesList articles={allCodeSnippets} type="blog" />
+      <ArticlesList articles={allCodeSnippets} type="snippets" />
     </>
   );
 }

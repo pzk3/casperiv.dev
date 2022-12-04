@@ -7,6 +7,8 @@ import { Footer } from "components/footer";
 import { Rubik } from "@next/font/google";
 import Script from "next/script";
 import { Layout } from "components/layout";
+import { NextSeo } from "next-seo";
+import { SEO } from "next-seo.config";
 
 const rubikFont = Rubik({ variable: "--font-rubik", subsets: ["latin"] });
 
@@ -17,7 +19,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={rubikFont.variable} lang="en">
-      <head />
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <NextSeo useAppDir {...SEO} />
+      </head>
 
       <body className="bg-primary text-secondary min-h-screen">
         <SSRProvider>

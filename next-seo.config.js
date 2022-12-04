@@ -37,18 +37,10 @@ export const SEO = {
   defaultTitle: title,
   description,
   additionalMetaTags: [
-    {
-      name: "keywords",
-      content: DEFAULT_KEYWORDS.join(", "),
-    },
-    {
-      name: "msapplication-TileColor",
-      content: "#f9fbfc",
-    },
-    {
-      name: "author",
-      content: "Casper Iversen",
-    },
+    { name: "viewport", content: "width=device-width" },
+    { name: "keywords", content: DEFAULT_KEYWORDS.join(", ") },
+    { name: "msapplication-TileColor", content: "#f9fbfc" },
+    { name: "author", content: "Casper Iversen" },
   ],
   additionalLinkTags: [
     { rel: "manifest", href: "/manifest.json" },
