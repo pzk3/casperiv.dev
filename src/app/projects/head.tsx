@@ -4,7 +4,7 @@ import { DEFAULT_KEYWORDS } from "next-seo.config";
 export const pageTitle = "Projects - Casper Iversen";
 export const pageDescription = "A list of my projects that I'm proud of.";
 
-export default function RootHead() {
+export default function ProjectsHead() {
   return (
     <head>
       <NextSeo

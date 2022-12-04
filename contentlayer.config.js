@@ -5,23 +5,50 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 
+const baseFields = {
+  title: { type: "string", required: true },
+  intro: { type: "string", required: true },
+  createdAt: { type: "date", required: true },
+  updatedAt: { type: "date", required: false },
+  featured: { type: "boolean", required: false },
+  archived: { type: "boolean", required: false },
+  readingTime: { type: "string", required: false },
+  keywords: { type: "string", required: false },
+};
+
 export const CodeSnippet = defineDocumentType(() => ({
   name: "CodeSnippet",
   filePathPattern: "**/snippets/**/*.mdx",
   contentType: "mdx",
-  fields: {
-    title: { type: "string", required: true },
-    intro: { type: "string", required: true },
-    createdAt: { type: "date", required: true },
-    readingTime: { type: "string", required: false },
-    // keywords: { type: "list", default: [] },
-  },
+  fields: baseFields,
+}));
+
+export const BlogPost = defineDocumentType(() => ({
+  name: "BlogPost",
+  filePathPattern: "**/posts/**/*.mdx",
+  contentType: "mdx",
+  fields: baseFields,
+}));
+
+export const CaseStudy = defineDocumentType(() => ({
+  name: "CaseStudy",
+  filePathPattern: "**/case-studies/**/*.mdx",
+  contentType: "mdx",
+  fields: baseFields,
 }));
 
 export default makeSource({
   contentDirPath: "./src/data",
-  documentTypes: [CodeSnippet],
+  documentTypes: [CodeSnippet, BlogPost, CaseStudy],
   mdx: {
+    esbuildOptions: (options) => {
+      options.loader = {
+        ...options.loader,
+        ".png": "dataurl",
+      };
+
+      return options;
+    },
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,

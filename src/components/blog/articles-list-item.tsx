@@ -1,11 +1,12 @@
-import type { Post } from "types/post";
 import Link from "next/link";
 import format from "date-fns/format";
 import classNames from "clsx";
+import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import { getArticleSlug } from "lib/mdx/get-article-slug";
 
 interface Props {
   isFeatured?: boolean;
-  article: Post;
+  article: BlogPost | CodeSnippet | CaseStudy;
   type: "blog" | "snippets";
 }
 
@@ -25,7 +26,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
           isFeatured,
       })}
     >
-      <Link href={`/${type}/${article.slug}`} {...extraAProps}>
+      <Link href={`/${type}/${getArticleSlug(article)}`} {...extraAProps}>
         <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
           {article.title}
         </h2>

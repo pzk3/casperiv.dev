@@ -16,15 +16,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return view;
     },
     POST: async () => {
-      if (!view) {
-        return prisma.view.create({
-          data: { count: 1, slug },
-        });
-      }
-
-      return prisma.view.update({
+      return prisma.view.upsert({
         where: { slug },
-        data: { count: { increment: 1 } },
+        update: { count: { increment: 1 } },
+        create: { slug, count: 1 },
       });
     },
   };

@@ -1,9 +1,9 @@
 import { BlogFooter } from "components/blog/blog-footer";
 import { BlogHeader } from "components/blog/blog-header";
 import { Markdown } from "components/blog/markdown/markdown";
-import { allCodeSnippets } from "contentlayer/generated";
+import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { getCodeSnippet } from "lib/mdx/get-code-snippet";
+import { getBlogPost } from "lib/mdx/get-blog-post";
 import { notFound } from "next/navigation";
 
 interface CodeSnippetsSlugPageProps {
@@ -11,7 +11,7 @@ interface CodeSnippetsSlugPageProps {
 }
 
 export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {
-  const item = getCodeSnippet(params.slug);
+  const item = getBlogPost(params.slug);
 
   if (!item) {
     return notFound();
@@ -27,7 +27,7 @@ export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugP
 }
 
 export async function generateStaticParams() {
-  return allCodeSnippets.map((snippet) => ({
+  return allBlogPosts.map((snippet) => ({
     slug: getArticleSlug(snippet),
   }));
 }

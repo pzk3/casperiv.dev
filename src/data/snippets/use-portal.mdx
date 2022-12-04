@@ -10,7 +10,7 @@ A simple [React](https://github.com/facebook/react) hook for creating portals fo
 
 ## The hook
 
-```tsx:src/hooks/usePortal.ts
+```tsx title="src/hooks/usePortal.ts"
 import * as React from "react";
 
 export function usePortal(id = "unknown") {
@@ -47,7 +47,7 @@ export function usePortal(id = "unknown") {
 
 ## Usage
 
-```tsx:src/App.ts
+```tsx title="src/App.ts"
 import * as React from "react";
 import ReactDOM from "react-dom";
 import { usePortal } from "hooks/usePortal"

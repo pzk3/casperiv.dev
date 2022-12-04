@@ -36,7 +36,7 @@ nprogress.
   <details>
     <summary>Open template</summary>
 
-```tsx:pages/_app.tsx
+```tsx title="pages/_app.tsx"
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
@@ -46,7 +46,7 @@ export default function MyApp({ Component, pageProps }) {
 
 </Info>
 
-```tsx:pages/_app.tsx
+```tsx title="pages/_app.tsx"
 import "nprogress/nprogress.css";
 
 export default function MyApp({ Component, pageProps }) {
@@ -59,7 +59,7 @@ export default function MyApp({ Component, pageProps }) {
 We'll add a `useEffect` in our component and add 2 handlers to handle `routeChangeStart` and `routeChangeComplete`.
 [More info about router events](https://nextjs.org/docs/api-reference/next/router#routerevents).
 
-```tsx:pages/_app.tsx
+```tsx title="pages/_app.tsx"
 import * as React from "react";
 import Router from "next/router";
 import NProgress from "nprogress"

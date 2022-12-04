@@ -1,8 +1,8 @@
-import { CodeSnippet } from "contentlayer/generated";
+import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  post: CodeSnippet;
+  post: BlogPost | CodeSnippet | CaseStudy;
 }
 
 const types = {

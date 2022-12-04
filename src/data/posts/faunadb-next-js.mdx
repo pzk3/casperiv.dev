@@ -61,13 +61,13 @@ Once that has all finished installing, we can create the folder structure as see
 
 In the `lib/faunadb.ts` file we created above, we will create and export the client. I recommend adding a `.env` file with the following contents:
 
-```txt: title=".env"
+```txt title=".env"
 FAUNADB_KEY="KEY_HERE"
 ```
 
 <br />
 
-```tsx:lib/faunadb.ts
+```tsx title="lib/faunadb.ts"
 import { Client } from "faunadb";
 
 if (!process.env.FAUNADB_KEY) {
@@ -81,7 +81,7 @@ export const client = new Client({ secret: process.env.FAUNADB_KEY });
 
 Bellow you can see how to use the client in your api pages.
 
-```tsx:pages/api/index.ts
+```tsx title="pages/api/index.ts"
 import { NextApiRequest, NextApiResponse } from "next";
 import { client } from "../../lib/faunadb";
 

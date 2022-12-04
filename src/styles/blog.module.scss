@@ -18,7 +18,7 @@
     border: none !important;
     font-family: "CascadiaMono", "Courier New", monospace !important;
     background-color: theme("colors.primary") !important;
-    padding: 0.25em 0.5em !important;
+    padding: 0.4em 0.5em !important;
 
     code {
       padding: 0;
@@ -57,7 +57,7 @@
     }
 
     [data-line="true"] {
-      padding: 0.2em 0.7em;
+      padding: 0.2em 0.2em;
     }
 
     [data-line-highlighted="true"] {
@@ -65,7 +65,7 @@
       // position the background color from the container start to container end
       margin-left: -0.5em;
       width: calc(100% + 0.95em);
-      background-color: #4c608952 !important;
+      background-color: rgba(70 92 92 / 0.2) !important;
     }
   }
 

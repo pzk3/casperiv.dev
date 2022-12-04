@@ -26,7 +26,7 @@ yarn add pastebin-api
 
 First, we must import the `PasteClient` class from `pastebin-api`.
 
-```typescript:src/index.ts
+```typescript title="src/index.ts"
 // es6
 import PasteClient from "pastebin-api";
 
@@ -41,7 +41,7 @@ const PasteClient = require("pastebin-api").default;
   you add this key into a `.env` file.
 </Info>
 
-```typescript:src/index.ts
+```typescript title="src/index.ts"
 const client = new PasteClient(process.env["API_KEY_HERE"]);
 ```
 
@@ -49,7 +49,7 @@ const client = new PasteClient(process.env["API_KEY_HERE"]);
 
 Now we'll create a new paste using the [`.createPaste`](https://github.com/Dev-CasperTheGhost/pastebin-api/blob/main/docs/README.md#create-a-paste) method
 
-```typescript:src/index.ts
+```typescript title="src/index.ts"
 const pasteUrl = await client.createPaste({
   code: "const hello = 'hello world!'", // The code we want to send in the Paste
   expireDate: "N", // When should the paste expire

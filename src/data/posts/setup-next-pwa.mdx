@@ -18,8 +18,8 @@ npm i next-pwa
 
 If you already have a `next.config.js` file, you will need to wrap your configs with the `withNextPWA` function:
 
-```javascript:next.config.js
-const withNextPWA = require("next-pwa")
+```js title="next.config.js"
+const withNextPWA = require("next-pwa");
 
 module.exports = withNextPWA({
   /*
@@ -27,7 +27,7 @@ module.exports = withNextPWA({
     Rest of the config here
     ...
   */
-})
+});
 ```
 
 <Info>
@@ -40,8 +40,8 @@ module.exports = withNextPWA({
 We need to add a few more options in our Next.js config to properly setup next-pwa.
 We also need to disable next-pwa for `development` to avoid [this weird error](#weird-error).
 
-```javascript:next.config.js
-const withNextPWA = require("next-pwa")
+```js title="next.config.js"
+const withNextPWA = require("next-pwa");
 
 module.exports = withNextPWA({
   /*
@@ -53,10 +53,10 @@ module.exports = withNextPWA({
     // disable for development.
     disable: process.env.NODE_ENV === "development",
     // this is the path where the sw.js file will be located.
-    dest: "public"
+    dest: "public",
     /** View more options here: https://www.npmjs.com/package/next-pwa#available-options */
-  }
-})
+  },
+});
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ Once it's done building, you should see 2 new files in your `public` folder crea
   <details>
     <summary>Sample .gitignore</summary>
 
-```txt:.gitignore
+```txt title=".gitignore"
 public/*.js
 public/*.js.map
 ```

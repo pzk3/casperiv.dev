@@ -3,7 +3,7 @@ import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 
-export async function getBackpackAndProjects() {
+async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
   const projects = (await import("data/projects")).projects;
 

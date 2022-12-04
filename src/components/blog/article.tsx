@@ -1,10 +1,10 @@
-import { Post } from "types/post";
+import { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
 import { BlogFooter } from "./blog-footer";
 import { BlogHeader } from "./blog-header";
 import { Markdown } from "./markdown/markdown";
 
 interface Props {
-  article: Post;
+  article: CodeSnippet | BlogPost | CaseStudy;
 }
 
 export function Article({ article }: Props) {
@@ -12,7 +12,7 @@ export function Article({ article }: Props) {
     <article className="pb-5">
       <BlogHeader post={article} />
 
-      <Markdown content={article.content} />
+      <Markdown code={article.body.code} />
 
       <BlogFooter post={article} />
     </article>
