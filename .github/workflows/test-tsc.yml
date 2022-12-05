@@ -16,5 +16,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: Build contentlayer
+        run: npm run build:contentlayer
       - name: Run typecheck
         run: npm run typecheck

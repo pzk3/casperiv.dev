@@ -62,7 +62,7 @@ sudo apt install nginx -y
 
 We must set up a firewall to only allow certain ports on our VPS. We will only allow `22` for SSH, `80` for HTTP and `443` for HTTPS
 
-```bash
+```bash showLineNumbers
 sudo ufw allow ssh # 22
 sudo ufw allow "Nignx Full" # 80 and 443
 ```
@@ -148,7 +148,7 @@ _You might already see some configurations, you can safely remove this._
 
 We can now start editing this file and add our own `server` block.
 
-```bash
+```nginx title="/etc/nginx/sites-available/default"
 server {
   # the name of your domain, www is optional.
   server_name my-domain.com www.my-domain.com;
