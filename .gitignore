@@ -40,8 +40,5 @@ public/rss.xml
 docker-compose.yml
 tsconfig.tsbuildinfo
 
-# development - gallery
-gallery
-
 # contentlayer
 .contentlayer

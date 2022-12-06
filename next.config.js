@@ -7,6 +7,7 @@ const nextConfig = {
   images: {
     minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
+    domains: ["res.cloudinary.com"],
   },
   experimental: {
     appDir: true,

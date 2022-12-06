@@ -60,7 +60,7 @@ export function Nav() {
 
   return (
     <header
-      className="sticky top-0 z-50 flex items-center justify-center w-full px-5 h-15 bg-primary"
+      className="sticky top-0 z-30 flex items-center justify-center w-full px-5 h-15 bg-primary"
       id="nav"
     >
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">

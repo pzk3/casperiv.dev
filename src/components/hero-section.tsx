@@ -30,9 +30,9 @@ export function HeroSection() {
       </div>
 
       <p className="max-w-3xl mt-6 text-secondary-light md:text-xl">
-        I am an extremely motivated programmer and student from Belgium. {"I'm"} a self-taught
-        developer and have been programming for {formatDistanceToNow(started)} and {"I'm"} still
-        learning new technologies every week, mostly focusing on frontend related technologies.{" "}
+        I am a highly motivated programmer and student from Belgium. I have been teaching myself to
+        code for {formatDistanceToNow(started)} and am constantly learning new technologies, with a
+        focus on frontend development.
       </p>
 
       <div className="mt-6 flex gap-2 h-9">

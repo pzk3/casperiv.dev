@@ -6,8 +6,8 @@ export function MyBackpackSection({ myBackpack }: { myBackpack: [string, string[
       <h2 className="section-title">My Backpack</h2>
 
       <p className="my-4 text-secondary-light">
-        You can find the list of my top skills below.{"I'm"} also open to learn more frontend
-        related frameworks, libraries, languages, etc!
+        I have compiled a list of my top skills below. {"I'm"} also open to exploring new frontend
+        technologies and techniques to expand my backpack.
       </p>
 
       <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-cols-3">
