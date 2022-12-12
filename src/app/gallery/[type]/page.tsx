@@ -10,7 +10,15 @@ export default async function SubGalleryPage({ params }: { params: { type: strin
   const images = await getImages(params.type);
   const columns = makeColumns(images);
 
-  return <Gallery columns={columns} />;
+  return (
+    <>
+      <h1 className="text-3xl font-bold capitalize md:text-4xl">
+        {params.type === "design-works" ? "Design Works" : "Imagery"}
+      </h1>
+
+      <Gallery columns={columns} />
+    </>
+  );
 }
 
 export async function generateStaticParams() {
@@ -20,7 +28,7 @@ export async function generateStaticParams() {
 async function getImages(folderType: string) {
   const images = (await cloudinary.search
     .expression(`folder:${folderType}/*`)
-    .sort_by("public_id", "desc")
+    .sort_by("public_id", "asc")
     .max_results(100)
     .execute()) as { resources: TCloudinaryImage[] };
 
