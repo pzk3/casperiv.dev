@@ -1,108 +1,109 @@
-import readingTime from "reading-time";
-import { readdirSync } from "node:fs";
-import { join } from "node:path";
-import { bundleMDX } from "mdx-bundler";
-import { Post } from "types/post";
+// import readingTime from "reading-time";
+// import { readdirSync } from "node:fs";
+// import { join } from "node:path";
+// import { bundleMDX } from "mdx-bundler";
+// import { Post } from "types/post";
 
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeCodeTitles from "rehype-code-titles";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { parseCodeFlags } from "./mdx/parse-code-flags";
+// import remarkGfm from "remark-gfm";
+// import rehypeSlug from "rehype-slug";
+// import rehypeCodeTitles from "rehype-code-titles";
+// import rehypeAutolinkHeadings from "rehype-autolink-headings";
+// import { parseCodeFlags } from "./mdx/parse-code-flags";
 
-export function getSlugsFromDir(dir: string): string[] {
-  return readdirSync(dir);
-}
+// export function getSlugsFromDir(dir: string): string[] {
+//   return readdirSync(dir);
+// }
 
-export type Fields<T> = (keyof T)[];
-type Types = "posts" | "snippets" | "case-studies";
+// export type Fields<T> = (keyof T)[];
+// type Types = "posts" | "snippets" | "case-studies";
 
-interface GetAllProps {
-  /** the type of item (blog post, snippet, case study) */
-  type: Types;
-  includeDrafts?: boolean;
-  includeArchived?: boolean;
-}
+// interface GetAllProps {
+//   /** the type of item (blog post, snippet, case study) */
+//   type: Types;
+//   includeDrafts?: boolean;
+//   includeArchived?: boolean;
+// }
 
-export async function getAllItems(options: GetAllProps): Promise<Post[]> {
-  const typeDir = join(process.cwd(), "src", "data", options.type);
-  const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
+// export async function getAllItems(options: GetAllProps): Promise<Post[]> {
+//   const typeDir = join(process.cwd(), "src", "data", options.type);
+//   const slugs = getSlugsFromDir(typeDir).filter((v) => /\.mdx?$/.test(v));
 
-  let posts = await Promise.all(
-    slugs.map(async (slug) =>
-      getItemBySlug<Post>({ slug, type: options.type, includeContent: false }),
-    ),
-  );
-  posts = posts.sort((post1, post2) =>
-    new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
-  );
+//   let posts = await Promise.all(
+//     slugs.map(async (slug) =>
+//       getItemBySlug<Post>({ slug, type: options.type, includeContent: false }),
+//     ),
+//   );
+//   posts = posts.sort((post1, post2) =>
+//     new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
+//   );
 
-  if (!options.includeArchived) {
-    posts = posts.filter((v) => !v.archived);
-  }
+//   if (!options.includeArchived) {
+//     posts = posts.filter((v) => !v.archived);
+//   }
 
-  if (!options.includeDrafts) {
-    posts = posts.filter((v) => !v.draft);
-  }
+//   if (!options.includeDrafts) {
+//     posts = posts.filter((v) => !v.draft);
+//   }
 
-  return posts;
-}
+//   return posts;
+// }
 
-interface GetItemBySlugOptions {
-  slug: string;
-  type: Types;
-  includeContent?: boolean;
-}
+// interface GetItemBySlugOptions {
+//   slug: string;
+//   type: Types;
+//   includeContent?: boolean;
+// }
 
-export async function getItemBySlug<T extends Post | null>(
-  options: GetItemBySlugOptions,
-): Promise<T> {
-  const includeContent = options.includeContent ?? true;
-  const dir = join(process.cwd(), "src", "data", options.type);
-  const realSlug = options.slug.replace(/\.mdx$/, "");
-  const fullPath = join(dir, `${realSlug}.mdx`);
+// export async function getItemBySlug<T extends Post | null>(
+//   options: GetItemBySlugOptions,
+// ): Promise<T> {
+//   const includeContent = options.includeContent ?? true;
+//   const dir = join(process.cwd(), "src", "data", options.type);
+//   const realSlug = options.slug.replace(/\.mdx$/, "");
+//   const fullPath = join(dir, `${realSlug}.mdx`);
 
-  const { code: content, frontmatter } = await bundleMDX({
-    file: fullPath,
-    mdxOptions: (options) => {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+//   const { code: content, frontmatter } = await bundleMDX({
+//     file: fullPath,
+//     mdxOptions: (options) => {
+//       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
 
-      options.rehypePlugins = [
-        ...(options.rehypePlugins ?? []),
-        rehypeSlug,
-        rehypeCodeTitles,
-        rehypeAutolinkHeadings,
-        parseCodeFlags,
-      ];
+//       options.rehypePlugins = [
+//         ...(options.rehypePlugins ?? []),
+//         rehypeSlug,
+//         rehypeCodeTitles,
+//         rehypeAutolinkHeadings,
+//         parseCodeFlags,
+//       ];
 
-      return options;
-    },
-    esbuildOptions: (options) => {
-      options.loader = {
-        ...options.loader,
-        ".png": "dataurl",
-      };
+//       return options;
+//     },
+//     esbuildOptions: (options) => {
+//       options.loader = {
+//         ...options.loader,
+//         ".png": "dataurl",
+//       };
 
-      return options;
-    },
-  });
+//       return options;
+//     },
+//   });
 
-  const { text } = frontmatter.readingTime
-    ? { text: frontmatter.readingTime }
-    : readingTime(content);
+//   const { text } = frontmatter.readingTime
+//     ? { text: frontmatter.readingTime }
+//     : readingTime(content);
 
-  return {
-    slug: realSlug,
-    content: includeContent ? content : null,
-    readingTime: text,
-    frontmatter,
-    createdAt: frontmatter.createdAt,
-    intro: frontmatter.intro,
-    keywords: frontmatter.keywords ?? "",
-    title: frontmatter.title,
-    updatedAt: frontmatter.updatedAt ?? null,
-    draft: frontmatter.draft ?? false,
-    featured: frontmatter.featured ?? false,
-    archived: frontmatter.archived ?? false,
-  } as any;
-}
+//   return {
+//     slug: realSlug,
+//     content: includeContent ? content : null,
+//     readingTime: text,
+//     frontmatter,
+//     createdAt: frontmatter.createdAt,
+//     intro: frontmatter.intro,
+//     keywords: frontmatter.keywords ?? "",
+//     title: frontmatter.title,
+//     updatedAt: frontmatter.updatedAt ?? null,
+//     draft: frontmatter.draft ?? false,
+//     featured: frontmatter.featured ?? false,
+//     archived: frontmatter.archived ?? false,
+//   } as any;
+// }
+export {};
