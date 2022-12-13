@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   typecheck:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: production
 
     steps:
       - uses: actions/checkout@v3
@@ -13,8 +15,6 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-          env:
-            NODE_ENV: production
 
       - name: Install dependencies
         run: npm install
