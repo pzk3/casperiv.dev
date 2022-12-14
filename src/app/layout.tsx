@@ -6,7 +6,6 @@ import { Nav } from "components/nav";
 import { Footer } from "components/footer";
 import { Rubik } from "@next/font/google";
 import localFont from "@next/font/local";
-import Script from "next/script";
 import { Layout } from "components/layout";
 import { NextSeo } from "next-seo";
 import { SEO } from "next-seo.config";
@@ -43,7 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </SSRProvider>
       </body>
       {process.env.NODE_ENV === "production" ? (
-        <Script
+        <script
           async
           defer
           data-website-id={process.env.UMAMI_SITE_ID}
