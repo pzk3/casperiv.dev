@@ -27,7 +27,7 @@
     "contentlayer": "^0.2.9",
     "date-fns": "^2.29.3",
     "express-rate-limit": "^6.7.0",
-    "mdx-bundler": "^9.0.1",
+    "mdx-bundler": "^9.2.1",
     "next": "^13.0.6",
     "next-contentlayer": "^0.2.9",
     "next-seo": "^5.15.0",
