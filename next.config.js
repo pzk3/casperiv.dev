@@ -13,6 +13,7 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   experimental: {
     appDir: true,
+    nextScriptWorkers: false,
   },
   async redirects() {
     return [
