@@ -6,14 +6,7 @@ export default function RootHead() {
     <>
       <NextSeo useAppDir {...SEO} />
 
-      {process.env.NODE_ENV === "production" ? (
-        <script
-          async
-          defer
-          data-website-id={process.env.UMAMI_SITE_ID}
-          src={process.env.UMAMI_URL}
-        />
-      ) : null}
+      <script async defer data-website-id={process.env.UMAMI_SITE_ID} src={process.env.UMAMI_URL} />
     </>
   );
 }
