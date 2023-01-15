@@ -10,6 +10,7 @@ import { Layout } from "components/layout";
 import { NextSeo } from "next-seo";
 import { SEO } from "next-seo.config";
 import clsx from "clsx";
+import { AnalyticsWrapper } from "components/analytics";
 
 const rubikFont = Rubik({ variable: "--font-rubik", subsets: ["latin"] });
 const cascadiaMonoFont = localFont({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Layout>{children}</Layout>
 
           <Footer />
+          <AnalyticsWrapper />
         </SSRProvider>
       </body>
     </html>
