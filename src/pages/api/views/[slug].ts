@@ -1,11 +1,11 @@
-import prisma from "lib/prisma";
+import { redisClient } from "lib/redis";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const slug = req.query.slug as string;
   const method = req.method as string;
 
-  const view = await prisma.view.findUnique({ where: { slug } });
+  const view = await redisClient.get<number>(slug);
 
   const handlers = {
     GET: async () => {
@@ -16,11 +16,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return view;
     },
     POST: async () => {
-      return prisma.view.upsert({
-        where: { slug },
-        update: { count: { increment: 1 } },
-        create: { slug, count: 1 },
-      });
+      // increment the redis entry
+      const view = await redisClient.incr(slug);
+      return view;
     },
   };
 

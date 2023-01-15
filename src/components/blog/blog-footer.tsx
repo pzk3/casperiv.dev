@@ -1,3 +1,5 @@
+"use client";
+
 import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
 import { usePathname } from "next/navigation";
 
