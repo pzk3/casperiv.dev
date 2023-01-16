@@ -33,7 +33,6 @@ To enable Preact, we must edit our [Next config](https://nextjs.org/docs/api-ref
 ```js title="next.config.js"
 module.exports = {
   webpack: (config, { dev, isServer }) => {
-
     // Note, preact is only enabled for production builds (`next build`)
     if (!dev && !isServer) {
       config.resolve.alias = {
@@ -47,7 +46,7 @@ module.exports = {
 
     return config;
   },
-}
+};
 ```
 
 ### Usage
@@ -56,6 +55,16 @@ Once you build your Next.js application, you should see a decrease in bundle siz
 Below you can see the results on my site.
 
 <div className="flex items-center justify-center flex-col md:flex-row gap-3 -mt-5">
+    <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="Without Preact"
+      src="/blog/nextjs-with-preact/without-preact.png"
+      blurDataURL={WithPreact}
+    />
+    <figcaption>Without Preact</figcaption>
+  </figure>
   <figure>
     <Image
       width={618.7}
@@ -65,16 +74,6 @@ Below you can see the results on my site.
       blurDataURL={WithPreact}
     />
     <figcaption>With Preact</figcaption>
-  </figure>
-  <figure>
-    <Image
-      width={618.7}
-      height={494}
-      alt="Without Preact"
-      src="/blog/nextjs-with-preact/without-preact.png"
-      blurDataURL={WithPreact}
-    />
-    <figcaption>Without Preact</figcaption>
   </figure>
 </div>
 

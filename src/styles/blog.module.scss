@@ -53,12 +53,26 @@
     }
 
     [data-line-highlighted="true"] {
+      position: relative;
+
       display: inline-block;
-      // position the background color from the container start to container end
-      margin-left: -0.4em;
-      width: calc(100% + 0.95em);
-      background-color: rgba(200, 200, 255, 0.3);
-      border-left: 3px solid theme("colors.secondary");
+      width: 100%;
+      z-index: 1;
+
+      &::after {
+        --margin-left: 8px;
+
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: calc(var(--margin-left) * -1);
+        z-index: -1;
+        width: calc(100% + 7px + var(--margin-left));
+        pointer-events: none;
+
+        background: rgba(200, 200, 255, 0.3);
+        border-left: 3.5px solid theme("colors.secondary");
+      }
     }
   }
 
