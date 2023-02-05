@@ -2,6 +2,19 @@ import { TimelineItem } from "types/timeline";
 
 export const timeline: TimelineItem[] = [
   {
+    year: 2023,
+    title: "Personal Time",
+    text: "In 2022, I've worked extremely hard to get to where I am today. I've learned a lot and I'm very happy with the progress I've made. However, in 2023, I want to take some more time to focus on myself, school and expand SnailyCAD even more.",
+    date: "2023",
+  },
+  {
+    year: 2023,
+    title: "snailycad.org",
+    text: "Finally bought a new domain for SnailyCAD. This will expand the community and improve user experience.",
+    date: "February 2023",
+    url: "https://snailycad.org",
+  },
+  {
     year: 2022,
     title: "Stampix",
     text: "Started a new job as a student at a Stampix. Working full-stack on admin & customer dashboards.",
