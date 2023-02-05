@@ -3,6 +3,7 @@ const { withContentlayer } = require("next-contentlayer");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cleanDistDir: true,
+  swcMinify: true,
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60,
@@ -13,7 +14,6 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   experimental: {
     appDir: true,
-    nextScriptWorkers: false,
   },
   async redirects() {
     return [

@@ -1,7 +1,8 @@
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCaseStudy } from "lib/mdx/get-case-study";
+import { mergeKeywords } from "lib/merge-keywords";
 import { NextSeo } from "next-seo";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { SEO, DEFAULT_KEYWORDS } from "next-seo.config";
 import { notFound } from "next/navigation";
 
 export default function CaseStudyHead({ params }: { params: { slug: string } }) {
@@ -23,17 +24,24 @@ export default function CaseStudyHead({ params }: { params: { slug: string } }) 
   return (
     <NextSeo
       useAppDir
+      {...SEO}
       openGraph={{
+        ...SEO.openGraph,
         article: {
+          authors: ["Casper Iversen"],
           publishedTime: caseStudy.createdAt,
+          modifiedTime: caseStudy.updatedAt,
         },
         title: pageTitle,
         description: pageDescription,
       }}
-      canonical={`https://caspertheghost.me/case-study/${getArticleSlug(caseStudy)}`}
+      canonical={`https://caspertheghost.me/blog/${getArticleSlug(caseStudy)}`}
       title={pageTitle}
       description={pageDescription}
-      additionalMetaTags={[{ name: "keywords", content: keywords.join(", ") }]}
+      additionalMetaTags={mergeKeywords({
+        keywords,
+        metaTags: SEO.additionalMetaTags,
+      })}
     />
   );
 }

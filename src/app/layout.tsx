@@ -27,11 +27,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={clsx(rubikFont.variable, cascadiaMonoFont.variable)} lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <NextSeo useAppDir {...SEO} />
-      </head>
+      {/* <NextSeo useAppDir {...SEO} /> */}
 
       <body className="bg-primary text-secondary min-h-screen">
         <SSRProvider>

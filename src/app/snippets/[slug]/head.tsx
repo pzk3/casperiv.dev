@@ -1,7 +1,8 @@
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCodeSnippet } from "lib/mdx/get-code-snippet";
+import { mergeKeywords } from "lib/merge-keywords";
 import { NextSeo } from "next-seo";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { DEFAULT_KEYWORDS, SEO } from "next-seo.config";
 
 export default function CodeSnippetsHead({ params }: { params: { slug: string } }) {
   const snippet = getCodeSnippet(params.slug);
@@ -23,9 +24,13 @@ export default function CodeSnippetsHead({ params }: { params: { slug: string } 
   return (
     <NextSeo
       useAppDir
+      {...SEO}
       openGraph={{
+        ...SEO.openGraph,
         article: {
+          authors: ["Casper Iversen"],
           publishedTime: snippet.createdAt,
+          modifiedTime: snippet.updatedAt,
         },
         title: pageTitle,
         description: pageDescription,
@@ -33,7 +38,10 @@ export default function CodeSnippetsHead({ params }: { params: { slug: string } 
       canonical={`https://caspertheghost.me/snippets/${getArticleSlug(snippet)}`}
       title={pageTitle}
       description={pageDescription}
-      additionalMetaTags={[{ name: "keywords", content: keywords.join(", ") }]}
+      additionalMetaTags={mergeKeywords({
+        keywords,
+        metaTags: SEO.additionalMetaTags,
+      })}
     />
   );
 }
