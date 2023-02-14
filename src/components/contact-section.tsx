@@ -1,9 +1,9 @@
 "use client";
 
 import * as React from "react";
-import * as yup from "yup";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./button";
 import { FormField } from "./form/form-field";
 import { Input } from "./form/input";
@@ -15,10 +15,10 @@ const initialValues = {
   message: "",
 };
 
-const schema = yup.object().shape({
-  name: yup.string().min(2).max(255),
-  email: yup.string().email().min(2).max(255),
-  message: yup.string().min(5),
+const schema = z.object({
+  name: z.string().min(2).max(255),
+  email: z.string().email().min(2).max(255),
+  message: z.string().min(5),
 });
 
 type State = "loading" | "completed" | "error";
@@ -31,7 +31,7 @@ export function ContactSection() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ defaultValues: initialValues, resolver: yupResolver(schema) });
+  } = useForm({ defaultValues: initialValues, resolver: zodResolver(schema) });
 
   async function onSubmit(data: typeof initialValues) {
     setState("loading");
