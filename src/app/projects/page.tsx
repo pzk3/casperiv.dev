@@ -1,9 +1,13 @@
+import ronin from "@ronin-dist/ronin";
+
 import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 async function fetchProjects() {
-  const { projects } = await import("../../data/projects");
+  const [projects] = await ronin<any>(({ get }) => {
+    (get as any).projects.orderedBy.ascending = ["ronin.updatedAt"];
+  });
 
   return {
     projects,
@@ -50,11 +54,9 @@ export default async function ProjectsPage() {
       </p>
 
       <ul className="grid grid-cols-1 gap-3 mt-5 md:grid-cols-2">
-        {projects.map((project) => {
-          if (project.title === "More projects") return null;
-
-          return <ProjectItem key={project.title} project={project} />;
-        })}
+        {projects.map((project: any) => (
+          <ProjectItem key={project.title} project={project} />
+        ))}
       </ul>
     </>
   );

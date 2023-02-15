@@ -3,9 +3,16 @@ import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 
+import ronin from "@ronin-dist/ronin";
+
 async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
-  const projects = (await import("data/projects")).projects;
+
+  const [projects] = await ronin<any>(({ get }) => {
+    (get as any).projects;
+  });
+
+  console.log(projects);
 
   return {
     myBackpack,
