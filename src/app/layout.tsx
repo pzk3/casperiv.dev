@@ -7,8 +7,6 @@ import { Footer } from "components/footer";
 import { Rubik } from "@next/font/google";
 import localFont from "@next/font/local";
 import { Layout } from "components/layout";
-import { NextSeo } from "next-seo";
-import { SEO } from "next-seo.config";
 import clsx from "clsx";
 import { AnalyticsWrapper } from "components/analytics";
 
@@ -27,8 +25,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={clsx(rubikFont.variable, cascadiaMonoFont.variable)} lang="en">
-      {/* <NextSeo useAppDir {...SEO} /> */}
-
       <body className="bg-primary text-secondary min-h-screen">
         <SSRProvider>
           <Nav />
