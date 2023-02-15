@@ -5,6 +5,8 @@ import { MyBackpackSection } from "components/my-backpack-section";
 
 import ronin from "@ronin-dist/ronin";
 
+export const dynamic = "force-dynamic";
+
 async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
 

@@ -4,6 +4,8 @@ import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
+export const dynamic = "force-dynamic";
+
 async function fetchProjects() {
   const [projects] = await ronin<any>(({ get }) => {
     (get as any).projects.orderedBy.ascending = ["ronin.updatedAt"];
