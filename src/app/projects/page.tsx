@@ -1,4 +1,4 @@
-import ronin from "@ronin-dist/ronin";
+import ronin from "ronin";
 
 import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";

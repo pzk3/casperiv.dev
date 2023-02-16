@@ -1,4 +1,4 @@
-import ronin from "@ronin-dist/ronin";
+import ronin from "ronin";
 import { ContactSection } from "components/contact-section";
 import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
