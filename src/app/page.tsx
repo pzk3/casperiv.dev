@@ -1,11 +1,10 @@
+import ronin from "@ronin-dist/ronin";
 import { ContactSection } from "components/contact-section";
 import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 
-import ronin from "@ronin-dist/ronin";
-
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // 3600 seconds = 1 hour
 
 async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;

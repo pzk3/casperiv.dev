@@ -4,7 +4,7 @@ import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // 3600 seconds = 1 hour
 
 async function fetchProjects() {
   const [projects] = await ronin<any>(({ get }) => {
