@@ -1,5 +1,9 @@
 // @ts-check
 
+const title = {
+  default: "Casper Iversen - Web Developer",
+  template: "%s - Casper Iversen",
+};
 const description =
   "I'm a young and motivated web developer specializing in React.js, TypeScript, JavaScript, CSS, HTML and other frontend focused libraries and frameworks.";
 
@@ -17,16 +21,13 @@ export const DEFAULT_KEYWORDS = [
 
 /** @type {import("next").Metadata} */
 export const SEO = {
-  title: {
-    default: "Web Developer",
-    template: "%s - Casper Iversen",
-  },
+  title,
   openGraph: {
     locale: "en_US",
     url: "https://caspertheghost.me",
     siteName: "caspertheghost.me",
     description,
-    title: { default: "Web Developer", template: "%s - Casper Iversen" },
+    title,
     images: [{ url: "https://caspertheghost.me/icons/icon-128.png", height: 128, width: 128 }],
   },
   twitter: {
@@ -35,7 +36,7 @@ export const SEO = {
     site: "@site",
     card: "summary",
     description,
-    title: { default: "Web Developer", template: "%s - Casper Iversen" },
+    title,
   },
   alternates: {
     canonical: "https://caspertheghost.me",

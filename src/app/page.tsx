@@ -4,8 +4,6 @@ import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 import { SEO } from "next-seo.config";
 
-export const metadata = SEO;
-
 async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
   const projects = (await import("data/projects")).projects;
