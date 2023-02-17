@@ -2,6 +2,24 @@ import { ArticlesList } from "components/blog/articles-list";
 import { ArticleListItem } from "components/blog/articles-list-item";
 import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
+
+export const metadata = {
+  title: "Blog",
+  description: "A list of my blog posts with how-to's and more!",
+  alternates: {
+    canonical: "https://caspertheghost.me/blog",
+  },
+  openGraph: {
+    title: "Blog",
+    description: "A list of my blog posts with how-to's and more!",
+  },
+  twitter: {
+    title: "Blog",
+    description: "A list of my blog posts with how-to's and more!",
+  },
+  keywords: [...DEFAULT_KEYWORDS, "blog casper iversen", "caspertheghost blog", "react hooks"],
+};
 
 export default async function CodeSnippetsSlugPage() {
   const FEATURED = allBlogPosts.filter((post) => post.featured);

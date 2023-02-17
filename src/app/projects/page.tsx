@@ -1,6 +1,6 @@
 import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
-import { pageDescription } from "./head";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 async function fetchProjects() {
   const { projects } = await import("../../data/projects");
@@ -9,6 +9,30 @@ async function fetchProjects() {
     projects,
   };
 }
+
+const pageDescription = "A list of my projects that I'm most proud of.";
+
+export const metadata = {
+  title: "Projects",
+  description: pageDescription,
+  alternates: {
+    canonical: "https://caspertheghost.me/projects",
+  },
+  openGraph: {
+    title: "Projects",
+    description: pageDescription,
+  },
+  twitter: {
+    title: "Projects",
+    description: pageDescription,
+  },
+  keywords: [
+    ...DEFAULT_KEYWORDS,
+    "projects casper iversen",
+    "caspertheghost projects",
+    "react hooks",
+  ],
+};
 
 export default async function ProjectsPage() {
   const { projects } = await fetchProjects();

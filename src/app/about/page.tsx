@@ -11,6 +11,22 @@ async function fetchTimelineData() {
   };
 }
 
+export const metadata = {
+  title: "About",
+  description: "Get to know more about me and some of my accomplishments.",
+  openGraph: {
+    title: "About",
+    description: "Get to know more about me and some of my accomplishments.",
+  },
+  twitter: {
+    title: "About",
+    description: "Get to know more about me and some of my accomplishments.",
+  },
+  alternates: {
+    canonical: "https://caspertheghost.me/about",
+  },
+};
+
 export default async function AboutPage() {
   const { timelineData } = await fetchTimelineData();
   const started = new Date("2019-08-08");

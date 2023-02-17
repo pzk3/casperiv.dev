@@ -4,10 +4,40 @@ import { Markdown } from "components/blog/markdown/markdown";
 import { allCodeSnippets } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCodeSnippet } from "lib/mdx/get-code-snippet";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { notFound } from "next/navigation";
 
 interface CodeSnippetsSlugPageProps {
   params: { slug: string };
+}
+
+export function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
+  const item = getCodeSnippet(params.slug);
+
+  if (!item) {
+    return {};
+  }
+
+  return {
+    title: item.title,
+    description: item.intro,
+    alternates: {
+      canonical: `https://caspertheghost.me/snippets/${getArticleSlug(item)}`,
+    },
+    openGraph: {
+      title: item.title,
+      description: item.intro,
+    },
+    twitter: {
+      title: item.title,
+      description: item.intro,
+    },
+    keywords: [
+      ...DEFAULT_KEYWORDS,
+      "snippets casper iversen",
+      ...(item.keywords?.split(",") ?? []),
+    ],
+  };
 }
 
 export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {

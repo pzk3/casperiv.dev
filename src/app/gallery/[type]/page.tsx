@@ -6,6 +6,24 @@ import { Gallery } from "components/gallery/columns";
 export const dynamic = "force-static";
 export const revalidate = 604800; // 1 week. Next.js does not support: `60 * 60 * 24 * 7`
 
+export function generateMetadata({ params }: { params: { type: string } }) {
+  return {
+    title: params.type,
+    description: "Imagery works taken in my free time",
+    alternates: {
+      canonical: `https://caspertheghost.me/gallery/${params.type}`,
+    },
+    openGraph: {
+      title: params.type,
+      description: "Imagery works taken in my free time",
+    },
+    twitter: {
+      title: params.type,
+      description: "Imagery works taken in my free time",
+    },
+  };
+}
+
 export default async function SubGalleryPage({ params }: { params: { type: string } }) {
   const images = await getImages(params.type);
   const columns = makeColumns(images);
