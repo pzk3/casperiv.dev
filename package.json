@@ -31,7 +31,6 @@
     "mdx-bundler": "^9.2.1",
     "next": "^13.1.7-canary.18",
     "next-contentlayer": "^0.3.0",
-    "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.52",
     "next-themes": "^0.2.1",
     "react": "^18.3.0-next-4fcc9184a-20230217",
