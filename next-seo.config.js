@@ -46,8 +46,13 @@ export const SEO = {
   authors: [{ name: "Casper Iversen" }],
   manifest: "/manifest.json",
   icons: {
-    icon: ["/favicons/favicon-32x32.png", "/favicons/favicon-16x16.png"],
-    shortcut: "/favicons/favicon-32x32.png",
+    icon: [
+      "/icons/icon-512.png",
+      "/icons/icon-144.png",
+      "/icons/icon-128.png",
+      "/favicons/favicon-32x32.png",
+    ],
+    shortcut: "/icons/icon-512.png",
     apple: [{ url: "/favicons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     other: [{ rel: "mask-icon", url: "/favicons/safari-pinned-tab.svg" }],
   },
