@@ -66,7 +66,7 @@ export function Nav() {
       <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
         <ul
           className={classNames(
-            "h-full space-x-1 md:items-center",
+            "space-x-1 md:items-center",
             menuOpen
               ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-primary p-5 shadow-lg open-nav-animation"
               : "hidden md:flex relative",
