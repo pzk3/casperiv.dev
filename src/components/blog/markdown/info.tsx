@@ -1,5 +1,3 @@
-import type * as React from "react";
-
 type DivProps = JSX.IntrinsicElements["div"];
 
 interface Props extends DivProps {

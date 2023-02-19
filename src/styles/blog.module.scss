@@ -31,9 +31,23 @@
   }
 
   [data-rehype-pretty-code-fragment] {
-    border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
-    box-shadow: theme("dropShadow.sm");
-    border-radius: theme("borderRadius.md");
+    display: flex;
+    flex-direction: column;
+
+    [data-code-pre] {
+      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border-radius: theme("borderRadius.md");
+      box-shadow: theme("dropShadow.sm");
+
+      > pre {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+    }
+
+    [data-language-tag] {
+      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+    }
 
     [data-rehype-pretty-code-title] {
       font-family: theme("fontFamily.mono");
@@ -41,11 +55,6 @@
       color: theme("colors.secondary");
       box-shadow: theme("dropShadow.sm");
       border-bottom: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
-    }
-
-    > pre {
-      margin-top: 0px;
-      margin-bottom: 0px;
     }
 
     [data-line="true"] {

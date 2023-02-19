@@ -35,6 +35,7 @@
     "next-themes": "^0.2.1",
     "react": "^18.3.0-next-4fcc9184a-20230217",
     "react-bootstrap-icons": "^1.10.2",
+    "react-children-utilities": "^2.8.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.1",
     "react-syntax-highlighter": "^15.5.0",
