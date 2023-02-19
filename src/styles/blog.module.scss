@@ -45,16 +45,22 @@
       }
     }
 
-    [data-language-tag] {
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
-    }
-
     [data-rehype-pretty-code-title] {
       font-family: theme("fontFamily.mono");
       padding: 0.2em 0.7em;
       color: theme("colors.secondary");
       box-shadow: theme("dropShadow.sm");
-      border-bottom: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      margin-bottom: -1.5px;
+      border-radius: theme("borderRadius.md") theme("borderRadius.md") 0 0;
+
+      + [data-code-pre] {
+        border-radius: 0 0 theme("borderRadius.md") theme("borderRadius.md");
+      }
+    }
+
+    [data-language-tag] {
+      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
     }
 
     [data-line="true"] {
