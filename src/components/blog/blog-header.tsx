@@ -15,7 +15,7 @@ export function BlogHeader({ post }: Props) {
   const views = useViews(getArticleSlug(post));
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
-  const readingTime = post.readingTime || post.computedReadingTime;
+  const readingTime = post.readingTime || (post as any).computedReadingTime;
 
   const viewsId = React.useId();
   const readTimeId = React.useId();

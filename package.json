@@ -1,5 +1,5 @@
 {
-  "name": "caspertheghost.me-next",
+  "name": "caspertheghost.me",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -39,7 +39,7 @@
     "react-hook-form": "^7.43.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
-    "rehype-pretty-code": "^0.9.3",
+    "rehype-pretty-code": "^0.9.4",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "rss": "^1.2.2",
