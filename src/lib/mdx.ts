@@ -97,7 +97,7 @@
 //     readingTime: text,
 //     frontmatter,
 //     createdAt: frontmatter.createdAt,
-//     intro: frontmatter.intro,
+//     description: frontmatter.description,
 //     keywords: frontmatter.keywords ?? "",
 //     title: frontmatter.title,
 //     updatedAt: frontmatter.updatedAt ?? null,

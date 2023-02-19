@@ -27,9 +27,8 @@
     "contentlayer": "^0.3.0",
     "date-fns": "^2.29.3",
     "express-rate-limit": "^6.7.0",
-    "ioredis": "^5.3.1",
     "mdx-bundler": "^9.2.1",
-    "next": "^13.1.7-canary.18",
+    "next": "^13.1.7-canary.21",
     "next-contentlayer": "^0.3.0",
     "next-sitemap": "^3.1.52",
     "next-themes": "^0.2.1",
@@ -38,7 +37,6 @@
     "react-children-utilities": "^2.8.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.1",
-    "react-syntax-highlighter": "^15.5.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.9.3",
@@ -47,8 +45,7 @@
     "rss": "^1.2.2",
     "sharp": "^0.31.3",
     "shiki": "^0.14.1",
-    "tailwind-merge": "^1.9.1",
-    "yargs-parser": "^21.1.1"
+    "tailwind-merge": "^1.9.1"
   },
   "devDependencies": {
     "@casper124578/eslint-config": "^6.0.0",
@@ -56,9 +53,7 @@
     "@casper124578/eslint-config-react": "^6.0.0",
     "@types/node": "^18.14.0",
     "@types/react": "18.0.28",
-    "@types/react-syntax-highlighter": "^15.5.6",
     "@types/rss": "^0.0.30",
-    "@types/yargs-parser": "^21.0.0",
     "autoprefixer": "^10.4.13",
     "esbuild": "^0.17.8",
     "eslint": "^8.34.0",

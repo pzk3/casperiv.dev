@@ -15,6 +15,7 @@ export function BlogHeader({ post }: Props) {
   const views = useViews(getArticleSlug(post));
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
+  const readingTime = post.readingTime || post.computedReadingTime;
 
   const viewsId = React.useId();
   const readTimeId = React.useId();
@@ -25,10 +26,10 @@ export function BlogHeader({ post }: Props) {
 
       <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
         <p className="font-medium min-w-fit">{publishDateFull}</p>
-        {post.readingTime ? (
+        {readingTime ? (
           <p className="flex items-center gap-2 min-w-fit">
             <Clock aria-labelledby={readTimeId} className="text-gray-400" />{" "}
-            <span id={readTimeId}>{post.readingTime}</span>
+            <span id={readTimeId}>{readingTime}</span>
           </p>
         ) : null}
 

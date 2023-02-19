@@ -14,6 +14,7 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: ["rss"],
   },
   async redirects() {
     return [

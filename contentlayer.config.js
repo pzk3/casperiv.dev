@@ -3,16 +3,17 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
+import readingTime from "reading-time";
 
 const baseFields = {
   title: { type: "string", required: true },
-  intro: { type: "string", required: true },
+  description: { type: "string", required: true },
   createdAt: { type: "date", required: true },
   updatedAt: { type: "date", required: false },
   featured: { type: "boolean", required: false },
   archived: { type: "boolean", required: false },
   readingTime: { type: "string", required: false },
-  keywords: { type: "string", required: false },
+  keywords: { type: "list", of: { type: "string" }, required: false },
 };
 
 export const CodeSnippet = defineDocumentType(() => ({
@@ -27,6 +28,14 @@ export const BlogPost = defineDocumentType(() => ({
   filePathPattern: "**/posts/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
+  computedFields: {
+    computedReadingTime: {
+      type: "string",
+      resolve: (doc) => {
+        return readingTime(doc.body.raw).text;
+      },
+    },
+  },
 }));
 
 export const CaseStudy = defineDocumentType(() => ({

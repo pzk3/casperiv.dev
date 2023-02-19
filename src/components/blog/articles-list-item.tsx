@@ -30,7 +30,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
         <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
           {article.title}
         </h2>
-        <p className="mt-1 text-secondary">{article.intro}</p>
+        <p className="mt-1 text-secondary">{article.description}</p>
         {isFeatured ? null : (
           <span className="block mt-1.5 font-normal text-secondary-light">{publishedAt}</span>
         )}

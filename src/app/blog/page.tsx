@@ -2,6 +2,7 @@ import { ArticlesList } from "components/blog/articles-list";
 import { ArticleListItem } from "components/blog/articles-list-item";
 import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { generateRSSFeed } from "lib/rss";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export const metadata = {
@@ -22,6 +23,8 @@ export const metadata = {
 };
 
 export default async function CodeSnippetsSlugPage() {
+  await generateRSSFeed();
+
   const FEATURED = allBlogPosts.filter((post) => post.featured);
   const nonArchivedBlogPosts = allBlogPosts
     .filter((post) => !post.archived)

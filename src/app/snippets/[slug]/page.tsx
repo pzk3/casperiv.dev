@@ -20,23 +20,19 @@ export function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
 
   return {
     title: item.title,
-    description: item.intro,
+    description: item.description,
     alternates: {
       canonical: `https://caspertheghost.me/snippets/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,
-      description: item.intro,
+      description: item.description,
     },
     twitter: {
       title: item.title,
-      description: item.intro,
+      description: item.description,
     },
-    keywords: [
-      ...DEFAULT_KEYWORDS,
-      "snippets casper iversen",
-      ...(item.keywords?.split(",") ?? []),
-    ],
+    keywords: [...DEFAULT_KEYWORDS, "snippets casper iversen", ...(item.keywords ?? [])],
   };
 }
 

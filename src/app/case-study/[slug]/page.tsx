@@ -18,23 +18,19 @@ export function generateMetadata({ params }: CaseStudySlugPageProps) {
 
   return {
     title: item.title,
-    description: item.intro,
+    description: item.description,
     alternates: {
       canonical: `https://caspertheghost.me/case-study/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,
-      description: item.intro,
+      description: item.description,
     },
     twitter: {
       title: item.title,
-      description: item.intro,
+      description: item.description,
     },
-    keywords: [
-      ...DEFAULT_KEYWORDS,
-      "case study casper iversen",
-      ...(item.keywords?.split(",") ?? []),
-    ],
+    keywords: [...DEFAULT_KEYWORDS, "case study casper iversen", ...(item.keywords ?? [])],
   };
 }
 
