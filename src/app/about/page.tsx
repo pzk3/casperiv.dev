@@ -43,7 +43,7 @@ export default async function AboutPage() {
             responsive and fast code. Furthermore, {"I'm"} also a big fan of open-source, I
             contribute to open-source as much as I can, I also have{" "}
             <Link
-              className="underline"
+              className="underline hover:text-neutral-900"
               href="https://github.com/dev-caspertheghost?tab=repositories"
             >
               many open-source projects
@@ -63,7 +63,7 @@ export default async function AboutPage() {
           <p className="mt-5 text-base italic">
             PS: If there is something that {"you'd"} like to know more about me, {"don't"} hesitate
             to{" "}
-            <Link className="underline" href="/#contact">
+            <Link className="underline hover:text-neutral-900" href="/#contact">
               contact me
             </Link>
             !

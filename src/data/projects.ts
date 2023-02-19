@@ -17,7 +17,7 @@ export const projects: Project[] = [
         name: VIEW_CODE,
       },
       {
-        url: "https://snailycad.caspertheghost.me",
+        url: "https://snailycad.org",
         name: OPEN_PROJECT,
       },
     ],

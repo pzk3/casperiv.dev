@@ -47,7 +47,7 @@ export const timeline: TimelineItem[] = [
     year: 2022,
     title: "SnailyCADv4 stable release",
     text: "After many months of development SnailyCADv4 was finally released as stable! A total of 400 GitHub issues were closed and 300 pull requests merged 🚀.",
-    url: "https://snailycad.caspertheghost.me",
+    url: "https://snailycad.org",
     date: "May 2022",
   },
   {
