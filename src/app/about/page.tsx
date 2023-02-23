@@ -2,12 +2,15 @@ import { Age } from "components/age";
 import { Timeline } from "components/timeline/timeline";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import Link from "next/link";
+import ronin from "ronin";
 
 async function fetchTimelineData() {
-  const timelineData = (await import("../../data/timeline")).timeline;
+  const [timelineItems] = await ronin<any>(({ get }) => {
+    (get as any).timelineItems.orderedBy.descending = ["year"];
+  });
 
   return {
-    timelineData,
+    timelineData: timelineItems,
   };
 }
 

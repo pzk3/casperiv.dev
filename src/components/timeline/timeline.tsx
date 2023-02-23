@@ -11,6 +11,8 @@ export function Timeline({ timelineData }: { timelineData: TTimelineItem[] }) {
   const yearsArr = [...new Set([...timelineData.map((v) => v.year)])];
   const years = showAll ? yearsArr : [...yearsArr].slice(0, 2);
 
+  console.log({ timelineData });
+
   return (
     <div className="flex flex-col pb-8 mt-3">
       {years.map((item) => {
@@ -25,7 +27,7 @@ export function Timeline({ timelineData }: { timelineData: TTimelineItem[] }) {
 
             <ul>
               {items.map((item) => (
-                <TimelineItem key={item.title + item.full_date} item={item} />
+                <TimelineItem key={item.title} item={item} />
               ))}
             </ul>
           </div>

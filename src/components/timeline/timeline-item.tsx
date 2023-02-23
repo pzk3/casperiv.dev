@@ -23,7 +23,7 @@ export function TimelineItem({ item }: Props) {
         )}
       </h4>
 
-      <p className="mt-1 text-base text-secondary-light">{item.text}</p>
+      <p className="mt-1 text-base text-secondary-light">{item.description}</p>
     </li>
   );
 }
