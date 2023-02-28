@@ -3,12 +3,14 @@ import ronin from "ronin";
 import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { Project } from "types/project";
 
 export const revalidate = 3600; // 3600 seconds = 1 hour
 
 async function fetchProjects() {
-  const [projects] = await ronin<any>(({ get }) => {
-    (get as any).projects.orderedBy.ascending = ["ronin.updatedAt"];
+  const [projects] = await ronin<Project[]>(({ get }) => {
+    // @ts-expect-error types are incorrect here. See Slack
+    return (get.projects!.orderedBy.ascending = ["ronin.updatedAt"]);
   });
 
   return {

@@ -3,10 +3,14 @@ import { Timeline } from "components/timeline/timeline";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import Link from "next/link";
 import ronin from "ronin";
+import { TimelineItem } from "types/timeline";
 
 async function fetchTimelineData() {
-  const [timelineItems] = await ronin<any>(({ get }) => {
-    (get as any).timelineItems.orderedBy.descending = ["year"];
+  const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
+    get.timelineItems = {
+      // @ts-expect-error types aren't updated yet. See Slack :)
+      limitedTo: 1000,
+    };
   });
 
   return {

@@ -2,21 +2,18 @@ import { Project } from "types/project";
 import { Link } from "./blog/markdown/link";
 
 export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
-  const featuredProjects = projects.filter((v) => v.isFeatured);
-
   return (
     <section className="pb-5 mt-14" id="projects">
       <h2 className="section-title">Featured Projects</h2>
 
       <ul className="grid grid-cols-1 gap-3 mt-5 md:grid-cols-2">
-        {featuredProjects.map((project) => (
+        {projects.map((project) => (
           <ProjectItem key={project.title} project={project} />
         ))}
         <ProjectItem
           project={{
-            buttons: [],
             title: "More Projects",
-            description: "qdqs",
+            description: "You can view more projects on the Projects page.",
             viewMoreURL: "https://github.com/dev-caspertheghost?tab=repositories",
           }}
         />
@@ -26,7 +23,7 @@ export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
 }
 
 export function ProjectItem({ project }: { project: Project }) {
-  const buttons = [
+  const buttonTypes = [
     { key: "projectURL", name: "Open Project" },
     { key: "codeURL", name: "Open Code" },
     { key: "caseStudyURL", name: "View Case Study" },
@@ -42,7 +39,7 @@ export function ProjectItem({ project }: { project: Project }) {
       <p className="my-3 text-secondary-light">{project.description}</p>
 
       <ul className="flex gap-2 mt-2">
-        {buttons.map((button) => {
+        {buttonTypes.map((button) => {
           const buttonURL = project[button.key];
           if (!buttonURL) return null;
 

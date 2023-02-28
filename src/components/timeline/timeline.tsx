@@ -8,10 +8,9 @@ import { TimelineItem } from "./timeline-item";
 export function Timeline({ timelineData }: { timelineData: TTimelineItem[] }) {
   const [showAll, setShowAll] = React.useState(false);
 
-  const yearsArr = [...new Set([...timelineData.map((v) => v.year)])];
+  const sortedByYear = timelineData.sort((a, b) => b.year - a.year);
+  const yearsArr = [...new Set([...sortedByYear.map((v) => v.year)])];
   const years = showAll ? yearsArr : [...yearsArr].slice(0, 2);
-
-  console.log({ timelineData });
 
   return (
     <div className="flex flex-col pb-8 mt-3">

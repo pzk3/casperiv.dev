@@ -3,21 +3,24 @@ import { ContactSection } from "components/contact-section";
 import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
+import { Project } from "types/project";
 
 export const revalidate = 3600; // 3600 seconds = 1 hour
 
 async function getBackpackAndProjects() {
   const myBackpack = (await import("data/my-backpack")).myBackpack;
 
-  const [projects] = await ronin<any>(({ get }) => {
-    (get as any).projects;
+  const [featuredProjects] = await ronin<Project[]>(({ get }) => {
+    get.projects = {
+      // @ts-expect-error types are incorrect here. See Slack
+      orderedBy: { ascending: ["ronin.updatedAt"] },
+      where: { isFeatured: { is: true } },
+    };
   });
-
-  console.log(projects);
 
   return {
     myBackpack,
-    projects,
+    projects: featuredProjects,
   };
 }
 
