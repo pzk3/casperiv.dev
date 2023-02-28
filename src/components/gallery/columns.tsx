@@ -17,7 +17,7 @@ export function Gallery({ columns }: { columns: TCloudinaryImage[][] }) {
               width={image.width}
               height={image.height}
               alt="Beautiful rainbow."
-              blurDataURL={image.placeholderData}
+              blurDataURL={image.placeholderData || undefined}
             />
           ))}
         </Column>

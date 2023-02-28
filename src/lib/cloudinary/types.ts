@@ -7,5 +7,5 @@ export interface TCloudinaryImage {
   height: number;
   secure_url: string;
   alt: string;
-  placeholderData: string;
+  placeholderData: string | null;
 }
