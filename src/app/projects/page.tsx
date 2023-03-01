@@ -9,8 +9,13 @@ export const revalidate = 3600; // 3600 seconds = 1 hour
 
 async function fetchProjects() {
   const [projects] = await ronin<Project[]>(({ get }) => {
-    // @ts-expect-error types are incorrect here. See Slack
-    return (get.projects!.orderedBy.ascending = ["ronin.updatedAt"]);
+    get.projects = {
+      orderedBy: {
+        // @ts-expect-error types aren't updated yet. See Slack :)
+        ascending: ["ronin.updatedAt"],
+      },
+      limitedTo: 1000,
+    };
   });
 
   return {
