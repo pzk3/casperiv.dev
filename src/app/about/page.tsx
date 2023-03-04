@@ -8,7 +8,6 @@ import { TimelineItem } from "types/timeline";
 async function fetchTimelineData() {
   const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
     get.timelineItems = {
-      // @ts-expect-error types aren't updated yet. See Slack :)
       limitedTo: 1000,
     };
   });

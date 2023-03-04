@@ -1,23 +1,23 @@
 "use client";
 
 import * as React from "react";
-import { TCloudinaryImage } from "lib/cloudinary/types";
 import Image, { ImageProps } from "next/image";
 import { ImageModal } from "./image-modal";
+import { GalleryImage } from "types/gallery-image";
 
-export function Gallery({ columns }: { columns: TCloudinaryImage[][] }) {
+export function Gallery({ columns }: { columns: GalleryImage[][] }) {
   return (
     <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
       {columns.map((column, i) => (
         <Column key={i}>
           {column.map((image) => (
             <ImageItem
-              key={image.public_id}
-              src={image.secure_url}
-              width={image.width}
-              height={image.height}
-              alt="Beautiful rainbow."
-              blurDataURL={image.placeholderData || undefined}
+              key={image.media.key}
+              src={image.media.src}
+              width={image.media.meta.width}
+              height={image.media.meta.height}
+              alt={image.title}
+              blurDataURL={image.media.placeholder.base64 || undefined}
             />
           ))}
         </Column>

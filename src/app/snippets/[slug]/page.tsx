@@ -11,7 +11,7 @@ interface CodeSnippetsSlugPageProps {
   params: { slug: string };
 }
 
-export function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
+export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
   const item = getCodeSnippet(params.slug);
 
   if (!item) {

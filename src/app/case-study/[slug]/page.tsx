@@ -9,7 +9,7 @@ interface CaseStudySlugPageProps {
   params: { slug: string };
 }
 
-export function generateMetadata({ params }: CaseStudySlugPageProps) {
+export async function generateMetadata({ params }: CaseStudySlugPageProps) {
   const item = getCaseStudy(params.slug);
 
   if (!item) {

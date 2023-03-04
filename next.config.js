@@ -8,7 +8,7 @@ const nextConfig = {
   images: {
     minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
-    domains: ["res.cloudinary.com"],
+    domains: ["res.cloudinary.com", "media.ronin.co"],
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },

@@ -12,7 +12,6 @@ async function getBackpackAndProjects() {
 
   const [featuredProjects] = await ronin<Project[]>(({ get }) => {
     get.projects = {
-      // @ts-expect-error types are incorrect here. See Slack
       orderedBy: { ascending: ["ronin.updatedAt"] },
       where: { isFeatured: { is: true } },
     };

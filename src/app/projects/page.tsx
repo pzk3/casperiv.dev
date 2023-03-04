@@ -11,7 +11,6 @@ async function fetchProjects() {
   const [projects] = await ronin<Project[]>(({ get }) => {
     get.projects = {
       orderedBy: {
-        // @ts-expect-error types aren't updated yet. See Slack :)
         ascending: ["ronin.updatedAt"],
       },
       limitedTo: 1000,
