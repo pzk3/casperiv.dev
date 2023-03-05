@@ -1,25 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "./button";
 import { FormField } from "./form/form-field";
 import { Input } from "./form/input";
 import { Textarea } from "./form/textarea";
+import { CONTACT_SCHEMA } from "lib/schemas";
 
 const initialValues = {
   name: "",
   email: "",
   message: "",
 };
-
-const schema = z.object({
-  name: z.string().min(2).max(255),
-  email: z.string().email().min(2).max(255),
-  message: z.string().min(5),
-});
 
 type State = "loading" | "completed" | "error";
 export function ContactSection() {
@@ -31,7 +25,7 @@ export function ContactSection() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ defaultValues: initialValues, resolver: zodResolver(schema) });
+  } = useForm({ defaultValues: initialValues, resolver: zodResolver(CONTACT_SCHEMA) });
 
   async function onSubmit(data: typeof initialValues) {
     setState("loading");

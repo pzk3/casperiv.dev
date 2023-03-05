@@ -2,13 +2,10 @@ const { withContentlayer } = require("next-contentlayer");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  cleanDistDir: true,
-  swcMinify: true,
   reactStrictMode: true,
   images: {
-    minimumCacheTTL: 60,
     formats: ["image/avif", "image/webp"],
-    domains: ["res.cloudinary.com", "media.ronin.co"],
+    domains: ["media.ronin.co"],
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
@@ -38,31 +35,50 @@ const nextConfig = {
         destination: "/blog/my-uses",
         permanent: true,
       },
-      {
-        source: "/markdown",
-        destination: "/utils/md-html",
-        permanent: true,
-      },
-      {
-        source: "/per",
-        destination: "/utils/percentage-calculator",
-        permanent: true,
-      },
     ];
   },
   async headers() {
     return [
       {
-        source: "/fonts/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
+        source: "/(.*)",
+        headers: securityHeaders,
       },
     ];
   },
 };
+
+// https://github.com/leerob/leerob.io/blob/1356f8aa1adb083d5b192c6f53fa04946afefc00/next.config.js#LL48-L85
+const securityHeaders = [
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+  {
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
+  },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+  {
+    key: "X-Frame-Options",
+    value: "DENY",
+  },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+  {
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
+  },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
+  },
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=()",
+  },
+];
 
 module.exports = withContentlayer(nextConfig);

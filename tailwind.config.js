@@ -5,8 +5,7 @@ module.exports = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  darkMode: "class",
-  content: ["./src/**/*.tsx", "./src/**/*.mdx"],
+  content: ["./src/**/*.{tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -22,14 +21,6 @@ module.exports = {
         "primary-dark": "#eaeaea",
         secondary: "#343233",
         "secondary-light": "#535052",
-        /**
-         * blues:
-         * - #2b303a
-         * - #2c213d
-         * - #504773
-         * - #144b46
-         * - #2c3a3a
-         */
       },
       screens: {
         xs: "400px",

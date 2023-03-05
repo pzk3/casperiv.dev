@@ -38,11 +38,7 @@
       "utils/*": ["./src/utils/*"]
     },
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "next-env.d.ts",
@@ -50,6 +46,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-, "src/lib/mdx/parse-code-flags.js"  ],
+  ],
   "exclude": ["node_modules"]
 }
