@@ -116,9 +116,6 @@ export function Nav() {
               <Twitter />
             </IconLink>
           </li>
-          {/* <li>
-            <ThemeSwitcher />
-          </li> */}
         </ul>
 
         <button

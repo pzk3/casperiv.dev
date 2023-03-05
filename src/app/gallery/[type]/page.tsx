@@ -29,13 +29,14 @@ export default async function SubGalleryPage({ params }: { params: { type: strin
       // where: {
       //   galleryType: { is: params.type },
       // },
+      limitedTo: 1000,
       orderedBy: {
-        ascending: ["ronin.updatedAt"],
+        descending: ["ronin.updatedAt"],
       },
     };
   });
 
-  // @ts-expect-error ignore, see Slack
+  // @ts-expect-error ignore, see Slack - it isn't currently parsing JSON for arrays
   const correctData = data.map((image) => ({ ...image, media: JSON.parse(image.media) }));
   const columns = makeColumns(correctData);
 
