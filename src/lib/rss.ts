@@ -1,3 +1,5 @@
+import "server-only";
+
 import * as Log from "next/dist/build/output/log";
 import RSS from "rss";
 import fs from "node:fs/promises";
