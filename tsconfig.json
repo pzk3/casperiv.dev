@@ -38,7 +38,8 @@
       "utils/*": ["./src/utils/*"]
     },
     "incremental": true,
-    "plugins": [{ "name": "next" }]
+    "plugins": [{ "name": "next" }],
+    "types": ["@ronin/casper"]
   },
   "include": [
     "next-env.d.ts",
