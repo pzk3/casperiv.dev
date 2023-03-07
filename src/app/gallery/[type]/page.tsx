@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: { params: { type: string } })
 export default async function SubGalleryPage({ params }: { params: { type: string } }) {
   const [data] = await ronin<GalleryImage[]>(({ get }) => {
     get.galleryImages = {
-      // where: {
-      //   galleryType: { is: params.type },
-      // },
+      where: {
+        galleryType: { is: params.type },
+      },
       limitedTo: 1000,
       orderedBy: {
         descending: ["ronin.updatedAt"],
@@ -36,9 +36,7 @@ export default async function SubGalleryPage({ params }: { params: { type: strin
     };
   });
 
-  // @ts-expect-error ignore, see Slack - it isn't currently parsing JSON for arrays
-  const correctData = data.map((image) => ({ ...image, media: JSON.parse(image.media) }));
-  const columns = makeColumns(correctData);
+  const columns = makeColumns(data);
 
   return (
     <>

@@ -16,7 +16,6 @@ async function getBackpackAndProjects() {
     };
 
     get.mySkills = {
-      // @ts-expect-error ignore for now. Slack
       orderedBy: { ascending: ["position"] },
     };
   });
