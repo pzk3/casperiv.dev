@@ -42,3 +42,4 @@ tsconfig.tsbuildinfo
 
 # contentlayer
 .contentlayer
+.vercel
