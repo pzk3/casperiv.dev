@@ -47,13 +47,19 @@ export const SEO = {
   manifest: "/manifest.json",
   icons: {
     icon: [
-      "/icons/icon-512.png",
-      "/icons/icon-144.png",
-      "/icons/icon-128.png",
-      "/favicons/favicon-32x32.png",
+      "https://caspertheghost.me/icons/icon-512.png",
+      "https://caspertheghost.me/icons/icon-144.png",
+      "https://caspertheghost.me/icons/icon-128.png",
+      "https://caspertheghost.me/favicons/favicon-32x32.png",
     ],
-    shortcut: "/icons/icon-512.png",
-    apple: [{ url: "/favicons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "mask-icon", url: "/favicons/safari-pinned-tab.svg" }],
+    shortcut: "https://caspertheghost.me/icons/icon-512.png",
+    apple: [
+      {
+        url: "https://caspertheghost.me/favicons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [{ rel: "mask-icon", url: "https://caspertheghost.me/favicons/safari-pinned-tab.svg" }],
   },
 };

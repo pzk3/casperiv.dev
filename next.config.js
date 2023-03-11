@@ -11,7 +11,6 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   experimental: {
     appDir: true,
-    typedRoutes: true,
   },
   async redirects() {
     return [
