@@ -1,9 +1,11 @@
 import { getSponsors } from "lib/get-sponsors";
 import classNames from "clsx";
 import Link from "next/link";
+import Image from "next/image";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
-export const revalidate = 3600; // 3600 seconds = 1 hour
+// revalidate every 24 hours
+export const revalidate = 86400; // 86400 seconds =  24 hours
 
 const pageTitle = "Sponsors";
 const pageDescription = "A list of active and inactive sponsors.";
@@ -32,7 +34,7 @@ export const metadata = {
 };
 
 export default async function App() {
-  const tiers = await getSponsors();
+  const { tiers, githubSponsorsCustomizations } = await getSponsors();
 
   return (
     <>
@@ -72,45 +74,50 @@ export default async function App() {
         Become a sponsor
       </Link>
 
-      {tiers.map((tier) => {
-        return (
-          <section className="my-5" key={tier.tier}>
-            <h2 className="text-2xl font-bold">${tier.tier}</h2>
+      {tiers.map((tier) => (
+        <section className="my-5" key={tier.tier}>
+          <h2 className="text-2xl font-bold">${tier.tier}</h2>
 
-            <ul className="mt-2 flex flex-col bg-white border border-secondary-light/50 rounded-md overflow-hidden">
-              {tier.sponsors.map((sponsor) => {
-                return (
-                  <li
-                    key={sponsor.login}
-                    className={classNames("border-b last:border-none border-secondary-light/50", {
-                      "z-10 p-[3px] bg-gradient-to-tr from-[#1150d4] to-[#a245fc]":
-                        sponsor.isActive,
-                    })}
-                  >
-                    <a
-                      className="flex gap-5 items-center z-20 bg-white p-3 rounded-sm"
-                      href={`https://github.com/${sponsor.login}`}
-                    >
-                      <img
-                        className="w-10 h-10 rounded-full object-cover"
-                        width={40}
-                        height={40}
-                        src={sponsor.avatarUrl}
-                        alt={sponsor.login}
-                      />
+          <ul className="mt-2 flex flex-col bg-white border border-secondary-light/50 rounded-md overflow-hidden">
+            {tier.sponsors.map((sponsor) => {
+              const customization = githubSponsorsCustomizations.find(
+                (customization) => customization.login === sponsor.login,
+              );
 
-                      <div>
-                        <h3 className="text-lg font-medium">{sponsor.name || sponsor.login}</h3>
-                        <p>{sponsor.bio}</p>
-                      </div>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        );
-      })}
+              const name = customization?.name || sponsor.name || sponsor.login;
+              const bio = customization?.bio || sponsor.bio;
+              const url = customization?.url || `https://github.com/${sponsor.login}`;
+              const avatarUrl = customization?.avatar?.src || sponsor.avatarUrl;
+              const placeholder = customization?.avatar?.placeholder?.base64 || undefined;
+
+              return (
+                <li
+                  key={sponsor.login}
+                  className={classNames("border-b last:border-none border-secondary-light/50", {
+                    "z-10 p-[3px] bg-gradient-to-tr from-[#1150d4] to-[#a245fc]": sponsor.isActive,
+                  })}
+                >
+                  <a className="flex gap-5 items-center z-20 bg-white p-3 rounded-sm" href={url}>
+                    <Image
+                      className="w-10 h-10 rounded-full object-cover"
+                      width={40}
+                      height={40}
+                      src={avatarUrl}
+                      alt={name}
+                      blurDataURL={placeholder}
+                    />
+
+                    <div>
+                      <h3 className="text-lg font-medium">{name}</h3>
+                      <p>{bio}</p>
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
     </>
   );
 }

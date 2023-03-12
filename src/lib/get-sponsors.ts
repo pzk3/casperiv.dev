@@ -2,6 +2,7 @@
  * https://github.com/egoist/website/blob/main/src/lib/get-sponsors.ts
  */
 
+import ronin from "ronin";
 import { groupBy } from "lodash-es";
 
 const token = process.env.GITHUB_TOKEN;
@@ -69,26 +70,36 @@ export async function getSponsors() {
   const sponsors = token ? await fetchSponsors() : [];
   const groupedSponsors = groupBy(sponsors, "tier.monthlyPriceInDollars");
 
-  return Object.keys(groupedSponsors)
-    .map((v) => Number(v))
-    .sort((a, b) => (a > b ? -1 : 1))
-    .map((key) => {
-      return {
-        tier: key,
-        sponsors: groupedSponsors[key]?.flatMap((item) => ({
-          ...item.sponsorEntity,
-          isActive: item.isActive,
-        })),
-      };
-    }) as {
-    tier: number;
-    sponsors: {
-      login: string;
-      avatarUrl: string;
-      bio?: string;
-      description?: string;
-      isActive: boolean;
-      name?: string;
-    }[];
-  }[];
+  const [githubSponsorsCustomizations] = await ronin<any[]>(
+    ({ get }) => (get.githubSponsorsCustomizations = {}),
+  );
+
+  return {
+    githubSponsorsCustomizations,
+    tiers: Object.keys(groupedSponsors)
+      .map((v) => Number(v))
+      .sort((a, b) => (a > b ? -1 : 1))
+      .map((key) => {
+        return {
+          tier: key,
+
+          sponsors: groupedSponsors[key]?.flatMap((item) => {
+            return {
+              ...item.sponsorEntity,
+              isActive: item.isActive,
+            };
+          }),
+        };
+      }) as {
+      tier: number;
+      sponsors: {
+        login: string;
+        avatarUrl: string;
+        bio?: string;
+        description?: string;
+        isActive: boolean;
+        name?: string;
+      }[];
+    }[],
+  };
 }

@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["media.ronin.co"],
+    domains: ["media.ronin.co", "avatars.githubusercontent.com"],
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
