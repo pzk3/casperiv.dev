@@ -1,8 +1,35 @@
 import { getSponsors } from "lib/get-sponsors";
 import classNames from "clsx";
 import Link from "next/link";
+import { DEFAULT_KEYWORDS } from "next-seo.config";
 
 export const revalidate = 3600; // 3600 seconds = 1 hour
+
+const pageTitle = "Sponsors";
+const pageDescription = "A list of active and inactive sponsors.";
+
+export const metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: "https://caspertheghost.me/thanks",
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+  },
+  twitter: {
+    title: pageTitle,
+    description: pageDescription,
+  },
+  keywords: [
+    ...DEFAULT_KEYWORDS,
+    "sponsors casper iversen",
+    "sponsorships",
+    "appreciation",
+    "thank you",
+  ],
+};
 
 export default async function App() {
   const tiers = await getSponsors();
@@ -10,8 +37,12 @@ export default async function App() {
   return (
     <>
       <h1 className="text-3xl font-bold capitalize md:text-4xl">Sponsors</h1>
+      <h2 className="my-2 text-lg font-medium bg-gradient-to-tr bg-clip-text text-transparent from-[#1150d4] to-[#a245fc]">
+        Thanks a lot for sponsoring me! I absolutely appreciate everyone who supports my open-source
+        work!
+      </h2>
 
-      <p className="mt-2 font-normal text-secondary-light">
+      <p className="mt-5 mb-2 font-normal text-secondary-light">
         A list of{" "}
         <span className="bg-gradient-to-tr bg-clip-text text-transparent from-[#1150d4] to-[#a245fc]">
           active
@@ -48,8 +79,6 @@ export default async function App() {
 
             <ul className="mt-2 flex flex-col bg-white border border-secondary-light/50 rounded-md overflow-hidden">
               {tier.sponsors.map((sponsor) => {
-                console.log(sponsor);
-
                 return (
                   <li
                     key={sponsor.login}
