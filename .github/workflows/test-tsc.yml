@@ -18,6 +18,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install esbuild && npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.RONIN_AUTH_TOKEN }}
       - name: Build contentlayer
         run: npm run build:contentlayer
       - name: Run typecheck
