@@ -97,9 +97,9 @@ export default async function App() {
                     "z-10 p-[3px] bg-gradient-to-tr from-[#1150d4] to-[#a245fc]": sponsor.isActive,
                   })}
                 >
-                  <a className="flex gap-5 items-center z-20 bg-white p-3 rounded-sm" href={url}>
+                  <a className="flex gap-5 items-start z-20 bg-white p-3 rounded-sm" href={url}>
                     <Image
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-10 h-10 rounded-full object-cover mt-2"
                       width={40}
                       height={40}
                       src={avatarUrl}
