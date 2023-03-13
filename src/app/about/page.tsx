@@ -9,6 +9,7 @@ async function fetchTimelineData() {
   const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
     get.timelineItems = {
       limitedTo: 1000,
+      orderedBy: { descending: ["year"] },
     };
   });
 
