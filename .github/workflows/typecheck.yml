@@ -18,8 +18,6 @@ jobs:
         run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: Build contentlayer
-        run: npm run build:contentlayer
 
       - name: Run typecheck
-        run: npm run typecheck
+        run: npm run build:contentlayer && npm run typecheck
