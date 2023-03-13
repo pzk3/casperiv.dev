@@ -1,6 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   siteUrl: "https://caspertheghost.me",
   generateRobotsTxt: true,
   sitemapBaseFileName: "sitemap",
 };
+
+export default config;
