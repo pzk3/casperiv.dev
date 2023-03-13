@@ -1,7 +1,3 @@
-name: Check TS build
-
-on: [push, pull_request]
-
 jobs:
   typecheck:
     runs-on: ubuntu-latest
@@ -17,10 +13,11 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install esbuild && npm install
+        run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Build contentlayer
         run: npm run build:contentlayer
+
       - name: Run typecheck
         run: npm run typecheck
