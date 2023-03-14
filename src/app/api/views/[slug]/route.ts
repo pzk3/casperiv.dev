@@ -1,6 +1,5 @@
 import { redisClient } from "lib/redis";
 
-export const revalidate = 60;
 export const dynamic = "force-dynamic";
 
 export async function POST(_request: Request, { params }: { params: { slug: string } }) {
