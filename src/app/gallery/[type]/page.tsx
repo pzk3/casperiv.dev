@@ -2,8 +2,7 @@ import { Gallery } from "components/gallery/columns";
 import ronin from "ronin";
 import { GalleryImage } from "types/gallery-image";
 
-export const dynamic = "force-static";
-export const revalidate = 604800; // 1 week. Next.js does not support: `60 * 60 * 24 * 7`
+export const revalidate = 600; // 10 minutes
 
 export async function generateMetadata({ params }: { params: { type: string } }) {
   return {

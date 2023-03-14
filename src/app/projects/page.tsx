@@ -5,7 +5,7 @@ import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { Project } from "types/project";
 
-export const revalidate = 3600; // 3600 seconds = 1 hour
+export const revalidate = 600; // 10 minutes
 
 async function fetchProjects() {
   const [projects] = await ronin<Project[]>(({ get }) => {

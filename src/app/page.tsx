@@ -6,7 +6,7 @@ import { MyBackpackSection } from "components/my-backpack-section";
 import { Project } from "types/project";
 import { BackpackItem } from "types/backpack-item";
 
-export const revalidate = 3600; // 3600 seconds = 1 hour
+export const revalidate = 600; // 10 minutes
 
 async function getBackpackAndProjects() {
   const [featuredProjects, myBackpack] = await ronin<[Project[], BackpackItem[]]>(({ get }) => {

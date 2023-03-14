@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 
-// revalidate every 24 hours
-export const revalidate = 86400; // 86400 seconds =  24 hours
+export const revalidate = 600; // 10 minutes
 
 const pageTitle = "Sponsors";
 const pageDescription = "A list of active and inactive sponsors.";
