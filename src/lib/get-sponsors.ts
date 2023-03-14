@@ -71,7 +71,7 @@ export async function getSponsors() {
   const groupedSponsors = groupBy(sponsors, "tier.monthlyPriceInDollars");
 
   const [githubSponsorsCustomizations] = await ronin<any[]>(
-    ({ get }) => (get.githubSponsorsCustomizations = {}),
+    ({ get }) => get.githubSponsorsCustomizations,
   );
 
   return {

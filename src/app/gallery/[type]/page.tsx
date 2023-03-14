@@ -27,7 +27,6 @@ export default async function SubGalleryPage({ params }: { params: { type: strin
   const [data] = await ronin<GalleryImage[]>(({ get }) => {
     get.galleryImages = {
       where: {
-        // @ts-expect-error - last bug in the RONIN type definitions
         galleryType: { is: params.type },
       },
       limitedTo: 1000,
