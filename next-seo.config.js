@@ -5,7 +5,7 @@ const title = {
   template: "%s - Casper Iversen",
 };
 const description =
-  "I'm a young and motivated web developer specializing in React.js, TypeScript, JavaScript, CSS, HTML and other frontend focused libraries and frameworks.";
+  "I am a highly motivated web developer specializing in React.js, TypeScript, JavaScript, CSS, HTML and other frontend focused libraries and frameworks. Furthermore, I love open-source and fast-pace development.";
 
 export const DEFAULT_KEYWORDS = [
   "dev-caspertheghost",
