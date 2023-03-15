@@ -1,0 +1,48 @@
+---
+title: use-viewport React hook
+description: Get the viewport width and listen for resize events with this React hook.
+createdAt: March 15, 2023
+keywords:
+  - use-viewport
+  - useViewport
+  - react hooks
+---
+
+## The hook
+
+```tsx title="hooks/use-viewport.ts"
+import * as React from "react";
+
+export function useViewport() {
+  const [width, setWidth] = React.useState(
+    () => (typeof window !== "undefined" && window.innerWidth) || 0,
+  );
+
+  React.useEffect(() => {
+    const handler = () => setWidth(window.innerWidth);
+
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
+  return width;
+}
+```
+
+## Usage
+
+```tsx title="app.tsx"
+import * as React from "react";
+import { useViewport } from "hooks/use-viewport";
+
+export function MyApp() {
+  const viewportWidth = useViewport();
+
+  return (
+    <div>
+      Try resizing your browser! <br />
+      {viewportWidth}
+    </div>
+  );
+}
+```

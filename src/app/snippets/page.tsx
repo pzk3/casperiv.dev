@@ -24,11 +24,15 @@ export const metadata = mergeSeo({
 });
 
 export default async function CodeSnippetsSlugPage() {
+  const sortedSnippets = allCodeSnippets.sort((post1, post2) =>
+    new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1,
+  );
+
   return (
     <>
       <h1 className="section-title">Code Snippets</h1>
 
-      <ArticlesList articles={allCodeSnippets} type="snippets" />
+      <ArticlesList articles={sortedSnippets} type="snippets" />
     </>
   );
 }
