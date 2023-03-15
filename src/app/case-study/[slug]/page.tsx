@@ -4,6 +4,7 @@ import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCaseStudy } from "lib/mdx/get-case-study";
 import { notFound } from "next/navigation";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { mergeSeo } from "lib/merge-seo";
 
 interface CaseStudySlugPageProps {
   params: { slug: string };
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: CaseStudySlugPageProps) {
     return {};
   }
 
-  return {
+  return mergeSeo({
     title: item.title,
     description: item.description,
     alternates: {
@@ -25,13 +26,16 @@ export async function generateMetadata({ params }: CaseStudySlugPageProps) {
     openGraph: {
       title: item.title,
       description: item.description,
+      publishedTime: item.createdAt,
+      type: "article",
+      modifiedTime: item.updatedAt,
     },
     twitter: {
       title: item.title,
       description: item.description,
     },
     keywords: [...DEFAULT_KEYWORDS, "case study casper iversen", ...(item.keywords ?? [])],
-  };
+  });
 }
 
 export default async function CaseStudyPage({ params }: CaseStudySlugPageProps) {

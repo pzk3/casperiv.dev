@@ -1,11 +1,12 @@
 import { Gallery } from "components/gallery/columns";
+import { mergeSeo } from "lib/merge-seo";
 import ronin from "ronin";
 import { GalleryImage } from "types/gallery-image";
 
 export const revalidate = 600; // 10 minutes
 
 export async function generateMetadata({ params }: { params: { type: string } }) {
-  return {
+  return mergeSeo({
     title: params.type,
     description: "Imagery works taken in my free time",
     alternates: {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: { type: string } })
       title: params.type,
       description: "Imagery works taken in my free time",
     },
-  };
+  });
 }
 
 export default async function SubGalleryPage({ params }: { params: { type: string } }) {

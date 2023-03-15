@@ -4,6 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import Link from "next/link";
 import ronin from "ronin";
 import { TimelineItem } from "types/timeline";
+import { mergeSeo } from "lib/merge-seo";
 
 async function fetchTimelineData() {
   const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
@@ -18,7 +19,7 @@ async function fetchTimelineData() {
   };
 }
 
-export const metadata = {
+export const metadata = mergeSeo({
   title: "About",
   description: "Get to know more about me and some of my accomplishments.",
   openGraph: {
@@ -32,7 +33,7 @@ export const metadata = {
   alternates: {
     canonical: "https://caspertheghost.me/about",
   },
-};
+});
 
 export default async function AboutPage() {
   const { timelineData } = await fetchTimelineData();

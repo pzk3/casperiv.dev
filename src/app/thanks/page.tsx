@@ -3,13 +3,14 @@ import classNames from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { mergeSeo } from "lib/merge-seo";
 
 export const revalidate = 600; // 10 minutes
 
 const pageTitle = "Sponsors";
 const pageDescription = "A list of active and inactive sponsors.";
 
-export const metadata = {
+export const metadata = mergeSeo({
   title: pageTitle,
   description: pageDescription,
   alternates: {
@@ -30,7 +31,7 @@ export const metadata = {
     "appreciation",
     "thank you",
   ],
-};
+});
 
 export default async function App() {
   const { tiers, githubSponsorsCustomizations } = await getSponsors();

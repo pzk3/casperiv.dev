@@ -6,19 +6,21 @@ import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getBlogPost } from "lib/mdx/get-blog-post";
 import { notFound } from "next/navigation";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { Metadata } from "next";
+import { mergeSeo } from "lib/merge-seo";
 
 interface CodeSnippetsSlugPageProps {
   params: { slug: string };
 }
 
-export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
+export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): Promise<Metadata> {
   const item = getBlogPost(params.slug);
 
   if (!item) {
     return {};
   }
 
-  return {
+  return mergeSeo({
     title: item.title,
     description: item.description,
     alternates: {
@@ -27,6 +29,9 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
     openGraph: {
       title: item.title,
       description: item.description,
+      publishedTime: item.createdAt,
+      type: "article",
+      modifiedTime: item.updatedAt,
     },
     twitter: {
       title: item.title,
@@ -38,7 +43,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
       "caspertheghost blog",
       ...(item.keywords ?? []),
     ],
-  };
+  });
 }
 
 export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {

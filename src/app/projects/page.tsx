@@ -4,6 +4,7 @@ import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { Project } from "types/project";
+import { mergeSeo } from "lib/merge-seo";
 
 export const revalidate = 600; // 10 minutes
 
@@ -24,7 +25,7 @@ async function fetchProjects() {
 
 const pageDescription = "A list of my projects that I'm most proud of.";
 
-export const metadata = {
+export const metadata = mergeSeo({
   title: "Projects",
   description: pageDescription,
   alternates: {
@@ -44,7 +45,7 @@ export const metadata = {
     "caspertheghost projects",
     "react hooks",
   ],
-};
+});
 
 export default async function ProjectsPage() {
   const { projects } = await fetchProjects();

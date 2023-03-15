@@ -24,6 +24,7 @@ export async function generateRSSFeed() {
       if (post.archived) continue;
 
       rss.item({
+        categories: [post.type],
         title: post.title,
         date: post.createdAt,
         author: "Casper Iversen",

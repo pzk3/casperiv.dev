@@ -22,8 +22,11 @@ export const DEFAULT_KEYWORDS = [
 /** @type {import("next").Metadata} */
 export const SEO = {
   title,
+  creator: "Casper Iversen",
+  colorScheme: "light",
   openGraph: {
-    locale: "en_US",
+    type: "website",
+    locale: "en-US",
     url: "https://caspertheghost.me",
     siteName: "caspertheghost.me",
     description,
@@ -31,19 +34,30 @@ export const SEO = {
     images: [{ url: "https://caspertheghost.me/icons/icon-128.png", height: 128, width: 128 }],
   },
   twitter: {
-    creatorId: "",
+    creatorId: "986844767723118598",
     creator: "@casper124578",
     site: "@site",
     card: "summary",
     description,
     title,
+    images: [
+      {
+        url: "https://caspertheghost.me/icons/icon-128.png",
+        height: 128,
+        width: 128,
+        alt: "Site Logo",
+      },
+    ],
   },
   alternates: {
     canonical: "https://caspertheghost.me",
+    types: {
+      rss: "https://caspertheghost.me/rss.xml",
+    },
   },
   description,
   keywords: DEFAULT_KEYWORDS,
-  authors: [{ name: "Casper Iversen" }],
+  authors: [{ name: "Casper Iversen", url: "https://caspertheghost.me" }],
   manifest: "/manifest.json",
   icons: {
     icon: [

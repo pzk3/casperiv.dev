@@ -4,6 +4,7 @@ import { Markdown } from "components/blog/markdown/markdown";
 import { allCodeSnippets } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCodeSnippet } from "lib/mdx/get-code-snippet";
+import { mergeSeo } from "lib/merge-seo";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { notFound } from "next/navigation";
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
     return {};
   }
 
-  return {
+  return mergeSeo({
     title: item.title,
     description: item.description,
     alternates: {
@@ -27,13 +28,16 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
     openGraph: {
       title: item.title,
       description: item.description,
+      publishedTime: item.createdAt,
+      type: "article",
+      modifiedTime: item.updatedAt,
     },
     twitter: {
       title: item.title,
       description: item.description,
     },
     keywords: [...DEFAULT_KEYWORDS, "snippets casper iversen", ...(item.keywords ?? [])],
-  };
+  });
 }
 
 export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {
