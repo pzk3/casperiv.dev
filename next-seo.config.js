@@ -31,23 +31,16 @@ export const SEO = {
     siteName: "caspertheghost.me",
     description,
     title,
-    images: [{ url: "https://caspertheghost.me/icons/icon-128.png", height: 128, width: 128 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 675 }],
   },
   twitter: {
     creatorId: "986844767723118598",
     creator: "@casper124578",
     site: "@site",
-    card: "summary",
+    card: "summary_large_image",
     description,
     title,
-    images: [
-      {
-        url: "https://caspertheghost.me/icons/icon-128.png",
-        height: 128,
-        width: 128,
-        alt: "Site Logo",
-      },
-    ],
+    images: [{ url: "/og-image.png", alt: "Casper Iversen", width: 1200, height: 675 }],
   },
   alternates: {
     canonical: "https://caspertheghost.me",
