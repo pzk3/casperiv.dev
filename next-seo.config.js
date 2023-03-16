@@ -31,14 +31,14 @@ export const SEO = {
     siteName: "caspertheghost.me",
     description,
     title,
-    images: [{ url: "/og-image.png", width: 1200, height: 675 }],
+    images: [{ url: "https://caspertheghost.me/og-image.png", width: 1200, height: 675 }],
   },
   twitter: {
     creator: "@casper124578",
     card: "summary_large_image",
     description,
     title,
-    images: [{ url: "/og-image.png", alt: "Casper Iversen", width: 1200, height: 675 }],
+    images: [{ url: "https://caspertheghost.me/og-image.png", width: 1200, height: 675 }],
   },
   alternates: {
     canonical: "https://caspertheghost.me",
