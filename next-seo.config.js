@@ -34,9 +34,7 @@ export const SEO = {
     images: [{ url: "/og-image.png", width: 1200, height: 675 }],
   },
   twitter: {
-    creatorId: "986844767723118598",
     creator: "@casper124578",
-    site: "@site",
     card: "summary_large_image",
     description,
     title,
