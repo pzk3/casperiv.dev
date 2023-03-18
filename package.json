@@ -29,10 +29,10 @@
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.0",
     "date-fns": "^2.29.3",
-    "deepmerge": "^4.3.0",
+    "deepmerge": "^4.3.1",
     "express-rate-limit": "^6.7.0",
     "lodash-es": "^4.17.21",
-    "lru-cache": "^8.0.3",
+    "lru-cache": "^8.0.4",
     "mdx-bundler": "^9.2.1",
     "next": "^13.2.4",
     "next-contentlayer": "^0.3.0",
@@ -42,7 +42,7 @@
     "react-bootstrap-icons": "^1.10.2",
     "react-children-utilities": "^2.9.0",
     "react-dom": "^18.3.0-next-67a61d5bd-20230228",
-    "react-hook-form": "^7.43.5",
+    "react-hook-form": "^7.43.7",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.9.4",
@@ -64,14 +64,14 @@
     "@types/react": "18.0.28",
     "@types/rss": "^0.0.30",
     "autoprefixer": "^10.4.14",
-    "esbuild": "^0.17.11",
+    "esbuild": "^0.17.12",
     "eslint": "^8.36.0",
     "eslint-config-next": "13.2.4",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "sass": "^1.59.3",
     "tailwindcss": "^3.2.7",
-    "typescript": "4.9.5"
+    "typescript": "5.0.2"
   },
   "sideEffects": false
 }
