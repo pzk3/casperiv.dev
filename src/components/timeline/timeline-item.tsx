@@ -1,7 +1,7 @@
-import type { TimelineItem as TTimelineItem } from "types/timeline";
+import { TimelineItem as RONINTimelineItem } from "@ronin/casper";
 
 interface Props {
-  item: TTimelineItem;
+  item: RONINTimelineItem;
 }
 
 export function TimelineItem({ item }: Props) {

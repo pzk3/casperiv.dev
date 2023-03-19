@@ -3,9 +3,9 @@
 import * as React from "react";
 import Image, { ImageProps } from "next/image";
 import { ImageModal } from "./image-modal";
-import { GalleryImage } from "types/gallery-image";
+import { GalleryImages } from "@ronin/casper";
 
-export function Gallery({ columns }: { columns: GalleryImage[][] }) {
+export function Gallery({ columns }: { columns: GalleryImages[] }) {
   return (
     <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
       {columns.map((column, i) => (

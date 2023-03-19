@@ -3,13 +3,13 @@ import { Timeline } from "components/timeline/timeline";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import Link from "next/link";
 import ronin from "ronin";
-import { TimelineItem } from "types/timeline";
 import { mergeSeo } from "lib/merge-seo";
+import { TimelineItems } from "@ronin/casper";
 
 export const revalidate = 600; // 10 minutes
 
 async function fetchTimelineData() {
-  const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
+  const [timelineItems] = await ronin<TimelineItems>(({ get }) => {
     get.timelineItems = {
       limitedTo: 1000,
       orderedBy: { descending: ["year"] },

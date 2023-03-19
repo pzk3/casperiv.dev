@@ -1,7 +1,7 @@
+import { GalleryImages } from "@ronin/casper";
 import { Gallery } from "components/gallery/columns";
 import { mergeSeo } from "lib/merge-seo";
 import ronin from "ronin";
-import { GalleryImage } from "types/gallery-image";
 
 export const revalidate = 600; // 10 minutes
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: { type: string } })
 }
 
 export default async function SubGalleryPage({ params }: { params: { type: string } }) {
-  const [data] = await ronin<GalleryImage[]>(({ get }) => {
+  const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
       where: {
         galleryType: { is: params.type },
@@ -53,10 +53,10 @@ export async function generateStaticParams() {
   return [{ type: "design-works" }, { type: "imagery" }];
 }
 
-function makeColumns(images: GalleryImage[]) {
+function makeColumns(images: GalleryImages) {
   const COLUMN_COUNT = 3;
 
-  const columns: GalleryImage[][] = [];
+  const columns: GalleryImages[] = [];
 
   for (let i = 0; i < images.length; i++) {
     const column = columns[i % COLUMN_COUNT] || [];
