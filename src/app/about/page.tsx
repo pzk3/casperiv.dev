@@ -6,6 +6,8 @@ import ronin from "ronin";
 import { TimelineItem } from "types/timeline";
 import { mergeSeo } from "lib/merge-seo";
 
+export const revalidate = 600; // 10 minutes
+
 async function fetchTimelineData() {
   const [timelineItems] = await ronin<TimelineItem[]>(({ get }) => {
     get.timelineItems = {
