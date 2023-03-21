@@ -19,7 +19,7 @@
     "@radix-ui/react-dialog": "^1.0.3",
     "@react-aria/label": "^3.5.0",
     "@react-aria/ssr": "^3.5.0",
-    "@ronin/casper": "^0.0.1676573197575",
+    "@ronin/casper": "latest",
     "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/typography": "^0.5.9",
     "@upstash/redis": "^1.20.1",
