@@ -68,6 +68,7 @@ export default async function MyStack() {
                 rel="noreferrer"
               >
                 <Image
+                  placeholder="blur"
                   className="w-16 h-16 rounded-lg shadow-lg shadow-gray-300"
                   width={64}
                   height={64}
