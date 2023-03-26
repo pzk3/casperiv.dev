@@ -1,15 +1,18 @@
 import ronin from "ronin";
-import type { Projects } from "@ronin/casper";
+import type { GalleryImages, Projects } from "@ronin/casper";
 import { ContactSection } from "components/contact-section";
 import { FeaturedProjectsSection } from "components/featured-projects";
 import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 import { BackpackItem } from "types/backpack-item";
+import { LatestGalleryImagesSection } from "components/latest-gallery-images-section";
 
 export const revalidate = 600; // 10 minutes
 
 async function getBackpackAndProjects() {
-  const [featuredProjects, myBackpack] = await ronin<[Projects, BackpackItem[]]>(({ get }) => {
+  const [featuredProjects, myBackpack, latestGalleryImages] = await ronin<
+    [Projects, BackpackItem[], GalleryImages]
+  >(({ get }) => {
     get.projects = {
       orderedBy: { ascending: ["ronin.updatedAt"] },
       where: { isFeatured: { is: true } },
@@ -18,22 +21,29 @@ async function getBackpackAndProjects() {
     get.mySkills = {
       orderedBy: { ascending: ["position"] },
     };
+
+    get.galleryImages = {
+      limitedTo: 6,
+      orderedBy: { descending: ["ronin.updatedAt"] },
+    };
   });
 
   return {
     myBackpack,
     projects: featuredProjects,
+    latestGalleryImages,
   };
 }
 
 export default async function App() {
-  const { myBackpack, projects } = await getBackpackAndProjects();
+  const { myBackpack, projects, latestGalleryImages } = await getBackpackAndProjects();
 
   return (
     <>
       <HeroSection />
       <MyBackpackSection myBackpack={myBackpack} />
       <FeaturedProjectsSection projects={projects} />
+      <LatestGalleryImagesSection latestGalleryImages={latestGalleryImages} />
       <ContactSection />
     </>
   );

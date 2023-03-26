@@ -25,7 +25,9 @@ export function BlogHeader({ post }: Props) {
       <h1 className="mb-5 text-3xl font-bold md:text-4xl">{post.title}</h1>
 
       <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
-        <p className="font-medium min-w-fit">{publishDateFull}</p>
+        <p className="font-medium min-w-fit">
+          <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
+        </p>
         {readingTime ? (
           <p className="flex items-center gap-2 min-w-fit">
             <Clock aria-labelledby={readTimeId} className="text-gray-400" />{" "}
