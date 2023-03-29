@@ -10,17 +10,32 @@ module.exports = {
     extend: {
       fontFamily: {
         mono: ["var(--font-cascadia-mono)", ...fontFamily.mono],
-        sans: ["var(--font-rubik)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
         serif: ["PlayfairDisplay", ...fontFamily.serif],
+      },
+      maxWidth: {
+        layout: "80rem",
       },
       borderWidth: {
         DEFAULT: "1.75px",
       },
+      height: {
+        1.75: "1.75px",
+      },
       colors: {
-        primary: "#F9FBFC",
-        "primary-dark": "#eaeaea",
-        secondary: "#343233",
-        "secondary-light": "#535052",
+        primary: "#ffffff",
+        secondary: {
+          DEFAULT: "#343233",
+          light: "#707070",
+          dark: "#D5D5D5",
+          "dark-accent": "#B5B5B5",
+        },
+        accent: "#366CA2",
+
+        // primary: "#F9FBFC",
+        // "primary-dark": "#eaeaea",
+        // secondary: "#343233",
+        // "secondary-light": "#535052",
       },
       screens: {
         xs: "400px",

@@ -5,9 +5,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div
       // 5rem = Navbar height, 12rem = footer height
       style={{ minHeight: "calc(100vh - 5rem - 12rem)" }}
-      className="flex justify-center w-full px-5 pt-5"
+      className="flex justify-center w-full pt-5"
     >
-      <main className="w-full max-w-4xl">{children}</main>
+      <main className="w-full">{children}</main>
     </div>
   );
 }

@@ -13,10 +13,10 @@ const links = [
     name: "Home",
     href: "/",
   },
-  {
-    name: "Contact",
-    href: "/#contact",
-  },
+  // {
+  //   name: "Contact",
+  //   href: "/#contact",
+  // },
   {
     name: "Projects",
     href: "/projects",
@@ -30,11 +30,11 @@ const links = [
     href: "/blog",
     types: ["/blog", "/blog/[slug]"],
   },
-  {
-    name: "Code Snippets",
-    href: "/snippets",
-    types: ["/snippets", "/snippets/[slug]"],
-  },
+  // {
+  //   name: "Code Snippets",
+  //   href: "/snippets",
+  //   types: ["/snippets", "/snippets/[slug]"],
+  // },
 ];
 
 export function Nav() {
@@ -63,10 +63,10 @@ export function Nav() {
       className="sticky top-0 z-30 flex items-center justify-center w-full px-5 h-15 bg-primary"
       id="nav"
     >
-      <nav className="flex items-center justify-between w-full h-20 max-w-4xl">
+      <nav className="flex items-center justify-between w-full h-20 max-w-7xl">
         <ul
           className={classNames(
-            "space-x-1 md:items-center",
+            "space-x-1 md:items-center gap-5",
             menuOpen
               ? "fixed w-full h-[22rem] top-0 left-0 z-50 flex items-center flex-col bg-primary p-5 shadow-lg open-nav-animation"
               : "hidden md:flex relative",

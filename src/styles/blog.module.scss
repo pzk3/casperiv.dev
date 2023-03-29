@@ -3,7 +3,7 @@
 
   [data-info] pre {
     background-color: theme("colors.primary");
-    color: theme("colors.secondary");
+    color: theme("colors.secondary.DEFAULT");
   }
 
   pre {
@@ -48,7 +48,7 @@
     [data-rehype-pretty-code-title] {
       font-family: theme("fontFamily.mono");
       padding: 0.2em 0.7em;
-      color: theme("colors.secondary");
+      color: theme("colors.secondary.DEFAULT");
       box-shadow: theme("dropShadow.sm");
       border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
       margin-bottom: -1.5px;
@@ -86,7 +86,7 @@
         pointer-events: none;
 
         background: rgba(200, 200, 255, 0.3);
-        border-left: 3.5px solid theme("colors.secondary");
+        border-left: 3.5px solid theme("colors.secondary.DEFAULT");
       }
     }
   }

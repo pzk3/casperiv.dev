@@ -1,7 +1,7 @@
 import "styles/globals.scss";
 import { Nav } from "components/nav";
 import { Footer } from "components/footer";
-import { Rubik } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 import localFont from "next/font/local";
 import { Layout } from "components/layout";
 import clsx from "clsx";
@@ -12,6 +12,8 @@ import { SEO } from "next-seo.config";
 export const metadata = SEO;
 
 const rubikFont = Rubik({ variable: "--font-rubik", subsets: ["latin"] });
+const interFont = Inter({ variable: "--font-inter", subsets: ["latin"] });
+
 const cascadiaMonoFont = localFont({
   src: "../../public/fonts/CascadiaMono.woff2",
   display: "optional",
@@ -25,7 +27,10 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html className={clsx(rubikFont.variable, cascadiaMonoFont.variable)} lang="en">
+    <html
+      className={clsx(rubikFont.variable, interFont.variable, cascadiaMonoFont.variable)}
+      lang="en"
+    >
       <body className="bg-primary text-secondary min-h-screen">
         <Providers>
           <Nav />

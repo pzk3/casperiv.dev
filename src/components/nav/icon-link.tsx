@@ -21,7 +21,7 @@ export function IconLink({ children, ...rest }: Props) {
       id={githubId}
       {...rest}
     >
-      <div className="absolute inset-0 transition-opacity opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] z-0 duration-200" />
+      <div className="absolute inset-0 transition-opacity opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-accent to-accent/30 z-0 duration-200" />
       {element}
     </a>
   );

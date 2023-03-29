@@ -27,8 +27,12 @@ body {
     font-weight: theme("fontWeight.bold");
     text-transform: capitalize;
 
-    @media (min-width: 768px) {
+    @media (min-width: theme("screens.md")) {
       font-size: theme("fontSize.4xl");
+    }
+
+    @media (min-width: theme("screens.lg")) {
+      font-size: theme("fontSize.5xl");
     }
   }
 }
@@ -59,4 +63,19 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.elements-grid {
+  position: absolute;
+  top: 0;
+  // todo: mobile
+  right: -8%;
+  z-index: -10;
+
+  max-height: 30em;
+  display: grid;
+  grid-template-areas:
+    ". star ."
+    "curly-bracket . ."
+    ". . quote";
 }
