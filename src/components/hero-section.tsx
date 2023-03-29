@@ -10,7 +10,7 @@ export function HeroSection() {
   const started = new Date("2019-08-08");
 
   return (
-    <section className="relative flex flex-col justify-center mx-auto max-w-layout px-5 md:px-0 mb-40">
+    <section className="relative flex flex-col justify-center mx-auto max-w-layout px-5 xl:px-0 mb-40">
       <div className="py-28 mt-20 flex flex-col ">
         <h1 className="relative text-5xl font-black sm:text-7xl md:text-8xl lg:text-9xl text-secondary">
           frontend <br /> web developer
@@ -34,7 +34,7 @@ export function HeroSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { delay: 0.1, duration: 0.5 } }}
-            className="text-secondary-light text-sm leading-none"
+            className="text-secondary-light text-sm leading-none min-w-fit"
           >
             Student developer @ Stampix
           </motion.p>

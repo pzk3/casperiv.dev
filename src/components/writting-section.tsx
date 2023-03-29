@@ -16,7 +16,7 @@ export function WritingSection() {
   });
 
   return (
-    <section className="w-full bg-secondary py-24">
+    <section className="w-full bg-secondary py-24 px-5 xl:px-0">
       <div className="w-full mx-auto max-w-layout flex items-start justify-between">
         <header>
           <h2 className="text-primary section-title">Writing</h2>
