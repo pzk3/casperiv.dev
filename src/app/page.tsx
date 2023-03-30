@@ -6,7 +6,7 @@ import { HeroSection } from "components/hero-section";
 import { MyBackpackSection } from "components/my-backpack-section";
 import { BackpackItem } from "types/backpack-item";
 import { LatestGalleryImagesSection } from "components/latest-gallery-images-section";
-import { WritingSection } from "components/writting-section";
+import { WritingSection } from "components/writing-section";
 
 export const revalidate = 600; // 10 minutes
 

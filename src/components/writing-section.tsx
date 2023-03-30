@@ -2,6 +2,7 @@ import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import Link from "next/link";
 import format from "date-fns/format";
+
 const topArticleSlugs = [
   "how-to-setup-and-deploy-nextjs-ubuntu",
   "my-uses",
@@ -16,8 +17,8 @@ export function WritingSection() {
   });
 
   return (
-    <section className="w-full bg-secondary py-24 px-5 xl:px-0">
-      <div className="w-full mx-auto max-w-layout flex items-start justify-between">
+    <section className="w-full bg-secondary py-16 md:py-24 px-5 xl:px-0">
+      <div className="w-full mx-auto max-w-layout gap-x-5 flex flex-col md:flex-row items-start justify-between">
         <header>
           <h2 className="text-primary section-title">Writing</h2>
           <p className="text-secondary-dark mt-5 max-w-lg">
@@ -26,15 +27,18 @@ export function WritingSection() {
           </p>
         </header>
 
-        <div className="w-1/2">
-          <div data-line className="w-full mt-10">
+        <div className="md:w-1/2">
+          <div data-line className="w-full md:mt-10 mt-5">
             <div aria-hidden className="max-w-[250px] w-full bg-accent rounded-md h-[3px]" />
           </div>
 
           <ul className="mt-7">
             {topBlogPosts.map((post) => (
               <li key={post.title}>
-                <Link href="#" className="flex items-center gap-5 my-3 group">
+                <Link
+                  href={`/blog/${getArticleSlug(post)}`}
+                  className="flex items-center gap-5 my-3 group"
+                >
                   <p className="text-secondary-dark-accent text-sm">
                     {format(new Date(post.createdAt), "yyyy-MM-dd")}
                   </p>

@@ -58,6 +58,7 @@ export function MyBackpackSection({ myBackpack }: { myBackpack: BackpackItem[] }
             I have compiled a list of my top skills below. {"I'm"} also open to exploring new
             frontend technologies and techniques to expand my skillset.
           </span>
+          <br />
           <Link
             className="underline inline-flex items-center gap-2 group transition-colors hover:text-neutral-800"
             href="/about/stack"
