@@ -63,7 +63,7 @@ export function Nav() {
       className="sticky top-0 z-30 flex items-center justify-center w-full px-5 h-15 bg-primary"
       id="nav"
     >
-      <nav className="flex items-center justify-between w-full h-20 max-w-7xl">
+      <nav className="flex items-center justify-between w-full h-20 max-w-layout">
         <ul
           className={classNames(
             "space-x-1 md:items-center gap-5",

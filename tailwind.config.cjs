@@ -10,11 +10,12 @@ module.exports = {
     extend: {
       fontFamily: {
         mono: ["var(--font-cascadia-mono)", ...fontFamily.mono],
+        title: ["var(--font-unbounded)", ...fontFamily.sans],
         sans: ["var(--font-inter)", ...fontFamily.sans],
         serif: ["PlayfairDisplay", ...fontFamily.serif],
       },
       maxWidth: {
-        layout: "80rem",
+        layout: "72rem",
       },
       borderWidth: {
         DEFAULT: "1.75px",
