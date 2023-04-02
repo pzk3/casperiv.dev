@@ -7,6 +7,7 @@ import { MyBackpackSection } from "components/my-backpack-section";
 import { BackpackItem } from "types/backpack-item";
 import { LatestGalleryImagesSection } from "components/latest-gallery-images-section";
 import { WritingSection } from "components/writing-section";
+import { ShortAboutSection } from "components/short-about-section";
 
 export const revalidate = 600; // 10 minutes
 
@@ -42,6 +43,7 @@ export default async function App() {
   return (
     <>
       <HeroSection />
+      <ShortAboutSection />
       <WritingSection />
       <MyBackpackSection myBackpack={myBackpack} />
       {/* <FeaturedProjectsSection projects={projects} />
