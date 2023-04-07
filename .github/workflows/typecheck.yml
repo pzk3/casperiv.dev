@@ -24,8 +24,8 @@ jobs:
 
       - name: Set token config
         run: |
-          echo "@ronin:registry=https://ronin.supply/" >> .npmrc
-          echo "//ronin.supply/:_authToken=${secrets.RONIN_AUTH_TOKEN}" > .npmrc
+          echo "@ronin:registry=https://ronin.supply/" > .npmrc
+          echo "//ronin.supply/:_authToken=${secrets.RONIN_AUTH_TOKEN}" >> .npmrc
         env:
           secrets.RONIN_AUTH_TOKEN: ${{secrets.RONIN_AUTH_TOKEN}}
 
