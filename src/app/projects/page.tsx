@@ -52,7 +52,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold capitalize md:text-4xl">Projects</h1>
+      <h1 className="section-title">Projects</h1>
 
       <p className="mt-2 font-normal text-secondary-light">
         {pageDescription} All my projects are{" "}

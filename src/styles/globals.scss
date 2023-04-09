@@ -26,6 +26,7 @@ body {
     font-size: theme("fontSize.3xl");
     font-weight: theme("fontWeight.bold");
     text-transform: capitalize;
+    font-family: theme("fontFamily.title");
 
     @media (min-width: theme("screens.md")) {
       font-size: theme("fontSize.4xl");
@@ -34,6 +35,11 @@ body {
     @media (min-width: theme("screens.lg")) {
       font-size: theme("fontSize.5xl");
     }
+  }
+
+  b {
+    font-weight: theme("fontWeight.medium");
+    color: theme("colors.accent.DEFAULT");
   }
 }
 

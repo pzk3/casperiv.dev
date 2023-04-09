@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.1",
+    "@heroicons/react": "^2.0.17",
     "@radix-ui/react-dialog": "^1.0.3",
     "@react-aria/label": "^3.5.1",
     "@react-aria/ssr": "^3.6.0",

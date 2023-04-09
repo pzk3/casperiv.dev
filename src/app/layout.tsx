@@ -1,12 +1,11 @@
 import "styles/globals.scss";
-import { Nav } from "components/nav";
-import { Footer } from "components/footer";
-import { Layout } from "components/layout";
 import clsx from "clsx";
 import { AnalyticsWrapper } from "components/analytics";
 import { Providers } from "./providers";
 import { SEO } from "next-seo.config";
 import { unboundedFont, interFont, cascadiaMonoFont } from "lib/fonts";
+import { Sidebar } from "components/sidebar";
+import { Nav } from "components/nav";
 
 export const metadata = SEO;
 
@@ -14,19 +13,23 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout(props: RootLayoutProps) {
   return (
     <html
       className={clsx(unboundedFont.variable, interFont.variable, cascadiaMonoFont.variable)}
       lang="en"
     >
-      <body className="bg-primary text-secondary min-h-screen">
+      <body className="bg-white grid grid-cols-1 lg:grid-cols-[15rem_auto] min-h-screen">
         <Providers>
-          <Nav />
+          <div>
+            <Sidebar />
+          </div>
 
-          <Layout>{children}</Layout>
+          <div>
+            <Nav />
+            <main className="w-full max-w-layout mx-auto px-4 lg:px-0 pb-7">{props.children}</main>
+          </div>
 
-          <Footer />
           <AnalyticsWrapper />
         </Providers>
       </body>

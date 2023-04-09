@@ -43,7 +43,6 @@ export default async function App() {
   return (
     <>
       <HeroSection />
-      <ShortAboutSection />
       <WritingSection />
       <MyBackpackSection myBackpack={myBackpack} />
       {/* <FeaturedProjectsSection projects={projects} />

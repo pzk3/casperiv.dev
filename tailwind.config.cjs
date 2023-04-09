@@ -15,7 +15,7 @@ module.exports = {
         serif: ["PlayfairDisplay", ...fontFamily.serif],
       },
       maxWidth: {
-        layout: "72rem",
+        layout: "60rem",
       },
       borderWidth: {
         DEFAULT: "1.75px",
@@ -31,7 +31,10 @@ module.exports = {
           dark: "#D5D5D5",
           "dark-accent": "#B5B5B5",
         },
-        accent: "#366CA2",
+        accent: {
+          DEFAULT: "#366CA2",
+          light: "#e4ebf2",
+        },
 
         // primary: "#F9FBFC",
         // "primary-dark": "#eaeaea",
