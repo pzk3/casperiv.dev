@@ -1,7 +1,4 @@
-import { Age } from "components/age";
 import { Timeline } from "components/timeline/timeline";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import Link from "next/link";
 import ronin from "ronin";
 import { mergeSeo } from "lib/merge-seo";
 import { TimelineItems } from "@ronin/casper";
@@ -41,12 +38,10 @@ export default async function AboutPage() {
   const { timelineData } = await fetchTimelineData();
 
   return (
-    <>
-      <section className="mt-10" id="timeline">
-        <h2 className="section-title">Timeline</h2>
+    <section className="mt-10" id="timeline">
+      <h2 className="section-title">Timeline</h2>
 
-        <Timeline timelineData={timelineData} />
-      </section>
-    </>
+      <Timeline timelineData={timelineData} />
+    </section>
   );
 }

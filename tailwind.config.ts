@@ -1,7 +1,7 @@
-const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
+import type { Config } from "tailwindcss";
+import { spacing, fontFamily } from "tailwindcss/defaultTheme";
 
-/** @type {import("tailwindcss").Config} */
-module.exports = {
+export default {
   future: {
     hoverOnlyWhenSupported: true,
   },
@@ -15,7 +15,7 @@ module.exports = {
         serif: ["PlayfairDisplay", ...fontFamily.serif],
       },
       maxWidth: {
-        layout: "60rem",
+        layout: "50rem",
       },
       borderWidth: {
         DEFAULT: "1.75px",
@@ -45,7 +45,7 @@ module.exports = {
         xs: "400px",
       },
       // thanks to https://github.com/leerob/leerob.io/blob/main/tailwind.config.js
-      typography: (theme) => ({
+      typography: (theme: any) => ({
         DEFAULT: {
           css: {
             color: theme("colors.secondary"),
@@ -71,4 +71,4 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
-};
+} satisfies Config;

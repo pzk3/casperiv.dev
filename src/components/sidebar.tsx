@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { BriefcaseIcon, HomeIcon, RectangleStackIcon } from "@heroicons/react/24/solid";
+import {
+  BriefcaseIcon,
+  HomeIcon,
+  NewspaperIcon,
+  RectangleStackIcon,
+} from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
@@ -20,6 +25,11 @@ const routes = [
     name: "Stack",
     path: "/about/stack",
     icon: RectangleStackIcon,
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+    icon: NewspaperIcon,
   },
 ];
 

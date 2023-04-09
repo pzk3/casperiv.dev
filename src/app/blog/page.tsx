@@ -33,10 +33,10 @@ export default async function CodeSnippetsSlugPage() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold capitalize md:text-4xl">Blog Posts</h1>
+      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Blog Posts</h1>
 
       <div className="my-3 md:mt-6">
-        <h2 className="text-2xl font-semibold md:text-3xl">Featured</h2>
+        <h2 className="text-2xl font-semibold md:text-3xl font-title">Featured</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
           {FEATURED.map((article) => (
@@ -51,7 +51,7 @@ export default async function CodeSnippetsSlugPage() {
       </div>
 
       <div>
-        <h2 className="text-2xl font-semibold md:text-3xl">All posts</h2>
+        <h2 className="text-2xl font-semibold md:text-3xl font-title">All posts</h2>
 
         <ArticlesList articles={nonArchivedBlogPosts} type="blog" />
       </div>
