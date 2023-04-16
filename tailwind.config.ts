@@ -1,74 +1,30 @@
-import type { Config } from "tailwindcss";
-import { spacing, fontFamily } from "tailwindcss/defaultTheme";
+import { Config } from "tailwindcss";
 
-export default {
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
-  content: ["./src/**/*.{tsx,mdx}"],
+const tailwindConfig = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      inter: ["var(--font-inter)", "sans-serif"],
+      poppins: ["var(--font-poppins)", "sans-serif"],
+      sans: ["var(--font-inter)", "var(--font-poppins)", "sans-serif"],
+    },
     extend: {
-      fontFamily: {
-        mono: ["var(--font-cascadia-mono)", ...fontFamily.mono],
-        title: ["var(--font-unbounded)", ...fontFamily.sans],
-        sans: ["var(--font-inter)", ...fontFamily.sans],
-        serif: ["PlayfairDisplay", ...fontFamily.serif],
-      },
-      maxWidth: {
-        layout: "50rem",
-      },
-      borderWidth: {
-        DEFAULT: "1.75px",
-      },
-      height: {
-        1.75: "1.75px",
-      },
       colors: {
-        primary: "#ffffff",
-        secondary: {
-          DEFAULT: "#343233",
-          light: "#707070",
-          dark: "#D5D5D5",
-          "dark-accent": "#B5B5B5",
+        primary: "#F5F0E8",
+        secondary: "#101010",
+        gray: {
+          dark: "#343233",
+          light: "#5A5658",
         },
-        accent: {
-          DEFAULT: "#366CA2",
-          light: "#e4ebf2",
-        },
-
-        // primary: "#F9FBFC",
-        // "primary-dark": "#eaeaea",
-        // secondary: "#343233",
-        // "secondary-light": "#535052",
+        // accent: "#2556f1",
+        accent: "#fedc08",
       },
       screens: {
-        xs: "400px",
+        md: "1050px",
       },
-      // thanks to https://github.com/leerob/leerob.io/blob/main/tailwind.config.js
-      typography: (theme: any) => ({
-        DEFAULT: {
-          css: {
-            color: theme("colors.secondary"),
-            code: {
-              backgroundColor: theme("colors.gray.300"),
-              color: theme("colors.secondary"),
-            },
-            "[data-info]": {
-              a: {
-                color: theme("colors.secondary"),
-              },
-            },
-            "a,figcaption": {
-              color: theme("colors.neutral.600"),
-            },
-            "h2,h3,h4": {
-              color: theme("colors.secondary"),
-              "scroll-margin-top": spacing[32],
-            },
-          },
-        },
-      }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 } satisfies Config;
+
+export default tailwindConfig;

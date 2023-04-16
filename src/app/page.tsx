@@ -1,53 +1,35 @@
+import { Header } from "~/components/header";
+import { MyBackpackSection } from "~/components/sections/backpack-section";
+import { HeroSection } from "~/components/sections/hero-section";
 import ronin from "ronin";
-import type { GalleryImages, Projects } from "@ronin/casper";
-import { ContactSection } from "components/contact-section";
-import { FeaturedProjectsSection } from "components/featured-projects";
-import { HeroSection } from "components/hero-section";
-import { MyBackpackSection } from "components/my-backpack-section";
-import { BackpackItem } from "types/backpack-item";
-import { LatestGalleryImagesSection } from "components/latest-gallery-images-section";
-import { WritingSection } from "components/writing-section";
-import { ShortAboutSection } from "components/short-about-section";
+import { MyBackpack, Projects } from "@ronin/casper";
+import { ProjectsSection } from "~/components/sections/projects-section";
+import { LatestBlogPosts } from "~/components/sections/latest-blog-posts";
 
-export const revalidate = 600; // 10 minutes
-
-async function getBackpackAndProjects() {
-  const [featuredProjects, myBackpack, latestGalleryImages] = await ronin<
-    [Projects, BackpackItem[], GalleryImages]
-  >(({ get }) => {
+async function fetchHomePageData() {
+  const [backpack, featuredProjects] = await ronin<[MyBackpack[], Projects]>(({ get }) => {
+    get.mySkills = { orderedBy: { ascending: ["ronin.createdAt"] } };
     get.projects = {
       orderedBy: { ascending: ["ronin.updatedAt"] },
       where: { isFeatured: { is: true } },
     };
-
-    get.mySkills = {
-      orderedBy: { ascending: ["position"] },
-    };
-
-    get.galleryImages = {
-      limitedTo: 6,
-      orderedBy: { descending: ["ronin.updatedAt"] },
-    };
   });
-
-  return {
-    myBackpack,
-    projects: featuredProjects,
-    latestGalleryImages,
-  };
+  return { backpack, featuredProjects };
 }
 
-export default async function App() {
-  const { myBackpack, projects, latestGalleryImages } = await getBackpackAndProjects();
+export default async function Home() {
+  const { backpack, featuredProjects } = await fetchHomePageData();
 
   return (
     <>
-      <HeroSection />
-      <WritingSection />
-      <MyBackpackSection myBackpack={myBackpack} />
-      {/* <FeaturedProjectsSection projects={projects} />
-      <LatestGalleryImagesSection latestGalleryImages={latestGalleryImages} />
-      <ContactSection /> */}
+      <Header />
+
+      <main>
+        <HeroSection />
+        <MyBackpackSection backpack={backpack} />
+        <ProjectsSection featuredProjects={featuredProjects} />
+        <LatestBlogPosts />
+      </main>
     </>
   );
 }

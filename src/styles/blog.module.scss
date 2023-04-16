@@ -3,12 +3,12 @@
 
   [data-info] pre {
     background-color: theme("colors.primary");
-    color: theme("colors.secondary.DEFAULT");
+    color: theme("colors.secondary");
   }
 
   pre {
     border: none;
-    font-family: theme("fontFamily.mono");
+    font-family: theme("fontFamily.sans");
     background-color: theme("colors.primary");
     padding: 0.4em 0.5em;
 
@@ -18,7 +18,7 @@
   }
 
   code {
-    font-family: theme("fontFamily.mono");
+    font-family: theme("fontFamily.sans");
     font-size: 16px;
     border-radius: theme("borderRadius.md");
     padding: theme("padding.1") theme("padding[1.5]");
@@ -46,9 +46,9 @@
     }
 
     [data-rehype-pretty-code-title] {
-      font-family: theme("fontFamily.mono");
+      font-family: theme("fontFamily.inter");
       padding: 0.2em 0.7em;
-      color: theme("colors.secondary.DEFAULT");
+      color: theme("colors.secondary");
       box-shadow: theme("dropShadow.sm");
       border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
       margin-bottom: -1.5px;
@@ -86,7 +86,7 @@
         pointer-events: none;
 
         background: rgba(200, 200, 255, 0.3);
-        border-left: 3.5px solid theme("colors.secondary.DEFAULT");
+        border-left: 3.5px solid theme("colors.secondary");
       }
     }
   }
