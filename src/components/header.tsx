@@ -1,6 +1,7 @@
 "use client";
 
 import classNames from "classnames";
+import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -19,8 +20,24 @@ const navLinks = [
   },
 ];
 
+const variants: Variants = {
+  initial: {
+    opacity: 0,
+    width: 0,
+  },
+  hover: {
+    opacity: 0.5,
+    width: "60%",
+  },
+  active: {
+    opacity: 1,
+    width: "50%",
+  },
+};
+
 export function Header() {
   const pathname = usePathname();
+
   return (
     <header className="w-full py-7 px-5 md:px-0">
       <nav className="max-w-6xl w-full mx-auto flex items-center justify-between font-poppins">
@@ -29,11 +46,24 @@ export function Header() {
             const isRouteActive = pathname === link.pathname;
 
             return (
-              <li key={link.pathname}>
-                <Link className={classNames(isRouteActive && "font-semibold")} href={link.pathname}>
+              <motion.li
+                initial="initial"
+                whileHover="hover"
+                animate={isRouteActive ? "active" : "initial"}
+                key={link.pathname}
+              >
+                <Link
+                  className={classNames("relative", isRouteActive && "font-semibold")}
+                  href={link.pathname}
+                >
                   {link.name}
+
+                  <motion.span
+                    variants={variants}
+                    className="absolute block left-0 -bottom-1 w-1/2 h-[2px] bg-secondary rounded-2xl"
+                  />
                 </Link>
-              </li>
+              </motion.li>
             );
           })}
         </ul>
