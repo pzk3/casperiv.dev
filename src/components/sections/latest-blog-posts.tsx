@@ -13,12 +13,12 @@ export function LatestBlogPosts() {
 
   return (
     <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
-      <header className="flex items-center justify-between">
+      <header className="flex flex-col gap-y-5 sm:flex-row md:items-center justify-between">
         <h2 className="font-poppins font-bold text-5xl md:text-6xl relative max-w-fit">
           Latest blog posts
         </h2>
 
-        <Link intent="secondary" extras="icon" href="/blog">
+        <Link className="max-w-fit" intent="secondary" extras="icon" href="/blog">
           Browse all blog posts
           <ArrowRightShort width={25} height={25} />
         </Link>
