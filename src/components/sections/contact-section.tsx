@@ -65,6 +65,9 @@ export function ContactSection() {
     },
   });
 
+  const buttonIntent = error ? "error" : data ? "success" : "secondary-light";
+  const buttonMessage = error ? "Let's try again?!" : data ? "Sent!" : "Just send it!";
+
   return (
     <section className="bg-secondary text-primary">
       <div className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
@@ -74,14 +77,14 @@ export function ContactSection() {
           Go for it!
         </h2>
 
-        <div className="flex flex-col md:flex-row mt-10 gap-12 justify-between">
+        <div className="flex flex-col md:flex-row mt-14 gap-12 justify-between">
           <div className="w-full md:max-w-md">
             <p className="text-gray-extralight font-medium text-inter">
               {"I'm"} like a friendly neighborhood spider, always looking for new connections.
               Except I {"don't"} have eight legs, and I promise not to scare you.
             </p>
 
-            <div className="flex mt-10 gap-12 w-full">
+            <div className="flex mt-14 gap-12 w-full">
               <ul className="flex flex-col gap-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
@@ -109,7 +112,7 @@ export function ContactSection() {
           </div>
 
           <form className="w-full" onSubmit={handleSubmit((data) => mutate(data))}>
-            <div className="flex flex-col sm:flex-row md:gap-4">
+            <div className="flex flex-col sm:flex-row sm:gap-4">
               <TextField
                 {...register("firstName")}
                 autoComplete="given-name"
@@ -164,16 +167,14 @@ export function ContactSection() {
                 disabled={isLoading}
                 extras={isLoading ? "loading" : undefined}
                 className="min-w-fit"
-                intent={error ? "error" : "secondary-light"}
+                intent={buttonIntent}
                 type="submit"
               >
-                {error ? "Let's try again?!" : "Just send it!"}
+                {buttonMessage}
               </Button>
 
-              {error ? <p className="capitalize text-red-400 max-w-md">{error.message}</p> : null}
-              {data ? (
-                <p className="capitalize text-gray-extralight max-w-md">{data.message}</p>
-              ) : null}
+              {error ? <p className="capitalize text-red-400">{error.message}</p> : null}
+              {data ? <p className="capitalize text-green-400">{data.message}</p> : null}
             </div>
           </form>
         </div>

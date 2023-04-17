@@ -33,7 +33,9 @@ export function LatestBlogPosts() {
               intent="none"
               href={`/blog/${getArticleSlug(blogPost)}`}
             >
-              <h3 className="font-semibold font-poppins text-xl md:text-2xl">{blogPost.title}</h3>
+              <h3 className="font-semibold font-poppins text-xl md:text-2xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
+                {blogPost.title}
+              </h3>
 
               <p className="mt-1 md:mt-2 text-base md:text-lg text-gray-light max-w-xl font-inter">
                 {blogPost.description}
