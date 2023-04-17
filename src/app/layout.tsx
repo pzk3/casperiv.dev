@@ -2,6 +2,7 @@ import classNames from "classnames";
 import "~/styles/globals.css";
 import { Inter, Poppins } from "next/font/google";
 import { mergeSeo } from "~/utils/merge-seo";
+import { Providers } from "./providers";
 
 export const metadata = mergeSeo({});
 
@@ -23,7 +24,9 @@ const poppinsFont = Poppins({
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={classNames(poppinsFont.variable, interFont.variable)}>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

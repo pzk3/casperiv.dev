@@ -1,26 +1,17 @@
 import * as React from "react";
-import classNames from "clsx";
+import { InputProps, input } from "./input";
 
-type Props = JSX.IntrinsicElements["textarea"] & {
-  hasError?: boolean | string;
-};
-
-export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
-  ({ hasError, ...rest }, ref) => (
+export const Textarea = React.forwardRef<HTMLTextAreaElement, InputProps>(
+  ({ errorMessage, ...rest }, ref) => (
     <textarea
       ref={ref}
       {...rest}
-      className={classNames(
-        `
-        bg-white
-        w-full p-1.5 px-2 rounded-md border
-        disabled:cursor-not-allowed disabled:opacity-80
-        transition-colors resize-y`,
-        hasError
-          ? "border-red-500 focus:border-red-700"
-          : "border-secondary/50 focus:border-secondary",
-        rest.className,
-      )}
+      className={input({
+        state: errorMessage ? "invalid" : "valid",
+        intent: rest.intent,
+        size: rest.size,
+        className: rest.className,
+      })}
     />
   ),
 );

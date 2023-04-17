@@ -48,7 +48,7 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
           </HoverCard.Root>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 mt-32 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-32 w-full">
           {props.backpack.map((item, idx) => {
             const allSkills = item.list.split("\n").filter(Boolean);
 
@@ -56,7 +56,7 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
               <React.Fragment key={item.header}>
                 <h3
                   key={item.header}
-                  className="font-poppins text-5xl md:text-6xl font-bold lowercase h-32"
+                  className="font-poppins text-5xl md:text-6xl font-bold lowercase md:h-32"
                 >
                   <span className="inline-block w-[73px] text-start">0{++idx}</span> — {item.header}
                 </h3>

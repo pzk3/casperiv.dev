@@ -15,6 +15,7 @@ const tailwindConfig = {
         gray: {
           dark: "#343233",
           light: "#5A5658",
+          extralight: "#E0E0E0",
         },
         // accent: "#2556f1",
         accent: "#fedc08",

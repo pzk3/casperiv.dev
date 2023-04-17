@@ -2,7 +2,10 @@ import mail from "@sendgrid/mail";
 import { CONTACT_SCHEMA } from "lib/schemas";
 import { rateLimit } from "./rate-limiter";
 
-if (!process.env.MAIL_API_KEY) {
+const MAIL_VERIFIED_SENDER = process.env.MAIL_VERIFIED_SENDER;
+const MAIL_API_KEY = process.env.MAIL_API_KEY;
+
+if (!MAIL_API_KEY) {
   throw new Error("`MAIL_API_KEY` is not defined");
 }
 
@@ -11,13 +14,13 @@ const limiter = rateLimit({
 });
 const MAX_EMAILS_PER_FIFTEEN_MINUTES = 2;
 
-mail.setApiKey(process.env.MAIL_API_KEY);
+mail.setApiKey(MAIL_API_KEY);
 
 export async function POST(request: Request) {
   const body = (await request.json()) as unknown;
 
-  if (!process.env.CACHE_TOKEN) {
-    throw new Error("`CACHE_TOKEN` is not defined");
+  if (!process.env.CACHE_TOKEN || !MAIL_VERIFIED_SENDER) {
+    throw new Error("`CACHE_TOKEN` or `MAIL_VERIFIED_SENDER` is not defined");
   }
 
   const { isRateLimited, headers } = limiter.check(
@@ -26,55 +29,78 @@ export async function POST(request: Request) {
   );
 
   if (isRateLimited) {
-    return new Response(JSON.stringify({ error: "Rate limited exceeded" }), {
-      status: 429,
-      headers,
-    });
+    return new Response(
+      JSON.stringify({
+        message: "Woah! You're moving to fast. Please try again in several minutes.",
+      }),
+      { status: 429, headers },
+    );
   }
 
   const data = await CONTACT_SCHEMA.safeParseAsync(body);
   if (!data.success) {
-    return new Response(JSON.stringify({ error: data.error.message }), {
+    return new Response(JSON.stringify({ message: data.error.message }), {
       status: 400,
       headers,
     });
   }
 
   const msg = {
-    to: [process.env.MAIL_CC_EMAIL!, { name: data.data.name, email: data.data.email }],
-    from: process.env.MAIL_VERIFIED_SENDER!,
-    subject: "RE: Confirmation email caspertheghost.me",
+    to: [{ name: `${data.data.firstName} ${data.data.lastName}`, email: data.data.email }],
+    from: MAIL_VERIFIED_SENDER,
+    subject: `Confirmation of ${data.data.firstName} ${data.data.lastName}'s message`,
     text: `
-Hello ${data.data.name},
+Hello ${data.data.firstName},
 
-You received this email because you entered the contact form on caspertheghost.me.
-I will respond back to you as soon as I can :). Below you can find your message:
+Thank you for taking the time to contact me. This email is to confirm that I have received your message and will respond back to you as soon as I can.
 
+I will be replying to the email address you provided me: ${data.data.email}
+
+Have a great day!
+Kind regards,
+Casper
+
+---
+
+Your message:
 
 ${data.data.message}`,
     html: `
-Hello ${data.data.name},<br/>
+Hello ${data.data.firstName},<br/>
 <br/>
-You received this email because you entered the contact form on caspertheghost.me.<br/>
-I will respond back to you as soon as I can :). Below you can find your message:
+Thank you for taking the time to contact me. This email is to confirm that I have received your message and will respond back to you as soon as I can.
+<br/>
+<br/>
+I will be replying to the email address you provided me: ${data.data.email}
 
 <br/>
+<br/>
+
+Have a great day!<br/>
+Kind regards,<br/>
+Casper<br/>
+<br/>
+<br/>
+——
+<br/>
+Your message:<br/>
 <br/>
 
 <q>${data.data.message}</q>`,
   };
 
   const sentEmail = await mail.send(msg).catch(() => null);
-
   if (!sentEmail) {
-    return new Response(JSON.stringify({ error: "could not send email" }), {
+    return new Response(JSON.stringify({ message: "could not send email" }), {
       status: 500,
       headers,
     });
   }
 
-  return new Response(JSON.stringify({ ok: true }), {
-    status: 200,
-    headers,
-  });
+  return new Response(
+    JSON.stringify({
+      message: "Message successfully sent! You should receive a confirmation email.",
+    }),
+    { status: 200, headers },
+  );
 }

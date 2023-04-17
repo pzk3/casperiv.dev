@@ -5,6 +5,7 @@ import ronin from "ronin";
 import { MyBackpack, Projects } from "@ronin/casper";
 import { ProjectsSection } from "~/components/sections/projects-section";
 import { LatestBlogPosts } from "~/components/sections/latest-blog-posts";
+import { ContactSection } from "~/components/sections/contact-section";
 
 async function fetchHomePageData() {
   const [backpack, featuredProjects] = await ronin<[MyBackpack[], Projects]>(({ get }) => {
@@ -29,6 +30,7 @@ export default async function Home() {
         <MyBackpackSection backpack={backpack} />
         <ProjectsSection featuredProjects={featuredProjects} />
         <LatestBlogPosts />
+        <ContactSection />
       </main>
     </>
   );
