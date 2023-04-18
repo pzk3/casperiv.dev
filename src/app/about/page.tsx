@@ -1,20 +1,28 @@
 import ronin from "ronin";
 import { mergeSeo } from "lib/merge-seo";
-import { Timelineitems } from "@ronin/casper";
+import { Stackitems, Timelineitems } from "@ronin/casper";
 import { HorizontalScroll } from "~/components/sections/about/horizontal-scroll";
 import { Timeline } from "~/components/sections/about/timeline";
+import { StackSection } from "~/components/sections/about/stack";
 
 export const revalidate = 600; // 10 minutes
 
 async function fetchTimelineData() {
-  const [timelineItems] = await ronin<Timelineitems>(({ get }) => {
+  const [timelineItems, stackItems] = await ronin<[Timelineitems, Stackitems]>(({ get }) => {
     get.timelineItems = {
       limitedTo: 1000,
       orderedBy: { descending: ["year"] },
     };
+
+    get.stackItems = {
+      orderedBy: {
+        ascending: ["name"],
+      },
+    };
   });
 
   return {
+    stackItems,
     timelineData: timelineItems,
   };
 }
@@ -36,7 +44,7 @@ export const metadata = mergeSeo({
 });
 
 export default async function AboutPage() {
-  const { timelineData } = await fetchTimelineData();
+  const { timelineData, stackItems } = await fetchTimelineData();
 
   return (
     <main className="mt-[clamp(64px,10%,192px)] ">
@@ -45,7 +53,7 @@ export default async function AboutPage() {
           Who am I?
         </h1>
 
-        <div className="max-w-xl">
+        <div className="max-w-xl font-medium">
           <p className="mt-10">
             Hey there! {"Let's"} get straight to it! {"I'm"} Casper, a motivated frontend developer
             and student based in Belgium. I started back when I was a 14-year-old kid that had an
@@ -68,6 +76,8 @@ export default async function AboutPage() {
           </p>
         </div>
       </section>
+
+      <StackSection stackItems={stackItems} />
 
       {/* timeline section */}
       <HorizontalScroll

@@ -46,7 +46,10 @@ export async function POST(request: Request) {
   }
 
   const msg = {
-    to: [{ name: `${data.data.firstName} ${data.data.lastName}`, email: data.data.email }],
+    to: [
+      { name: `${data.data.firstName} ${data.data.lastName}`, email: data.data.email },
+      { name: "Casper Iversen", email: MAIL_VERIFIED_SENDER },
+    ],
     from: { name: "Casper Iversen", email: MAIL_VERIFIED_SENDER },
     subject: `Confirmation of ${data.data.firstName} ${data.data.lastName}'s message`,
     text: `

@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { MyBackpack } from "@ronin/casper";
+import { Myskills } from "@ronin/casper";
 import * as HoverCard from "@radix-ui/react-hover-card";
 import { motion } from "framer-motion";
 
 interface MyBackpackSectionProps {
-  backpack: MyBackpack[];
+  backpack: Myskills;
 }
 
 export function MyBackpackSection(props: MyBackpackSectionProps) {

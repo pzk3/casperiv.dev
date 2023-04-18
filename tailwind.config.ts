@@ -17,7 +17,6 @@ const tailwindConfig = {
           light: "#5A5658",
           extralight: "#E0E0E0",
         },
-        // accent: "#2556f1",
         accent: "#fedc08",
       },
       screens: {

@@ -54,7 +54,7 @@ export function HeroSection() {
           <line
             opacity="0.51"
             fill="none"
-            stroke="#F5F0E8"
+            stroke="#fedc08"
             x1="86.48"
             y1="188.06"
             x2="69.22"
@@ -66,7 +66,7 @@ export function HeroSection() {
           <line
             opacity="0.51"
             fill="none"
-            stroke="#F5F0E8"
+            stroke="#fedc08"
             x1="371.86"
             y1="188.06"
             x2="354.6"

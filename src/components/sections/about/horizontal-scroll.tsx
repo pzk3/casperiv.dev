@@ -43,7 +43,7 @@ export function HorizontalScroll(props: HorizontalScrollProps) {
   }, [x]);
 
   return (
-    <div className="relative w-full" style={{ height: dynamicHeight }}>
+    <section className="relative w-full" style={{ height: dynamicHeight }}>
       <div
         ref={containerRef}
         className="bg-secondary sticky top-0 h-screen w-full overflow-hidden pl-12"
@@ -57,6 +57,6 @@ export function HorizontalScroll(props: HorizontalScrollProps) {
           {props.children}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
