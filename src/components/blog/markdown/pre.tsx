@@ -27,10 +27,10 @@ export function PreCode({ children, ...rest }: Props) {
         <pre {...rest}>{children}</pre>
       </div>
 
-      <div className="flex gap-1 self-end mr-4 -mt-[1px]">
+      <div className="flex gap-1 self-end mr-4 -mt-[2px]">
         <span
           data-language-tag
-          className="bg-primary text-secondary border rounded-b-md px-2 inline-block max-w-fit cursor-default font-mono"
+          className="text-accent bg-gray-dark border rounded-b-md px-2 inline-block max-w-fit cursor-default font-mono"
         >
           {language}
         </span>
@@ -39,7 +39,7 @@ export function PreCode({ children, ...rest }: Props) {
           onClick={handleCopyCode}
           ref={copyCodeButtonRef}
           data-language-tag
-          className="bg-primary text-secondary border rounded-b-md px-2 inline-block max-w-fit hover:bg-secondary hover:text-primary transition-colors duration-200 ease-in-out"
+          className="bg-primary text-secondary border rounded-b-md px-2 inline-block max-w-fit hover:!bg-gray-dark hover:text-primary transition-colors duration-200 ease-in-out"
         >
           Copy
         </button>

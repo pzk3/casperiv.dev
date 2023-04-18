@@ -54,11 +54,13 @@ export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugP
   }
 
   return (
-    <>
+    <main>
       <BlogHeader post={item} />
-      <Markdown code={item.body.code} />
-      <BlogFooter post={item} />
-    </>
+      <section className="max-w-6xl mx-auto pb-6 px-5 md:px-0">
+        <Markdown code={item.body.code} />
+        <BlogFooter post={item} />
+      </section>
+    </main>
   );
 }
 

@@ -1,12 +1,14 @@
 import { Config } from "tailwindcss";
+import { fontFamily, spacing } from "tailwindcss/defaultTheme";
 
 const tailwindConfig = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      inter: ["var(--font-inter)", "sans-serif"],
-      poppins: ["var(--font-poppins)", "sans-serif"],
-      sans: ["var(--font-inter)", "var(--font-poppins)", "sans-serif"],
+      inter: ["var(--font-inter)", ...fontFamily.sans],
+      poppins: ["var(--font-poppins)", ...fontFamily.sans],
+      "fira-code": ["var(--font-fira-code)", ...fontFamily.mono],
+      sans: ["var(--font-inter)", "var(--font-poppins)", ...fontFamily.sans],
     },
     extend: {
       colors: {
@@ -22,9 +24,32 @@ const tailwindConfig = {
       screens: {
         md: "1050px",
       },
+      typography: (theme: (str: string) => string) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.secondary"),
+            code: {
+              backgroundColor: theme("colors.gray.300"),
+              color: theme("colors.secondary"),
+            },
+            "[data-info]": {
+              a: {
+                color: theme("colors.secondary"),
+              },
+            },
+            "a,figcaption": {
+              color: theme("colors.neutral.600"),
+            },
+            "h2,h3,h4": {
+              color: theme("colors.secondary"),
+              "scroll-margin-top": spacing[32],
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default tailwindConfig;

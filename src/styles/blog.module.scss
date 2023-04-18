@@ -8,7 +8,7 @@
 
   pre {
     border: none;
-    font-family: theme("fontFamily.sans");
+    font-family: theme("fontFamily.fira-code");
     background-color: theme("colors.primary");
     padding: 0.4em 0.5em;
 
@@ -18,11 +18,11 @@
   }
 
   code {
-    font-family: theme("fontFamily.sans");
+    font-family: theme("fontFamily.fira-code");
     font-size: 16px;
     border-radius: theme("borderRadius.md");
     padding: theme("padding.1") theme("padding[1.5]");
-    font-weight: theme("fontWeight.normal");
+    font-weight: theme("fontWeight.medium");
 
     &::before,
     &::after {
@@ -35,7 +35,7 @@
     flex-direction: column;
 
     [data-code-pre] {
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.extralight");
       border-radius: theme("borderRadius.md");
       box-shadow: theme("dropShadow.sm");
 
@@ -46,11 +46,12 @@
     }
 
     [data-rehype-pretty-code-title] {
-      font-family: theme("fontFamily.inter");
+      font-family: theme("fontFamily.fira-code");
+      font-weight: theme("fontWeight.medium");
       padding: 0.2em 0.7em;
       color: theme("colors.secondary");
       box-shadow: theme("dropShadow.sm");
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.extralight");
       margin-bottom: -1.5px;
       border-radius: theme("borderRadius.md") theme("borderRadius.md") 0 0;
 
@@ -60,7 +61,7 @@
     }
 
     [data-language-tag] {
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.extralight");
     }
 
     [data-line="true"] {
@@ -86,7 +87,7 @@
         pointer-events: none;
 
         background: rgba(200, 200, 255, 0.3);
-        border-left: 3.5px solid theme("colors.secondary");
+        border-left: 3.5px solid theme("colors.gray.dark");
       }
     }
   }

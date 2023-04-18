@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 export function HeroSection() {
   const { scrollYProgress } = useScroll();
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, 800]);
+  const x = useTransform(scrollYProgress, [0, 0.5], [0, 800]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 720]);
 
   return (

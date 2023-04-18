@@ -21,24 +21,29 @@ export function BlogHeader({ post }: Props) {
   const readTimeId = React.useId();
 
   return (
-    <header className="pb-2 pt-5 border-b border-secondary">
-      <h1 className="mb-5 text-3xl font-bold md:text-4xl font-title">{post.title}</h1>
+    <header className="bg-secondary text-primary py-14 mb-6">
+      <div className="max-w-6xl mx-auto px-5 md:px-0">
+        <div className="border-b-2 border-accent/70 mb-5 pb-5">
+          <h1 className="mb-3 text-3xl font-bold md:text-4xl font-title">{post.title}</h1>
+          <p className="text-gray-extralight">{post.description}</p>
+        </div>
 
-      <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
-        <p className="font-medium min-w-fit">
-          <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
-        </p>
-        {readingTime ? (
-          <p className="flex items-center gap-2 min-w-fit">
-            <Clock aria-labelledby={readTimeId} className="text-gray-400" />{" "}
-            <span id={readTimeId}>{readingTime}</span>
+        <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
+          <p className="font-medium min-w-fit font-poppins">
+            <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
           </p>
-        ) : null}
+          {readingTime ? (
+            <p className="flex items-center gap-2 min-w-fit">
+              <Clock aria-labelledby={readTimeId} className="fill-gray-extralight" />{" "}
+              <span id={readTimeId}>{readingTime}</span>
+            </p>
+          ) : null}
 
-        <p className="flex items-center gap-2 min-w-fit">
-          <Eye aria-labelledby={viewsId} className="text-gray-400" />{" "}
-          {views ? Intl.NumberFormat().format(views) : "—"} <span id={viewsId}>{viewsText}</span>
-        </p>
+          <p className="flex items-center gap-2 min-w-fit">
+            <Eye aria-labelledby={viewsId} className="fill-gray-extralight" />{" "}
+            {views ? Intl.NumberFormat().format(views) : "—"} <span id={viewsId}>{viewsText}</span>
+          </p>
+        </div>
       </div>
     </header>
   );

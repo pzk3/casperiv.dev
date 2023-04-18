@@ -32,7 +32,7 @@ export default async function CodeSnippetsSlugPage() {
     .sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
   return (
-    <main className="mt-16 mx-auto max-w-6xl pb-6">
+    <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">
       <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Blog Posts</h1>
 
       <div className="my-3 md:mt-12">
