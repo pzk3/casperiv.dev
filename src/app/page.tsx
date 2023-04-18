@@ -1,4 +1,3 @@
-import { Header } from "~/components/header";
 import { MyBackpackSection } from "~/components/sections/backpack-section";
 import { HeroSection } from "~/components/sections/hero-section";
 import ronin from "ronin";
@@ -22,16 +21,12 @@ export default async function Home() {
   const { backpack, featuredProjects } = await fetchHomePageData();
 
   return (
-    <>
-      <Header />
-
-      <main>
-        <HeroSection />
-        <MyBackpackSection backpack={backpack} />
-        <ProjectsSection featuredProjects={featuredProjects} />
-        <LatestBlogPosts />
-        <ContactSection />
-      </main>
-    </>
+    <main>
+      <HeroSection />
+      <MyBackpackSection backpack={backpack} />
+      <ProjectsSection featuredProjects={featuredProjects} />
+      <LatestBlogPosts />
+      <ContactSection />
+    </main>
   );
 }

@@ -1,6 +1,5 @@
 import ronin from "ronin";
 
-import { ProjectItem } from "components/featured-projects";
 import Link from "next/link";
 import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { Project } from "types/project";
@@ -62,11 +61,7 @@ export default async function ProjectsPage() {
         .
       </p>
 
-      <ul className="grid grid-cols-1 gap-3 mt-5 md:grid-cols-2">
-        {projects.map((project: any) => (
-          <ProjectItem key={project.title} project={project} />
-        ))}
-      </ul>
+      <ul className="grid grid-cols-1 gap-3 mt-5 md:grid-cols-2"></ul>
     </>
   );
 }

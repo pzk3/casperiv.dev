@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { Inter, Poppins } from "next/font/google";
 import { mergeSeo } from "~/utils/merge-seo";
 import { Providers } from "./providers";
+import { Header } from "~/components/header";
 
 export const metadata = mergeSeo({});
 
@@ -25,7 +26,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={classNames(poppinsFont.variable, interFont.variable)}>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
