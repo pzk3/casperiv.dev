@@ -18,6 +18,10 @@ const navLinks = [
     name: "Contact",
     pathname: "/#contact",
   },
+  {
+    name: "Blog",
+    pathname: "/blog",
+  },
 ];
 
 const variants: Variants = {

@@ -69,7 +69,7 @@ export function ContactSection() {
   const buttonMessage = error ? "Let's try again?!" : data ? "Sent!" : "Just send it!";
 
   return (
-    <section className="bg-secondary text-primary">
+    <section id="contact" className="bg-secondary text-primary">
       <div className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
         <h2 className="font-poppins font-medium text-4xl md:text-5xl relative max-w-fit leading-snug">
           Want to ask me <span className="italic">sum</span>?
@@ -89,6 +89,8 @@ export function ContactSection() {
                 {links.map((link) => (
                   <li key={link.name}>
                     <a
+                      rel="noreferrer"
+                      target="_blank"
                       className="flex items-center gap-1 text-gray-extralight hover:text-primary"
                       href={link.url}
                     >

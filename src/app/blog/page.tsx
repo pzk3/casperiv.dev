@@ -32,13 +32,13 @@ export default async function CodeSnippetsSlugPage() {
     .sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
   return (
-    <>
+    <main className="mt-16 mx-auto max-w-6xl pb-6">
       <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Blog Posts</h1>
 
-      <div className="my-3 md:mt-6">
+      <div className="my-3 md:mt-12">
         <h2 className="text-2xl font-semibold md:text-3xl font-title">Featured</h2>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
           {FEATURED.map((article) => (
             <ArticleListItem
               article={article}
@@ -50,11 +50,11 @@ export default async function CodeSnippetsSlugPage() {
         </ul>
       </div>
 
-      <div>
+      <div className="md:mt-12">
         <h2 className="text-2xl font-semibold md:text-3xl font-title">All posts</h2>
 
         <ArticlesList articles={nonArchivedBlogPosts} type="blog" />
       </div>
-    </>
+    </main>
   );
 }

@@ -80,7 +80,7 @@ export function HeroSection() {
         <motion.polygon
           whileTap={{ scale: 0.9 }}
           fill="#101010"
-          className="hover:fill-accent transition outline-none cursor-none"
+          className="hover:fill-accent transition outline-none cursor-pointer"
           points="246.58,143.63 206.99,75.33 167.41,7.04 246.58,7.04 325.75,7.04 286.16,75.33 	"
         />
         <line
@@ -93,7 +93,15 @@ export function HeroSection() {
           x2="57.31"
           y2="7.04"
         />
-        <ellipse fill="#353030" cx="345.63" cy="7.04" rx="7.07" ry="7.04" />
+        <motion.ellipse
+          transition={{ repeat: Infinity, repeatDelay: 0.5, repeatType: "reverse", duration: 1 }}
+          animate={{ scale: [1, 1.2] }}
+          fill="#353030"
+          cx="345.63"
+          cy="7.04"
+          rx="7.07"
+          ry="7.04"
+        />
       </motion.svg>
     </section>
   );

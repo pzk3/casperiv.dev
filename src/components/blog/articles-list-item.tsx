@@ -1,8 +1,10 @@
-import Link from "next/link";
 import format from "date-fns/format";
 import classNames from "clsx";
 import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { Link } from "../link";
+import { ArrowRightShort } from "react-bootstrap-icons";
+import NextLink from "next/link";
 
 interface Props {
   isFeatured?: boolean;
@@ -15,26 +17,36 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
   const extraAProps = isFeatured
     ? {
         style: { borderRadius: 3.5 },
-        className: "z-20 block p-3 bg-gray-50 w-full h-full",
+        className: "z-20 block p-4 w-full h-full border-accent border-2 transition",
       }
     : {};
 
   return (
     <li
-      className={classNames("my-4 first:mt-0 group", {
-        "z-10 mt-0 p-1 bg-gradient-to-tr from-[#1150d4] to-[#a245fc] rounded-md hover:shadow-lg transition-shadow":
-          isFeatured,
+      className={classNames("my-4 first:mt-0 group relative", {
+        "z-10 mt-0 py-0.5": isFeatured,
       })}
     >
-      <Link href={`/${type}/${getArticleSlug(article)}`} {...extraAProps}>
+      {isFeatured ? (
+        <Link
+          size="square"
+          className="absolute -top-2.5 right-2.5 group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
+          intent="secondary"
+          href={`/blog/${getArticleSlug(article)}`}
+        >
+          <ArrowRightShort width={25} height={25} />
+        </Link>
+      ) : null}
+
+      <NextLink href={`/${type}/${getArticleSlug(article)}`} {...extraAProps}>
         <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
           {article.title}
         </h2>
         <p className="mt-1 text-secondary">{article.description}</p>
         {isFeatured ? null : (
-          <span className="block mt-1.5 font-normal text-secondary-light">{publishedAt}</span>
+          <span className="block mt-1.5 font-normal text-gray-light">{publishedAt}</span>
         )}
-      </Link>
+      </NextLink>
     </li>
   );
 }
