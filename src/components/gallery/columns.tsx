@@ -3,9 +3,9 @@
 import * as React from "react";
 import Image, { ImageProps } from "next/image";
 import { ImageModal } from "./image-modal";
-import { GalleryImages } from "@ronin/casper";
+import { Galleryimages } from "@ronin/casper";
 
-export function Gallery({ columns }: { columns: GalleryImages[] }) {
+export function Gallery({ columns }: { columns: Galleryimages[] }) {
   return (
     <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
       {columns.map((column, i) => (
@@ -40,7 +40,9 @@ function ImageItem(props: ImageProps) {
         placeholder="blur"
         onContextMenu={(e) => e.preventDefault()}
         draggable={false}
+        quality={60}
         {...props}
+        loader={(props) => `${props.src}?w=${props.width}&q=${props.quality || 80}`}
       />
 
       {isModalOpen ? <ImageModal onClose={() => setModalOpen(false)} {...props} /> : null}
