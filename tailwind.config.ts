@@ -23,6 +23,7 @@ const tailwindConfig = {
       },
       screens: {
         md: "1050px",
+        tall: { raw: "(min-height: 1000px)" },
       },
       typography: (theme: (str: string) => string) => ({
         DEFAULT: {

@@ -9,15 +9,23 @@ export function Timeline(props: TimelineProps) {
   const bottomHalf = props.timelineData.filter((_, idx) => idx % 2 !== 0);
 
   return (
-    <div className="flex flex-col w-full h-full mx-12 justify-center">
+    <div className="flex flex-col w-full h-full mx-12 mt-[1%] tall:mt-0 tall:justify-center">
       <div className="flex flex-col gap-12">
-        <div className="flex w-full gap-12">
+        {/* desktop */}
+        <div className="hidden tall:flex w-full gap-12">
           {topHalf.map((item) => (
             <Card key={item.id} {...item} />
           ))}
         </div>
-        <div className="flex w-full gap-12 ml-[200px]">
+        <div className="hidden tall:flex w-full gap-12 ml-[200px]">
           {bottomHalf.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
+        </div>
+
+        {/* mobile */}
+        <div className="flex tall:hidden w-full gap-12 ml-[200px]">
+          {props.timelineData.map((item) => (
             <Card key={item.id} {...item} />
           ))}
         </div>

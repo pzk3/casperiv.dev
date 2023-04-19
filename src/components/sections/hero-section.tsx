@@ -11,8 +11,8 @@ export function HeroSection() {
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 720]);
 
   return (
-    <section className="min-h-[calc(100vh-60px)] flex flex-col justify-between gap-y-20 overflow-x-hidden">
-      <div className="px-5 md:px-0 mt-12 flex flex-col md:flex-row w-full max-w-6xl mx-auto md:h-[50vh] md:items-center gap-5 md:justify-between">
+    <section className="min-h-[calc(100vh-60px)] flex flex-col justify-between gap-y-20 overflow-x-hidden pb-32 md:pb-0">
+      <div className="px-5 md:px-0 mt-12 flex flex-col md:flex-row w-full max-w-6xl mx-auto min-h-[70vh] tall:min-h-[50vh] md:items-center gap-5 md:justify-between">
         <h1 className="text-[clamp(2.5rem,10vw,5rem)] font-bold leading-tight w-full md:min-w-[530px]">
           A clever
           <br /> frontend web <br /> developer <br /> from Belgium

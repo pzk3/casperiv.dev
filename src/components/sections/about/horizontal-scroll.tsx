@@ -46,9 +46,11 @@ export function HorizontalScroll(props: HorizontalScrollProps) {
     <section className="relative w-full" style={{ height: dynamicHeight }}>
       <div
         ref={containerRef}
-        className="bg-secondary sticky top-0 h-screen w-full overflow-hidden pl-12"
+        className="bg-secondary sticky top-0 min-h-screen w-full overflow-hidden pl-12"
       >
-        <header className="text-primary sticky top-[20%]">{props.headerRenderer}</header>
+        <header className="text-primary tall:sticky tall:top-[20%] mt-20 tall:mt-0">
+          {props.headerRenderer}
+        </header>
         <motion.div
           style={{ x }}
           className="flex absolute h-full will-change-transform"
