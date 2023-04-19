@@ -41,6 +41,7 @@ function ImageItem(props: ImageProps) {
         onContextMenu={(e) => e.preventDefault()}
         draggable={false}
         {...props}
+        loader={(props) => `${props.src}?w=${props.width}&q=${props.quality}`}
       />
 
       {isModalOpen ? <ImageModal onClose={() => setModalOpen(false)} {...props} /> : null}
