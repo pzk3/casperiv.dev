@@ -40,7 +40,7 @@ export function ProjectsSection(props: ProjectsSectionProps) {
   }
 
   return (
-    <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0 touch-pan-y">
+    <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
       <header className="flex flex-col gap-y-5 sm:flex-row sm:items-center justify-between">
         <h2 className="font-poppins font-bold text-5xl md:text-6xl relative max-w-fit">
           Projects<span className="text-accent">.</span>
@@ -54,7 +54,7 @@ export function ProjectsSection(props: ProjectsSectionProps) {
 
       <div
         ref={carouselRef}
-        className="relative flex overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
+        className="relative flex overflow-hidden scroll-smooth snap-x snap-mandatory touch-none z-0"
       >
         {props.featuredProjects.map((project, idx) => (
           <article
