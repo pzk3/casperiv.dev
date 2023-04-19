@@ -43,7 +43,8 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full py-7 px-5 md:px-0">
+    // shadow onScroll
+    <header className="w-full py-7 px-5 md:px-0 sticky top-0 bg-primary z-50">
       <nav className="max-w-6xl w-full mx-auto flex items-center justify-between font-poppins">
         <ul className="flex items-center gap-5">
           {navLinks.map((link) => {

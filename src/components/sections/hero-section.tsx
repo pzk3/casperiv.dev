@@ -3,9 +3,12 @@
 import { ArrowRightShort } from "react-bootstrap-icons";
 import { Link } from "~/components/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export function HeroSection() {
   const { scrollYProgress } = useScroll();
+  const startDate = new Date("2019-08-08");
+  const formattedStartDate = formatDistanceToNow(startDate);
 
   const x = useTransform(scrollYProgress, [0, 0.5], [0, 800]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 720]);
@@ -14,7 +17,7 @@ export function HeroSection() {
     <section className="min-h-[calc(100vh-60px)] flex flex-col justify-between gap-y-20 overflow-x-hidden pb-32 md:pb-0">
       <div className="px-5 md:px-0 mt-12 flex flex-col md:flex-row w-full max-w-6xl mx-auto min-h-[70vh] tall:min-h-[50vh] md:items-center gap-5 md:justify-between">
         <h1 className="text-[clamp(2.5rem,10vw,5rem)] font-bold leading-tight w-full md:min-w-[530px]">
-          A clever
+          A bright
           <br /> frontend web <br /> developer <br /> from Belgium
         </h1>
 
@@ -23,9 +26,9 @@ export function HeroSection() {
             {"I'm"} a highly motivated developer and student from Belgium. I adore building
             accessible, responsive and performant code. Furthermore, {"I'm"} also a huge fan of
             open-source.
-            <br /> <br />I have been building web apps for over 3 years and still love it. Learning
-            something new every week. Currently focused on Frontend Web Development and a bit of Web
-            Design.
+            <br /> <br />I have been building web apps for {formattedStartDate} and still love it.
+            Learning something new every week. Currently focused on Frontend Web Development and a
+            bit of Web Design.
           </p>
 
           <div className="flex items-center gap-3 mt-7 w-full">
@@ -54,7 +57,7 @@ export function HeroSection() {
           <line
             opacity="0.51"
             fill="none"
-            stroke="#fedc08"
+            stroke="#e97451"
             x1="86.48"
             y1="188.06"
             x2="69.22"
@@ -66,7 +69,7 @@ export function HeroSection() {
           <line
             opacity="0.51"
             fill="none"
-            stroke="#fedc08"
+            stroke="#e97451"
             x1="371.86"
             y1="188.06"
             x2="354.6"

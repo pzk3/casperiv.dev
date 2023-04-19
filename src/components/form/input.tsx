@@ -12,7 +12,7 @@ export const input = cva(["border-2 outline-none transition-colors w-full"], {
       primary: "bg-gray-dark ",
     },
     state: {
-      valid: "border-gray-light focus:border-accent",
+      valid: "border-gray-light focus:border-accent hover:border-accent/30",
       invalid: "border-red-600 focus:border-red-700",
     },
     size: {

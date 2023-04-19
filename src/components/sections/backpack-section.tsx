@@ -14,7 +14,7 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
     <section className="bg-secondary text-primary">
       <div className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
         <h2 className="font-poppins font-medium text-4xl relative max-w-fit">
-          My super skillset
+          My evolving skillset
           <HoverCard.Root closeDelay={100} openDelay={0}>
             <HoverCard.Trigger
               className="leading-[0px] absolute -top-4 -right-6 grid items-center justify-center h-8 w-8 cursor-default"
@@ -41,8 +41,8 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
               className="ml-3 border-2 border-gray-light bg-gray-dark shadow-md rounded-2xl font-normal p-2 px-3 text-base max-w-sm"
             >
               <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: -5 }}>
-                {"I'm"} also open to exploring new technologies and techniques to expand my super
-                skillset.
+                {"I'm"} open to exploring new technologies and techniques to expand my ever evolving
+                skillset {";)"}.
               </motion.div>
             </HoverCard.Content>
           </HoverCard.Root>

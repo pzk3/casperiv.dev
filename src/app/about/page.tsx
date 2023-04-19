@@ -4,6 +4,7 @@ import { Stackitems, Timelineitems } from "@ronin/casper";
 import { HorizontalScroll } from "~/components/sections/about/horizontal-scroll";
 import { Timeline } from "~/components/sections/about/timeline";
 import { StackSection } from "~/components/sections/about/stack";
+import { AboutHeroSection } from "~/components/sections/about/hero-section";
 
 export const revalidate = 600; // 10 minutes
 
@@ -48,35 +49,7 @@ export default async function AboutPage() {
 
   return (
     <main className="mt-[clamp(64px,10%,192px)] ">
-      <section className="mx-auto max-w-6xl w-full pb-32 px-5 md:px-0">
-        <h1 className="font-poppins font-bold text-5xl md:text-6xl relative max-w-fit">
-          Who am I?
-        </h1>
-
-        <div className="max-w-xl font-medium">
-          <p className="mt-10">
-            Hey there! {"Let's"} get straight to it! {"I'm"} Casper, a motivated frontend developer
-            and student based in Belgium. I started back when I was a 14-year-old kid that had an
-            extreme passion for creating stuff, building simple static web pages and expanding my
-            CSS knowledge by recreating awesome designs. {"I've"} continued to grow and evolve as a
-            developer, taking on new challenges and learning the latest technologies along the way.
-          </p>
-
-          <p className="mt-4">
-            Now, at the age of 18, four years after starting my web development journey, {"I'm"}{" "}
-            building cutting-edge web applications using the latest technologies such as React.js,
-            Next.js, TypeScript, and much more.
-          </p>
-
-          <p className="mt-4">
-            When {"I'm"} not in full-on developer mode, you will find me blasting down a dirt track
-            or the streets of my city. {"There's"} nothing quite like the rush of adrenaline that
-            comes from going ultra-fast, and for me, {"there's"} no better way to experience that
-            than on my trusty mountain bike.
-          </p>
-        </div>
-      </section>
-
+      <AboutHeroSection />
       <StackSection stackItems={stackItems} />
 
       {/* timeline section */}
@@ -85,7 +58,10 @@ export default async function AboutPage() {
           <>
             <h2 className="text-5xl md:text-6xl font-bold">Timeline</h2>
             <p className="text-lg font-medium max-w-lg mt-5 text-primary/80">
-              I try to regularly update the timeline with new accomplishments and achievements.
+              I try to regularly update the timeline with new accomplishments and achievements.{" "}
+              <span className="text-base font-normal border-b border-accent/50">
+                Start scrolling downwards to experience the timeline!
+              </span>
             </p>
           </>
         }
