@@ -3,7 +3,6 @@ import { ArticleListItem } from "components/blog/articles-list-item";
 import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { generateRSSFeed } from "lib/rss";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { mergeSeo } from "lib/merge-seo";
 
 export const metadata = mergeSeo({
@@ -20,7 +19,7 @@ export const metadata = mergeSeo({
     title: "Blog",
     description: "A list of my blog posts with how-to's and more!",
   },
-  keywords: [...DEFAULT_KEYWORDS, "blog casper iversen", "caspertheghost blog", "react hooks"],
+  keywords: ["blog casper iversen", "caspertheghost blog", "react hooks"],
 });
 
 export default async function CodeSnippetsSlugPage() {

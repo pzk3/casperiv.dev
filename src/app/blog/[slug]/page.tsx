@@ -5,7 +5,6 @@ import { allBlogPosts } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getBlogPost } from "lib/mdx/get-blog-post";
 import { notFound } from "next/navigation";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { Metadata } from "next";
 import { mergeSeo } from "lib/merge-seo";
 
@@ -37,12 +36,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): P
       title: item.title,
       description: item.description,
     },
-    keywords: [
-      ...DEFAULT_KEYWORDS,
-      "blog casper iversen",
-      "caspertheghost blog",
-      ...(item.keywords ?? []),
-    ],
+    keywords: ["blog casper iversen", "caspertheghost blog", ...(item.keywords ?? [])],
   });
 }
 

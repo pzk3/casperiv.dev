@@ -1,9 +1,11 @@
 "use client";
 
+import * as React from "react";
 import classNames from "classnames";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FullScreenNav } from "./full-screen-nav";
 
 const navLinks = [
   {
@@ -41,6 +43,7 @@ const variants: Variants = {
 
 export function Header() {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     // shadow onScroll
@@ -73,12 +76,17 @@ export function Header() {
           })}
         </ul>
 
-        <button className="flex flex-col items-end gap-y-1.5 w-10 hover:gap-y-2 transition-all ease-in-out duration-100">
-          <span className="h-0.5 bg-secondary w-full" />
-          <span className="h-0.5 bg-secondary w-2/3" />
-          <span className="h-0.5 bg-secondary w-full" />
+        <button
+          onClick={() => setIsMenuOpen(true)}
+          className="flex flex-col items-end gap-y-1.5 w-8 md:w-10 hover:gap-y-2 transition-all ease-in-out duration-100 group"
+        >
+          <span className="h-0.5 bg-secondary group-hover:bg-accent w-full" />
+          <span className="h-0.5 bg-secondary group-hover:bg-accent w-2/3" />
+          <span className="h-0.5 bg-secondary group-hover:bg-accent w-full" />
         </button>
       </nav>
+
+      <FullScreenNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 }

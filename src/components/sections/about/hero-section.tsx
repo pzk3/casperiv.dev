@@ -46,6 +46,7 @@ export function AboutHeroSection() {
           <line
             opacity="0.51"
             fill="none"
+            strokeWidth="2"
             stroke="#e97451"
             x1="86.48"
             y1="188.06"
@@ -58,6 +59,7 @@ export function AboutHeroSection() {
           <line
             opacity="0.51"
             fill="none"
+            strokeWidth="2"
             stroke="#e97451"
             x1="371.86"
             y1="188.06"
@@ -71,7 +73,7 @@ export function AboutHeroSection() {
         />
         <polygon
           fill="#101010"
-          className="hover:fill-accent transition outline-none cursor-pointer"
+          className="fill-accent transition outline-none"
           points="246.58,143.63 206.99,75.33 167.41,7.04 246.58,7.04 325.75,7.04 286.16,75.33 	"
         />
         <line

@@ -4,6 +4,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import readingTime from "reading-time";
+import {} from "";
 
 const baseFields = {
   title: { type: "string", required: true },
@@ -62,7 +63,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-light",
+          theme: "dracula",
           onVisitLine(node) {
             // prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted

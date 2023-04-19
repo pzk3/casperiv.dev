@@ -3,7 +3,6 @@ import { Article } from "components/blog/article";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getCaseStudy } from "lib/mdx/get-case-study";
 import { notFound } from "next/navigation";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { mergeSeo } from "lib/merge-seo";
 
 interface CaseStudySlugPageProps {
@@ -34,7 +33,7 @@ export async function generateMetadata({ params }: CaseStudySlugPageProps) {
       title: item.title,
       description: item.description,
     },
-    keywords: [...DEFAULT_KEYWORDS, "case study casper iversen", ...(item.keywords ?? [])],
+    keywords: ["case study casper iversen", ...(item.keywords ?? [])],
   });
 }
 

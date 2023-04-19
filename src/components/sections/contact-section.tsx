@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "react-bootstrap-icons";
+import { ArrowUpRight, Github, Linkedin, Twitter } from "react-bootstrap-icons";
 import { TextField } from "../form/text-field";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,10 +8,10 @@ import { CONTACT_SCHEMA } from "~/lib/schemas";
 import { Button } from "../button";
 import { useMutation } from "@tanstack/react-query";
 
-const links = [
-  { name: "GitHub", url: "https://caspertheghost.me/github" },
-  { name: "Twitter", url: "https://caspertheghost.me/twitter" },
-  { name: "LinkedIn", url: "https://caspertheghost.me/linkedin" },
+export const socialLinks = [
+  { icon: Github, name: "GitHub", url: "https://caspertheghost.me/github" },
+  { icon: Twitter, name: "Twitter", url: "https://caspertheghost.me/twitter" },
+  { icon: Linkedin, name: "LinkedIn", url: "https://caspertheghost.me/linkedin" },
 ];
 
 const initialValues = {
@@ -86,7 +86,7 @@ export function ContactSection() {
 
             <div className="flex mt-14 gap-12 w-full">
               <ul className="flex flex-col gap-y-2">
-                {links.map((link) => (
+                {socialLinks.map((link) => (
                   <li className="group" key={link.name}>
                     <a
                       rel="noreferrer"

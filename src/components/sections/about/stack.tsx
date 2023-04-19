@@ -29,7 +29,7 @@ export function StackSection(props: StackSectionProps) {
               <HoverCard.Trigger asChild>
                 <Image
                   placeholder="blur"
-                  className="w-16 h-16 rounded-lg shadow-lg shadow-gray-300"
+                  className="w-16 h-16 rounded-2xl object-cover shadow-lg shadow-gray-300"
                   width={64}
                   height={64}
                   src={item.logo.src}

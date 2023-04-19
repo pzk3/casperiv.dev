@@ -2,7 +2,6 @@ import { getSponsors } from "lib/get-sponsors";
 import classNames from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { mergeSeo } from "lib/merge-seo";
 
 export const revalidate = 600; // 10 minutes
@@ -24,13 +23,7 @@ export const metadata = mergeSeo({
     title: pageTitle,
     description: pageDescription,
   },
-  keywords: [
-    ...DEFAULT_KEYWORDS,
-    "sponsors casper iversen",
-    "sponsorships",
-    "appreciation",
-    "thank you",
-  ],
+  keywords: ["sponsors casper iversen", "sponsorships", "appreciation", "thank you"],
 });
 
 export default async function App() {

@@ -1,7 +1,6 @@
 import ronin from "ronin";
 
 import Link from "next/link";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
 import { Project } from "types/project";
 import { mergeSeo } from "lib/merge-seo";
 
@@ -38,12 +37,7 @@ export const metadata = mergeSeo({
     title: "Projects",
     description: pageDescription,
   },
-  keywords: [
-    ...DEFAULT_KEYWORDS,
-    "projects casper iversen",
-    "caspertheghost projects",
-    "react hooks",
-  ],
+  keywords: ["projects casper iversen", "caspertheghost projects", "react hooks"],
 });
 
 export default async function ProjectsPage() {

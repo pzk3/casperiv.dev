@@ -55,6 +55,7 @@ export function HeroSection() {
         <motion.g origin="center" style={{ rotate }}>
           <ellipse fill="#353030" cx="57.31" cy="138.91" rx="57.31" ry="57.09" />
           <line
+            strokeWidth="2"
             opacity="0.51"
             fill="none"
             stroke="#e97451"
@@ -67,6 +68,7 @@ export function HeroSection() {
         <motion.g origin="center" style={{ rotate }}>
           <ellipse fill="#353030" cx="342.69" cy="138.91" rx="57.31" ry="57.09" />
           <line
+            strokeWidth="2"
             opacity="0.51"
             fill="none"
             stroke="#e97451"
