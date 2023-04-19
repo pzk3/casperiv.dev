@@ -16,8 +16,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
   const publishedAt = format(new Date(article.createdAt), "dd MMMM yyyy");
   const extraAProps = isFeatured
     ? {
-        style: { borderRadius: 3.5 },
-        className: "z-20 block p-4 w-full h-full border-accent border-2 transition",
+        className: "z-20 block p-4 w-full h-full border-accent border-2 transition rounded-2xl",
       }
     : {};
 
@@ -30,7 +29,7 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
       {isFeatured ? (
         <Link
           size="square"
-          className="absolute -top-2.5 right-2.5 group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
+          className="absolute -top-3 right-3.5 group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
           intent="secondary"
           href={`/blog/${getArticleSlug(article)}`}
         >
