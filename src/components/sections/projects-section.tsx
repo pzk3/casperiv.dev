@@ -40,7 +40,7 @@ export function ProjectsSection(props: ProjectsSectionProps) {
   }
 
   return (
-    <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
+    <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0 touch-pan-y">
       <header className="flex flex-col gap-y-5 sm:flex-row sm:items-center justify-between">
         <h2 className="font-poppins font-bold text-5xl md:text-6xl relative max-w-fit">
           Projects<span className="text-accent">.</span>

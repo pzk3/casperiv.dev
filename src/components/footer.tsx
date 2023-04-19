@@ -1,11 +1,11 @@
 export function Footer() {
   return (
-    <footer className="flex items-center justify-center w-full sm:h-40 px-5 pb-10 sm:pb-5 pt-8 mt-8 border-t border-secondary">
-      <div className="flex flex-col sm:flex-row items-center justify-between w-full sm:h-40 max-w-4xl">
+    <footer className="flex items-center justify-center w-full sm:h-40 px-5 pb-10 sm:pb-5 pt-8">
+      <div className="flex flex-col sm:flex-row items-center justify-between w-full sm:h-40 max-w-6xl">
         <p className="text-center sm:text-left mb-5">
           Created by{" "}
           <FooterLink href="https://github.com/dev-caspertheghost/caspertheghost.me">
-            CasperTheGhost
+            Casper
           </FooterLink>{" "}
           with ❤️
           <br />
@@ -13,7 +13,6 @@ export function Footer() {
         </p>
 
         <div className="flex flex-col md:flex-row md:gap-2">
-          <FooterLink href="/gallery/imagery">Gallery</FooterLink>
           <FooterLink href="https://twitter.com/casper124578">Twitter</FooterLink>
           <FooterLink href="https://github.com/dev-caspertheghost">GitHub</FooterLink>
           <FooterLink href="https://www.linkedin.com/in/casper-iversen">LinkedIn</FooterLink>

@@ -87,7 +87,7 @@ export function ContactSection() {
             <div className="flex mt-14 gap-12 w-full">
               <ul className="flex flex-col gap-y-2">
                 {links.map((link) => (
-                  <li key={link.name}>
+                  <li className="group" key={link.name}>
                     <a
                       rel="noreferrer"
                       target="_blank"
@@ -96,7 +96,11 @@ export function ContactSection() {
                     >
                       {link.name}
 
-                      <ArrowUpRight width={12} height={12} />
+                      <ArrowUpRight
+                        className="group-hover:scale-110 origin-bottom-left transition"
+                        width={12}
+                        height={12}
+                      />
                     </a>
                   </li>
                 ))}
