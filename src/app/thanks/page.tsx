@@ -1,8 +1,8 @@
 import { getSponsors } from "lib/get-sponsors";
 import classNames from "clsx";
-import Link from "next/link";
 import Image from "next/image";
 import { mergeSeo } from "lib/merge-seo";
+import { Link } from "~/components/link";
 
 export const revalidate = 600; // 10 minutes
 
@@ -30,25 +30,25 @@ export default async function App() {
   const { tiers, githubSponsorsCustomizations } = await getSponsors();
 
   return (
-    <>
-      <h1 className="text-3xl font-bold capitalize md:text-4xl">Sponsors</h1>
+    <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">
+      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Sponsors</h1>
+
       <h2 className="my-2 text-lg font-medium bg-gradient-to-tr bg-clip-text text-transparent from-[#1150d4] to-[#a245fc]">
         Thanks a lot for sponsoring me! I absolutely appreciate everyone who supports my open-source
         work!
       </h2>
 
       <p className="mt-5 mb-2 font-normal text-secondary-light">
-        A list of{" "}
-        <span className="bg-gradient-to-tr bg-clip-text text-transparent from-[#1150d4] to-[#a245fc]">
-          active
-        </span>{" "}
-        and inactive sponsors. Please contact me to get customized perks on this page.
+        A list of <span className="border-b-accent border-b font-medium">active</span> and inactive
+        sponsors. Please contact me to get customized perks on this page.
       </p>
 
       <Link
         href="https://github.com/sponsors/Dev-CasperTheGhost"
         target="_blank"
-        className="flex mt-3 w-fit items-center gap-2 rounded-md transition-colors py-2 px-3 border border-secondary-light/50 text-secondary hover:border-secondary focus:border-secondary group"
+        intent="secondary"
+        extras="icon"
+        className="max-w-fit group mt-3"
       >
         <svg
           aria-hidden="true"
@@ -71,8 +71,8 @@ export default async function App() {
         <section className="my-5" key={tier.tier}>
           <h2 className="text-2xl font-bold">${tier.tier}</h2>
 
-          <ul className="mt-2 flex flex-col bg-white border border-secondary-light/50 rounded-md overflow-hidden">
-            {tier.sponsors.map((sponsor) => {
+          <ul className="mt-2 flex flex-col bg-white border border-gray-extralight rounded-md overflow-hidden">
+            {tier.sponsors.map((sponsor, idx) => {
               const customization = githubSponsorsCustomizations.find(
                 (customization) => customization.login === sponsor.login,
               );
@@ -82,15 +82,22 @@ export default async function App() {
               const url = customization?.url || `https://github.com/${sponsor.login}`;
               const avatarUrl = customization?.avatar?.src || sponsor.avatarUrl;
               const placeholder = customization?.avatar?.placeholder?.base64 || undefined;
+              const isNextActive = tier.sponsors[idx + 1]?.isActive;
+              const isLast = idx === tier.sponsors.length - 1;
 
               return (
                 <li
+                  className={classNames(
+                    isNextActive ? "border-none" : "last:border-b-none",
+                    sponsor.isActive
+                      ? "border-accent border-2 rounded-md"
+                      : isLast
+                      ? ""
+                      : "border-b-2 border-gray-extralight",
+                  )}
                   key={sponsor.login}
-                  className={classNames("border-b last:border-none border-secondary-light/50", {
-                    "z-10 p-[3px] bg-gradient-to-tr from-[#1150d4] to-[#a245fc]": sponsor.isActive,
-                  })}
                 >
-                  <a className="flex gap-5 items-start z-20 bg-white p-3 rounded-sm" href={url}>
+                  <a className="flex gap-5 items-start z-20 p-3" href={url}>
                     <Image
                       className="w-10 h-10 rounded-full object-cover mt-2"
                       width={40}
@@ -111,6 +118,6 @@ export default async function App() {
           </ul>
         </section>
       ))}
-    </>
+    </main>
   );
 }
