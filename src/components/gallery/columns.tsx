@@ -15,8 +15,8 @@ export function Gallery({ columns }: { columns: Galleryimages[] }) {
               <ImageItem
                 key={image.media.key}
                 src={image.media.src}
-                width={image.media.meta.width / 2}
-                height={image.media.meta.height / 2}
+                width={image.media.meta.width / 4}
+                height={image.media.meta.height / 4}
                 alt={image.title}
                 blurDataURL={image.media.placeholder.base64 || undefined}
               />
@@ -36,8 +36,9 @@ function ImageItem(props: ImageProps) {
   const [isModalOpen, setModalOpen] = React.useState(false);
 
   return (
-    <div className="relative w-full h-fit overflow-hidden rounded-lg shadow-lg cursor-zoom-in">
+    <>
       <Image
+        className="relative w-full h-fit overflow-hidden shadow-lg cursor-zoom-in object-cover"
         onClick={() => setModalOpen(true)}
         placeholder="blur"
         onContextMenu={(e) => e.preventDefault()}
@@ -47,6 +48,6 @@ function ImageItem(props: ImageProps) {
       />
 
       {isModalOpen ? <ImageModal onClose={() => setModalOpen(false)} {...props} /> : null}
-    </div>
+    </>
   );
 }
