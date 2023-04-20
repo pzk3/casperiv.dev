@@ -42,7 +42,6 @@ function ImageItem(props: ImageProps) {
         draggable={false}
         quality={60}
         {...props}
-        loader={(props) => `${props.src}?w=${props.width}&q=${props.quality || 80}`}
       />
 
       {isModalOpen ? <ImageModal onClose={() => setModalOpen(false)} {...props} /> : null}
