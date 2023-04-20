@@ -1,11 +1,11 @@
-import LRU from "lru-cache";
+import { LRUCache } from "lru-cache";
 
 interface RateLimitOptions {
   interval: number;
 }
 
 export function rateLimit(options: RateLimitOptions) {
-  const tokenCache = new LRU<string, number[]>({
+  const tokenCache = new LRUCache<string, number[]>({
     max: 500,
     ttl: options.interval,
   });
