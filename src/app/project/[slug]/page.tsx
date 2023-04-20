@@ -1,16 +1,16 @@
-import { allCaseStudies } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import { Article } from "components/blog/article";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { getCaseStudy } from "lib/mdx/get-case-study";
+import { getProject } from "~/lib/mdx/get-project";
 import { notFound } from "next/navigation";
 import { mergeSeo } from "lib/merge-seo";
 
-interface CaseStudySlugPageProps {
+interface ProjectSlugPageProps {
   params: { slug: string };
 }
 
-export async function generateMetadata({ params }: CaseStudySlugPageProps) {
-  const item = getCaseStudy(params.slug);
+export async function generateMetadata({ params }: ProjectSlugPageProps) {
+  const item = getProject(params.slug);
 
   if (!item) {
     return {};
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: CaseStudySlugPageProps) {
     title: item.title,
     description: item.description,
     alternates: {
-      canonical: `https://caspertheghost.me/case-study/${getArticleSlug(item)}`,
+      canonical: `https://caspertheghost.me/project/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,
@@ -33,22 +33,22 @@ export async function generateMetadata({ params }: CaseStudySlugPageProps) {
       title: item.title,
       description: item.description,
     },
-    keywords: ["case study casper iversen", ...(item.keywords ?? [])],
+    keywords: ["project casper iversen", item.title, ...(item.keywords ?? [])],
   });
 }
 
-export default async function CaseStudyPage({ params }: CaseStudySlugPageProps) {
-  const caseStudy = getCaseStudy(params.slug);
+export default async function ProjectPage({ params }: ProjectSlugPageProps) {
+  const project = getProject(params.slug);
 
-  if (!caseStudy) {
+  if (!project) {
     return notFound();
   }
 
-  return <Article article={caseStudy} />;
+  return <Article article={project} />;
 }
 
 export async function generateStaticParams() {
-  return allCaseStudies.map((caseStudy) => ({
-    slug: getArticleSlug(caseStudy),
+  return allProjects.map((project) => ({
+    slug: getArticleSlug(project),
   }));
 }

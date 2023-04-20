@@ -7,7 +7,6 @@ export interface Project {
   npmURL?: URL;
   addonURL?: URL;
   viewMoreURL?: URL;
-  caseStudyURL?: URL;
   codeURL?: URL;
 }
 

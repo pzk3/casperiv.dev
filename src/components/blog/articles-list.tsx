@@ -1,9 +1,9 @@
-import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { ArticleListItem } from "./articles-list-item";
 
 interface Props {
-  articles: (BlogPost | CodeSnippet | CaseStudy)[];
+  articles: (BlogPost | CodeSnippet | Project)[];
   type: "blog" | "snippets";
 }
 

@@ -38,16 +38,16 @@ export const BlogPost = defineDocumentType(() => ({
   },
 }));
 
-export const CaseStudy = defineDocumentType(() => ({
-  name: "CaseStudy",
-  filePathPattern: "**/case-studies/**/*.mdx",
+export const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "**/project/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
 }));
 
 export default makeSource({
   contentDirPath: "./src/data",
-  documentTypes: [CodeSnippet, BlogPost, CaseStudy],
+  documentTypes: [CodeSnippet, BlogPost, Project],
   mdx: {
     esbuildOptions: (options) => {
       options.loader = {

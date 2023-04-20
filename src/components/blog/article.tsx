@@ -1,10 +1,10 @@
-import { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import { BlogFooter } from "./blog-footer";
 import { BlogHeader } from "./blog-header";
 import { Markdown } from "./markdown/markdown";
 
 interface Props {
-  article: CodeSnippet | BlogPost | CaseStudy;
+  article: CodeSnippet | BlogPost | Project;
 }
 
 export function Article({ article }: Props) {

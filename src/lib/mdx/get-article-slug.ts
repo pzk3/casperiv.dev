@@ -1,6 +1,6 @@
-import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 
-export function getArticleSlug(post: BlogPost | CodeSnippet | CaseStudy) {
+export function getArticleSlug(post: BlogPost | CodeSnippet | Project) {
   return post._raw.sourceFileName.replace(/\.md(x)?/, "");
 }
 
@@ -8,7 +8,7 @@ export function formatArticleSlugPath(post: { _raw: { flattenedPath: string } })
   const types = {
     posts: "blog",
     snippets: "snippets",
-    "case-studies": "case-study",
+    project: "project",
   };
 
   const [prefix, slug] = post._raw.flattenedPath.split("/");

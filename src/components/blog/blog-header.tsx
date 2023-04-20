@@ -1,14 +1,14 @@
 "use client";
 
 import * as React from "react";
-import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import format from "date-fns/format";
 import { useViews } from "lib/hooks/use-views";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { Clock, Eye } from "react-bootstrap-icons";
 
 interface Props {
-  post: BlogPost | CodeSnippet | CaseStudy;
+  post: BlogPost | CodeSnippet | Project;
 }
 
 export function BlogHeader({ post }: Props) {
