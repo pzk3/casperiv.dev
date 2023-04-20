@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   if (isRateLimited) {
     return new Response(
       JSON.stringify({
-        message: "Woah! You're moving to fast. Please try again in several minutes.",
+        message: "Woah! You're moving too fast. Please try again in several minutes.",
       }),
       { status: 429, headers },
     );
