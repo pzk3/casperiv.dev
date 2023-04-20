@@ -60,7 +60,7 @@ export function FullScreenNav(props: FullScreenNavProps) {
       initial="closed"
       animate={props.isOpen ? "open" : "closed"}
       variants={variants}
-      className="bg-secondary text-primary fixed inset-0 py-32"
+      className="bg-secondary text-primary fixed top-0 left-0 w-screen min-h-screen py-32 overflow-auto"
     >
       <div className="mx-auto max-w-6xl px-5 md:px-0">
         <div className="flex flex-row justify-between">

@@ -10,16 +10,18 @@ export function Gallery({ columns }: { columns: Galleryimages[] }) {
     <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
       {columns.map((column, i) => (
         <Column key={i}>
-          {column.map((image) => (
-            <ImageItem
-              key={image.media.key}
-              src={image.media.src}
-              width={image.media.meta.width}
-              height={image.media.meta.height}
-              alt={image.title}
-              blurDataURL={image.media.placeholder.base64 || undefined}
-            />
-          ))}
+          {column.map((image) => {
+            return (
+              <ImageItem
+                key={image.media.key}
+                src={image.media.src}
+                width={image.media.meta.width / 2}
+                height={image.media.meta.height / 2}
+                alt={image.title}
+                blurDataURL={image.media.placeholder.base64 || undefined}
+              />
+            );
+          })}
         </Column>
       ))}
     </div>
