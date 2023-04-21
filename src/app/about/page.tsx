@@ -60,7 +60,7 @@ export default async function AboutPage() {
             <p className="text-lg font-medium max-w-lg mt-5 text-primary/80">
               I try to regularly update the timeline with new accomplishments and achievements.{" "}
               <span className="text-base font-normal border-b border-accent/50">
-                Start scrolling downwards to experience the timeline!
+                Start scrolling down to experience the timeline!
               </span>
             </p>
           </>
