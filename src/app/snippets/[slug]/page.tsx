@@ -1,10 +1,10 @@
-import { BlogFooter } from "components/blog/blog-footer";
-import { BlogHeader } from "components/blog/blog-header";
-import { Markdown } from "components/blog/markdown/markdown";
+import { BlogFooter } from "~/components/blog/blog-footer";
+import { BlogHeader } from "~/components/blog/blog-header";
+import { Markdown } from "~/components/blog/markdown/markdown";
 import { allCodeSnippets } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { getCodeSnippet } from "lib/mdx/get-code-snippet";
-import { mergeSeo } from "lib/merge-seo";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import { getCodeSnippet } from "~/lib/mdx/get-code-snippet";
+import { mergeSeo } from "~/lib/merge-seo";
 import { notFound } from "next/navigation";
 
 interface CodeSnippetsSlugPageProps {

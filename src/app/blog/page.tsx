@@ -1,9 +1,9 @@
-import { ArticlesList } from "components/blog/articles-list";
-import { ArticleListItem } from "components/blog/articles-list-item";
+import { ArticlesList } from "~/components/blog/articles-list";
+import { ArticleListItem } from "~/components/blog/articles-list-item";
 import { allBlogPosts } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { generateRSSFeed } from "lib/rss";
-import { mergeSeo } from "lib/merge-seo";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import { generateRSSFeed } from "~/lib/rss";
+import { mergeSeo } from "~/lib/merge-seo";
 
 export const metadata = mergeSeo({
   title: "Blog",

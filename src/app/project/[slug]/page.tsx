@@ -1,8 +1,8 @@
 import { allProjects } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
 import { getProject } from "~/lib/mdx/get-project";
 import { notFound } from "next/navigation";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import { BlogHeader } from "~/components/blog/blog-header";
 import { Markdown } from "~/components/blog/markdown/markdown";
 import { BlogFooter } from "~/components/blog/blog-footer";

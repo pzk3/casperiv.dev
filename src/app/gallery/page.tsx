@@ -1,6 +1,6 @@
 import { Galleryimages } from "@ronin/casper";
 import { Gallery } from "~/components/gallery/columns";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import ronin from "ronin";
 
 export const revalidate = 600; // 10 minutes

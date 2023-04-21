@@ -29,14 +29,7 @@
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
       "~/*": ["./src/*"],
-      "lib/*": ["./src/lib/*"],
-      "styles/*": ["./src/styles/*"],
-      "components/*": ["./src/components/*"],
-      "types/*": ["./src/types/*"],
-      "data/*": ["./src/data/*"],
-      "sections/*": ["./src/sections/*"],
-      "public/*": ["./public/*"],
-      "utils/*": ["./src/utils/*"]
+
     },
     "incremental": true,
     "plugins": [{ "name": "next" }],

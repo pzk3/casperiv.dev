@@ -1,5 +1,4 @@
-import type {Metadata} from "next";
-
+import type { Metadata } from "next";
 
 const title = {
   default: "Casper Iversen - Web Developer",
@@ -20,7 +19,6 @@ export const DEFAULT_KEYWORDS = [
   "developer",
   "SnailyCADv4",
 ];
-
 
 export const SEO: Metadata = {
   title,

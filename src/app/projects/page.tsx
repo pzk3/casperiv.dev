@@ -1,6 +1,6 @@
 import ronin from "ronin";
 import NextLink from "next/link";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import { Link } from "~/components/link";
 import { ArrowRightShort } from "react-bootstrap-icons";
 import { Projects } from "@ronin/casper";

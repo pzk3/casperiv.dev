@@ -1,12 +1,12 @@
-import { BlogFooter } from "components/blog/blog-footer";
-import { BlogHeader } from "components/blog/blog-header";
-import { Markdown } from "components/blog/markdown/markdown";
+import { BlogFooter } from "~/components/blog/blog-footer";
+import { BlogHeader } from "~/components/blog/blog-header";
+import { Markdown } from "~/components/blog/markdown/markdown";
 import { allBlogPosts } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { getBlogPost } from "lib/mdx/get-blog-post";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import { getBlogPost } from "~/lib/mdx/get-blog-post";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 
 interface CodeSnippetsSlugPageProps {
   params: { slug: string };

@@ -3,8 +3,8 @@
 import * as React from "react";
 import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import format from "date-fns/format";
-import { useViews } from "lib/hooks/use-views";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { useViews } from "~/lib/hooks/use-views";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
 import { ArrowUpRight, Clock, Eye } from "react-bootstrap-icons";
 import type { Project as RONINProject } from "@ronin/casper";
 import { Link } from "../link";

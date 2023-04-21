@@ -1,4 +1,4 @@
-import { SEO } from "next-seo.config";
+import { SEO } from "~/seo-config";
 
 export const metadata = {
   ...SEO,

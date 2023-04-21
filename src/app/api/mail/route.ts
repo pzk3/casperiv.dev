@@ -1,5 +1,5 @@
 import mail from "@sendgrid/mail";
-import { CONTACT_SCHEMA } from "lib/schemas";
+import { CONTACT_SCHEMA } from "~/lib/schemas";
 import { rateLimit } from "./rate-limiter";
 
 const MAIL_VERIFIED_SENDER = process.env.MAIL_VERIFIED_SENDER;

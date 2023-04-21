@@ -1,5 +1,5 @@
 import ronin from "ronin";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import { Stackitems, Timelineitems } from "@ronin/casper";
 import { HorizontalScroll } from "~/components/sections/about/horizontal-scroll";
 import { Timeline } from "~/components/sections/about/timeline";

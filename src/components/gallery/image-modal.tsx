@@ -1,4 +1,4 @@
-import { Modal } from "components/modal/modal";
+import { Modal } from "~/components/modal/modal";
 import Image, { ImageProps } from "next/image";
 
 export function ImageModal(props: ImageProps & { onClose(): void }) {

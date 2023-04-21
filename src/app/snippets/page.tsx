@@ -1,6 +1,6 @@
-import { ArticlesList } from "components/blog/articles-list";
+import { ArticlesList } from "~/components/blog/articles-list";
 import { allCodeSnippets } from "contentlayer/generated";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 
 const pageTitle = "Code snippets";
 const pageDescription = "Small code snippets that I have found useful or use a lot.";

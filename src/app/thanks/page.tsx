@@ -1,7 +1,7 @@
-import { getSponsors } from "lib/get-sponsors";
+import { getSponsors } from "~/lib/get-sponsors";
 import classNames from "clsx";
 import Image from "next/image";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import { Link } from "~/components/link";
 
 export const revalidate = 600; // 10 minutes

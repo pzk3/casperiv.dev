@@ -1,5 +1,5 @@
 import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
 import { ArticleListItem } from "./articles-list-item";
 
 interface Props {
