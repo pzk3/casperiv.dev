@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "styles/blog.module.scss";
+import styles from "~/styles/blog.module.scss";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { Link } from "./link";
