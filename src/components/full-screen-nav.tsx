@@ -19,6 +19,10 @@ const links = [
     pathname: "/#contact",
   },
   {
+    name: "Projects",
+    pathname: "/projects",
+  },
+  {
     name: "Blog",
     pathname: "/blog",
   },

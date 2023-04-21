@@ -8,9 +8,11 @@ const link = cva(["border-2 rounded-2xl text-base font-inter font-medium transit
       primary:
         "bg-gray-dark border-gray-light hover:border-accent hover:bg-accent hover:text-secondary text-primary",
       secondary: "border-gray-light text-secondary hover:border-accent",
+      "secondary-light": "border-gray-light text-primary hover:border-accent",
       none: "border-transparent",
     },
     size: {
+      sm: "px-3 py-1 rounded-xl",
       default: "px-4 py-1.5 rounded-2xl",
       square: "w-10 h-10 grid place-items-center rounded-full",
       none: "p-0",

@@ -10,6 +10,7 @@ export function ImageModal(props: ImageProps & { onClose(): void }) {
         onContextMenu={(e) => e.preventDefault()}
         draggable={false}
         {...props}
+        quality={85}
       />
     </Modal>
   );

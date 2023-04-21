@@ -1,9 +1,12 @@
 import { allProjects } from "contentlayer/generated";
-import { Article } from "components/blog/article";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
 import { getProject } from "~/lib/mdx/get-project";
 import { notFound } from "next/navigation";
 import { mergeSeo } from "lib/merge-seo";
+import { BlogHeader } from "~/components/blog/blog-header";
+import { Markdown } from "~/components/blog/markdown/markdown";
+import { BlogFooter } from "~/components/blog/blog-footer";
+import ronin from "ronin";
 
 interface ProjectSlugPageProps {
   params: { slug: string };
@@ -37,14 +40,33 @@ export async function generateMetadata({ params }: ProjectSlugPageProps) {
   });
 }
 
+async function getProjectInformationFromRONIN(slug: string) {
+  const [project] = await ronin(
+    ({ get }) =>
+      (get.project = {
+        where: { slug: { is: slug } },
+      }),
+  );
+  return project;
+}
+
 export default async function ProjectPage({ params }: ProjectSlugPageProps) {
   const project = getProject(params.slug);
+  const roninInformation = (await getProjectInformationFromRONIN(params.slug)) ?? {};
 
   if (!project) {
     return notFound();
   }
 
-  return <Article article={project} />;
+  return (
+    <main>
+      <BlogHeader {...roninInformation} post={project} />
+      <section className="max-w-6xl mx-auto pb-6 px-5 md:px-0">
+        <Markdown code={project.body.code} />
+        <BlogFooter post={project} />
+      </section>
+    </main>
+  );
 }
 
 export async function generateStaticParams() {

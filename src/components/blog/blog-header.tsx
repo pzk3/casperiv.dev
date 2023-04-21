@@ -5,13 +5,15 @@ import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import format from "date-fns/format";
 import { useViews } from "lib/hooks/use-views";
 import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { Clock, Eye } from "react-bootstrap-icons";
+import { ArrowUpRight, Clock, Eye } from "react-bootstrap-icons";
+import type { Project as RONINProject } from "@ronin/casper";
+import { Link } from "../link";
 
-interface Props {
+interface Props extends Partial<RONINProject> {
   post: BlogPost | CodeSnippet | Project;
 }
 
-export function BlogHeader({ post }: Props) {
+export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
   const views = useViews(getArticleSlug(post));
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
@@ -23,9 +25,32 @@ export function BlogHeader({ post }: Props) {
   return (
     <header className="bg-secondary text-primary py-14 mb-6">
       <div className="max-w-6xl mx-auto px-5 md:px-0">
-        <div className="border-b-2 border-accent/70 mb-5 pb-5">
-          <h1 className="mb-3 text-3xl font-bold md:text-4xl font-title">{post.title}</h1>
-          <p className="text-gray-extralight">{post.description}</p>
+        <div className="border-b-2 border-accent/70 mb-5 pb-5 flex flex-col md:flex-row md:justify-between">
+          <div>
+            <h1 className="mb-3 text-3xl font-bold md:text-4xl font-title">{post.title}</h1>
+            <p className="text-gray-extralight">{post.description}</p>
+          </div>
+
+          <div className="flex flex-col gap-2 items-end">
+            {projectURL ? (
+              <Link extras="icon" size="sm" intent="secondary-light" href={projectURL}>
+                Open Project
+                <ArrowUpRight className="w-4 h-4 fill-primary" />
+              </Link>
+            ) : null}
+            {npmURL ? (
+              <Link extras="icon" size="sm" intent="secondary-light" href={npmURL}>
+                View on npm
+                <ArrowUpRight className="w-4 h-4 fill-primary" />
+              </Link>
+            ) : null}
+            {codeURL ? (
+              <Link extras="icon" size="sm" intent="secondary-light" href={codeURL}>
+                View on GitHub
+                <ArrowUpRight className="w-4 h-4 fill-primary" />
+              </Link>
+            ) : null}
+          </div>
         </div>
 
         <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
