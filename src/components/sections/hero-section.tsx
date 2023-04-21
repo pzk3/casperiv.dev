@@ -13,6 +13,13 @@ export function HeroSection() {
   const x = useTransform(scrollYProgress, [0, 0.5], [0, 800]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 720]);
 
+  function handlePolygonClick() {
+    window.scrollTo({
+      behavior: "smooth",
+      top: window.innerHeight,
+    });
+  }
+
   return (
     <section className="min-h-[calc(100vh-60px)] flex flex-col justify-between gap-y-20 overflow-x-hidden pb-32 md:pb-0">
       <div className="px-5 md:px-0 mt-12 flex flex-col md:flex-row w-full max-w-6xl mx-auto min-h-[70vh] tall:min-h-[50vh] md:items-center gap-5 md:justify-between">
@@ -83,6 +90,9 @@ export function HeroSection() {
           points="150.47,24.98 184.85,84.3 219.24,143.63 150.47,143.63 81.69,143.63 116.08,84.3 	"
         />
         <motion.polygon
+          onClick={handlePolygonClick}
+          animate={{ scale: [1, 1.02] }}
+          transition={{ repeat: Infinity, repeatDelay: 0.5, repeatType: "reverse", duration: 1 }}
           whileTap={{ scale: 0.9 }}
           fill="#101010"
           className="hover:fill-accent transition outline-none cursor-pointer"
