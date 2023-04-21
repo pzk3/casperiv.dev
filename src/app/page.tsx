@@ -10,7 +10,7 @@ async function fetchHomePageData() {
   const [backpack, featuredProjects] = await ronin<[Myskills, Projects]>(({ get }) => {
     get.mySkills = { orderedBy: { ascending: ["ronin.createdAt"] } };
     get.projects = {
-      orderedBy: { ascending: ["ronin.updatedAt"] },
+      orderedBy: { ascending: ["featuredPosition"] },
       where: { isFeatured: { is: true } },
     };
   });

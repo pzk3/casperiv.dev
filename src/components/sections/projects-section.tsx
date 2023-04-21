@@ -56,9 +56,6 @@ export function ProjectsSection(props: ProjectsSectionProps) {
         showStatus={false}
       >
         {props.featuredProjects.map((project, idx) => {
-          // @ts-expect-error - `project.coverImage` is a stringified JSON object
-          const image = JSON.parse(project.coverImage);
-
           return (
             <article
               key={project.id}
@@ -70,7 +67,9 @@ export function ProjectsSection(props: ProjectsSectionProps) {
                 alt={project.title}
                 draggable={false}
                 className="rounded-2xl shadow-md w-1/2 max-w-2xl md:h-80 object-cover"
-                src={image?.src}
+                src={project.coverImage.src}
+                placeholder="blur"
+                blurDataURL={project.coverImage.placeholder.base64}
               />
 
               <div className="flex flex-col w-full text-left">
