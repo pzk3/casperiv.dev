@@ -1,0 +1,65 @@
+---
+title: home-inventory
+createdAt: August 16, 2022
+description: Learn about the ideas and technogolies used in home-inventory
+---
+
+## Introduction
+
+home-inventory is a web application to keep track of items in your house such as food items, medical supplies, tech, etc.
+
+## Idea
+
+I wanted to know what kinds of tech, foods, and miscellaneous items I have in my house, so I could know when I should buy new ones or know when they almost expire.
+But that wasn't all, I wanted: a modern and good-looking UI, a "quick-view dashboard" to see what is low on quantity or is almost expired.
+
+Sorting, filtering and categorization was also a must. Filtering and sorting was done with `@tanstack/react-table`. Administrators could manage the categories that could be given to an item.
+Another cool feature was to authenticate with an OAuth provider, I chose Google Oauth because it is the most popular. Administrators can also add or remove users from their houses.
+
+## Future ideas
+
+A way to import or export items will definitely be needed for faster and easier management.
+
+## Technologies
+
+home-inventory is built with [Next.js](https://nextjs.org) and [React.js](https://reactjs.org) with a [tRPC](https://trpc.io) API. I chose this tech to learn about tRPC and see what I could build with it.
+At the same time, I also learned how to use `react-query`.
+
+I will most likely use tRPC again in future projects because it's so fast to set up and easy to use.
+
+I'm using [Tailwind CSS](https://tailwindcss.com) to style the UI. Using tRPC with react-query to manage server-state, client-state uses `React.useState` for local state.
+Using `react-hook-form` for building forms, validating them with `zod` schemas. The API uses the same schema as the frontend for body validation.
+
+home-inventory's data is saved in a MongoDB database, I found it the easiest way to store the data in the cloud.
+Personally, I think [Prisma](https://prisma.io) is the best decision for database ORM.
+
+## Features
+
+- Manage products
+  - Set a name, price, quantity, category, expiration date and more.
+  - Advanced sorting, filtering and selection
+- Create/edit categories to categorize products
+- Manage users
+  - Add users to a house
+  - Delete users from a house.
+- Great UI/UX
+- Privacy focused
+
+## Full tech stack
+
+### Web/API
+
+- React.js
+- Next.js
+- Tailwind CSS
+- tRPC
+- Prisma
+- MongoDB
+
+### Other
+
+- Docker Compose
+- Husky
+- ESLint
+- Prettier
+- TypeScript

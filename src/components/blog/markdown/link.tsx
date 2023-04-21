@@ -1,7 +1,12 @@
+"use client";
+
+import * as React from "react";
 import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 
-export function Link(props: Omit<JSX.IntrinsicElements["a"], "ref"> & { isNav?: boolean }) {
+type LinkProps = Omit<JSX.IntrinsicElements["a"], "ref"> & { isNav?: boolean };
+
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const { children, isNav, ...rest } = props;
   const href = rest.href as string;
   const isHash = href.match(/#|\/#/);
@@ -21,8 +26,8 @@ export function Link(props: Omit<JSX.IntrinsicElements["a"], "ref"> & { isNav?: 
   }
 
   return (
-    <NextLink href={href} {...rest} className={className}>
+    <NextLink href={href} {...rest} ref={ref} className={className}>
       {children}
     </NextLink>
   );
-}
+});

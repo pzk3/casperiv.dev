@@ -28,14 +28,8 @@
     "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "lib/*": ["./src/lib/*"],
-      "styles/*": ["./src/styles/*"],
-      "components/*": ["./src/components/*"],
-      "types/*": ["./src/types/*"],
-      "data/*": ["./src/data/*"],
-      "sections/*": ["./src/sections/*"],
-      "public/*": ["./public/*"],
-      "utils/*": ["./src/utils/*"]
+      "~/*": ["./src/*"],
+
     },
     "incremental": true,
     "plugins": [{ "name": "next" }],

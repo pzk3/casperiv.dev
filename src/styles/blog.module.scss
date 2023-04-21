@@ -2,14 +2,14 @@
   margin-top: 1rem;
 
   [data-info] pre {
-    background-color: theme("colors.primary");
+    background-color: theme("colors.gray.dark");
     color: theme("colors.secondary");
   }
 
   pre {
     border: none;
-    font-family: theme("fontFamily.mono");
-    background-color: theme("colors.primary");
+    font-family: theme("fontFamily.fira-code");
+    background-color: theme("colors.gray.dark");
     padding: 0.4em 0.5em;
 
     code {
@@ -18,11 +18,13 @@
   }
 
   code {
-    font-family: theme("fontFamily.mono");
+    font-family: theme("fontFamily.fira-code");
     font-size: 16px;
     border-radius: theme("borderRadius.md");
     padding: theme("padding.1") theme("padding[1.5]");
-    font-weight: theme("fontWeight.normal");
+    font-weight: theme("fontWeight.medium");
+    background-color: theme("colors.gray.extralight");
+    color: theme("colors.secondary");
 
     &::before,
     &::after {
@@ -35,24 +37,32 @@
     flex-direction: column;
 
     [data-code-pre] {
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.light");
       border-radius: theme("borderRadius.md");
       box-shadow: theme("dropShadow.sm");
 
       > pre {
         margin-top: 0px !important;
         margin-bottom: 0px !important;
+        border-radius: theme("borderRadius.none") !important;
+      }
+
+      code {
+        background-color: initial;
+        color: initial;
       }
     }
 
     [data-rehype-pretty-code-title] {
-      font-family: theme("fontFamily.mono");
+      font-family: theme("fontFamily.fira-code");
+      font-weight: theme("fontWeight.medium");
       padding: 0.2em 0.7em;
-      color: theme("colors.secondary");
+      color: theme("colors.primary");
       box-shadow: theme("dropShadow.sm");
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.light");
       margin-bottom: -1.5px;
       border-radius: theme("borderRadius.md") theme("borderRadius.md") 0 0;
+      background-color: theme("colors.gray.dark");
 
       + [data-code-pre] {
         border-radius: 0 0 theme("borderRadius.md") theme("borderRadius.md");
@@ -60,7 +70,7 @@
     }
 
     [data-language-tag] {
-      border: theme("borderWidth.DEFAULT") solid rgba(70 92 92 / 0.5);
+      border: theme("borderWidth.2") solid theme("colors.gray.light");
     }
 
     [data-line="true"] {
@@ -85,8 +95,8 @@
         width: calc(100% + 7px + var(--margin-left));
         pointer-events: none;
 
-        background: rgba(200, 200, 255, 0.3);
-        border-left: 3.5px solid theme("colors.secondary");
+        background: #ff7b0013;
+        border-left: 3.5px solid theme("colors.accent");
       }
     }
   }

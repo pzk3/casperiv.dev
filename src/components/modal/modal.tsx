@@ -5,15 +5,15 @@ export function Modal(props: Dialog.DialogProps) {
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
-        <Dialog.Overlay className="overflow-y-auto fixed flex justify-center inset-0 bg-black/40 z-40 py-8">
-          <Dialog.Content className="relative overflow-hidden bg-primary z-50 max-w-5xl w-fit h-fit p-4 rounded-md border border-secondary">
+        <Dialog.Overlay className="overflow-y-auto fixed flex justify-center inset-0 bg-black/40 z-40 py-24">
+          <Dialog.Content className="relative overflow-hidden bg-primary z-50 max-w-5xl w-fit h-fit p-8 rounded-2xl border border-accent">
             {props.children}
 
             <Dialog.Close
               aria-label="Close modal"
-              className="absolute top-0 right-0 p-3 bg-primary rounded-bl-md border-b border-l border-secondary"
+              className="absolute top-0 right-0 p-3 bg-primary rounded-bl-2xl border-b border-l border-accent hover:bg-accent transition group"
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 fill-accent group-hover:fill-secondary" />
             </Dialog.Close>
           </Dialog.Content>
         </Dialog.Overlay>

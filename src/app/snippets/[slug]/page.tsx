@@ -1,11 +1,10 @@
-import { BlogFooter } from "components/blog/blog-footer";
-import { BlogHeader } from "components/blog/blog-header";
-import { Markdown } from "components/blog/markdown/markdown";
+import { BlogFooter } from "~/components/blog/blog-footer";
+import { BlogHeader } from "~/components/blog/blog-header";
+import { Markdown } from "~/components/blog/markdown/markdown";
 import { allCodeSnippets } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { getCodeSnippet } from "lib/mdx/get-code-snippet";
-import { mergeSeo } from "lib/merge-seo";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import { getCodeSnippet } from "~/lib/mdx/get-code-snippet";
+import { mergeSeo } from "~/lib/merge-seo";
 import { notFound } from "next/navigation";
 
 interface CodeSnippetsSlugPageProps {
@@ -36,7 +35,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
       title: item.title,
       description: item.description,
     },
-    keywords: [...DEFAULT_KEYWORDS, "snippets casper iversen", ...(item.keywords ?? [])],
+    keywords: ["snippets casper iversen", ...(item.keywords ?? [])],
   });
 }
 
@@ -48,11 +47,13 @@ export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugP
   }
 
   return (
-    <>
+    <main>
       <BlogHeader post={item} />
-      <Markdown code={item.body.code} />
-      <BlogFooter post={item} />
-    </>
+      <section className="max-w-6xl mx-auto pb-6 px-5 md:px-0">
+        <Markdown code={item.body.code} />
+        <BlogFooter post={item} />
+      </section>
+    </main>
   );
 }
 

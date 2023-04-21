@@ -2,6 +2,7 @@
 title: How to create an npm package with tsup
 description: Learn how to create an npm package with tsup for Node.js with ESM, CJS and, types support.
 createdAt: March 11, 2023
+updatedAt: April 21, 2023
 keywords:
   - ESM
   - CJS
@@ -110,8 +111,8 @@ Now that we have our project setup, we can add the following `exports` and `type
 
 <Info title="ESM Only?!">
   **Nope!** This package is **not** ESM only. You may have noticed we added the `"type": "module"`
-  but this is only for the `package.json` file. We also added the `"exports"` field which will allow
-  us to use both ESM and CJS versions of our package.
+  but this is only for the `package.json` file. We also added the `"exports"` field, which will
+  allow us to use both ESM and CJS versions of our package.
 </Info>
 
 ### tsup configuration
@@ -144,8 +145,6 @@ Once the scripts have been added, we have to add the following `tsup` configurat
 
 ## Publising
 
-Before we can publish our
-
 To publish our package, login to your [npm](https://npmjs.com) account.
 
 ```bash
@@ -162,4 +161,4 @@ npm publish
 
 Now, we have successfully created an npm package with tsup for Node.js with ESM, CJS and, types support.
 
-Checkout the [`GitHub repository` for the full source code](https://github.com/Dev-CasperTheGhost/npm-package-tsup).
+Checkout the [GitHub repository for the full source code](https://github.com/Dev-CasperTheGhost/npm-package-tsup).

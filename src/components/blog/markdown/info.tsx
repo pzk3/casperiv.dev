@@ -13,7 +13,7 @@ export function Info({ children, title, color, ...rest }: Props) {
       {...rest}
       data-info
       style={{ borderColor, ...rest.style }}
-      className="p-2 px-4 my-3 mb-5 text-lg border-l-[3px] rounded-md rounded-l-none shadow border border-secondary bg-white"
+      className="p-2 px-4 my-3 mb-5 text-lg border-l-[4px] rounded-md rounded-l-none shadow border-2 border-secondary bg-primary"
     >
       {title ? <h3 className="text-xl font-bold my-2.5 ">{title}</h3> : null}
 

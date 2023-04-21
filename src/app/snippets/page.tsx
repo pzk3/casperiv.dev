@@ -1,7 +1,6 @@
-import { ArticlesList } from "components/blog/articles-list";
+import { ArticlesList } from "~/components/blog/articles-list";
 import { allCodeSnippets } from "contentlayer/generated";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
-import { mergeSeo } from "lib/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 
 const pageTitle = "Code snippets";
 const pageDescription = "Small code snippets that I have found useful or use a lot.";
@@ -20,7 +19,7 @@ export const metadata = mergeSeo({
     title: pageTitle,
     description: pageDescription,
   },
-  keywords: [...DEFAULT_KEYWORDS, "code snippets", "code examples", "react hooks"],
+  keywords: ["code snippets", "code examples", "react hooks"],
 });
 
 export default async function CodeSnippetsSlugPage() {
@@ -29,10 +28,10 @@ export default async function CodeSnippetsSlugPage() {
   );
 
   return (
-    <>
-      <h1 className="section-title">Code Snippets</h1>
+    <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">
+      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Code Snippets</h1>
 
       <ArticlesList articles={sortedSnippets} type="snippets" />
-    </>
+    </main>
   );
 }

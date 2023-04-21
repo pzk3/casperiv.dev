@@ -38,16 +38,16 @@ export const BlogPost = defineDocumentType(() => ({
   },
 }));
 
-export const CaseStudy = defineDocumentType(() => ({
-  name: "CaseStudy",
-  filePathPattern: "**/case-studies/**/*.mdx",
+export const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "**/project/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
 }));
 
 export default makeSource({
   contentDirPath: "./src/data",
-  documentTypes: [CodeSnippet, BlogPost, CaseStudy],
+  documentTypes: [CodeSnippet, BlogPost, Project],
   mdx: {
     esbuildOptions: (options) => {
       options.loader = {
@@ -59,10 +59,11 @@ export default makeSource({
     },
     rehypePlugins: [
       rehypeSlug,
+      [rehypeAutolinkHeadings, { properties: { ariaLabel: "Link to section" } }],
       [
         rehypePrettyCode,
         {
-          theme: "github-light",
+          theme: "github-dark",
           onVisitLine(node) {
             // prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
@@ -80,7 +81,6 @@ export default makeSource({
           },
         },
       ],
-      [rehypeAutolinkHeadings, { properties: { ariaLabel: "Link to section" } }],
     ],
     remarkPlugins: [remarkGfm],
   },

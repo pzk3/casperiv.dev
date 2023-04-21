@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["media.ronin.co", "avatars.githubusercontent.com"],
+    domains: ["media.ronin.co", "avatars.githubusercontent.com", "images.unsplash.com"],
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
@@ -32,6 +32,11 @@ const nextConfig = {
       {
         source: "/uses",
         destination: "/blog/my-uses",
+        permanent: true,
+      },
+      {
+        source: "/gallery/imagery",
+        destination: "/gallery",
         permanent: true,
       },
     ];

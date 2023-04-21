@@ -1,23 +1,42 @@
 import * as React from "react";
-import classNames from "clsx";
+import { VariantProps, cva } from "class-variance-authority";
 
-type Props = JSX.IntrinsicElements["input"] & {
-  hasError?: boolean;
+export type InputProps = VariantProps<typeof input> & {
+  errorMessage?: string;
+  className?: string;
 };
 
-export const Input = React.forwardRef<HTMLInputElement, Props>(({ hasError, ...rest }, ref) => (
-  <input
-    ref={ref}
-    {...rest}
-    className={classNames(
-      `bg-white
-      w-full p-1.5 px-2 rounded-md border
-      disabled:cursor-not-allowed disabled:opacity-80
-      transition-colors`,
-      hasError
-        ? "border-red-500 focus:border-red-700"
-        : "border-secondary/50 focus:border-secondary",
-      rest.className,
-    )}
-  />
-));
+export const input = cva(["border-2 outline-none transition-colors w-full"], {
+  variants: {
+    intent: {
+      primary: "bg-gray-dark ",
+    },
+    state: {
+      valid: "border-gray-light focus:border-accent hover:border-accent/30",
+      invalid: "border-red-600 focus:border-red-700",
+    },
+    size: {
+      default: "px-4 py-1.5 rounded-2xl",
+    },
+  },
+  defaultVariants: {
+    state: "valid",
+    intent: "primary",
+    size: "default",
+  },
+});
+
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ errorMessage, size, intent, ...rest }, ref) => (
+    <input
+      ref={ref}
+      {...rest}
+      className={input({
+        state: errorMessage ? "invalid" : "valid",
+        intent,
+        size,
+        className: rest.className,
+      })}
+    />
+  ),
+);

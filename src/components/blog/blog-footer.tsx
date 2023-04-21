@@ -1,16 +1,16 @@
 "use client";
 
-import type { BlogPost, CaseStudy, CodeSnippet } from "contentlayer/generated";
+import type { BlogPost, Project, CodeSnippet } from "contentlayer/generated";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  post: BlogPost | CodeSnippet | CaseStudy;
+  post: BlogPost | CodeSnippet | Project;
 }
 
 const types = {
   "/blog/": "posts",
   "/snippets/": "snippets",
-  "/case-study/": "case-studies",
+  "/project/": "project",
 };
 
 export function BlogFooter({ post }: Props) {

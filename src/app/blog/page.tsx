@@ -1,10 +1,9 @@
-import { ArticlesList } from "components/blog/articles-list";
-import { ArticleListItem } from "components/blog/articles-list-item";
+import { ArticlesList } from "~/components/blog/articles-list";
+import { ArticleListItem } from "~/components/blog/articles-list-item";
 import { allBlogPosts } from "contentlayer/generated";
-import { getArticleSlug } from "lib/mdx/get-article-slug";
-import { generateRSSFeed } from "lib/rss";
-import { DEFAULT_KEYWORDS } from "next-seo.config";
-import { mergeSeo } from "lib/merge-seo";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import { generateRSSFeed } from "~/lib/rss";
+import { mergeSeo } from "~/lib/merge-seo";
 
 export const metadata = mergeSeo({
   title: "Blog",
@@ -20,7 +19,7 @@ export const metadata = mergeSeo({
     title: "Blog",
     description: "A list of my blog posts with how-to's and more!",
   },
-  keywords: [...DEFAULT_KEYWORDS, "blog casper iversen", "caspertheghost blog", "react hooks"],
+  keywords: ["blog casper iversen", "caspertheghost blog", "react hooks"],
 });
 
 export default async function CodeSnippetsSlugPage() {
@@ -32,13 +31,13 @@ export default async function CodeSnippetsSlugPage() {
     .sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
   return (
-    <>
-      <h1 className="text-3xl font-bold capitalize md:text-4xl">Blog Posts</h1>
+    <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">
+      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Blog Posts</h1>
 
-      <div className="my-3 md:mt-6">
-        <h2 className="text-2xl font-semibold md:text-3xl">Featured</h2>
+      <div className="my-3 md:mt-12">
+        <h2 className="text-2xl font-semibold md:text-3xl font-title">Featured</h2>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
           {FEATURED.map((article) => (
             <ArticleListItem
               article={article}
@@ -50,11 +49,11 @@ export default async function CodeSnippetsSlugPage() {
         </ul>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold md:text-3xl">All posts</h2>
+      <div className="md:mt-12">
+        <h2 className="text-2xl font-semibold md:text-3xl font-title">All posts</h2>
 
         <ArticlesList articles={nonArchivedBlogPosts} type="blog" />
       </div>
-    </>
+    </main>
   );
 }
