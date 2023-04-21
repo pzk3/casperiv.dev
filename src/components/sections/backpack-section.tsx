@@ -13,7 +13,7 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
   return (
     <section className="bg-secondary text-primary">
       <div className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
-        <h2 className="font-poppins font-medium text-4xl relative max-w-fit">
+        <h2 className="font-poppins font-medium text-3xl sm:text-4xl relative max-w-fit">
           My evolving skillset
           <HoverCard.Root closeDelay={100} openDelay={0}>
             <HoverCard.Trigger
@@ -56,15 +56,16 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
               <React.Fragment key={item.header}>
                 <h3
                   key={item.header}
-                  className="font-poppins text-5xl md:text-6xl font-bold lowercase md:h-32"
+                  className="font-poppins text-4xl sm:text-5xl md:text-6xl font-bold lowercase md:h-32"
                 >
-                  <span className="inline-block w-[73px] text-start">0{++idx}</span> — {item.header}
+                  <span className="inline-block w-[50px] sm:w-[73px] text-start">0{++idx}</span> —{" "}
+                  {item.header}
                 </h3>
 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2 max-w-md">
                   {allSkills.map((skill) => {
                     return (
-                      <li className="font-poppins font-medium text-xl" key={skill}>
+                      <li className="font-poppins font-medium text-lg sm:text-xl" key={skill}>
                         {skill}
                       </li>
                     );

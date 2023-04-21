@@ -14,7 +14,7 @@ const link = cva(["border-2 rounded-2xl text-base font-inter font-medium transit
     size: {
       sm: "px-3 py-1 rounded-xl",
       default: "px-4 py-1.5 rounded-2xl",
-      square: "w-10 h-10 grid place-items-center rounded-full",
+      square: "min-w-[40px] w-10 h-10 grid place-items-center rounded-full",
       none: "p-0",
     },
     extras: {
