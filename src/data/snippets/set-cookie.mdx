@@ -6,7 +6,7 @@ createdAt: September 4, 2021
 
 ## Implementation
 
-```typescript title="src/lib/setCookie.ts"
+```ts title="src/lib/setCookie.ts"
 import { serialize, CookieSerializeOptions } from "cookie";
 import { NextApiResponse } from "next";
 
@@ -36,7 +36,7 @@ export function setCookie(opts: CookieOptions) {
 
 ## Usage
 
-```typescript
+```ts
 import { setCookie } from "~/lib/setCookie";
 
 export default async function handler(req, res) {

@@ -1,6 +1,7 @@
 ---
 title: How to deploy a Next.js project on Ubuntu with NGINX
 createdAt: December 7, 2021
+updatedAt: April 22, 2023
 description: How to deploy a Next.js project on Ubuntu with NGINX explained in a simple steps.
 keywords:
   - NGINX
@@ -14,9 +15,11 @@ featured: true
 readingTime: "15 min read" # more like "how long will this take?"
 ---
 
+In this article, you will learn how to deploy your Next.js application on an Ubuntu VPS with NGINX. We will also cover how to install Node.js and how to set up a firewall.
+
 ## Requirements
 
-There are a few things you must have.
+There are a few things you must have:
 
 - A Next.js project
 - <abbr title="Virtual Private Server">VPS</abbr> with Ubuntu 20.04
@@ -25,41 +28,34 @@ There are a few things you must have.
 
 ## Prepare VPS for deployment
 
-There are a extra steps that we must perform so we can properly deploy our Next.js project to our domain.
+There are extra steps that we must perform, so we can properly deploy our Next.js project to our domain.
 This includes installing Node.js, installing NGINX and setting up the firewall.
 
-### Installing required packages
+### Installing Node.js
 
-#### Node.js
-
-To install Node.js there are few simple steps required.
-Get the Node.js install via [Nodesource](https://github.com/nodesource/distributions#readme).
+We will install Node.js `v18` using [Nodesource](https://github.com/nodesource/distributions#readme). To install Node.js, we must first install and run the Nodesource setup script:
 
 ```bash --command=true
-curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
+curl -sL https://deb.nodesource.com/setup_18.x | sudo bash
 ```
 
-Run the Nodesource setup file to prepare the correct version of Node.js
-
-```bash --command=true
-sudo bash nodesource_setup.sh
-```
-
-Install Node.js from the installed Nodesource
+This will install the latest Node.js version to our VPS. We can now install Node.js from apt with the following command:
 
 ```bash --command=true
 sudo apt install nodejs -y
 ```
 
-Verify installation:
+To verify that Node.js is installed, we can run the following command:
 
 ```bash --command=true
 node -v # 18.x.x
 ```
 
-#### NGINX
+### NGINX
 
-NGINX will be used as a proxy to serve our Next.js project.
+> NGINX is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
+
+We will install NGINX using apt. To install NGINX, we can run the following command:
 
 ```bash --command=true
 sudo apt install nginx -y
@@ -93,57 +89,73 @@ sudo ufw enable
 
 </Info>
 
-## Next.js project setup on a VPS
+## Next.js project setup
 
-First, we must be logged into our VPS. We will clone the Next.js project from GitHub onto our VPS.
+To clone our Next.js project, make sure to log in to your VPS. We will be using `git` to clone the project from GitHub onto our VPS.
 
-```bash
+```bash --command=true
 # replace this URL with your repo
 git clone https://github.com/Dev-CasperTheGhost/nextjs-ts-eslint-template.git
 ```
 
-Now we must install the dependencies
+<Info title="Don't have git installed?">
+
+  <details>
+    <summary>If you don't have `git` installed on the VPS, learn how to install it 👉</summary>
 
 ```bash
+sudo apt install git -y
+```
+
+  </details>
+
+</Info>
+
+Once the project is cloned, we must change the directory to the project folder.
+
+```bash --command=true
+cd nextjs-ts-eslint-template
+```
+
+Now we can install the dependencies:
+
+```bash --command=true
+# Replace this with your package manager of choice
 npm install
-# OR
-yarn
 ```
 
 Once all the dependencies are installed, we can build the client so it is ready to be deployed.
 
 ```bash
 npm run build
-# OR
-yarn build
 ```
 
-Now we can start the project in the background using `pm2`.
+Now we can start the project in the background using [`pm2`](https://pm2.io). This will start the project on port `3000` in the background.
+You can view any logs by running `pm2 logs`.
+
+```bash
+# `run start` is the start command that will be executed.
+pm2 start npm --name my-project -- run start
+```
 
 <Info >
-  <details  style={{marginTop: 10}}>
+  <details style={{marginTop: 10}}>
     <summary>If you don't have `pm2` installed yet, see the following command 👉</summary>
 
 ```sh
 sudo npm install --global pm2
 ```
 
+[Learn more about `pm2` here](https://pm2.io).
+
   </details>
 </Info>
 
-```bash
-# `run start` is the command that will be executed.
-pm2 start npm --name my-project -- run start
-```
+## NGINX Configuration
 
-This will have successfully started the project.
-You can verify this with `pm2 logs` or open the IP with the port in your browser.
+Now that we have our Next.js project running, we can configure NGINX to serve our project.
 
-### NGINX configuration
-
-Once we've installed all the required packages, we can configure NGINX to serve our Next.js project.
-
-#### NGINX proxy setup
+### NGINX proxy setup
 
 Start by opening the following file with a text-editor: `/etc/nginx/sites-available/default`. I will use nano for this.
 
@@ -187,13 +199,13 @@ nginx -t
 ```
 
 You may have noticed that we are serving the project on port 80. This is fine for now, since we haven't installed our certificates yet.
-If you **do not** need a secure site, you can skip to [#final-deployment-steps](#final-deployment-steps)! Continue reading on how to install certificates with [Certbot](https://certbot.eff.org/).
+If you **do not** need a secure site, you can skip to [#final-deployment-steps](#final-deployment-steps)! Otherwise, continue reading on how to install certificates with [Certbot](https://certbot.eff.org/).
 
-### Installing certificates with Cerbot
+### Installing certificates with Certbot
 
-Cerbot can be installed in many ways and on many machines with different configurations, therefore please follow [Cerbot's installation guide](https://certbot.eff.org/instructions).
+Certbot can be installed in many ways and on many machines with different configurations, therefore please follow [Certbot's installation guide](https://certbot.eff.org/instructions).
 
-After following Cerbot's instructions, you should verify if it changed the NGINX config, open the config file and see changes made.
+After following Certbot's instructions, you should verify if it changed the NGINX config, open the config file and see changes made.
 
 ```bash --command=true
 nano /etc/nginx/sites-available/default

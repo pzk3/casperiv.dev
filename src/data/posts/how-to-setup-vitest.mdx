@@ -1,5 +1,5 @@
 ---
-title: How to setup Vitest for Node.js testing
+title: How to set up Vitest for Node.js testing
 description: Learn how to easily setup Vitest.
 createdAt: May 25, 2022
 keywords:
@@ -20,7 +20,7 @@ readingTime: "4 min read"
 
 ## Installation
 
-Vitest is super simple to install. It can be installed via any node package manager such as [npm](https://npmjs.org), [yarn](https://yarnpkg.org) or [pnpm](https://pnpm.io). We will install [vitest](https://vitest.dev) as a devDependency.
+Vitest is super simple to install. It can be installed via any node package manager such as [npm](https://npmjs.org), [yarn](https://yarnpkg.org) or [pnpm](https://pnpm.io). We will install [vitest](https://vitest.dev) as a `devDependency`.
 
 ```bash
 npm install --save-dev vitest
@@ -48,14 +48,14 @@ We will now add a simple command to our `package.json`. This will allow us to ru
 
 Once we've updated our configuration, we can start adding test files, for example `maths.test.ts`. We import `test` and `expect` from `vitest`:
 
-```typescript title="maths.test.ts"
-import { expect, test } from 'vitest'
+```ts title="maths.test.ts"
+import { expect, test } from "vitest";
 
-test('Math.sqrt()', () => {
-  expect(Math.sqrt(4)).toBe(2)
-  expect(Math.sqrt(144)).toBe(12)
-  expect(Math.sqrt(2)).toBe(Math.SQRT2)
-})
+test("Math.sqrt()", () => {
+  expect(Math.sqrt(4)).toBe(2);
+  expect(Math.sqrt(144)).toBe(12);
+  expect(Math.sqrt(2)).toBe(Math.SQRT2);
+});
 ```
 
 ## Testing the application
@@ -69,7 +69,7 @@ npm run test
 This will show all passed and failed tests.
 
 <Info style={{ margin: "1rem 0" }}>
-  **Tip:** You can also view those tests in the browser! Simply create a new command shown below:
+  **Tip:** You can also view those tests in the browser! Simply create a new command, shown below:
 
 ```json {4}
 {
@@ -99,4 +99,4 @@ This will show all passed and failed tests.
 You can use Vitest for many more project types, such as: React, Next.js, Vue, Svelte, etc.
 Read more about the awesomeness Vitest can do [at their documentation](https://vitest.dev)
 
-Personally, I use Vitest in many of my projects and I absolutely love it! It's simple to setup, fast and has a great community.
+Personally, I use Vitest in many of my projects and I absolutely love it! It's simple to set up, fast and has a great community.

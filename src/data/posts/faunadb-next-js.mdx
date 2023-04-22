@@ -5,22 +5,22 @@ updatedAt: August 20, 2021
 description: Setting up FaunaDB with Next.js and TypeScript
 ---
 
-Setup a [Next.js](https://nextjs.org) project with [TypeScript](https://www.typescriptlang.org/) and [FaunaDB](https://faunadb.com).
+Set up a [Next.js](https://nextjs.org) project with [TypeScript](https://www.typescriptlang.org/) and [FaunaDB](https://faunadb.com).
 
 ## Requirements
 
 - A FaunaDB account and a key from the security settings of your database.
-- NodeJS & npm
+- Node.js & npm
 
 ## Creating the project
 
-First we'll need to create the project. Let's create a new folder called `nextjs-faunadb`.
+First, we'll need to create the project. Let's create a new folder called `nextjs-faunadb`.
 
 ```bash
 mkdir nextjs-faunadb && cd nextjs-faunadb
 ```
 
-Secondly, we need to init the npm project.
+Secondly, we need to initialize the npm project.
 
 ```bash
 npm init -y
@@ -35,7 +35,7 @@ npm install react react-dom next faunadb
 npm install @types/react @types/react-dom typescript --save-dev
 ```
 
-Lastly we'll create the tsconfig. Don't worry about the contents, Next.js will overwrite it with the correct configuration.
+Lastly, we'll create the tsconfig. Don't worry about the contents, Next.js will overwrite it with the correct configuration.
 
 ```bash
 tsc --init
@@ -79,7 +79,7 @@ export const client = new Client({ secret: process.env.FAUNADB_KEY });
 
 ## Using the client in our API
 
-Bellow you can see how to use the client in your api pages.
+Below you can see how to use the client in your API pages.
 
 ```tsx title="pages/api/index.ts"
 import { NextApiRequest, NextApiResponse } from "next";

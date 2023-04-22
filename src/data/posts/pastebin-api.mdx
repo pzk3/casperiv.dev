@@ -10,32 +10,27 @@ keywords:
 ---
 
 On February 23rd I created my second [npm](https://npmjs.com) package "pastebin-api".
-This package can be used to interacte with the [Pastebin API](https://pastebin.com/doc_api) to create pastes, list pastes and delete pastes.
+This package can be used to interact with the [Pastebin API](https://pastebin.com/doc_api) to create pastes, list pastes and delete pastes.
 
 ## Installation
 
 **npm**
 
 ```bash --command=true
+# Replace npm with your package manager of choice
 npm install pastebin-api
-```
-
-**yarn**
-
-```bash --command=true
-yarn add pastebin-api
 ```
 
 ## Creating the client
 
 First, we must import the `PasteClient` class from `pastebin-api`.
 
-```typescript title="src/index.ts"
+```ts title="src/index.ts"
 // es6
-import PasteClient from "pastebin-api";
+import { PasteClient } from "pastebin-api";
 
 // commonjs
-const PasteClient = require("pastebin-api").default;
+const { PasteClient } = require("pastebin-api");
 ```
 
 ### Instantiating the client
@@ -45,7 +40,7 @@ const PasteClient = require("pastebin-api").default;
   you add this key into a `.env` file.
 </Info>
 
-```typescript title="src/index.ts"
+```ts title="src/index.ts"
 const client = new PasteClient(process.env["API_KEY_HERE"]);
 ```
 
@@ -53,7 +48,7 @@ const client = new PasteClient(process.env["API_KEY_HERE"]);
 
 Now we'll create a new paste using the [`.createPaste`](https://github.com/Dev-CasperTheGhost/pastebin-api/blob/main/docs/README.md#create-a-paste) method
 
-```typescript title="src/index.ts"
+```ts title="src/index.ts"
 const pasteUrl = await client.createPaste({
   code: "const hello = 'hello world!'", // The code we want to send in the Paste
   expireDate: "N", // When should the paste expire
