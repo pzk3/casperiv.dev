@@ -2,7 +2,7 @@
 
 import { ArrowRightShort } from "react-bootstrap-icons";
 import { Link } from "~/components/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export function HeroSection() {
@@ -12,6 +12,9 @@ export function HeroSection() {
 
   const x = useTransform(scrollYProgress, [0, 0.5], [0, 800]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 720]);
+
+  const physics = { damping: 10, mass: 0.27, stiffness: 100 };
+  const spring = useSpring(rotate, physics);
 
   function handlePolygonClick() {
     window.scrollTo({
@@ -59,7 +62,7 @@ export function HeroSection() {
         height="260"
         xmlSpace="preserve"
       >
-        <motion.g origin="center" style={{ rotate }}>
+        <motion.g origin="center" style={{ rotate: spring }}>
           <ellipse fill="#353030" cx="57.31" cy="138.91" rx="57.31" ry="57.09" />
           <line
             strokeWidth="2"
@@ -72,7 +75,7 @@ export function HeroSection() {
             y2="160.74"
           />
         </motion.g>
-        <motion.g origin="center" style={{ rotate }}>
+        <motion.g origin="center" style={{ rotate: spring }}>
           <ellipse fill="#353030" cx="342.69" cy="138.91" rx="57.31" ry="57.09" />
           <line
             strokeWidth="2"

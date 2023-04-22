@@ -48,7 +48,7 @@ export function HorizontalScroll(props: HorizontalScrollProps) {
         ref={containerRef}
         className="bg-secondary sticky top-0 min-h-screen w-full overflow-hidden pl-12"
       >
-        <header className="text-primary tall:sticky tall:top-[20%] mt-32 tall:mt-0">
+        <header className="text-primary tall:sticky tall:top-[20%] mt-32 tall:mt-0 z-10">
           {props.headerRenderer}
         </header>
         <motion.div

@@ -11,10 +11,11 @@ export function AboutHeroSection() {
         <div className="max-w-xl font-medium">
           <p className="mt-10">
             Hey there! {"Let's"} get straight to it! {"I'm"} Casper, a motivated frontend developer
-            and student based in Belgium. I started back when I was a 14-year-old kid that had an
-            extreme passion for creating stuff, building simple static web pages and expanding my
-            CSS knowledge by recreating awesome designs. {"I've"} continued to grow and evolve as a
-            developer, taking on new challenges and learning the latest technologies along the way.
+            and student based in Belgium. I started back when I was a{" "}
+            <br className="sm:inline hidden" /> 14-year-old kid that had an extreme passion for
+            creating stuff, building simple static web pages and expanding my CSS knowledge by
+            recreating awesome designs. {"I've"} continued to grow and evolve as a developer, taking
+            on new challenges and learning the latest technologies along the way.
           </p>
 
           <p className="mt-4">

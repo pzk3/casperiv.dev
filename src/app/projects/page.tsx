@@ -10,9 +10,7 @@ export const revalidate = 600; // 10 minutes
 async function fetchProjects() {
   const [projects] = await ronin<Projects>(({ get }) => {
     get.projects = {
-      orderedBy: {
-        ascending: ["ronin.updatedAt"],
-      },
+      orderedBy: { ascending: ["featuredPosition"] },
       limitedTo: 1000,
     };
   });

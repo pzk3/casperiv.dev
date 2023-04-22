@@ -43,6 +43,7 @@ function Card(props: Timelineitem) {
           {props.month} {props.year}
           {props.tag ? (
             <>
+              {" "}
               - <span className="text-accent">{props.tag}</span>
             </>
           ) : null}
