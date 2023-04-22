@@ -3,15 +3,15 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { HTMLMotionProps, motion } from "framer-motion";
 
-const button = cva(["border-2 text-base font-inter font-medium"], {
+const button = cva(["border-2 text-base font-inter font-medium outline-none"], {
   variants: {
     intent: {
       primary:
-        "bg-gray-dark border-gray-light hover:border-accent hover:bg-accent hover:text-secondary text-primary",
-      secondary: "border-gray-light text-secondary hover:border-accent",
+        "bg-gray-dark border-gray-light hover:border-accent hover:bg-accent focus:border-accent focus:bg-accent hover:text-secondary text-primary",
+      secondary: "border-gray-light text-secondary hover:border-accent focus:border-accent",
       "secondary-light": "border-gray-light text-primary hover:border-accent focus:border-accent",
-      error: "border-red-600 text-red-400 hover:border-red-700",
-      success: "border-green-600 text-green-400 hover:border-green-600",
+      error: "border-red-600 text-red-400 hover:border-red-700 focus:border-red-700",
+      success: "border-green-600 text-green-400 hover:border-green-600 focus:border-green-600",
     },
     size: {
       default: "px-4 py-1.5 rounded-2xl",
