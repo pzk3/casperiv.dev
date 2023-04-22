@@ -23,8 +23,8 @@
     border-radius: theme("borderRadius.md");
     padding: theme("padding.1") theme("padding[1.5]");
     font-weight: theme("fontWeight.medium");
-    background-color: theme("colors.gray.extralight");
-    color: theme("colors.secondary");
+    background-color: theme("colors.gray.dark");
+    color: theme("colors.accent");
 
     &::before,
     &::after {
