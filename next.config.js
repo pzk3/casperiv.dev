@@ -5,13 +5,14 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["media.ronin.co", "avatars.githubusercontent.com", "images.unsplash.com"],
+    domains: ["media.ronin.co", "avatars.githubusercontent.com"],
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   experimental: {
     appDir: true,
   },
+  poweredByHeader: false,
   async redirects() {
     return [
       {
@@ -51,12 +52,22 @@ const nextConfig = {
   },
 };
 
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' static.cloudflareinsights.com;
+  style-src 'self' 'unsafe-inline';
+  img-src * blob: data:;
+  media-src 'none';
+  connect-src *;
+  font-src 'self';
+`;
+
 // https://github.com/leerob/leerob.io/blob/1356f8aa1adb083d5b192c6f53fa04946afefc00/next.config.js#LL48-L85
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
     key: "Referrer-Policy",
-    value: "origin-when-cross-origin",
+    value: "origin",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
@@ -82,6 +93,10 @@ const securityHeaders = [
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
+  },
+  {
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
   },
 ];
 

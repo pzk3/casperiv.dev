@@ -1,7 +1,7 @@
 import { redisClient } from "~/lib/redis";
 
 export const revalidate = 0;
-export const runtime = "experimental-edge";
+export const runtime = "edge";
 
 export async function POST(_request: Request, { params }: { params: { slug: string } }) {
   if (process.env.NODE_ENV === "development") {
