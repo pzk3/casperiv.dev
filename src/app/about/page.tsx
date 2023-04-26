@@ -1,6 +1,6 @@
 import ronin from "ronin";
 import { mergeSeo } from "~/lib/merge-seo";
-import { Stackitems, Timelineitems } from "@ronin/casper";
+import { StackItems, TimelineItems } from "@ronin/casper";
 import { HorizontalScroll } from "~/components/sections/about/horizontal-scroll";
 import { Timeline } from "~/components/sections/about/timeline";
 import { StackSection } from "~/components/sections/about/stack";
@@ -9,7 +9,7 @@ import { AboutHeroSection } from "~/components/sections/about/hero-section";
 export const revalidate = 600; // 10 minutes
 
 async function fetchTimelineData() {
-  const [timelineItems, stackItems] = await ronin<[Timelineitems, Stackitems]>(({ get }) => {
+  const [timelineItems, stackItems] = await ronin<[TimelineItems, StackItems]>(({ get }) => {
     get.timelineItems = {
       limitedTo: 1000,
       orderedBy: { descending: ["year"] },

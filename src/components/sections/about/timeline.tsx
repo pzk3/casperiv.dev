@@ -1,7 +1,7 @@
-import { Timelineitem, Timelineitems } from "@ronin/casper";
+import { TimelineItem, TimelineItems } from "@ronin/casper";
 
 interface TimelineProps {
-  timelineData: Timelineitems;
+  timelineData: TimelineItems;
 }
 
 export function Timeline(props: TimelineProps) {
@@ -34,7 +34,7 @@ export function Timeline(props: TimelineProps) {
   );
 }
 
-function Card(props: Timelineitem) {
+function Card(props: TimelineItem) {
   return (
     <div className="bg-gray-dark border-2 border-gray-light text-primary max-w-[400px] w-[400px] min-h-[160px] rounded-2xl shadow-md p-6 cursor-default">
       <header className="flex flex-col-reverse gap-1">
