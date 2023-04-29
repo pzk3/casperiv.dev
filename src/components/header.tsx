@@ -77,6 +77,7 @@ export function Header() {
         </ul>
 
         <button
+          aria-label="Open Menu"
           onClick={() => setIsMenuOpen(true)}
           className="flex flex-col items-end gap-y-1.5 w-8 md:w-10 hover:gap-y-2 transition-all ease-in-out duration-100 group"
         >

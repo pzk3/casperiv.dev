@@ -83,6 +83,7 @@ export function FullScreenNav(props: FullScreenNavProps) {
           </ul>
 
           <motion.button
+            aria-label="Close Menu"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.92 }}
             onClick={props.onClose}
@@ -95,7 +96,7 @@ export function FullScreenNav(props: FullScreenNavProps) {
         <ul className="mt-20 md:mt-32 flex flex-row gap-10">
           {socialLinks.map((link) => (
             <li key={link.url}>
-              <Link onClick={props.onClose} href={link.url}>
+              <Link aria-label={link.name} onClick={props.onClose} href={link.url}>
                 <link.icon className="w-9 h-9 sm:w-12 sm:h-12 md:w-16 md:h-16 hover:fill-accent transition" />
               </Link>
             </li>
