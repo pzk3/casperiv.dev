@@ -1,13 +1,10 @@
 import mail from "@sendgrid/mail";
 import { CONTACT_SCHEMA } from "~/lib/schemas";
 import { rateLimit } from "./rate-limiter";
+import { env } from "~/env.mjs";
 
-const MAIL_VERIFIED_SENDER = process.env.MAIL_VERIFIED_SENDER;
-const MAIL_API_KEY = process.env.MAIL_API_KEY;
-
-if (!MAIL_API_KEY) {
-  throw new Error("`MAIL_API_KEY` is not defined");
-}
+const MAIL_VERIFIED_SENDER = env.MAIL_VERIFIED_SENDER;
+const MAIL_API_KEY = env.MAIL_API_KEY;
 
 const limiter = rateLimit({
   interval: 15 * 60 * 1000,
@@ -19,14 +16,7 @@ mail.setApiKey(MAIL_API_KEY);
 export async function POST(request: Request) {
   const body = (await request.json()) as unknown;
 
-  if (!process.env.CACHE_TOKEN || !MAIL_VERIFIED_SENDER) {
-    throw new Error("`CACHE_TOKEN` or `MAIL_VERIFIED_SENDER` is not defined");
-  }
-
-  const { isRateLimited, headers } = limiter.check(
-    MAX_EMAILS_PER_FIFTEEN_MINUTES,
-    process.env.CACHE_TOKEN,
-  );
+  const { isRateLimited, headers } = limiter.check(MAX_EMAILS_PER_FIFTEEN_MINUTES, env.CACHE_TOKEN);
 
   if (isRateLimited) {
     return new Response(

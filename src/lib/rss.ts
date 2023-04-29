@@ -5,13 +5,14 @@ import RSS from "rss";
 import fs from "node:fs/promises";
 import { allDocuments } from ".contentlayer/generated";
 import { formatArticleSlugPath } from "./mdx/get-article-slug";
+import { env } from "~/env.mjs";
 
 const OUT_FILE_PATH = "./public/rss.xml";
 const SITE_URL = "https://caspertheghost.me";
 
 export async function generateRSSFeed() {
   try {
-    if (process.env.NODE_ENV === "development") return;
+    if (env.NODE_ENV === "development") return;
 
     const rss = new RSS({
       title: "Casper's Blog",

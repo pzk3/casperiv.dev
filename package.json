@@ -24,6 +24,7 @@
     "@react-aria/textfield": "^3.9.1",
     "@ronin/casper": "latest",
     "@sendgrid/mail": "^7.7.0",
+    "@t3-oss/env-nextjs": "^0.2.2",
     "@tailwindcss/typography": "^0.5.9",
     "@tanstack/react-query": "^4.29.3",
     "@upstash/redis": "^1.20.4",
@@ -62,7 +63,8 @@
     "server-only": "^0.0.1",
     "sharp": "^0.32.0",
     "shiki": "^0.14.1",
-    "tailwind-merge": "^1.12.0"
+    "tailwind-merge": "^1.12.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@casper124578/eslint-config": "^6.0.0",

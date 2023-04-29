@@ -28,8 +28,7 @@
     "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "~/*": ["./src/*"],
-
+      "~/*": ["./src/*"]
     },
     "incremental": true,
     "plugins": [{ "name": "next" }],
@@ -40,7 +39,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
+    ".contentlayer/generated",
+    "src/env.mjs"
   ],
   "exclude": ["node_modules"]
 }
