@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import classNames from "classnames";
-import { motion, type Variants } from "framer-motion";
+import { m as motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FullScreenNav } from "./full-screen-nav";

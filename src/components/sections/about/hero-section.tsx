@@ -1,5 +1,3 @@
-"use client";
-
 export function AboutHeroSection() {
   return (
     <section className="mx-auto max-w-6xl w-full pb-32 px-5 md:px-0 flex items-end justify-between">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue } from "framer-motion";
+import { m as motion, useMotionValue } from "framer-motion";
 import * as React from "react";
 
 function calcDynamicHeight(objectWidth: number) {

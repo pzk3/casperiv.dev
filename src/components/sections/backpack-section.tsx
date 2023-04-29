@@ -3,7 +3,7 @@
 import * as React from "react";
 import { MySkills } from "@ronin/casper";
 import * as HoverCard from "@radix-ui/react-hover-card";
-import { motion } from "framer-motion";
+import {  m as motion } from "framer-motion";
 
 interface MyBackpackSectionProps {
   backpack: MySkills;

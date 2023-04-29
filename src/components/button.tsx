@@ -1,7 +1,7 @@
 "use client";
 
 import { VariantProps, cva } from "class-variance-authority";
-import { HTMLMotionProps, motion } from "framer-motion";
+import { HTMLMotionProps, m as motion } from "framer-motion";
 
 const button = cva(["border-2 text-base font-inter font-medium outline-none"], {
   variants: {

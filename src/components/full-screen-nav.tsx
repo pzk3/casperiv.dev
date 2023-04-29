@@ -1,6 +1,6 @@
 "use client";
 
-import { Variants, motion } from "framer-motion";
+import { Variants, m as motion } from "framer-motion";
 import Link from "next/link";
 import { socialLinks } from "./sections/contact-section";
 import { X } from "react-bootstrap-icons";

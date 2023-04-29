@@ -2,7 +2,7 @@
 
 import { ArrowRightShort } from "react-bootstrap-icons";
 import { Link } from "~/components/link";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { m as motion, useScroll, useSpring, useTransform } from "framer-motion";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export function HeroSection() {

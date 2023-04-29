@@ -3,7 +3,7 @@
 import { StackItems } from "@ronin/casper";
 import Image from "next/image";
 import * as HoverCard from "@radix-ui/react-hover-card";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 interface StackSectionProps {
   stackItems: StackItems;
