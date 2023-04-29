@@ -77,6 +77,10 @@
       padding: 0.2em 0.2em;
     }
 
+    [data-word-highlighted="true"] {
+      background: #ff7b003c;
+    }
+
     [data-line-highlighted="true"] {
       position: relative;
 
