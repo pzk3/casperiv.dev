@@ -61,7 +61,8 @@ const ContentSecurityPolicy = `
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self' stackblitz.com;
+  font-src 'self';
+  frame-src stackblitz.com;
 `;
 
 // https://github.com/leerob/leerob.io/blob/1356f8aa1adb083d5b192c6f53fa04946afefc00/next.config.js#LL48-L85
