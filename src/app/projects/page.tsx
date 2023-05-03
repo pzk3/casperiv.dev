@@ -50,10 +50,7 @@ export default async function ProjectsPage() {
 
       <p className="mt-3 font-normal text-secondary-light">
         {pageDescription} All my projects are{" "}
-        <NextLink
-          className="underline"
-          href="https://github.com/dev-caspertheghost?tab=repositories"
-        >
+        <NextLink className="underline" href="https://github.com/dev-caspertheghost">
           available on GitHub
         </NextLink>
         .
