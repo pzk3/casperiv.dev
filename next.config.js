@@ -1,5 +1,5 @@
 import { withContentlayer } from "next-contentlayer";
-import "./src/env.mjs";
+// import "./src/env.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,9 +10,6 @@ const nextConfig = {
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  experimental: {
-    appDir: true,
-  },
   poweredByHeader: false,
   async redirects() {
     return [
