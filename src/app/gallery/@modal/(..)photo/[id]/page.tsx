@@ -22,8 +22,8 @@ export default async function ImageModalPage({ params }: ImageModalPageProps) {
     <ImageModal
       key={image.media.key}
       src={image.media.src}
-      width={image.media.meta.width / 4}
-      height={image.media.meta.height / 4}
+      width={image.media.meta.width / 2}
+      height={image.media.meta.height / 2}
       alt={image.title}
       blurDataURL={image.media.placeholder.base64 || undefined}
       id={image.id}
