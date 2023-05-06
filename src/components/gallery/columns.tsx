@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import Image, { ImageProps } from "next/image";
-import { ImageModal } from "./image-modal";
 import { GalleryImages } from "@ronin/casper";
+import Link from "next/link";
 
 export function Gallery({ columns }: { columns: GalleryImages[] }) {
   return (
@@ -19,6 +19,7 @@ export function Gallery({ columns }: { columns: GalleryImages[] }) {
                 height={image.media.meta.height / 4}
                 alt={image.title}
                 blurDataURL={image.media.placeholder.base64 || undefined}
+                id={image.id}
               />
             );
           })}
@@ -33,21 +34,16 @@ function Column(props: { children: React.ReactNode }) {
 }
 
 function ImageItem(props: ImageProps) {
-  const [isModalOpen, setModalOpen] = React.useState(false);
-
   return (
-    <>
+    <Link href={`/photo/${props.id}`}>
       <Image
         className="relative w-full h-fit overflow-hidden shadow-lg cursor-zoom-in object-cover"
-        onClick={() => setModalOpen(true)}
         placeholder="blur"
         onContextMenu={(e) => e.preventDefault()}
         draggable={false}
         quality={60}
         {...props}
       />
-
-      {isModalOpen ? <ImageModal onClose={() => setModalOpen(false)} {...props} /> : null}
-    </>
+    </Link>
   );
 }
