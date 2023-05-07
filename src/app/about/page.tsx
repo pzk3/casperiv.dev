@@ -26,7 +26,6 @@ async function getAboutPageData() {
 
     get.experienceItems = {
       orderedBy: {
-        // @ts-expect-error this works, I have to update local types
         ascending: ["position"],
       },
     };

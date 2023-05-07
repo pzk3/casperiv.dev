@@ -23,8 +23,8 @@ dependencies:
     specifier: ^3.9.1
     version: 3.9.1(react@18.3.0-next-67a61d5bd-20230228)
   '@ronin/casper':
-    specifier: ^0.0.1683363582741
-    version: 0.0.1683363582741
+    specifier: ^0.0.1683454408278
+    version: 0.0.1683454408278
   '@sendgrid/mail':
     specifier: ^7.7.0
     version: 7.7.0
@@ -2760,8 +2760,8 @@ packages:
       react: 18.3.0-next-67a61d5bd-20230228
     dev: false
 
-  /@ronin/casper@0.0.1683363582741:
-    resolution: {integrity: sha512-kMGMQu29WPqEvGReqO1MAzIAb5sDCQ5Jk8rQe846vxJxg233Xw5kP/HSlTTOg8tUaLVTJa+9f/YOY9hn7UVK9Q==, tarball: https://ronin.supply/@ronin/casper/-/casper-0.0.1683363582741.tar.gz}
+  /@ronin/casper@0.0.1683454408278:
+    resolution: {integrity: sha512-UlUFRLwlNVhiJ0KRCZsYmTuG4/ENsSu/l60b4lSeWgTHTrDamZ+b5Q0XEw0+pAwLMyRRbSegEjJhQe8b4ac0KQ==, tarball: https://ronin.supply/@ronin/casper/-/casper-0.0.1683454408278.tar.gz}
     dev: false
 
   /@rushstack/eslint-patch@1.2.0:

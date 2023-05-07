@@ -1,9 +1,10 @@
 "use client";
 
+import { ExperienceItems } from "@ronin/casper";
 import format from "date-fns/format";
 
 interface ExperienceSectionProps {
-  experienceItems: any[];
+  experienceItems: ExperienceItems;
 }
 
 export function ExperienceSection(props: ExperienceSectionProps) {
@@ -16,7 +17,9 @@ export function ExperienceSection(props: ExperienceSectionProps) {
       <ul className="flex flex-col mt-5">
         {props.experienceItems.map((item) => {
           const startDate = format(new Date(item.startDate), "MMM yyyy");
-          const endDate = item.endDate ? format(new Date(item.endDate), "MMM yyyy") : "Present";
+          const endDate = (item.endDate as Date | null)
+            ? format(new Date(item.endDate), "MMM yyyy")
+            : "Present";
 
           return (
             <li key={item.id} className="mt-5">
