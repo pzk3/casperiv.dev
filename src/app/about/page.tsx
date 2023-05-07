@@ -1,15 +1,18 @@
 import ronin from "ronin";
 import { mergeSeo } from "~/lib/merge-seo";
-import { StackItems, TimelineItems } from "@ronin/casper";
+import { ExperienceItems, StackItems, TimelineItems } from "@ronin/casper";
 import { HorizontalScroll } from "~/components/sections/about/horizontal-scroll";
 import { Timeline } from "~/components/sections/about/timeline";
 import { StackSection } from "~/components/sections/about/stack";
 import { AboutHeroSection } from "~/components/sections/about/hero-section";
+import { ExperienceSection } from "~/components/sections/about/experience";
 
 export const revalidate = 600; // 10 minutes
 
-async function fetchTimelineData() {
-  const [timelineItems, stackItems] = await ronin<[TimelineItems, StackItems]>(({ get }) => {
+async function getAboutPageData() {
+  const [timelineItems, stackItems, experienceItems] = await ronin<
+    [TimelineItems, StackItems, ExperienceItems]
+  >(({ get }) => {
     get.timelineItems = {
       limitedTo: 1000,
       orderedBy: { descending: ["year"] },
@@ -20,11 +23,19 @@ async function fetchTimelineData() {
         ascending: ["name"],
       },
     };
+
+    get.experienceItems = {
+      orderedBy: {
+        // @ts-expect-error this works, I have to update local types
+        ascending: ["position"],
+      },
+    };
   });
 
   return {
     stackItems,
     timelineData: timelineItems,
+    experienceItems,
   };
 }
 
@@ -45,11 +56,12 @@ export const metadata = mergeSeo({
 });
 
 export default async function AboutPage() {
-  const { timelineData, stackItems } = await fetchTimelineData();
+  const { timelineData, stackItems, experienceItems } = await getAboutPageData();
 
   return (
     <main className="mt-[clamp(64px,10%,192px)] ">
       <AboutHeroSection />
+      <ExperienceSection experienceItems={experienceItems} />
       <StackSection stackItems={stackItems} />
 
       {/* timeline section */}
