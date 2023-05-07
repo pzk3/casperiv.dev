@@ -32,6 +32,7 @@ export async function generateMetadata(props: ImageModalPageProps): Promise<Meta
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: `${image.title} - Gallery`,
       images: [
         {

@@ -7,8 +7,8 @@ export function Modal(props: Dialog.DialogProps) {
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
-        <Dialog.Overlay className="overflow-y-auto fixed flex justify-center inset-0 bg-black/40 z-40 py-24">
-          <Dialog.Content className="relative overflow-hidden bg-primary z-50 max-w-5xl w-fit h-fit p-8 rounded-2xl border border-accent">
+        <Dialog.Overlay className="overflow-y-auto fixed flex justify-center inset-0 bg-black/40 z-50 py-12">
+          <Dialog.Content className="relative overflow-hidden bg-primary z-50 max-w-7xl w-fit h-fit p-8 rounded-2xl border border-accent">
             {props.children}
 
             <Dialog.Close
