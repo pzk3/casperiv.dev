@@ -43,6 +43,7 @@ export function LatestBlogPosts() {
             </Link>
 
             <Link
+              aria-label="View full blog post"
               size="square"
               className="group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
               intent="secondary"

@@ -95,10 +95,15 @@ export function ProjectsSection(props: ProjectsSectionProps) {
                   </Link>
 
                   <div className="flex gap-x-1">
-                    <Button onClick={prevSlide} intent="secondary" size="square">
+                    <Button
+                      aria-label="Previous Project"
+                      onClick={prevSlide}
+                      intent="secondary"
+                      size="square"
+                    >
                       <ArrowLeftShort width={25} height={25} />
                     </Button>
-                    <Button onClick={nextSlide} size="square">
+                    <Button aria-label="Next Project" onClick={nextSlide} size="square">
                       <ArrowRightShort width={25} height={25} />
                     </Button>
                   </div>
