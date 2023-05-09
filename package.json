@@ -11,9 +11,9 @@
     "start": "next start",
     "lint": "eslint ./src --ext .tsx,.ts,.jsx,.js",
     "lint:fix": "eslint ./src --fix --ext .tsx,.ts,.jsx,.js",
-    "prettier:check": "prettier --check \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
+    "prettier:check": "prettier --check \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .prettierignore",
     "format:quick": "pretty-quick --staged --pattern \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\"",
-    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .prettierignore",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install"
   },
