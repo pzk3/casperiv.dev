@@ -11,6 +11,12 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   poweredByHeader: false,
+  webpack(config) {
+    config.infrastructureLogging = {
+      level: "error",
+    };
+    return config;
+  },
   async redirects() {
     return [
       {
@@ -63,6 +69,10 @@ const ContentSecurityPolicy = `
 
 // https://github.com/leerob/leerob.io/blob/1356f8aa1adb083d5b192c6f53fa04946afefc00/next.config.js#LL48-L85
 const securityHeaders = [
+  {
+    key: "Access-Control-Allow-Origin",
+    value: "*",
+  },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
     key: "Referrer-Policy",
