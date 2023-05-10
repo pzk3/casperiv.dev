@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@heroicons/react':
-    specifier: ^2.0.17
-    version: 2.0.17(react@18.3.0-next-67a61d5bd-20230228)
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.3.0-next-67a61d5bd-20230228)
   '@hookform/resolvers':
     specifier: ^3.1.0
     version: 3.1.0(react-hook-form@7.43.9)
@@ -134,8 +134,8 @@ dependencies:
     specifier: ^3.0.1
     version: 3.0.1
   ronin:
-    specifier: ^1.0.27
-    version: 1.0.27
+    specifier: ^1.0.30
+    version: 1.0.30
   rss:
     specifier: ^1.2.2
     version: 1.2.2
@@ -169,8 +169,8 @@ devDependencies:
     specifier: ^4.17.7
     version: 4.17.7
   '@types/node':
-    specifier: ^20.1.1
-    version: 20.1.1
+    specifier: ^20.1.2
+    version: 20.1.2
   '@types/react':
     specifier: 18.2.6
     version: 18.2.6
@@ -784,7 +784,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.7
-      '@types/node': 20.1.1
+      '@types/node': 20.1.2
     dev: false
 
   /@grpc/proto-loader@0.6.13:
@@ -811,8 +811,8 @@ packages:
       yargs: 17.7.2
     dev: false
 
-  /@heroicons/react@2.0.17(react@18.3.0-next-67a61d5bd-20230228):
-    resolution: {integrity: sha512-90GMZktkA53YbNzHp6asVEDevUQCMtxWH+2UK2S8OpnLEu7qckTJPhNxNQG52xIR1WFTwFqtH6bt7a60ZNcLLA==}
+  /@heroicons/react@2.0.18(react@18.3.0-next-67a61d5bd-20230228):
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
     peerDependencies:
       react: '>= 16'
     dependencies:
@@ -2935,8 +2935,8 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
 
-  /@types/node@20.1.1:
-    resolution: {integrity: sha512-uKBEevTNb+l6/aCQaKVnUModfEMjAl98lw2Si9P5y4hLu9tm6AlX2ZIoXZX6Wh9lJueYPrGPKk5WMCNHg/u6/A==}
+  /@types/node@20.1.2:
+    resolution: {integrity: sha512-CTO/wa8x+rZU626cL2BlbCDzydgnFNgc19h4YvizpTO88MFQxab8wqisxaofQJ/9bLGugRdWIuX/TbIs6VVF6g==}
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -7008,7 +7008,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 20.1.1
+      '@types/node': 20.1.2
       long: 4.0.0
     dev: false
 
@@ -7027,7 +7027,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.1.1
+      '@types/node': 20.1.2
       long: 5.2.3
     dev: false
 
@@ -7512,8 +7512,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /ronin@1.0.27:
-    resolution: {integrity: sha512-yBlBzFB3J+Va2CPcHfa3l4BIcculf6BGiwKVcCvSrIWj3XbsMfFSzV/DY4uWvUSKLtNpvirR5D8gYATzGnSWDg==}
+  /ronin@1.0.30:
+    resolution: {integrity: sha512-PKnQtBQqKv2YAAMGEy4iNAr8KE6qzB/2wTMjKhGknKB+HSiBjRmTE3gXzwMt2n6dykjOpfWVkiG/6MwQ9t6Lkg==}
     dev: false
 
   /rss@1.2.2:

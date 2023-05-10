@@ -18,7 +18,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.17",
+    "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.1.0",
     "@radix-ui/react-dialog": "^1.0.3",
     "@radix-ui/react-hover-card": "^1.0.5",
@@ -62,7 +62,7 @@
     "rehype-pretty-code": "^0.9.5",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
-    "ronin": "^1.0.27",
+    "ronin": "^1.0.30",
     "rss": "^1.2.2",
     "server-only": "^0.0.1",
     "sharp": "^0.32.1",
@@ -75,7 +75,7 @@
     "@casper124578/eslint-config-next": "^6.0.0",
     "@casper124578/eslint-config-react": "^6.0.0",
     "@types/lodash-es": "^4.17.7",
-    "@types/node": "^20.1.1",
+    "@types/node": "^20.1.2",
     "@types/react": "18.2.6",
     "@types/rss": "^0.0.30",
     "autoprefixer": "^10.4.14",
