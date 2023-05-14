@@ -8,6 +8,8 @@ import { Markdown } from "~/components/blog/markdown/markdown";
 import { BlogFooter } from "~/components/blog/blog-footer";
 import ronin from "ronin";
 
+export const revalidate = 600; // 10 minutes
+
 interface ProjectSlugPageProps {
   params: { slug: string };
 }

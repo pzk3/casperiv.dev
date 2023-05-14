@@ -1,9 +1,11 @@
-import { SEO } from "~/seo-config";
+import { mergeSeo } from "~/lib/merge-seo";
 
-export const metadata = {
-  ...SEO,
-  title: "404 - Page not found",
-};
+export const metadata = mergeSeo({
+  title: "Page not found",
+  openGraph: {
+    title: "Page not found",
+  },
+});
 
 export default function NotFound() {
   return (

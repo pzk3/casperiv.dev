@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import "~/styles/globals.css";
 import { Fira_Code, Inter, Poppins } from "next/font/google";
-import { mergeSeo } from "~/utils/merge-seo";
+import { mergeSeo } from "~/lib/merge-seo";
 import { Providers } from "./providers";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";

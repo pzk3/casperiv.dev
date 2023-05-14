@@ -2,6 +2,8 @@ import { GalleryImage, GalleryImages } from "@ronin/casper";
 import ronin from "ronin";
 import { ImageModal } from "~/components/gallery/image-modal";
 
+export const revalidate = 600; // 10 minutes
+
 interface ImageModalPageProps {
   params: { id: `rec_${string}` };
 }

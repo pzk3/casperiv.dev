@@ -3,6 +3,8 @@ import ronin from "ronin";
 import { ImageComponent } from "./component";
 import { Metadata } from "next";
 
+export const revalidate = 600; // 10 minutes
+
 interface ImageModalPageProps {
   params: { id: `rec_${string}` };
 }
