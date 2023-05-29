@@ -38,9 +38,11 @@ export function StackSection(props: StackSectionProps) {
                 />
               </HoverCard.Trigger>
               <HoverCard.Content
+                sideOffset={0}
+                alignOffset={0}
                 asChild
                 align="start"
-                className="z-50 ml-3 border-2 border-secondary bg-primary shadow-md rounded-2xl font-normal p-4 px-3 text-base max-w-sm"
+                className="z-50 ml-3 border-2 border-secondary/20 bg-primary shadow-md rounded-2xl font-normal p-4 px-3 text-base max-w-sm"
               >
                 <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: -5 }}>
                   <h3 className="text-lg font-medium">{item.name}</h3>
