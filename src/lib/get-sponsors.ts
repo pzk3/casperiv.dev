@@ -26,6 +26,9 @@ const fetchSponsors = async () => {
     headers: {
       Authorization: `bearer ${PERSONAL_GITHUB_TOKEN}`,
     },
+    next: {
+      revalidate: 600, // 10 minutes
+    },
     method: "POST",
     body: JSON.stringify({
       query: `query {
