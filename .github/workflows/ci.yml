@@ -13,6 +13,7 @@ jobs:
       UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
       RONIN_TOKEN: ${{ secrets.RONIN_TOKEN }}
       CACHE_TOKEN: "caspertheghost.me_rate_limit_cache"
+      RESEND_API_TOKEN: ${{ secrets.RESEND_API_TOKEN }}
       PERSONAL_GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
     steps:
