@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    MAIL_API_KEY: z.string().min(1).startsWith("SG."),
+    RESEND_API_TOKEN: z.string().min(1).startsWith("re_"),
     MAIL_VERIFIED_SENDER: z.string().email(),
 
     UPSTASH_REDIS_REST_URL: z.string().url(),
@@ -17,7 +17,7 @@ export const env = createEnv({
   },
   client: {},
   runtimeEnv: {
-    MAIL_API_KEY: process.env.MAIL_API_KEY,
+    RESEND_API_TOKEN: process.env.RESEND_API_TOKEN,
     MAIL_VERIFIED_SENDER: process.env.MAIL_VERIFIED_SENDER,
 
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
