@@ -10,9 +10,11 @@ interface MyBackpackSectionProps {
 }
 
 export function MyBackpackSection(props: MyBackpackSectionProps) {
+  console.log(props);
+
   return (
     <section className="bg-secondary text-primary">
-      <div className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
+      <div className="mx-auto max-w-6xl w-full py-40 px-5 md:px-0">
         <h2 className="font-poppins font-medium text-3xl sm:text-4xl relative max-w-fit">
           My evolving skillset
           <HoverCard.Root closeDelay={100} openDelay={0}>
@@ -56,7 +58,7 @@ export function MyBackpackSection(props: MyBackpackSectionProps) {
               <React.Fragment key={item.header}>
                 <h3
                   key={item.header}
-                  className="font-poppins text-4xl sm:text-5xl md:text-6xl font-bold lowercase md:h-32"
+                  className="font-poppins text-4xl sm:text-5xl md:text-6xl font-bold lowercase md:h-40"
                 >
                   <span className="inline-block w-[50px] sm:w-[73px] text-start">0{++idx}</span> —{" "}
                   {item.header}
