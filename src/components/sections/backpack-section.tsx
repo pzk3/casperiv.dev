@@ -10,8 +10,6 @@ interface MyBackpackSectionProps {
 }
 
 export function MyBackpackSection(props: MyBackpackSectionProps) {
-  console.log(props);
-
   return (
     <section className="bg-secondary text-primary">
       <div className="mx-auto max-w-6xl w-full py-40 px-5 md:px-0">
