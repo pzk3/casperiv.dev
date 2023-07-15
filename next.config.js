@@ -11,28 +11,22 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   poweredByHeader: false,
-  webpack(config) {
-    config.infrastructureLogging = {
-      level: "error",
-    };
-    return config;
-  },
   async redirects() {
     return [
       {
         source: "/twitter",
         destination: "https://twitter.com/casper124578",
-        permanent: true,
+        permanent: false,
       },
       {
         source: "/github",
         destination: "https://github.com/dev-caspertheghost",
-        permanent: true,
+        permanent: false,
       },
       {
         source: "/linkedin",
         destination: "https://linkedin.com/in/casper-iversen",
-        permanent: true,
+        permanent: false,
       },
       {
         source: "/uses",
