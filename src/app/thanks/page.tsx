@@ -82,15 +82,26 @@ export default async function App() {
               const url = customization?.url || `https://github.com/${sponsor.login}`;
               const avatarUrl = customization?.avatar?.src || sponsor.avatarUrl;
               const placeholder = customization?.avatar?.placeholder?.base64 || undefined;
+
               const isNextActive = tier.sponsors[idx + 1]?.isActive;
+              const isPreviousActive = tier.sponsors[idx - 1]?.isActive;
               const isLast = idx === tier.sponsors.length - 1;
+
+              const isActiveAndNextActiveClassname = classNames(
+                sponsor.isActive && (isNextActive || isPreviousActive)
+                  ? ""
+                  : "first:rounded-t-md last:rounded-b-md",
+                sponsor.isActive && isNextActive ? "border-b-0" : "",
+              );
 
               return (
                 <li
                   className={classNames(
-                    isNextActive ? "border-none" : "last:border-b-none",
+                    "hover:bg-gray-100 transition-colors ease-in-out",
+                    isActiveAndNextActiveClassname,
+                    isNextActive && !sponsor.isActive ? "border-none" : "",
                     sponsor.isActive
-                      ? "border-accent border-2 rounded-md"
+                      ? "border-accent border-2"
                       : isLast
                       ? ""
                       : "border-b-2 border-gray-extralight",
