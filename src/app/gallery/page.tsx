@@ -7,18 +7,18 @@ export const revalidate = 600; // 10 minutes
 
 export async function generateMetadata() {
   return mergeSeo({
-    title: "Imagery",
-    description: "Imagery works taken in my free time",
+    title: "Gallery",
+    description: "Gallery works taken in my free time",
     alternates: {
-      canonical: "https://caspertheghost.me/gallery",
+      canonical: "https://casperiv.dev/gallery",
     },
     openGraph: {
-      title: "Imagery",
-      description: "Imagery works taken in my free time",
+      title: "Gallery",
+      description: "Gallery works taken in my free time",
     },
     twitter: {
-      title: "Imagery",
-      description: "Imagery works taken in my free time",
+      title: "Gallery",
+      description: "Gallery works taken in my free time",
     },
   });
 }
@@ -26,9 +26,6 @@ export async function generateMetadata() {
 export default async function SubGalleryPage() {
   const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
-      where: {
-        galleryType: { is: "imagery" },
-      },
       limitedTo: 1000,
       orderedBy: {
         descending: ["ronin.updatedAt"],
@@ -40,7 +37,7 @@ export default async function SubGalleryPage() {
 
   return (
     <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">
-      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Imagery</h1>
+      <h1 className="text-3xl font-bold capitalize md:text-4xl font-title">Gallery</h1>
 
       <Gallery columns={columns} />
     </main>

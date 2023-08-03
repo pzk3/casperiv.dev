@@ -2,7 +2,7 @@
 title: How to set up Vitest for Node.js testing
 description: Learn how to easily setup Vitest.
 createdAt: May 25, 2022
-updatedAt: April 22, 2023
+updatedAt: August 3, 2023
 keywords:
   - vitest
   - vite
@@ -16,7 +16,7 @@ readingTime: "4 min read"
 
 ## Requirements
 
-- Node.js installed with **version v14 or higher**
+- Node.js installed with **version v18 or higher**
 - Basic Node.js app
 
 ## Installation
@@ -35,7 +35,7 @@ pnpm add -D vitest
 
 We will now add a simple command to our `package.json`. This will allow us to run `npm run test` in the command line.
 
-```json
+```json {5}
 {
   "name": "my-nodejs-app",
   "version": "0.0.0",

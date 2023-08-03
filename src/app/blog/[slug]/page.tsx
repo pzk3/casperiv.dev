@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): P
     title: item.title,
     description: item.description,
     alternates: {
-      canonical: `https://caspertheghost.me/blog/${getArticleSlug(item)}`,
+      canonical: `https://casperiv.dev/blog/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): P
       title: item.title,
       description: item.description,
     },
-    keywords: ["blog casper iversen", "caspertheghost blog", ...(item.keywords ?? [])],
+    keywords: ["blog casper iversen", "blog", ...(item.keywords ?? [])],
   });
 }
 

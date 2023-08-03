@@ -50,7 +50,7 @@ export const metadata = mergeSeo({
     description: "Get to know more about me and some of my accomplishments.",
   },
   alternates: {
-    canonical: "https://caspertheghost.me/about",
+    canonical: "https://casperiv.dev/about",
   },
 });
 

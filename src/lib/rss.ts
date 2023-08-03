@@ -8,7 +8,7 @@ import { formatArticleSlugPath } from "./mdx/get-article-slug";
 import { env } from "~/env.mjs";
 
 const OUT_FILE_PATH = "./public/rss.xml";
-const SITE_URL = "https://caspertheghost.me";
+const SITE_URL = "https://casperiv.dev";
 
 export async function generateRSSFeed() {
   try {

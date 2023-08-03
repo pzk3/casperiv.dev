@@ -13,7 +13,7 @@ export const metadata = mergeSeo({
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "https://caspertheghost.me/thanks",
+    canonical: "https://casperiv.dev/thanks",
   },
   openGraph: {
     title: pageTitle,

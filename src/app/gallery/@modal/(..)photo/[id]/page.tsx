@@ -11,7 +11,7 @@ interface ImageModalPageProps {
 export default async function ImageModalPage({ params }: ImageModalPageProps) {
   const [image] = await ronin<GalleryImage | null>(({ get }) => {
     get.galleryImage = {
-      where: { galleryType: { is: "imagery" }, id: { is: params.id } },
+      where: { id: { is: params.id } },
       limitedTo: 1000,
     };
   });
@@ -36,7 +36,6 @@ export default async function ImageModalPage({ params }: ImageModalPageProps) {
 export async function generateStaticParams() {
   const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
-      where: { galleryType: { is: "imagery" } },
       limitedTo: 1000,
     };
   });

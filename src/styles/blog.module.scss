@@ -1,6 +1,11 @@
 .reactMarkdown {
   margin-top: 1rem;
 
+  [data-info-single-line] p {
+    margin-top: 0.65em;
+    margin-bottom: 0.65em;
+  }
+
   [data-info] pre {
     background-color: theme("colors.gray.dark");
     color: theme("colors.secondary");

@@ -9,6 +9,6 @@ export function mergeSeo<T extends Omit<Metadata, "metadataBase">>(metadata: T):
 
   return {
     ...seoBase,
-    metadataBase: new URL("https://caspertheghost.me"),
+    metadataBase: new URL("https://casperiv.dev"),
   };
 }

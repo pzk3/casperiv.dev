@@ -8,6 +8,7 @@ import { getArticleSlug } from "~/lib/mdx/get-article-slug";
 import { ArrowUpRight, Clock, Eye } from "react-bootstrap-icons";
 import type { Project as RONINProject } from "@ronin/casper";
 import { Link } from "../link";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 interface Props extends Partial<RONINProject> {
   post: BlogPost | CodeSnippet | Project;
@@ -18,6 +19,11 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
   const publishDateFull = format(new Date(post.createdAt), "LLLL dd, yyyy");
   const viewsText = views === 1 ? "view" : "views";
   const readingTime = post.readingTime || (post as any).computedReadingTime;
+  const updatedAtFormatted = post.updatedAt
+    ? formatDistanceToNow(new Date(post.updatedAt), { addSuffix: true })
+    : null;
+
+  console.log(updatedAtFormatted);
 
   const viewsId = React.useId();
   const readTimeId = React.useId();
@@ -56,6 +62,14 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
         <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
           <p className="font-medium min-w-fit font-poppins">
             <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
+            {post.updatedAt ? (
+              <time
+                className="text-sm font-normal ml-2"
+                dateTime={new Date(post.updatedAt).toISOString()}
+              >
+                (Updated {updatedAtFormatted})
+              </time>
+            ) : null}
           </p>
           {readingTime ? (
             <p className="flex items-center gap-2 min-w-fit">

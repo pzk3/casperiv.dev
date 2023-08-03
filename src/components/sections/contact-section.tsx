@@ -9,9 +9,9 @@ import { Button } from "../button";
 import { useMutation } from "@tanstack/react-query";
 
 export const socialLinks = [
-  { icon: Github, name: "GitHub", url: "https://caspertheghost.me/github" },
-  { icon: Twitter, name: "Twitter", url: "https://caspertheghost.me/twitter" },
-  { icon: Linkedin, name: "LinkedIn", url: "https://caspertheghost.me/linkedin" },
+  { icon: Github, name: "GitHub", url: "https://casperiv.dev/github" },
+  { icon: Twitter, name: "Twitter", url: "https://casperiv.dev/twitter" },
+  { icon: Linkedin, name: "LinkedIn", url: "https://casperiv.dev/linkedin" },
 ];
 
 const initialValues = {
@@ -110,8 +110,8 @@ export function ContactSection() {
                 <p className="uppercase text-sm font-semibold mb-1 text-gray-extralight font-poppins">
                   email me directly
                 </p>
-                <a href="mailto:hello@caspertheghost.me" className="text-primary">
-                  hello@caspertheghost.me
+                <a href="mailto:hi@casperiv.dev" className="text-primary">
+                  hi@casperiv.dev
                 </a>
               </div>
             </div>

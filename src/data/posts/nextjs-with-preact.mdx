@@ -1,6 +1,7 @@
 ---
 title: Using Preact with Next.js
 createdAt: March 21, 2022
+updatedAt: August 3, 2023
 description: How are you able to use Preact with Next.js to reduce bundle size.
 keywords:
   - next.js
@@ -15,10 +16,9 @@ import WithoutPreact from "public/blog/nextjs-with-preact/without-preact.png";
 
 This blog post will explain how you can easily add [Preact](https://preactjs.com/) to your Next.js application to reduce Next.js' bundle size.
 
-<Info style={{ margin: "1rem 0" }}>
-  **Note:** Some features in React.js that are not yet supported in Preact, This [may break some
-  parts in your Next.js
-  application](https://github.com/radix-ui/primitives/issues/863#issuecomment-963031570).
+<Info singleLine style={{ margin: "1rem 0" }}>
+  **Note:** Preact isn't compatible with Next.js App Directory. Next.js App Directory serves less
+  client-side JavaScript by default.
 </Info>
 
 ### Preact installation

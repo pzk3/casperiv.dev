@@ -17,8 +17,7 @@ export function BlogFooter({ post }: Props) {
   const pathname = usePathname();
   const type = findTypeByPathname(pathname);
 
-  const GITHUB_REPO_LINK =
-    "https://github.com/Dev-CasperTheGhost/caspertheghost.me/edit/main/src/data";
+  const GITHUB_REPO_LINK = "https://github.com/Dev-CasperTheGhost/casperiv.dev/edit/main/src/data";
   const link = `${GITHUB_REPO_LINK}/${post._raw.flattenedPath}.mdx`;
 
   return type ? (

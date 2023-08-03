@@ -2,7 +2,7 @@
 title: How to create an npm package with tsup
 description: Learn how to create an npm package with tsup for Node.js with ESM, CJS and, types support.
 createdAt: March 11, 2023
-updatedAt: April 21, 2023
+updatedAt: August 3, 2023
 keywords:
   - ESM
   - CJS
@@ -14,7 +14,7 @@ In this article, you will learn how to create an npm package. We will use [tsup]
 
 ## Project Setup
 
-Firstly, we must initialize our project with `npm`.
+Firstly, we will create a folder for our project and initialize the project with `npm`.
 
 ```bash
 mkdir my-project && cd my-project && npm init -y
@@ -88,7 +88,7 @@ Now that we have our project setup, we can add the following scripts to our `pac
 
 ### npm config
 
-Now that we have our project setup, we can add the following `exports` and `type` to our `package.json` file.
+Now that we have our project setup, we can add the following `exports` and `type` to our `package.json` file. This will allow users to use both ESM and CJS versions of our package.
 
 ```json title="package.json" {7-15}
 {
@@ -100,9 +100,9 @@ Now that we have our project setup, we can add the following `exports` and `type
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   }
@@ -119,18 +119,27 @@ Now that we have our project setup, we can add the following `exports` and `type
 
 Once the scripts have been added, we have to add the following `tsup` configuration to our `package.json` file:
 
-```json title="package.json" {7-14}
+```json title="package.json" {16-23}
 {
   "name": "my-package",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
   },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
   "tsup": {
     "dts": true,
     "bundle": false,
     "treeshake": true,
-    "target": "node16",
+    "target": "node18",
     "format": ["esm", "cjs"],
     "entry": ["src/**/*.ts"]
   }
@@ -138,10 +147,10 @@ Once the scripts have been added, we have to add the following `tsup` configurat
 ```
 
 - **dts**: This will generate `*.d.ts` files for our package. These will be used to provide type support for our package.
-- **bundle**: Setting this to `false` will prevent `tsup` from bundling our package.
-- **target**: Our package support only for Node.js 16 or higher.
+- **bundle**: Setting this to `false` will prevent `tsup` from bundling our package into a single file.
+- **target**: Make sure the output code is compatible with Node.js v18 or higher.
 - **format**: This will generate both ESM and CJS versions of our package.
-- **entry**: This will set the entry points for our package.
+- **entry**: The entry files to our package.
 
 ## Publishing
 

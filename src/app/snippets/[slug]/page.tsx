@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
     title: item.title,
     description: item.description,
     alternates: {
-      canonical: `https://caspertheghost.me/snippets/${getArticleSlug(item)}`,
+      canonical: `https://casperiv.dev/snippets/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,

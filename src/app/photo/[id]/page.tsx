@@ -12,7 +12,7 @@ interface ImageModalPageProps {
 export async function generateMetadata(props: ImageModalPageProps): Promise<Metadata> {
   const [image] = await ronin<GalleryImage | null>(({ get }) => {
     get.galleryImage = {
-      where: { galleryType: { is: "imagery" }, id: { is: props.params.id } },
+      where: { id: { is: props.params.id } },
       limitedTo: 1000,
     };
   });
@@ -45,7 +45,7 @@ export async function generateMetadata(props: ImageModalPageProps): Promise<Meta
       ],
     },
     alternates: {
-      canonical: `https://caspertheghost.me/gallery/${image.id}`,
+      canonical: `https://casperiv.dev/gallery/${image.id}`,
     },
   };
 }
@@ -53,7 +53,7 @@ export async function generateMetadata(props: ImageModalPageProps): Promise<Meta
 export default async function ImageModalPage(props: ImageModalPageProps) {
   const [image] = await ronin<GalleryImage | null>(({ get }) => {
     get.galleryImage = {
-      where: { galleryType: { is: "imagery" }, id: { is: props.params.id } },
+      where: { id: { is: props.params.id } },
       limitedTo: 1000,
     };
   });
@@ -80,7 +80,6 @@ export default async function ImageModalPage(props: ImageModalPageProps) {
 export async function generateStaticParams() {
   const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
-      where: { galleryType: { is: "imagery" } },
       limitedTo: 1000,
     };
   });

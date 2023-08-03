@@ -9,7 +9,7 @@ export const metadata = mergeSeo({
   title: "Blog",
   description: "A list of my blog posts with how-to's and more!",
   alternates: {
-    canonical: "https://caspertheghost.me/blog",
+    canonical: "https://casperiv.dev/blog",
   },
   openGraph: {
     title: "Blog",
@@ -19,7 +19,7 @@ export const metadata = mergeSeo({
     title: "Blog",
     description: "A list of my blog posts with how-to's and more!",
   },
-  keywords: ["blog casper iversen", "caspertheghost blog", "react hooks"],
+  keywords: ["blog casper iversen", "react hooks"],
 });
 
 export default async function CodeSnippetsSlugPage() {

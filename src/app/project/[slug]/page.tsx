@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: ProjectSlugPageProps) {
     title: item.title,
     description: item.description,
     alternates: {
-      canonical: `https://caspertheghost.me/project/${getArticleSlug(item)}`,
+      canonical: `https://casperiv.dev/project/${getArticleSlug(item)}`,
     },
     openGraph: {
       title: item.title,

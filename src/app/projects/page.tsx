@@ -27,7 +27,7 @@ export const metadata = mergeSeo({
   title: "Projects",
   description: pageDescription,
   alternates: {
-    canonical: "https://caspertheghost.me/projects",
+    canonical: "https://casperiv.dev/projects",
   },
   openGraph: {
     title: "Projects",
@@ -37,7 +37,7 @@ export const metadata = mergeSeo({
     title: "Projects",
     description: pageDescription,
   },
-  keywords: ["projects casper iversen", "caspertheghost projects", "react hooks"],
+  keywords: ["projects casper iversen", "projects", "react hooks"],
 });
 
 export default async function ProjectsPage() {
