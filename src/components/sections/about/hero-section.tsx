@@ -1,4 +1,9 @@
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+
 export function AboutHeroSection() {
+  const startDate = new Date("2019-08-08");
+  const formattedStartDate = formatDistanceToNow(startDate);
+
   return (
     <section className="mx-auto max-w-6xl w-full pb-32 px-5 md:px-0 flex items-end justify-between">
       <div className="max-w-xl">
@@ -8,18 +13,17 @@ export function AboutHeroSection() {
 
         <div className="max-w-xl font-medium">
           <p className="mt-10">
-            Hey there! {"Let's"} get straight to it! {"I'm"} Casper, a motivated frontend developer
-            and student based in Belgium. I started back when I was a{" "}
-            <br className="sm:inline hidden" /> 14-year-old kid that had an extreme passion for
-            creating stuff, building simple static web pages and expanding my CSS knowledge by
-            recreating awesome designs. {"I've"} continued to grow and evolve as a developer, taking
-            on new challenges and learning the latest technologies along the way.
+            Hey there! {"Let's"} get straight to it! {"I'm"} Casper, a motivated web developer and
+            student based in Belgium. I am an 18-year-old developer building cutting-edge web
+            applications using the latest technologies such as React.js, Next.js, TypeScript, and
+            much more for {formattedStartDate} now.
           </p>
 
           <p className="mt-4">
-            Now, at the age of 18, four years after starting my web development journey, {"I'm"}{" "}
-            building cutting-edge web applications using the latest technologies such as React.js,
-            Next.js, TypeScript, and much more.
+            I started back when I was a 14-year-old kid that had an extreme passion for creating
+            stuff, building simple static web pages and expanding my CSS knowledge by recreating
+            awesome designs. {"I've"} continued to grow and evolve as a developer, taking on new
+            challenges and learning the latest technologies along the way.
           </p>
 
           <p className="mt-4">

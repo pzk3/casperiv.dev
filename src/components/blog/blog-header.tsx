@@ -23,8 +23,6 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
     ? formatDistanceToNow(new Date(post.updatedAt), { addSuffix: true })
     : null;
 
-  console.log(updatedAtFormatted);
-
   const viewsId = React.useId();
   const readTimeId = React.useId();
 
