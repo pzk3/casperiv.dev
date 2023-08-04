@@ -38,10 +38,19 @@ export function ArticleListItem({ isFeatured, article, type }: Props) {
       ) : null}
 
       <NextLink href={`/${type}/${getArticleSlug(article)}`} {...extraAProps}>
-        <h2 style={{ fontSize: "1.25rem" }} className="font-semibold">
+        <h2
+          className={classNames(
+            "font-semibold font-poppins text-[1.25rem] transition-colors max-w-fit",
+            { "border-accent/10 group-hover:border-b-accent border-b-2": !isFeatured },
+          )}
+        >
           {article.title}
         </h2>
-        <p className="mt-1 text-secondary">{article.description}</p>
+
+        <p className="mt-1 md:mt-2 text-base md:text-lg text-gray-dark max-w-xl font-inter">
+          {article.description}
+        </p>
+
         {isFeatured ? null : (
           <span className="block mt-1.5 font-normal text-gray-light">{publishedAt}</span>
         )}
