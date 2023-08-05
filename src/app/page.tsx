@@ -4,7 +4,7 @@ import ronin from "ronin";
 import { MySkills, Projects } from "@ronin/casper";
 import { ProjectsSection } from "~/components/sections/projects-section";
 import { LatestBlogPosts } from "~/components/sections/latest-blog-posts";
-import { ContactSection } from "~/components/sections/contact-section";
+import { ContactSection } from "~/components/sections/contact/contact-section";
 
 async function fetchHomePageData() {
   const [backpack, featuredProjects] = await ronin<[MySkills, Projects]>(({ get }) => {

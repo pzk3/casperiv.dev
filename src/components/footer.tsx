@@ -28,7 +28,7 @@ interface FooterLinkProps {
 
 function FooterLink({ children, href }: FooterLinkProps) {
   return (
-    <a className="underline" target="_blank" rel="noreferrer noopener" href={href}>
+    <a className="underline" target="_blank" href={href} rel="noreferrer">
       {children}
     </a>
   );
