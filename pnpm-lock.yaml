@@ -122,9 +122,6 @@ dependencies:
   react-hook-form:
     specifier: ^7.45.4
     version: 7.45.4(react@18.3.0-next-67a61d5bd-20230228)
-  react-intersection-observer:
-    specifier: ^9.5.2
-    version: 9.5.2(react@18.3.0-next-67a61d5bd-20230228)
   react-responsive-carousel:
     specifier: ^3.2.23
     version: 3.2.23
@@ -7914,14 +7911,6 @@ packages:
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
-    dependencies:
-      react: 18.3.0-next-67a61d5bd-20230228
-    dev: false
-
-  /react-intersection-observer@9.5.2(react@18.3.0-next-67a61d5bd-20230228):
-    resolution: {integrity: sha512-EmoV66/yvksJcGa1rdW0nDNc4I1RifDWkT50gXSFnPLYQ4xUptuDD4V7k+Rj1OgVAlww628KLGcxPXFlOkkU/Q==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.3.0-next-67a61d5bd-20230228
     dev: false

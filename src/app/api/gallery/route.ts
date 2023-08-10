@@ -18,12 +18,10 @@ export async function GET(request: Request) {
       limitedTo: 20,
       after,
       orderedBy: {
-        descending: ["ronin.updatedAt"],
+        descending: ["ronin.createdAt"],
       },
     };
   });
-
-  console.log({ data, moreAfter: data.moreAfter });
 
   return NextResponse.json<GetGalleryImagesQuery>({ data, moreAfter: data.moreAfter });
 }
