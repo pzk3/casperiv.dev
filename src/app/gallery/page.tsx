@@ -1,6 +1,6 @@
-import { GalleryImages } from "@ronin/casper";
 import { Gallery } from "~/components/gallery/columns";
 import { mergeSeo } from "~/lib/merge-seo";
+import { getGalleryImagesServer } from "../api/gallery/utils";
 
 export const revalidate = 600; // 10 minutes
 
@@ -23,11 +23,7 @@ export async function generateMetadata() {
 }
 
 export default async function SubGalleryPage() {
-  const url = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-  const res = await fetch(`${url}/api/gallery`);
-  const data = (await res.json()) as GalleryImages;
+  const data = await getGalleryImagesServer();
 
   return (
     <main className="mt-16 mx-auto max-w-6xl pb-6 px-5 md:px-0">

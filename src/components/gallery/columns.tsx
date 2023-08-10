@@ -6,7 +6,7 @@ import { GalleryImages } from "@ronin/casper";
 import Link from "next/link";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { m, useInView } from "framer-motion";
-import { GetGalleryImagesQuery } from "~/app/api/gallery/route";
+import { GetGalleryImagesQuery } from "~/app/api/gallery/utils";
 
 function makeColumns(images: GalleryImages) {
   const COLUMN_COUNT = 3;
@@ -24,12 +24,12 @@ function makeColumns(images: GalleryImages) {
   return columns;
 }
 
-export function Gallery({ initialData }: { initialData: GalleryImages }) {
+export function Gallery({ initialData }: { initialData: GetGalleryImagesQuery }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
 
   const { fetchNextPage, data, isFetchingNextPage, hasNextPage } = useInfiniteQuery<
-    GalleryImages,
+    GetGalleryImagesQuery,
     unknown,
     GetGalleryImagesQuery
   >({
@@ -38,7 +38,7 @@ export function Gallery({ initialData }: { initialData: GalleryImages }) {
     queryKey: ["gallery"],
     queryFn: async ({ pageParam }) => {
       const res = await fetch(`/api/gallery?after=${pageParam}`);
-      const data = (await res.json()) as GalleryImages;
+      const data = (await res.json()) as GetGalleryImagesQuery;
       return data;
     },
     getNextPageParam: (lastPage) => lastPage.moreAfter,
@@ -82,7 +82,7 @@ export function Gallery({ initialData }: { initialData: GalleryImages }) {
 
       {isFetchingNextPage ? (
         <div className="w-full flex items-center justify-center mt-5">
-          <div className="relative h-3 w-full max-w-xs overflow-hidden rounded-md bg-accent/50">
+          <div className="relative h-2 w-full max-w-xs overflow-hidden rounded-md bg-accent/50">
             <m.div
               initial={{ left: "-100%" }}
               animate={{ left: ["-100%", "100%"] }}

@@ -1,11 +1,5 @@
-import { GalleryImages } from "@ronin/casper";
 import { NextResponse } from "next/server";
-import ronin from "ronin";
-
-export interface GetGalleryImagesQuery {
-  moreAfter?: string;
-  data: GalleryImages;
-}
+import { GetGalleryImagesQuery, getGalleryImagesServer } from "./utils";
 
 export async function GET(request: Request) {
   const searchParams = new URL(request.url).searchParams;
@@ -13,15 +7,6 @@ export async function GET(request: Request) {
   const rawAfter = searchParams.get("after");
   const after = rawAfter !== null ? parseInt(rawAfter, 10) : undefined;
 
-  const [data] = await ronin<GalleryImages>(({ get }) => {
-    get.galleryImages = {
-      limitedTo: 9,
-      after,
-      orderedBy: {
-        descending: ["ronin.createdAt"],
-      },
-    };
-  });
-
-  return NextResponse.json<GetGalleryImagesQuery>({ data, moreAfter: data.moreAfter });
+  const data = await getGalleryImagesServer(after || 0);
+  return NextResponse.json<GetGalleryImagesQuery>(data);
 }
