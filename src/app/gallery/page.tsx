@@ -23,7 +23,9 @@ export async function generateMetadata() {
 }
 
 export default async function SubGalleryPage() {
-  const url = process.env.VERCEL_URL || "http://localhost:3000";
+  const url = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
   const res = await fetch(`${url}/api/gallery`);
   const data = (await res.json()) as GalleryImages;
 

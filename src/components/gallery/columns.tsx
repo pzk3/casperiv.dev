@@ -37,8 +37,7 @@ export function Gallery({ initialData }: { initialData: GalleryImages }) {
     initialData: { pages: [initialData], pageParams: [undefined, initialData.moreAfter] },
     queryKey: ["gallery"],
     queryFn: async ({ pageParam }) => {
-      const url = process.env.VERCEL_URL || "http://localhost:3000";
-      const res = await fetch(`${url}/api/gallery?after=${pageParam}`);
+      const res = await fetch(`/api/gallery?after=${pageParam}`);
       const data = (await res.json()) as GalleryImages;
       return data;
     },
