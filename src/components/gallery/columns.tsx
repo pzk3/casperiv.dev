@@ -5,7 +5,7 @@ import Image, { ImageProps } from "next/image";
 import { GalleryImages } from "@ronin/casper";
 import Link from "next/link";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { GetGalleryImagesQuery } from "~/app/api/gallery/route";
 
 function makeColumns(images: GalleryImages) {
@@ -28,7 +28,12 @@ export function Gallery({ initialData }: { initialData: GalleryImages }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
 
-  const { fetchNextPage, data } = useInfiniteQuery<GalleryImages, unknown, GetGalleryImagesQuery>({
+  const { fetchNextPage, data, isFetchingNextPage, hasNextPage } = useInfiniteQuery<
+    GalleryImages,
+    unknown,
+    GetGalleryImagesQuery
+  >({
+    refetchOnWindowFocus: false,
     initialData: { pages: [initialData], pageParams: [undefined, initialData.moreAfter] },
     queryKey: ["gallery"],
     queryFn: async ({ pageParam }) => {
@@ -53,27 +58,42 @@ export function Gallery({ initialData }: { initialData: GalleryImages }) {
   }, [data]);
 
   return (
-    <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
-      {columns.map((column, i) => (
-        <Column key={`column-${i}`}>
-          {column.map((image) => {
-            return (
-              <ImageItem
-                key={image.media.key}
-                src={image.media.src}
-                width={image.media.meta.width / 4}
-                height={image.media.meta.height / 4}
-                alt={image.title}
-                blurDataURL={image.media.placeholder.base64 || undefined}
-                id={image.id}
-              />
-            );
-          })}
-        </Column>
-      ))}
+    <>
+      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
+        {columns.map((column, i) => (
+          <Column key={`column-${i}`}>
+            {column.map((image) => {
+              return (
+                <ImageItem
+                  key={image.media.key}
+                  src={image.media.src}
+                  width={image.media.meta.width / 4}
+                  height={image.media.meta.height / 4}
+                  alt={image.title}
+                  blurDataURL={image.media.placeholder.base64 || undefined}
+                  id={image.id}
+                />
+              );
+            })}
+          </Column>
+        ))}
 
-      <div ref={ref} />
-    </div>
+        {hasNextPage ? <div ref={ref} /> : null}
+      </div>
+
+      {isFetchingNextPage ? (
+        <div className="w-full flex items-center justify-center mt-5">
+          <div className="relative h-3 w-full max-w-xs overflow-hidden rounded-md bg-accent/50">
+            <m.div
+              initial={{ left: "-100%" }}
+              animate={{ left: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, repeatType: "mirror", duration: 1, type: "tween" }}
+              className="absolute w-4/5 h-full rounded-md bg-accent"
+            />
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
 

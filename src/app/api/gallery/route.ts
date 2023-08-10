@@ -15,7 +15,7 @@ export async function GET(request: Request) {
 
   const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
-      limitedTo: 20,
+      limitedTo: 9,
       after,
       orderedBy: {
         descending: ["ronin.createdAt"],
