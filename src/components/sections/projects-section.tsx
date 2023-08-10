@@ -79,7 +79,7 @@ export function ProjectsSection(props: ProjectsSectionProps) {
                   <h4 className="font-semibold text-2xl">0{++idx} —</h4>
                 </header>
 
-                <p className="mt-5 text-lg text-gray-light">{project.description}</p>
+                <p className="mt-5 text-lg text-gray-light h-[150px]">{project.description}</p>
 
                 <hr className="border-gray-light border w-full my-10" />
 
