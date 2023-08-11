@@ -1,8 +1,42 @@
+"use client";
+
+import * as React from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { Variants, m } from "framer-motion";
+import classNames from "classnames";
+
+const wheelVariants = {
+  idle: { rotate: 0 },
+  active: {
+    rotate: 360,
+    transition: {
+      duration: 2,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "loop",
+      damping: 10,
+      mass: 0.27,
+      stiffness: 100,
+    },
+  },
+} satisfies Variants;
+
+const bikeVariants = {
+  idle: { scale: 1 },
+  active: {
+    scale: [1, 1.03, 1],
+    transition: {
+      duration: 1.25,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+} satisfies Variants;
 
 export function AboutHeroSection() {
   const startDate = new Date("2019-08-08");
   const formattedStartDate = formatDistanceToNow(startDate);
+  const [bikeState, setBikeState] = React.useState<keyof typeof wheelVariants>("idle");
 
   return (
     <section className="mx-auto max-w-6xl w-full pb-32 px-5 md:px-0 flex items-end justify-between">
@@ -36,16 +70,21 @@ export function AboutHeroSection() {
         </div>
       </div>
 
-      <svg
-        className="hidden md:block opacity-50"
+      <m.svg
+        animate={bikeState}
+        variants={bikeVariants}
+        className={classNames("hidden md:block cursor-pointer drop-shadow-xl", {
+          "opacity-50": bikeState === "idle",
+        })}
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 400 210"
         width="450"
         height="210"
         xmlSpace="preserve"
+        onClick={() => setBikeState(bikeState === "idle" ? "active" : "idle")}
       >
-        <g>
+        <m.g variants={wheelVariants}>
           <ellipse fill="#353030" cx="57.31" cy="138.91" rx="57.31" ry="57.09" />
           <line
             opacity="0.51"
@@ -57,8 +96,8 @@ export function AboutHeroSection() {
             x2="69.22"
             y2="160.74"
           />
-        </g>
-        <g>
+        </m.g>
+        <m.g variants={wheelVariants}>
           <ellipse fill="#353030" cx="342.69" cy="138.91" rx="57.31" ry="57.09" />
           <line
             opacity="0.51"
@@ -70,7 +109,7 @@ export function AboutHeroSection() {
             x2="354.6"
             y2="160.74"
           />
-        </g>
+        </m.g>
         <polygon
           fill="#101010"
           points="150.47,24.98 184.85,84.3 219.24,143.63 150.47,143.63 81.69,143.63 116.08,84.3 	"
@@ -91,7 +130,7 @@ export function AboutHeroSection() {
           y2="7.04"
         />
         <ellipse fill="#353030" cx="345.63" cy="7.04" rx="7.07" ry="7.04" />
-      </svg>
+      </m.svg>
     </section>
   );
 }
