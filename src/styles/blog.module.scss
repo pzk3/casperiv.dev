@@ -7,15 +7,16 @@
   }
 
   [data-info] pre {
-    background-color: theme("colors.gray.dark");
+    background-color: theme("colors.secondary");
     color: theme("colors.secondary");
   }
 
   pre {
     border: none;
     font-family: theme("fontFamily.fira-code");
-    background-color: theme("colors.gray.dark");
-    padding: 0.4em 0.5em;
+    background-color: theme("colors.secondary") !important;
+    padding: 0.8em 0.6em;
+    box-shadow: theme("dropShadow.sm");
 
     code {
       padding: 0;
@@ -25,10 +26,10 @@
   code {
     font-family: theme("fontFamily.fira-code");
     font-size: 16px;
-    border-radius: theme("borderRadius.md");
+    border-radius: theme("borderRadius.md") !important;
     padding: theme("padding.1") theme("padding[1.5]");
     font-weight: theme("fontWeight.medium");
-    background-color: theme("colors.gray.dark");
+    background-color: theme("colors.secondary");
     color: theme("colors.accent");
 
     &::before,
@@ -42,14 +43,9 @@
     flex-direction: column;
 
     [data-code-pre] {
-      border: theme("borderWidth.2") solid theme("colors.gray.light");
-      border-radius: theme("borderRadius.md");
-      box-shadow: theme("dropShadow.sm");
-
       > pre {
         margin-top: 0px !important;
         margin-bottom: 0px !important;
-        border-radius: theme("borderRadius.none") !important;
       }
 
       code {
@@ -61,21 +57,21 @@
     [data-rehype-pretty-code-title] {
       font-family: theme("fontFamily.fira-code");
       font-weight: theme("fontWeight.medium");
-      padding: 0.2em 0.7em;
+      padding: 0.3em 0.7em;
       color: theme("colors.primary");
       box-shadow: theme("dropShadow.sm");
-      border: theme("borderWidth.2") solid theme("colors.gray.light");
-      margin-bottom: -1.5px;
+      margin-bottom: -1px;
       border-radius: theme("borderRadius.md") theme("borderRadius.md") 0 0;
-      background-color: theme("colors.gray.dark");
+      background-color: theme("colors.secondary/90");
+      border-bottom: 2.5px solid theme("colors.accent");
 
-      + [data-code-pre] {
+      + [data-code-pre] pre {
         border-radius: 0 0 theme("borderRadius.md") theme("borderRadius.md");
       }
     }
 
     [data-language-tag] {
-      border: theme("borderWidth.2") solid theme("colors.gray.light");
+      border: theme("borderWidth.2") solid theme("colors.secondary");
     }
 
     [data-line="true"] {
@@ -130,12 +126,6 @@
 
   summary {
     cursor: pointer;
-    margin-bottom: 0.5em;
-  }
-
-  details[open] {
-    summary {
-      margin-bottom: 1.5em;
-    }
+    margin-bottom: 0.75em;
   }
 }

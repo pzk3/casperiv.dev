@@ -9,6 +9,8 @@ import { ArrowUpRight, Clock, Eye } from "react-bootstrap-icons";
 import type { Project as RONINProject } from "@ronin/casper";
 import { Link } from "../link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import * as HoverCard from "@radix-ui/react-hover-card";
+import { m } from "framer-motion";
 
 interface Props extends Partial<RONINProject> {
   post: BlogPost | CodeSnippet | Project;
@@ -31,7 +33,7 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
       <div className="max-w-6xl mx-auto px-5 md:px-0">
         <div className="border-b-2 border-accent/70 mb-5 pb-5 flex flex-col md:flex-row md:justify-between">
           <div>
-            <h1 className="mb-3 text-3xl font-bold md:text-4xl font-title">{post.title}</h1>
+            <h1 className="mb-4 text-2xl font-bold md:text-3xl font-title">{post.title}</h1>
             <p className="text-gray-extralight">{post.description}</p>
           </div>
 
@@ -58,17 +60,31 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
         </div>
 
         <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
-          <p className="font-medium min-w-fit font-poppins">
-            <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
-            {post.updatedAt ? (
-              <time
-                className="text-sm font-normal ml-2"
-                dateTime={new Date(post.updatedAt).toISOString()}
-              >
-                (Updated {updatedAtFormatted})
-              </time>
-            ) : null}
-          </p>
+          <HoverCard.Root closeDelay={100} openDelay={0}>
+            <HoverCard.Trigger asChild>
+              <p className="cursor-default">
+                <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
+              </p>
+            </HoverCard.Trigger>
+            <HoverCard.Content
+              asChild
+              sideOffset={5}
+              align="center"
+              className="border-2 border-gray-light bg-gray-dark shadow-md rounded-2xl font-normal p-2 px-3 text-base max-w-sm"
+            >
+              <m.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: -5 }}>
+                {post.updatedAt ? (
+                  <time
+                    className="text-sm font-normal ml-2 select-none cursor-default"
+                    dateTime={new Date(post.updatedAt).toISOString()}
+                  >
+                    Updated {updatedAtFormatted}
+                  </time>
+                ) : null}
+              </m.div>
+            </HoverCard.Content>
+          </HoverCard.Root>
+
           {readingTime ? (
             <p className="flex items-center gap-2 min-w-fit">
               <Clock aria-labelledby={readTimeId} className="fill-gray-extralight" />{" "}

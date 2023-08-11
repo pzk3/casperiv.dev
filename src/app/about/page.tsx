@@ -58,7 +58,7 @@ export default async function AboutPage() {
   const { timelineData, stackItems, experienceItems } = await getAboutPageData();
 
   return (
-    <main className="mt-[clamp(64px,10%,192px)] ">
+    <main className="mt-[clamp(64px,10%,192px)]">
       <AboutHeroSection />
       <ExperienceSection experienceItems={experienceItems} />
       <StackSection stackItems={stackItems} />
