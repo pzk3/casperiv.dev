@@ -29,7 +29,9 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          npm config set //ronin.supply/:_authToken=${NODE_AUTH_TOKEN}
+          pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
