@@ -1,7 +1,7 @@
 import ronin from "ronin";
 import NextLink from "next/link";
 import { mergeSeo } from "~/lib/merge-seo";
-import { Link } from "~/components/link";
+import { Link, link } from "~/components/link";
 import { ArrowRightShort } from "react-bootstrap-icons";
 import { Projects } from "@ronin/casper";
 import Image from "next/image";
@@ -52,8 +52,9 @@ export default async function ProjectsPage() {
         Projects<span className="text-accent">.</span>
       </h1>
 
-      <p className="mt-3 font-normal text-secondary-light">
-        {pageDescription} All my projects are{" "}
+      <p className="mt-4 font-normal text-secondary-light max-w-lg">
+        I love building projects and learning new things. Below you can find my personal projects I
+        am most proud of proud of. All my projects are{" "}
         <NextLink className="underline" href="https://github.com/dev-caspertheghost">
           available on GitHub
         </NextLink>
@@ -90,14 +91,16 @@ export default async function ProjectsPage() {
                     {project.title}
                   </h3>
 
-                  <Link
-                    size="square"
-                    className="scale-75 group-hover:scale-100 group-hover:-rotate-45 group-hover:border-accent"
-                    intent="secondary"
-                    href={projectURL}
+                  <p
+                    className={link({
+                      className:
+                        "scale-75 group-hover:scale-100 group-hover:-rotate-45 group-hover:border-accent",
+                      intent: "secondary",
+                      size: "square",
+                    })}
                   >
                     <ArrowRightShort width={25} height={25} />
-                  </Link>
+                  </p>
                 </header>
 
                 <p className="text-base md:text-xl text-gray-light max-w-xl font-inter font-normal">

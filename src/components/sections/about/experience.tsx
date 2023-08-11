@@ -29,7 +29,7 @@ export function ExperienceSection(props: ExperienceSectionProps) {
                 className="group flex flex-col sm:flex-row justify-between w-full"
                 href={item.url}
               >
-                <h3 className="font-semibold group-hover:underline">{item.name}</h3>
+                <h3 className="text-lg font-semibold group-hover:underline">{item.name}</h3>
 
                 <div className="flex flex-col sm:flex-row sm:gap-4 justify-between w-full sm:max-w-fit">
                   <h4 className="text-gray-dark text-medium mt-1 min-w-fit">{item.role}</h4>

@@ -36,7 +36,7 @@ export function Timeline(props: TimelineProps) {
 
 function Card(props: TimelineItem) {
   return (
-    <div className="bg-gray-dark border-2 border-gray-light text-primary max-w-[400px] w-[400px] min-h-[160px] rounded-2xl shadow-md p-6 cursor-default">
+    <div className="relative bg-gray-dark border-2 border-gray-light text-primary max-w-[400px] w-[400px] min-h-[160px] rounded-2xl shadow-md p-6 cursor-default">
       <header className="flex flex-col-reverse gap-1">
         <h3 className="font-medium text-lg">{props.title}</h3>
         <h4 className="text-sm font-medium text-neutral-400">

@@ -16,7 +16,7 @@ export function StackSection(props: StackSectionProps) {
         <h2 className="text-3xl md:text-4xl font-semibold">Tools I use </h2>
         <h3 className="text-gray-dark text-lg mt-3 font-medium">
           The tools and stack I use daily.{" "}
-          <span className="font-normal border-b-accent border-b">
+          <span className="text-base font-normal border-b border-accent/50">
             Hover over an icon for more information.
           </span>
         </h3>
@@ -38,11 +38,9 @@ export function StackSection(props: StackSectionProps) {
                 />
               </HoverCard.Trigger>
               <HoverCard.Content
-                sideOffset={0}
-                alignOffset={0}
+                sideOffset={10}
                 asChild
-                align="start"
-                className="z-50 ml-3 border-2 border-secondary/20 bg-primary shadow-md rounded-2xl font-normal p-4 px-3 text-base max-w-sm"
+                className="z-50 ml-3 border-2 border-secondary/20 bg-primary shadow-md rounded-2xl font-normal p-4 px-3 text-base max-w-sm pointer-events-none"
               >
                 <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: -5 }}>
                   <h3 className="text-lg font-medium">{item.name}</h3>

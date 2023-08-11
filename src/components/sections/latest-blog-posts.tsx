@@ -37,7 +37,7 @@ export function LatestBlogPosts() {
                 {blogPost.title}
               </h3>
 
-              <p className="mt-1 md:mt-2 text-base md:text-lg text-gray-light max-w-xl font-inter">
+              <p className="mt-1 md:mt-2 text-base md:text-lg text-gray-light max-w-lg font-inter">
                 {blogPost.description}
               </p>
             </Link>

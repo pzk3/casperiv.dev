@@ -30,7 +30,8 @@ export function AboutHeroSection() {
             When {"I'm"} not in full-on developer mode, you will find me blasting down a dirt track
             or the streets of my city. {"There's"} nothing quite like the rush of adrenaline that
             comes from going ultra-fast, and for me, {"there's"} no better way to experience that
-            than on my trusty mountain bike.
+            than on my trusty mountain bike. I also have a deep appreciation for music, listening to
+            a wide range of genres that I thoroughly enjoy.
           </p>
         </div>
       </div>

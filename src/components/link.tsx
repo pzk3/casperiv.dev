@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import type * as React from "react";
 
-const link = cva(
+export const link = cva(
   ["border-2 rounded-2xl text-base font-inter font-medium transition outline-none"],
   {
     variants: {
