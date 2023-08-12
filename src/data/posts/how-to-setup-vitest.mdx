@@ -2,7 +2,7 @@
 title: How to set up Vitest for Node.js testing
 description: Learn how to easily setup Vitest.
 createdAt: May 25, 2022
-updatedAt: August 3, 2023
+updatedAt: August 12, 2023
 keywords:
   - vitest
   - vite
@@ -16,24 +16,26 @@ readingTime: "4 min read"
 
 ## Requirements
 
-- Node.js installed with **version v18 or higher**
+- Node.js installed with **v18 or higher**
 - Basic Node.js app
+
+## What is Vitest?
+
+Vitest is a fast and simple testing framework for Node.js, React, Next.js, Vue, Svelte, etc.
+It's built on top of Vite, which is a fast build tool for JavaScript and TypeScript.
+Vitest is also compatible with Jest, which is another popular testing framework.
 
 ## Installation
 
-Vitest is super simple to install. It can be installed via any node package manager such as [npm](https://npmjs.org), [yarn](https://yarnpkg.org) or [pnpm](https://pnpm.io). We will install [vitest](https://vitest.dev) as a `devDependency`.
+Firstly, we will install Vitest as a development dependency:
 
 ```bash
 npm install --save-dev vitest
-# OR
-yarn add -D vitest
-# OR
-pnpm add -D vitest
 ```
 
 ## Configuring the project
 
-We will now add a simple command to our `package.json`. This will allow us to run `npm run test` in the command line.
+To run tests with Vitest, we need to add a script to our `package.json`. We will call it `test`:
 
 ```json {5}
 {
@@ -47,7 +49,8 @@ We will now add a simple command to our `package.json`. This will allow us to ru
 
 ## Adding a test file
 
-Once we've updated our configuration, we can start adding test files, for example `maths.test.ts`. We import `test` and `expect` from `vitest`:
+Now that we have added the test script, we can start adding test files. Vitest will by default search for files ending with `.test.js` or `.test.ts`.
+Let's create a file called `math.test.ts` in the `src` folder:
 
 ```ts title="maths.test.ts"
 import { expect, test } from "vitest";
@@ -59,7 +62,12 @@ test("Math.sqrt()", () => {
 });
 ```
 
-## Testing the application
+If you're not familiar with the `test` and `expect` functions, they allow use write assertions and tests. In simple terms:
+
+- `test`: Run a test with a name and a function.
+- `expect`: Make sure that the value is equal to the expected value.
+
+## Running the tests
 
 To run these tests, simply run the `test` command we created earlier:
 
@@ -70,7 +78,7 @@ npm run test
 This will show all passed and failed tests.
 
 <Info style={{ margin: "1rem 0" }}>
-  **Tip:** You can also view those tests in the browser! Simply create a new command, shown below:
+  **Tip:** You can also view the test results in the browser by adding the `--ui` flag to the `test` command:
 
 ```json {4}
 {
@@ -81,7 +89,16 @@ This will show all passed and failed tests.
 }
 ```
 
+<p />
+
 </Info>
+
+## More from Vitest
+
+You can use Vitest for many more project types, such as: React, Next.js, Vue, Svelte, etc.
+Read more about the awesomeness Vitest can do [on their documentation](https://vitest.dev)
+
+Personally, I use Vitest in many of my projects and I absolutely love it! It's simple to set up, fast and has a great community.
 
 ## Online Example
 
@@ -94,10 +111,3 @@ This will show all passed and failed tests.
   className="rounded-md w-full border-0 overflow-hidden"
 
 > </iframe>
-
-## More from Vitest
-
-You can use Vitest for many more project types, such as: React, Next.js, Vue, Svelte, etc.
-Read more about the awesomeness Vitest can do [at their documentation](https://vitest.dev)
-
-Personally, I use Vitest in many of my projects and I absolutely love it! It's simple to set up, fast and has a great community.
