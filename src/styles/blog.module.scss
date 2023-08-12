@@ -11,12 +11,17 @@
     color: theme("colors.secondary");
   }
 
+  [data-code-pre] {
+    background-color: theme("colors.secondary");
+    box-shadow: theme("dropShadow.sm");
+    border-radius: theme("borderRadius.md");
+  }
+
   pre {
     border: none;
     font-family: theme("fontFamily.fira-code");
     background-color: theme("colors.secondary") !important;
     padding: 0.8em 0.6em;
-    box-shadow: theme("dropShadow.sm");
 
     code {
       padding: 0;
@@ -60,10 +65,9 @@
       padding: 0.3em 0.7em;
       color: theme("colors.primary");
       box-shadow: theme("dropShadow.sm");
-      margin-bottom: -1px;
       border-radius: theme("borderRadius.md") theme("borderRadius.md") 0 0;
       background-color: theme("colors.secondary/90");
-      border-bottom: 2.5px solid theme("colors.accent");
+      border-bottom: 2px solid theme("colors.accent");
 
       + [data-code-pre] pre {
         border-radius: 0 0 theme("borderRadius.md") theme("borderRadius.md");
@@ -122,6 +126,10 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  details[open] {
+    padding-bottom: 1.5em;
   }
 
   summary {

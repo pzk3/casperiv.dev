@@ -11,6 +11,7 @@ import { Link } from "../link";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import * as HoverCard from "@radix-ui/react-hover-card";
 import { m } from "framer-motion";
+import { Balancer } from "react-wrap-balancer";
 
 interface Props extends Partial<RONINProject> {
   post: BlogPost | CodeSnippet | Project;
@@ -30,10 +31,12 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
 
   return (
     <header className="bg-secondary text-primary py-14 mb-6">
-      <div className="max-w-6xl mx-auto px-5 md:px-0">
+      <div className="max-w-3xl mx-auto px-5 md:px-0">
         <div className="border-b-2 border-accent/70 mb-5 pb-5 flex flex-col md:flex-row md:justify-between">
           <div>
-            <h1 className="mb-4 text-2xl font-bold md:text-3xl font-title">{post.title}</h1>
+            <h1 className="mb-4 text-2xl font-bold md:text-3xl font-title">
+              <Balancer>{post.title}</Balancer>
+            </h1>
             <p className="text-gray-extralight">{post.description}</p>
           </div>
 
@@ -62,7 +65,7 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
         <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
           <HoverCard.Root closeDelay={100} openDelay={0}>
             <HoverCard.Trigger asChild>
-              <p className="cursor-default">
+              <p className="cursor-default min-w-fit">
                 <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
               </p>
             </HoverCard.Trigger>

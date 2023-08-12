@@ -58,6 +58,7 @@
     "react-dom": "^18.3.0-next-67a61d5bd-20230228",
     "react-hook-form": "^7.45.4",
     "react-responsive-carousel": "^3.2.23",
+    "react-wrap-balancer": "^1.0.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.10.0",

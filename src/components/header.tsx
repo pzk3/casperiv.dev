@@ -44,11 +44,19 @@ const variants: Variants = {
 export function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const isArticle = ["blog", "snippets", "project"].some((path) =>
+    pathname.startsWith(`/${path}/`),
+  );
 
   return (
     // shadow onScroll
     <header className="w-full py-7 px-5 md:px-0 sticky top-0 bg-primary z-50">
-      <nav className="max-w-6xl w-full mx-auto flex items-center justify-between font-poppins">
+      <nav
+        className={classNames(
+          "w-full mx-auto flex items-center justify-between font-poppins",
+          isArticle ? "max-w-3xl" : "max-w-6xl",
+        )}
+      >
         <ul className="flex items-center gap-5">
           {navLinks.map((link) => {
             const isRouteActive = pathname === link.pathname;

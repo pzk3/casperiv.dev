@@ -1,7 +1,22 @@
+"use client";
+
+import classNames from "classnames";
+import { usePathname } from "next/navigation";
+
 export function Footer() {
+  const pathname = usePathname();
+  const isArticle = ["blog", "snippets", "project"].some((path) =>
+    pathname.startsWith(`/${path}/`),
+  );
+
   return (
     <footer className="flex items-center justify-center w-full sm:h-40 px-5 pb-10 sm:pb-5 pt-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between w-full sm:h-40 max-w-6xl">
+      <div
+        className={classNames(
+          "flex flex-col sm:flex-row items-center justify-between w-full sm:h-40 max-w-6xl",
+          isArticle ? "max-w-3xl" : "max-w-6xl",
+        )}
+      >
         <p className="text-center sm:text-left mb-5 font-poppins font-medium">
           Created by{" "}
           <FooterLink href="https://github.com/dev-caspertheghost/casperiv.dev">Casper</FooterLink>{" "}

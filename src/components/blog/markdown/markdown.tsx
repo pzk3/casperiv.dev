@@ -25,7 +25,7 @@ export function Markdown({ code }: Props) {
   const Component = useMDXComponent(code);
 
   return (
-    <main className={["prose max-w-none", styles.reactMarkdown].join(" ")}>
+    <main className={["prose mx-auto max-w-3xl", styles.reactMarkdown].join(" ")}>
       <Component components={components as any} />
     </main>
   );
