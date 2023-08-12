@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="flex items-center justify-center w-full sm:h-40 px-5 pb-10 sm:pb-5 pt-8">
       <div
         className={classNames(
-          "flex flex-col sm:flex-row items-center justify-between w-full sm:h-40 max-w-6xl",
+          "flex flex-col sm:flex-row items-center justify-between w-full sm:h-40",
           isArticle ? "max-w-3xl" : "max-w-6xl",
         )}
       >

@@ -69,14 +69,14 @@ export default async function ProjectsPage() {
 
           return (
             <li
-              className="p-4 rounded-lg border-2 bg-white/10 border-accent group"
+              className="p-4 rounded-lg bg-white/10 ring-2 ring-accent hover:ring-offset-2 transition group"
               key={project.id}
             >
               <a href={projectURL} rel="noreferrer" target="_blank">
                 <figure className="mb-5">
                   <Image
-                    width={500}
-                    height={350}
+                    width={400}
+                    height={250}
                     alt={project.title}
                     draggable={false}
                     className="rounded shadow-md w-full md:h-80 object-cover"
@@ -87,7 +87,7 @@ export default async function ProjectsPage() {
                 </figure>
 
                 <header className="flex items-baseline justify-between mb-6">
-                  <h3 className="font-semibold font-poppins text-xl md:text-2xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
+                  <h3 className="font-semibold font-poppins text-xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
                     {project.title}
                   </h3>
 
@@ -103,7 +103,7 @@ export default async function ProjectsPage() {
                   </p>
                 </header>
 
-                <p className="text-base md:text-xl text-gray-light max-w-xl font-inter font-normal">
+                <p className="text-base text-gray-dark max-w-xl font-inter font-normal">
                   {project.description}
                 </p>
               </a>
@@ -121,18 +121,18 @@ export default async function ProjectsPage() {
           return (
             <li key={blogPost.id} className="flex justify-between group">
               <Link size="none" className="w-full" intent="none" href={projectURL}>
-                <h3 className="font-semibold font-poppins text-xl md:text-2xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
+                <h3 className="font-semibold font-poppins text-xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
                   {blogPost.title}
                 </h3>
 
-                <p className="mt-1 md:mt-2 text-base md:text-xl text-gray-light max-w-xl font-inter font-normal">
+                <p className="mt-1 md:mt-2 text-base text-gray-dark max-w-xl font-inter font-normal">
                   {blogPost.description}
                 </p>
               </Link>
 
               <Link
                 size="square"
-                className="group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
+                className="group-hover:scale-100 scale-75 group-hover:-rotate-45 group-hover:border-accent"
                 intent="secondary"
                 href={projectURL}
               >
