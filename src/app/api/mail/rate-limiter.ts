@@ -12,7 +12,7 @@ export function rateLimit(options: RateLimitOptions) {
 
   return {
     check: (limit: number, token: string) => {
-      const tokenCount = tokenCache.get(token) || [0];
+      const tokenCount = tokenCache.get(token) ?? [0];
 
       if (tokenCount[0] === 0) {
         tokenCache.set(token, tokenCount);

@@ -7,6 +7,6 @@ export async function GET(request: Request) {
   const rawAfter = searchParams.get("after");
   const after = rawAfter !== null ? parseInt(rawAfter, 10) : undefined;
 
-  const data = await getGalleryImagesServer(after || 0);
+  const data = await getGalleryImagesServer(after ?? 0);
   return NextResponse.json<GetGalleryImagesQuery>(data);
 }

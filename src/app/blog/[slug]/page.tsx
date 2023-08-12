@@ -12,7 +12,7 @@ interface CodeSnippetsSlugPageProps {
   params: { slug: string };
 }
 
-export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): Promise<Metadata> {
+export function generateMetadata({ params }: CodeSnippetsSlugPageProps): Metadata {
   const item = getBlogPost(params.slug);
 
   if (!item) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps): P
   });
 }
 
-export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {
+export default function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPageProps) {
   const item = getBlogPost(params.slug);
 
   if (!item) {
@@ -58,7 +58,7 @@ export default async function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugP
   );
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allBlogPosts.map((snippet) => ({
     slug: getArticleSlug(snippet),
   }));
