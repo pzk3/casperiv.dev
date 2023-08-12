@@ -76,7 +76,7 @@ export default makeSource({
           onVisitHighlightedLine(node) {
             node.properties["data-line-highlighted"] = true;
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedChars(node) {
             node.properties["data-word-highlighted"] = true;
           },
         },

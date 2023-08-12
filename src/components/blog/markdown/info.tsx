@@ -15,7 +15,7 @@ export function Info({ children, title, color, singleLine, ...rest }: Props) {
       data-info
       data-info-single-line={singleLine}
       style={{ borderColor, ...rest.style }}
-      className="px-4 my-3 mb-5 text-lg border-l-[4px] rounded-md rounded-l-none shadow border-2 border-secondary bg-primary"
+      className="px-4 mt-5 text-lg border-l-[4px] rounded-md rounded-l-none shadow border-2 border-secondary bg-primary"
     >
       {title ? <h3 className="text-xl font-bold my-2.5">{title}</h3> : null}
 
