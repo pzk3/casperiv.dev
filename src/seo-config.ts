@@ -39,7 +39,7 @@ export const SEO: Metadata = {
     card: "summary_large_image",
     description,
     title,
-    images: [{ url: "https://casperiv.dev/og-image.png", width: 1200, height: 675 }],
+    images: ["https://casperiv.dev/og-image.png"],
   },
   alternates: {
     canonical: "https://casperiv.dev",

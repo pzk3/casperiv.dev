@@ -31,10 +31,13 @@ export function generateMetadata({ params }: CodeSnippetsSlugPageProps): Metadat
       publishedTime: item.createdAt,
       type: "article",
       modifiedTime: item.updatedAt,
+      images: [{ url: `https://casperiv.dev/api/og?title=${item.title}` }],
     },
     twitter: {
+      card: "summary_large_image",
       title: item.title,
       description: item.description,
+      images: [`https://casperiv.dev/api/og?title=${item.title}`],
     },
     keywords: ["blog casper iversen", "blog", ...(item.keywords ?? [])],
   });

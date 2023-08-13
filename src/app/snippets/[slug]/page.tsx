@@ -30,10 +30,13 @@ export async function generateMetadata({ params }: CodeSnippetsSlugPageProps) {
       publishedTime: item.createdAt,
       type: "article",
       modifiedTime: item.updatedAt,
+      images: [{ url: `https://casperiv.dev/api/og?title=${item.title}` }],
     },
     twitter: {
       title: item.title,
       description: item.description,
+      card: "summary_large_image",
+      images: [`https://casperiv.dev/api/og?title=${item.title}`],
     },
     keywords: ["snippets casper iversen", ...(item.keywords ?? [])],
   });
