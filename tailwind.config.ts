@@ -1,8 +1,12 @@
-import { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 import { fontFamily, spacing } from "tailwindcss/defaultTheme";
+import typographyPlugin from "@tailwindcss/typography";
 
 const tailwindConfig = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     fontFamily: {
       inter: ["var(--font-inter)", ...fontFamily.sans],
@@ -12,6 +16,7 @@ const tailwindConfig = {
     },
     extend: {
       colors: {
+        accent: "#FF7b00",
         primary: "#F5F0E8",
         secondary: "#101010",
         gray: {
@@ -19,7 +24,6 @@ const tailwindConfig = {
           light: "#5A5658",
           extralight: "#E0E0E0",
         },
-        accent: "#FF7b00",
       },
       screens: {
         md: "1050px",
@@ -28,21 +32,8 @@ const tailwindConfig = {
       typography: (theme: (str: string) => string) => ({
         DEFAULT: {
           css: {
-            color: theme("colors.secondary"),
-            code: {
-              backgroundColor: theme("colors.gray.300"),
-              color: theme("colors.secondary"),
-            },
-            "[data-info]": {
-              a: {
-                color: theme("colors.secondary"),
-              },
-            },
-            "a,figcaption": {
-              color: theme("colors.neutral.600"),
-            },
+            color: theme("colors.gray.dark"),
             "h2,h3,h4": {
-              color: theme("colors.secondary"),
               "scroll-margin-top": spacing[32],
             },
           },
@@ -50,7 +41,7 @@ const tailwindConfig = {
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typographyPlugin],
 } satisfies Config;
 
 export default tailwindConfig;

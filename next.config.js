@@ -59,8 +59,8 @@ const ContentSecurityPolicy = `
 // https://github.com/leerob/leerob.io/blob/1356f8aa1adb083d5b192c6f53fa04946afefc00/next.config.js#LL48-L85
 const securityHeaders = [
   {
-    key: "Access-Control-Allow-Origin",
-    value: "*",
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
@@ -91,10 +91,6 @@ const securityHeaders = [
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
-  },
-  {
-    key: "Content-Security-Policy",
-    value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
   },
 ];
 
