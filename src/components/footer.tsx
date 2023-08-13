@@ -17,7 +17,7 @@ export function Footer() {
           isArticle ? "max-w-3xl" : "max-w-6xl",
         )}
       >
-        <p className="text-center sm:text-left mb-5 font-poppins font-medium">
+        <p className="text-center sm:text-left mb-5 font-poppins text-gray-dark font-medium">
           Created by{" "}
           <FooterLink href="https://github.com/dev-caspertheghost/casperiv.dev">Casper</FooterLink>{" "}
           with ❤️
@@ -43,7 +43,12 @@ interface FooterLinkProps {
 
 function FooterLink({ children, href }: FooterLinkProps) {
   return (
-    <a className="underline" target="_blank" href={href} rel="noreferrer">
+    <a
+      className="underline text-gray-dark hover:text-black transition-colors"
+      target="_blank"
+      href={href}
+      rel="noreferrer"
+    >
       {children}
     </a>
   );
