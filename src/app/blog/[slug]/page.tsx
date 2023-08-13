@@ -50,10 +50,10 @@ export default function CodeSnippetsSlugPage({ params }: CodeSnippetsSlugPagePro
   return (
     <main>
       <BlogHeader post={item} />
-      <section className="max-w-6xl mx-auto pb-6 px-5 md:px-0">
+      <article className="max-w-6xl mx-auto pb-6 px-5 md:px-0">
         <Markdown code={item.body.code} />
-        <BlogFooter post={item} />
-      </section>
+      </article>
+      <BlogFooter post={item} />
     </main>
   );
 }

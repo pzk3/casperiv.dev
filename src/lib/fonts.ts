@@ -1,20 +1,17 @@
-import localFont from "next/font/local";
-import { Inter, Unbounded } from "next/font/google";
+import { Fira_Code, Inter, Poppins } from "next/font/google";
 
 export const interFont = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
-  subsets: ["latin"],
-  fallback: ["sans-serif"],
 });
 
-export const unboundedFont = Unbounded({
-  variable: "--font-unbounded",
+export const poppinsFont = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const cascadiaMonoFont = localFont({
-  src: "../../public/fonts/CascadiaMono.woff2",
-  display: "optional",
-  variable: "--font-cascadia-mono",
-  fallback: ["Courier New", "monospace"],
+export const firaCodeFont = Fira_Code({
+  variable: "--font-fira-code",
+  subsets: ["latin"],
 });

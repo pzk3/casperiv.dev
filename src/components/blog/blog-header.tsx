@@ -31,6 +31,10 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
 
   return (
     <header className="bg-secondary text-primary py-14 mb-6">
+      <script type="application/ld+json" suppressHydrationWarning>
+        {JSON.stringify(post.structuredData)}
+      </script>
+
       <div className="max-w-3xl mx-auto px-5 md:px-0">
         <div className="border-b-2 border-accent/70 mb-5 pb-5 flex flex-col md:flex-row md:justify-between">
           <div>

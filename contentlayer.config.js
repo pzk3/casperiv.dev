@@ -16,11 +16,34 @@ const baseFields = {
   keywords: { type: "list", of: { type: "string" }, required: false },
 };
 
+/** @type {import("contentlayer/source-files").ComputedFields<"BlogPost">} */
+const baseComputedFields = {
+  structuredData: {
+    type: "object",
+    resolve: (doc) => ({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: doc.title,
+      datePublished: doc.createdAt,
+      dateModified: doc.updatedAt,
+      description: doc.description,
+      keywords: doc.keywords,
+      url: `https://casperiv.dev/blog/${doc._raw.flattenedPath}`,
+      author: {
+        "@type": "Person",
+        name: "Casper Iversen",
+        url: "https://casperiv.dev",
+      },
+    }),
+  },
+};
+
 export const CodeSnippet = defineDocumentType(() => ({
   name: "CodeSnippet",
   filePathPattern: "**/snippets/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
+  computedFields: baseComputedFields,
 }));
 
 export const BlogPost = defineDocumentType(() => ({
@@ -29,6 +52,7 @@ export const BlogPost = defineDocumentType(() => ({
   contentType: "mdx",
   fields: baseFields,
   computedFields: {
+    ...baseComputedFields,
     computedReadingTime: {
       type: "string",
       resolve: (doc) => {
@@ -43,11 +67,12 @@ export const Project = defineDocumentType(() => ({
   filePathPattern: "**/project/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
+  computedFields: baseComputedFields,
 }));
 
 export default makeSource({
   contentDirPath: "./src/data",
-  documentTypes: [CodeSnippet, BlogPost, Project],
+  documentTypes: [BlogPost, CodeSnippet, Project],
   mdx: {
     esbuildOptions: (options) => {
       options.loader = {
@@ -57,6 +82,7 @@ export default makeSource({
 
       return options;
     },
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { properties: { ariaLabel: "Link to section" } }],
@@ -82,6 +108,5 @@ export default makeSource({
         },
       ],
     ],
-    remarkPlugins: [remarkGfm],
   },
 });
