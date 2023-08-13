@@ -1,6 +1,8 @@
 import { ImageResponse, NextRequest } from "next/server";
 import tailwindConfig from "tailwind.config";
 
+export const runtime = "edge";
+
 const colors = tailwindConfig.theme.extend.colors;
 const size = {
   width: 1512,
@@ -18,7 +20,7 @@ export async function GET(request: NextRequest) {
       <div
         style={{
           ...size,
-          padding: "4rem",
+          padding: "6rem 4rem",
           backgroundColor: colors.primary,
           display: "flex",
           flexDirection: "column",
