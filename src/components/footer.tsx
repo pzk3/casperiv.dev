@@ -29,7 +29,7 @@ export function Footer() {
           <FooterLink href="https://twitter.com/casper124578">Twitter</FooterLink>
           <FooterLink href="https://github.com/dev-caspertheghost">GitHub</FooterLink>
           <FooterLink href="https://www.linkedin.com/in/casper-iversen">LinkedIn</FooterLink>
-          <FooterLink href="https://npmjs.org/~casper124578">npm</FooterLink>
+          <FooterLink href="https://npmjs.org/~casperiv">npm</FooterLink>
         </div>
       </div>
     </footer>
