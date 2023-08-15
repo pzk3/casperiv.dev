@@ -24,7 +24,7 @@ export function useAge() {
   }, []);
 
   React.useEffect(() => {
-    let interval: NodeJS.Timer;
+    let interval: ReturnType<typeof setInterval>;
 
     if (withMagic) {
       if (ref.current) {
