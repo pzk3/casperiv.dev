@@ -27,7 +27,7 @@ function makeColumns(images: GalleryImages) {
 export function Gallery({ initialData }: { initialData: GetGalleryImagesQuery }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref, {
-    margin: "1200px",
+    margin: "200px",
   });
 
   const { fetchNextPage, data, isFetchingNextPage, hasNextPage } = useInfiniteQuery<
