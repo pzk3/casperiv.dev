@@ -163,15 +163,15 @@ dependencies:
     version: 3.22.0
 
 devDependencies:
-  '@casper124578/eslint-config':
-    specifier: 7.0.0
-    version: 7.0.0(eslint@8.47.0)(prettier@3.0.1)(typescript@5.1.6)
-  '@casper124578/eslint-config-next':
-    specifier: 7.0.0
-    version: 7.0.0(eslint@8.47.0)(next@13.4.16)(typescript@5.1.6)
-  '@casper124578/eslint-config-react':
-    specifier: 7.0.0
-    version: 7.0.0(eslint@8.47.0)
+  '@casperiv/eslint-config':
+    specifier: 8.0.0
+    version: 8.0.0(eslint@8.47.0)(prettier@3.0.1)(typescript@5.1.6)
+  '@casperiv/eslint-config-next':
+    specifier: 8.0.0
+    version: 8.0.0(eslint@8.47.0)(next@13.4.16)(typescript@5.1.6)
+  '@casperiv/eslint-config-react':
+    specifier: 8.0.0
+    version: 8.0.0(eslint@8.47.0)
   '@types/lodash-es':
     specifier: ^4.17.8
     version: 4.17.8
@@ -257,8 +257,8 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
 
-  /@casper124578/eslint-config-next@7.0.0(eslint@8.47.0)(next@13.4.16)(typescript@5.1.6):
-    resolution: {integrity: sha512-8WMGbukDq2z7vPDqV7xA/22DvNSGb5tl53nxoFKv98zD8T5xs+6Ni2e2mF+gtF6E7RCKx5WcNJg1xJWxNkIncw==}
+  /@casperiv/eslint-config-next@8.0.0(eslint@8.47.0)(next@13.4.16)(typescript@5.1.6):
+    resolution: {integrity: sha512-sCr6MHhIg81DlcvGqzE24qYEUddeFWSpSTUcOJM6tUiUQlBIv0en0YcNzcIbd8Y/TJ1du6GOazXANJxxD1XWdw==}
     peerDependencies:
       eslint: '>=8'
       next: '>=13'
@@ -272,8 +272,8 @@ packages:
       - typescript
     dev: true
 
-  /@casper124578/eslint-config-react@7.0.0(eslint@8.47.0):
-    resolution: {integrity: sha512-QaQOACr1S/zfj0ux/wWivukG9pUhz5iXH6sBTGFP4uwXXgXdzcuz+ATwKetT2E1QYTgsrPrgrDGYlAUv5oBooQ==}
+  /@casperiv/eslint-config-react@8.0.0(eslint@8.47.0):
+    resolution: {integrity: sha512-UJekJTbpKKJRdwdqpjjYKH2QXdCbAbn07Hzmk2hWAcxwFrN0JyLp66ICe22rkFxg1HiyWXrZfsTrBRwUZclkyw==}
     peerDependencies:
       eslint: '>=8'
     dependencies:
@@ -283,8 +283,8 @@ packages:
       eslint-plugin-react-hooks: 4.6.0(eslint@8.47.0)
     dev: true
 
-  /@casper124578/eslint-config@7.0.0(eslint@8.47.0)(prettier@3.0.1)(typescript@5.1.6):
-    resolution: {integrity: sha512-boLCZC5qAGKmqqmYF2Euy8QILyMzl6dDxz3BbjVjlNQwU6/95OYyCZHvdK30FnITe/lL19wBJoIH56B9HvTieA==}
+  /@casperiv/eslint-config@8.0.0(eslint@8.47.0)(prettier@3.0.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-SQpUAvR/u8iweOjuP/76a7eNSdAXC+rmPdVOfWKiRIoPFRHlOEN6rKFjOJmQAPsUUj6SUjQ0eC07Umqai9uEdQ==}
     peerDependencies:
       eslint: '>=8'
       prettier: '>=3.0.1'

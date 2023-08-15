@@ -71,9 +71,9 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
-    "@casper124578/eslint-config": "7.0.0",
-    "@casper124578/eslint-config-next": "7.0.0",
-    "@casper124578/eslint-config-react": "7.0.0",
+    "@casperiv/eslint-config": "8.0.0",
+    "@casperiv/eslint-config-next": "8.0.0",
+    "@casperiv/eslint-config-react": "8.0.0",
     "@types/lodash-es": "^4.17.8",
     "@types/node": "^20.5.0",
     "@types/react": "18.2.20",
