@@ -15,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: "/twitter",
-        destination: "https://twitter.com/casper124578",
+        destination: "https://twitter.com/casperiv",
         permanent: false,
       },
       {

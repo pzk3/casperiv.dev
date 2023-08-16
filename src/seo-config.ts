@@ -35,7 +35,7 @@ export const SEO: Metadata = {
     images: [{ url: "https://casperiv.dev/og-image.png", width: 1200, height: 675 }],
   },
   twitter: {
-    creator: "@casper124578",
+    creator: "@casperiv",
     card: "summary_large_image",
     description,
     title,

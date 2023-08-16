@@ -26,7 +26,7 @@ export function Footer() {
         </p>
 
         <div className="flex flex-col md:flex-row md:gap-2">
-          <FooterLink href="https://twitter.com/casper124578">Twitter</FooterLink>
+          <FooterLink href="https://twitter.com/casperiv">Twitter</FooterLink>
           <FooterLink href="https://github.com/dev-caspertheghost">GitHub</FooterLink>
           <FooterLink href="https://www.linkedin.com/in/casper-iversen">LinkedIn</FooterLink>
           <FooterLink href="https://npmjs.org/~casperiv">npm</FooterLink>
