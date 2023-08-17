@@ -10,6 +10,7 @@ const description =
 
 export const DEFAULT_KEYWORDS = [
   "dev-caspertheghost",
+  "casperiv0",
   "casper iversen",
   "ghostybot",
   "snaily cad",

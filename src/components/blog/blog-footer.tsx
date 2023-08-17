@@ -20,7 +20,7 @@ export function BlogFooter({ post }: Props) {
   const startDate = new Date("2019-08-08");
   const formattedStartDate = formatDistanceToNow(startDate);
 
-  const GITHUB_REPO_LINK = "https://github.com/Dev-CasperTheGhost/casperiv.dev/edit/main/src/data";
+  const GITHUB_REPO_LINK = "https://github.com/casperiv0/casperiv.dev/edit/main/src/data";
   const link = `${GITHUB_REPO_LINK}/${post._raw.flattenedPath}.mdx`;
 
   return type ? (

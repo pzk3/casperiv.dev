@@ -55,7 +55,7 @@ export default async function ProjectsPage() {
       <p className="mt-4 font-normal text-secondary-light max-w-lg">
         I love building projects and learning new things. Below you can find my personal projects I
         am most proud of proud of. All my projects are{" "}
-        <NextLink className="underline" href="https://github.com/dev-caspertheghost">
+        <NextLink className="underline" href="https://github.com/casperiv0">
           available on GitHub
         </NextLink>
         .

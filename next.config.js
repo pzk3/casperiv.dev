@@ -20,7 +20,7 @@ const nextConfig = {
       },
       {
         source: "/github",
-        destination: "https://github.com/dev-caspertheghost",
+        destination: "https://github.com/casperiv0",
         permanent: false,
       },
       {

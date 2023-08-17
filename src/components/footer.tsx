@@ -19,15 +19,14 @@ export function Footer() {
       >
         <p className="text-center sm:text-left mb-5 font-poppins text-gray-dark font-medium">
           Created by{" "}
-          <FooterLink href="https://github.com/dev-caspertheghost/casperiv.dev">Casper</FooterLink>{" "}
-          with ❤️
+          <FooterLink href="https://github.com/casperiv0/casperiv.dev">Casper</FooterLink> with ❤️
           <br />
           Built with <FooterLink href="https://nextjs.org">Next.js</FooterLink>
         </p>
 
         <div className="flex flex-col md:flex-row md:gap-2">
           <FooterLink href="https://twitter.com/casperiv0">Twitter</FooterLink>
-          <FooterLink href="https://github.com/dev-caspertheghost">GitHub</FooterLink>
+          <FooterLink href="https://github.com/casperiv0">GitHub</FooterLink>
           <FooterLink href="https://www.linkedin.com/in/casper-iversen">LinkedIn</FooterLink>
           <FooterLink href="https://npmjs.org/~casperiv">npm</FooterLink>
         </div>

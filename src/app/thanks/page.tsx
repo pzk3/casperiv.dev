@@ -44,7 +44,7 @@ export default async function App() {
       </p>
 
       <Link
-        href="https://github.com/sponsors/Dev-CasperTheGhost"
+        href="https://github.com/sponsors/casperiv0"
         target="_blank"
         intent="secondary"
         extras="icon"
