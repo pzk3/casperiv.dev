@@ -1,7 +1,8 @@
 ---
 title: SnailyCAD
-createdAt: "2023-04-21"
-description: Learn how SnailyCAD got to where it is today.
+createdAt: 2023-04-21
+updatedAt: 2023-08-17
+description: Learn how SnailyCAD started and how it evolved over time.
 keywords:
   - SnailyCAD
   - SnailyCADv4
@@ -10,38 +11,121 @@ keywords:
 
 ## Introduction
 
-SnailyCAD is an open-source Computer Aided Dispatch, which is used by police and dispatch roleplaying communities for FiveM. It has reached a lot of interest and positive feedback from many communities and individuals. SnailyCAD is being updated almost every day with bug fixes and new features.
+SnailyCAD is an open-source Computer Aided Dispatch, which is used by police and dispatch roleplaying communities for FiveM.
+It has reached a lot of interest and positive feedback from many communities and individuals.
+SnailyCAD is being updated almost every day with bug fixes and new features.
 
 ## The Beginning
 
-SnailyCAD was originally created as a private Computer Aided Dispatch (CAD) for a community I was a member of. They were looking for a free and self-hostable CAD
-however, couldn't find any good fits. Therefore, I decided to start developing my own CAD for the community.
+SnailyCAD was originally created as a private Computer Aided Dispatch (CAD) for a community I was a member of.
+They were looking for a CAD that was self-hostable, super simple to install and a great user experience.
+There weren't any fits for their needs at that time, so I decided to start learning how to code and develop a CAD for them.
 
-After many weeks of work, the first version was released stable.
-The community members started testing and using daily, ... _it crashed_. SnailyCAD was written quite poorly because I didn't have the expertise in coding back then. I decided to start from scratch and release a v2
-with a lot of new features and a better codebase. SnailyCADv2 wasn't connected to 1 community anymore. It was open-source and free for everyone to use.
+I started with a simple Node.js Server (Express.js), with EJS as the templating engine.
+The first version of SnailyCAD, was probably the second project I ever created.
+I will say, it was too ambitious for me at that time, I made many mistakes and the code was terrible.
+But that didn't stop me from learning and improving, I kept on making tons of mistakes and learned from them.
+Overtime, I improved quite a lot in coding and development, I was able to get a somewhat stable version of SnailyCADv1 out.
 
-## The Growth
+Later, I decided I wanted to make SnailyCAD free and open-source for everyone, therefore I started development on a new SnailyCAD. SnailyCADv2.
 
-SnailyCADv2 started picking up a bunch of growth, but I soon realized that it also didn't have the best codebase and quite hard to maintain, since I wasn't using any frameworks.
+<div className="flex items-center justify-center flex-col md:flex-row gap-3 -mt-5">
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv1 Dispatch Dashboard"
+      src="https://raw.githubusercontent.com/Dev-CasperTheGhost/snaily-cad/master/public/screenshots/dispatch.png"
+    />
+    <figcaption>SnailyCADv1 Dispatch Dashboard</figcaption>
+  </figure>
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv1 Citizens Dashboard"
+      src="https://raw.githubusercontent.com/Dev-CasperTheGhost/snaily-cad/master/public/screenshots/details-1.png"
+    />
+    <figcaption>SnailyCADv1 Citizens Dashboard</figcaption>
+  </figure>
+</div>
 
-SnailyCADv3 was born written all in Next.js, it didn't survive long. Next.js is awesome for writing frontend code, but the API routes were a pain to maintain and were quite slow (cold boot).
+## SnailyCAD Version 2
+
+So, here we are, SnailyCADv2. I started development on SnailyCADv2 in May 2020.
+I was still learning how to code and was watching many tutorials at the same time.
+Again, I used Express.js for the Server and chose React.js for the frontend, SnailyCADv2 was a Single Page Application (SPA).
+With that, a lot of new challenges were introduced. A Computer Aided Dispatch is very complex to create and should not be
+created as an SPA. Luckily, SnailyCADv2 did pick up a lot of traction, and I was able to get a lot of feedback from the community.
+
+With that feedback, I understood that not only the application could use some improvements, but also documentation and installation simplicity.
+So, half a year later, I started development on SnailyCADv3, which was a complete rewrite of SnailyCADv2.
+Long story, short. SnailyCADv3 ran into a lot of issues related to Next.js' API routes. They are impossible to maintain and are quite slow (cold boots).
+I urgently needed to find a better API and documentation solution, so I started development on SnailyCADv4.
+
+<div className="flex items-center justify-center flex-col md:flex-row gap-3 -mt-5">
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv2 Dispatch Dashboard"
+      src="https://raw.githubusercontent.com/Dev-CasperTheGhost/snaily-cadv2/master/media/Dispatch.png"
+    />
+    <figcaption>SnailyCADv2 Dispatch Dashboard</figcaption>
+  </figure>
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv2 Citizens Dashboard"
+      src="https://raw.githubusercontent.com/Dev-CasperTheGhost/snaily-cadv2/master/media/screenshots/citizenDetail.png"
+    />
+    <figcaption>SnailyCADv2 Citizens Dashboard</figcaption>
+  </figure>
+</div>
 
 ## Now
 
-SnailyCADv4 is written in the latest and greatest tech. Using TsED.io for managing the API. It's a framework that can be used on top of Express.js. It includes tons of useful plugins, for example: for generating docs, authentication, middleware.
-Prisma is used for the database, it's a really nice ORM that can be used with PostgreSQL, MySQL, SQLite and more. It's really easy to use and has a lot of features.
+The first commit to SnailyCADv4 was in October 2021. Meanwhile, I gained a lot of experience from SnailyCADv1, v2 and v3, but also from creating other projects and Discord bots.
+With that experience, I set out to create the best CAD for FiveM. There was also a lot of criteria that I wanted to meet with SnailyCADv4.
+
+SnailyCADv4 is written in the latest and greatest tech. Using TsED.io for managing the API. It's a framework that can be used on top of Express.js.
+It includes tons of useful plugins, for example: swagger docs, authentication, middleware, socket.io, etc.
+Prisma is used for the database, it's a great ORM that can be used with PostgreSQL, MySQL, SQLite and more. It's super simple to use and has lot's of features.
 The frontend is still written in Next.js using SSR. It's a lot faster than SnailyCADv3 and a lot easier to maintain.
 
-Over time, I was able to move very quick, implement tons of new features thanks to all these tech stacks. I'm extremely happy with the current state of SnailyCAD, and I'm looking forward to the future. Many people have been using SnailyCAD, and I'm really happy to see that it's being used by many communities.
+Over time, I was able to move very quickly, implement tons of new features thanks to all these amazing and mature tech stacks.
+I'm extremely happy with the current state of SnailyCAD, and I'm looking forward to the future.
+Many people have been using SnailyCAD, and I'm really happy to see that it's being used by many communities - over 400 communities with over 20.000 members combined!
+
+<div className="flex items-center justify-center flex-col md:flex-row gap-3 -mt-5">
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv4 Dispatch Dashboard"
+      src="https://raw.githubusercontent.com/SnailyCAD/website/main/src/images/cad/dispatch.webp"
+    />
+    <figcaption>SnailyCADv4 Dispatch Dashboard</figcaption>
+  </figure>
+  <figure>
+    <Image
+      width={618.7}
+      height={494}
+      alt="SnailyCADv4 Citizens Dashboard"
+      src="https://raw.githubusercontent.com/SnailyCAD/website/main/src/images/cad/citizen_info.webp"
+    />
+    <figcaption>SnailyCADv4 Citizens Dashboard</figcaption>
+  </figure>
+</div>
 
 ## Full tech stack
 
+- TypeScript
+- Next.js/React.js
 - TsED.io
+- TailwindCSS
 - Express.js
 - Prisma
-- Next.js/React.js
 - PostgreSQL
 - Docker
-- TypeScript
-- TailwindCSS

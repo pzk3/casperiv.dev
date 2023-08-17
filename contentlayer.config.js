@@ -36,6 +36,12 @@ const baseComputedFields = {
       },
     }),
   },
+  computedReadingTime: {
+    type: "string",
+    resolve: (doc) => {
+      return readingTime(doc.body.raw).text;
+    },
+  },
 };
 
 export const CodeSnippet = defineDocumentType(() => ({
@@ -51,15 +57,7 @@ export const BlogPost = defineDocumentType(() => ({
   filePathPattern: "**/posts/**/*.mdx",
   contentType: "mdx",
   fields: baseFields,
-  computedFields: {
-    ...baseComputedFields,
-    computedReadingTime: {
-      type: "string",
-      resolve: (doc) => {
-        return readingTime(doc.body.raw).text;
-      },
-    },
-  },
+  computedFields: baseComputedFields,
 }));
 
 export const Project = defineDocumentType(() => ({
