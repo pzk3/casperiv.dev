@@ -19,8 +19,9 @@ async function getAboutPageData() {
     };
 
     get.stackItems = {
+      limitedTo: 1000,
       orderedBy: {
-        ascending: ["name"],
+        descending: ["isFullSizeIcon"],
       },
     };
 

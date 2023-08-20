@@ -25,7 +25,7 @@
     "@react-aria/ssr": "^3.7.1",
     "@react-aria/textfield": "^3.11.0",
     "@react-email/components": "0.0.7",
-    "@ronin/casper": "^0.0.1692093437229",
+    "@ronin/casper": "^0.0.1692437571886",
     "@sendgrid/mail": "^7.7.0",
     "@t3-oss/env-nextjs": "^0.6.1",
     "@tailwindcss/typography": "^0.5.9",
