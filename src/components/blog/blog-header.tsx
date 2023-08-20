@@ -67,7 +67,7 @@ export function BlogHeader({ post, projectURL, npmURL, codeURL }: Props) {
         </div>
 
         <div style={{ scrollbarWidth: "thin" }} className="flex gap-6 overflow-x-auto">
-          <HoverCard.Root closeDelay={100} openDelay={0}>
+          <HoverCard.Root open={!post.updatedAt ? false : undefined} closeDelay={100} openDelay={0}>
             <HoverCard.Trigger asChild>
               <p className="cursor-default min-w-fit">
                 <time dateTime={new Date(post.createdAt).toISOString()}>{publishDateFull}</time>
