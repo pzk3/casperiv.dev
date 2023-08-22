@@ -6,8 +6,6 @@ import { Link } from "~/components/link";
 import { ArrowLeftShort, ArrowRightShort } from "react-bootstrap-icons";
 import { Button } from "~/components/button";
 import Image from "next/image";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 interface ProjectsSectionProps {
   featuredProjects: Projects;
@@ -15,6 +13,7 @@ interface ProjectsSectionProps {
 
 export function ProjectsSection(props: ProjectsSectionProps) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const sliderRef = React.useRef<HTMLDivElement | null>(null);
 
   function prevSlide() {
     setCurrentIndex((prevState) => {
@@ -34,6 +33,13 @@ export function ProjectsSection(props: ProjectsSectionProps) {
     });
   }
 
+  React.useEffect(() => {
+    // scroll the slider to the current index
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = currentIndex * sliderRef.current.clientWidth;
+    }
+  }, [currentIndex]);
+
   return (
     <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0 overflow-x-hidden">
       <header className="flex flex-col gap-y-5 sm:flex-row sm:items-center justify-between">
@@ -47,27 +53,22 @@ export function ProjectsSection(props: ProjectsSectionProps) {
         </Link>
       </header>
 
-      <Carousel
-        selectedItem={currentIndex}
-        infiniteLoop
-        showArrows={false}
-        showThumbs={false}
-        showIndicators={false}
-        showStatus={false}
-        emulateTouch={false}
+      <div
+        ref={sliderRef}
+        className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory [&::-webkit-scrollbar]:hidden scroll-smooth"
       >
         {props.featuredProjects.map((project, idx) => {
           return (
             <article
               key={project.id}
-              className="mt-20 flex flex-col md:flex-row gap-10 items-center w-full px-3"
+              className="mt-20 flex-none snap-start flex w-full flex-col md:flex-row gap-10 items-center px-3"
             >
               <Image
                 width={500}
                 height={350}
                 alt={project.title}
                 draggable={false}
-                className="rounded-2xl shadow-md w-1/2 max-w-2xl md:h-80 object-cover"
+                className="rounded-2xl shadow-md w-full md:max-w-[50%] md:h-80 object-cover"
                 src={project.coverImage.src}
                 placeholder="blur"
                 blurDataURL={project.coverImage.placeholder.base64}
@@ -112,7 +113,7 @@ export function ProjectsSection(props: ProjectsSectionProps) {
             </article>
           );
         })}
-      </Carousel>
+      </div>
     </section>
   );
 }
