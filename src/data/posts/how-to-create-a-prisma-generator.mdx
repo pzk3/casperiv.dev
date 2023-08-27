@@ -1,0 +1,418 @@
+---
+title: "How to create a custom Prisma Generator"
+description: "Learn how to create a custom Prisma Generator that outputs TypeScript types from your Prisma schema."
+createdAt: 2023-08-27
+keywords:
+  - Prisma
+  - Prisma Generator
+  - Custom Prisma Generator
+  - Prisma Plugin
+  - TypeScript
+  - publish Prisma types
+  - npm prisma
+  - npm prisma types
+---
+
+## What is a Prisma Generator?
+
+A Prisma Generator is a tool that takes your Prisma Schema and generates code from it.
+You should already be familiar with `prisma-client-js`, which is a Prisma generator that
+generates a Prisma client and TypeScript types from your schema.
+
+## Why create a custom Prisma Generator?
+
+There are a few reasons why you might want to create a custom Prisma Generator. The most useful thing I found was to
+publish your Prisma types to npm or GitHub Packages. This way, you can share your Prisma types with other developers and share them across
+multiple projects.
+
+It also allows you to generate other custom outputs. For example, if you want to use TypeScript `enum`s
+instead of Prisma's "object enums". There are [several side effects to using TypeScript enums](https://www.crocoder.dev/blog/typescript-enums-good-bad-and-ugly/), so you should
+always consider whether it's necessary to use them.
+
+```typescript
+// Prisma "object enum"
+export const MyEnum = {
+  A: "A",
+  B: "B",
+} as const;
+
+export type MyEnum = (typeof MyEnum)[keyof typeof MyEnum];
+
+// TypeScript enum
+export enum MyEnum {
+  A = "A",
+  B = "B",
+}
+```
+
+## How to create a custom Prisma Generator
+
+### Create a new npm project
+
+Firstly, we will create the folder where we'll store our code. We'll also initialize a new npm project:
+
+```bash
+mkdir prisma-generator-types && cd prisma-generator-types && npm init -y
+```
+
+### Install dependencies
+
+Secondly, we'll install the required dependencies:
+
+```bash
+npm install @prisma/generator-helper
+```
+
+We must also install the dev dependencies:
+
+```bash
+npm install -D @prisma/client @types/node typescript prisma prettier
+```
+
+_You'll notice we're also installing `prettier`, which will be used to format the generated code
+before we write to a file._
+
+#### Initialize TypeScript
+
+We must make sure to also initialize TypeScript in our project:
+
+```bash
+npx tsc --init
+```
+
+_Now we are ready to start writing our generator!_
+
+### Create a Prisma generator
+
+Now, we'll create the actual generator. We will separate each part of the generator into its own handler file and function,
+this allows us to easily maintain our generator. Create a new file `src/generator.ts` and add the following code:
+
+```typescript title="src/generator.ts"
+import { generatorHandler } from "@prisma/generator-helper";
+import { onManifest } from "./on-manifest";
+import { onGenerate } from "./on-generate";
+
+generatorHandler({
+  onManifest: onManifest,
+  onGenerate: onGenerate,
+});
+```
+
+Let's now handle the `onManifest` function. This will allow us to specify defaults and other information for our generator.
+Create a new file `src/on-manifest.ts` and add the following code:
+
+```typescript title="src/on-manifest.ts"
+import type { GeneratorManifest } from "@prisma/generator-helper";
+
+export function onManifest(): GeneratorManifest {
+  return {
+    defaultOutput: "./types",
+    prettyName: "My Type Generator",
+  };
+}
+```
+
+Now, we'll handle the `onGenerate` function. This is where we'll actually generate our types.
+I'll explain each section of the generator from here on out.
+Create a new file `src/on-generate.ts` and add the following code:
+
+```typescript title="src/on-generate.ts"
+import type { GeneratorOptions } from "@prisma/generator-helper";
+
+export async function onGenerate(options: GeneratorOptions) {
+  let exportedTypes = "";
+  const dataModel = options.dmmf.datamodel;
+
+  // our generator code here
+}
+```
+
+#### Convert Prisma models to TypeScript interfaces
+
+Firstly, we will convert the Prisma `Model`s to TypeScript `interface`s:
+
+```typescript title="src/on-generate.ts" {7-29}
+import type { GeneratorOptions } from "@prisma/generator-helper";
+
+export async function onGenerate(options: GeneratorOptions) {
+  let exportedTypes = "";
+  const dataModel = options.dmmf.datamodel;
+
+  // Convert Prisma models to TypeScript interfaces
+  for (const model of dataModel.models) {
+    exportedTypes += `export interface ${model.name} {\n`;
+
+    // Only convert fields with kind "scalar" and "enum"
+    const scalarAndEnumFields = model.fields.filter((field) =>
+      ["scalar", "enum"].includes(field.kind),
+    );
+
+    for (const field of scalarAndEnumFields) {
+      // A utility function to convert Prisma types to TypeScript types
+      // We'll create this function later.
+      const typeScriptType = getTypeScriptType(field.type);
+      // Whether the field should be optional
+      const nullability = field.isRequired ? "" : "| null";
+      // Whether the field should be an array
+      const list = field.isList ? "[]" : "";
+
+      exportedTypes += `${field.name}: ${typeScriptType}${nullability}${list};\n`;
+    }
+
+    exportedTypes += "}\n\n";
+  }
+}
+```
+
+#### Convert Prisma enums to TypeScript types
+
+Next, we'll convert the Prisma `enum`s to TypeScript types.
+
+```typescript title="src/on-generate.ts" {31-43}
+import type { GeneratorOptions } from "@prisma/generator-helper";
+
+export async function onGenerate(options: GeneratorOptions) {
+  let exportedTypes = "";
+  const dataModel = options.dmmf.datamodel;
+
+  // Convert Prisma models to TypeScript interfaces
+  for (const model of dataModel.models) {
+    exportedTypes += `export interface ${model.name} {\n`;
+
+    // Only convert fields with kind "scalar" and "enum"
+    const scalarAndEnumFields = model.fields.filter((field) =>
+      ["scalar", "enum"].includes(field.kind),
+    );
+
+    for (const field of scalarAndEnumFields) {
+      // A utility function to convert Prisma types to TypeScript types
+      // We'll create this function later.
+      const typeScriptType = getTypeScriptType(field.type);
+      // Whether the field should be optional
+      const nullability = field.isRequired ? "" : "| null";
+      // Whether the field should be an array
+      const list = field.isList ? "[]" : "";
+
+      exportedTypes += `${field.name}: ${typeScriptType}${nullability}${list};\n`;
+    }
+
+    exportedTypes += "}\n\n";
+  }
+
+  // Convert Prisma enums to TypeScript types (Prisma object enums).
+  // See below how to use TypeScript "enum"s instead.
+  for (const enumType of dataModel.enums) {
+    exportedTypes += `export const ${enumType.name} = {`;
+
+    for (const enumValue of enumType.values) {
+      exportedTypes += `${enumValue.name}: "${enumValue.name}",\n`;
+    }
+
+    exportedTypes += "} as const;\n";
+
+    exportedTypes += `export type ${enumType.name} = (typeof ${enumType.name})[keyof typeof ${enumType.name}];\n\n`;
+  }
+}
+```
+
+<Info title="Need TypeScript enums instead?">
+
+<details>
+
+<summary>Learn how to use TypeScript enums 👉</summary>
+
+Replace the highlighted code above with the following code:
+
+```typescript
+for (const enumType of dataModel.enums) {
+  exportedTypes += `export enum ${enumType.name} {\n`;
+
+  for (const enumValue of enumType.values) {
+    exportedTypes += `${enumValue.name} = "${enumValue.name}",\n`;
+  }
+
+  exportedTypes += "}\n\n";
+}
+```
+
+</details>
+
+</Info>
+
+#### Write to a file
+
+Finally, we'll write the generated types to a file:
+
+```typescript title="src/on-generate.ts" {2-3,48-62}
+import type { GeneratorOptions } from "@prisma/generator-helper";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { format } from "prettier";
+
+export async function onGenerate(options: GeneratorOptions) {
+  let exportedTypes = "";
+  const dataModel = options.dmmf.datamodel;
+
+  // Convert Prisma models to TypeScript interfaces
+  for (const model of dataModel.models) {
+    exportedTypes += `export interface ${model.name} {\n`;
+
+    // Only convert fields with kind "scalar" and "enum"
+    const scalarAndEnumFields = model.fields.filter((field) =>
+      ["scalar", "enum"].includes(field.kind),
+    );
+
+    for (const field of scalarAndEnumFields) {
+      // A utility function to convert Prisma types to TypeScript types
+      // We'll create this function later.
+      const typeScriptType = getTypeScriptType(field.type);
+      // Whether the field should be optional
+      const nullability = field.isRequired ? "" : "| null";
+      // Whether the field should be an array
+      const list = field.isList ? "[]" : "";
+
+      exportedTypes += `${field.name}: ${typeScriptType}${nullability}${list};\n`;
+    }
+
+    exportedTypes += "}\n\n";
+  }
+
+  // Convert Prisma enums to TypeScript types (Prisma object enums).
+  // See below how to use TypeScript "enum"s instead.
+  for (const enumType of dataModel.enums) {
+    exportedTypes += `export const ${enumType.name} = {`;
+
+    for (const enumValue of enumType.values) {
+      exportedTypes += `${enumValue.name}: "${enumValue.name}",\n`;
+    }
+
+    exportedTypes += "} as const;\n";
+
+    exportedTypes += `export type ${enumType.name} = (typeof ${enumType.name})[keyof typeof ${enumType.name}];\n\n`;
+  }
+
+  // Write the generated types to a file
+  const outputDir = options.generator.output?.value ?? "./types";
+  const fullLocaltion = `${outputDir}/index.ts`;
+
+  // Make sure the output directory exists, if not create it
+  mkdirSync(outputDir, { recursive: true });
+
+  // Format the generated code
+  const formattedCode = await format(exportedTypes, {
+    // ... your preferred prettier options
+    parser: "typescript",
+  });
+
+  // Write the formatted code to a file
+  writeFileSync(fullLocaltion, formattedCode);
+}
+```
+
+#### Required Utilities
+
+We also need a node bash file to run our generator, Prisma will execute this file when we run <br/> `prisma generate`.
+Create a new file `src/bin.ts` and add the following code:
+
+```typescript title="src/bin.ts"
+#!/usr/bin/env node
+import "./generator";
+```
+
+Previously, we used a utility function `getTypeScriptType` to convert Prisma types to TypeScript types.
+Create a new file `src/utils.ts` and add the following code:
+
+```typescript title="src/utils.ts"
+export function getTypeScriptType(type: string) {
+  switch (type) {
+    case "Decimal":
+    case "Int":
+    case "Float":
+    case "BigInt": {
+      return "number";
+    }
+    case "DateTime": {
+      return "Date";
+    }
+    case "Boolean": {
+      return "boolean";
+    }
+    case "Json": {
+      return "any";
+    }
+    case "String": {
+      return "string";
+    }
+    default: {
+      return type;
+    }
+  }
+}
+```
+
+Make sure to import this utility function in `src/on-generate.ts`:
+
+```typescript title="src/on-generate.ts" {4}
+import type { GeneratorOptions } from "@prisma/generator-helper";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { format } from "prettier";
+import { getTypeScriptType } from "./utils";
+
+// ...
+```
+
+### Publising
+
+#### Preparation
+
+Before we can publish our package, there are a few things we need to do in our `package.json` file:
+
+```json title="package.json" {5-12}
+{
+  "name": "prisma-generator-types",
+  "version": "1.0.0",
+  "description": "A custom Prisma Generator that outputs TypeScript types from your Prisma schema.",
+  "main": "dist/generator.js",
+  "files": ["dist"],
+  "bin": {
+    "prisma-generator-types": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
+```
+
+- `main`: our main entry point, this is where Prisma will look for our generator.
+- `files`: the files that will be included when publishing our package.
+- `bin`: the name of the executable file that Prisma will run when we run `prisma generate`.
+- `scripts`: the build script that will be used to build our generator before publishing.
+
+Once we've done this, we can build our package:
+
+```bash
+npm run build
+```
+
+#### Publishing to npm
+
+Now, we can publish our package to npm:
+
+```bash
+npm publish
+```
+
+That's it! You can now install and use your custom Prisma Generator in your Prisma schema:
+
+```prisma title="schema.prisma" {5-7}
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator types {
+  provider = "prisma-generator-types"
+}
+```
+
+### GitHub Repository
+
+You can find the full source code for this generator [on GitHub](https://github.com/casperiv0/prisma-generator-types)
