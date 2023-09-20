@@ -1,10 +1,13 @@
-import { ArrowUpRight, Github, Linkedin, Twitter } from "react-bootstrap-icons";
 import { ContactForm } from "./contact-form";
+import { GithubLogo } from "~/components/icons/github-logo";
+import { TwitterLogo } from "~/components/icons/twitter-logo";
+import { LinkedinLogo } from "~/components/icons/linkedin-logo";
+import { ArrowUpRight } from "~/components/icons/arrow-right-up";
 
 export const socialLinks = [
-  { icon: Github, name: "GitHub", url: "https://casperiv.dev/github" },
-  { icon: Twitter, name: "Twitter", url: "https://casperiv.dev/twitter" },
-  { icon: Linkedin, name: "LinkedIn", url: "https://casperiv.dev/linkedin" },
+  { icon: GithubLogo, name: "GitHub", url: "https://casperiv.dev/github" },
+  { icon: TwitterLogo, name: "Twitter", url: "https://casperiv.dev/twitter" },
+  { icon: LinkedinLogo, name: "LinkedIn", url: "https://casperiv.dev/linkedin" },
 ];
 
 export function ContactSection() {
