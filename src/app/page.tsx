@@ -5,6 +5,9 @@ import { MySkills, Projects } from "@ronin/casper";
 import { ProjectsSection } from "~/components/sections/projects-section";
 import { LatestBlogPosts } from "~/components/sections/latest-blog-posts";
 import { ContactSection } from "~/components/sections/contact/contact-section";
+import { allBlogPosts } from "contentlayer/generated";
+import { getArticleSlug } from "~/lib/mdx/get-article-slug";
+import compareDesc from "date-fns/compareDesc";
 
 async function fetchHomePageData() {
   const [backpack, featuredProjects] = await ronin<[MySkills, Projects]>(({ get }) => {
@@ -17,6 +20,18 @@ async function fetchHomePageData() {
   return { backpack, featuredProjects };
 }
 
+const latestBlogPosts = allBlogPosts
+  .map((blogPost) => ({
+    slug: getArticleSlug(blogPost),
+    title: blogPost.title,
+    description: blogPost.description,
+    createdAt: blogPost.createdAt,
+  }))
+  .sort((a, b) => {
+    return compareDesc(new Date(a.createdAt), new Date(b.createdAt));
+  })
+  .slice(0, 4);
+
 export default async function Home() {
   const { backpack, featuredProjects } = await fetchHomePageData();
 
@@ -25,7 +40,7 @@ export default async function Home() {
       <HeroSection />
       <MyBackpackSection backpack={backpack} />
       <ProjectsSection featuredProjects={featuredProjects} />
-      <LatestBlogPosts />
+      <LatestBlogPosts blogPosts={latestBlogPosts} />
       <ContactSection />
     </main>
   );

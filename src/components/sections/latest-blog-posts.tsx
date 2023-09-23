@@ -1,18 +1,13 @@
 "use client";
 
 import { Link } from "~/components/link";
-import { allBlogPosts } from "contentlayer/generated";
-import compareDesc from "date-fns/compareDesc";
-import { getArticleSlug } from "~/lib/mdx/get-article-slug";
 import { ArrowRight } from "../icons/arrow-right";
 
-export function LatestBlogPosts() {
-  const latestThreeBlogPosts = allBlogPosts
-    .sort((a, b) => {
-      return compareDesc(new Date(a.createdAt), new Date(b.createdAt));
-    })
-    .slice(0, 4);
+interface Props {
+  blogPosts: { createdAt: string; title: string; description: string; slug: string }[];
+}
 
+export function LatestBlogPosts(props: Props) {
   return (
     <section className="mx-auto max-w-6xl w-full py-32 px-5 md:px-0">
       <header className="flex flex-col gap-y-5 sm:flex-row md:items-center justify-between">
@@ -27,14 +22,9 @@ export function LatestBlogPosts() {
       </header>
 
       <ul className="mt-20 flex flex-col gap-5">
-        {latestThreeBlogPosts.map((blogPost) => (
-          <li key={getArticleSlug(blogPost)} className="flex justify-between group">
-            <Link
-              size="none"
-              className="w-full"
-              intent="none"
-              href={`/blog/${getArticleSlug(blogPost)}`}
-            >
+        {props.blogPosts.map((blogPost) => (
+          <li key={blogPost.slug} className="flex justify-between group">
+            <Link size="none" className="w-full" intent="none" href={`/blog/${blogPost.slug}`}>
               <h3 className="font-semibold font-poppins text-xl md:text-2xl transition-colors border-accent/10 group-hover:border-b-accent border-b-2 max-w-fit">
                 {blogPost.title}
               </h3>
@@ -49,7 +39,7 @@ export function LatestBlogPosts() {
               size="square"
               className="group-hover:scale-125 group-hover:-rotate-45 group-hover:border-accent"
               intent="secondary"
-              href={`/blog/${getArticleSlug(blogPost)}`}
+              href={`/blog/${blogPost.slug}`}
             >
               <ArrowRight width={20} height={20} />
             </Link>
