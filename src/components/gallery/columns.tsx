@@ -30,11 +30,8 @@ export function Gallery({ initialData }: { initialData: GetGalleryImagesQuery })
     margin: "200px",
   });
 
-  const { fetchNextPage, data, isFetchingNextPage, hasNextPage } = useInfiniteQuery<
-    GetGalleryImagesQuery,
-    unknown,
-    GetGalleryImagesQuery
-  >({
+  const { fetchNextPage, data, isFetchingNextPage, hasNextPage } = useInfiniteQuery({
+    initialPageParam: null,
     refetchOnWindowFocus: false,
     initialData: { pages: [initialData], pageParams: [undefined, initialData.moreAfter] },
     queryKey: ["gallery"],
@@ -53,7 +50,7 @@ export function Gallery({ initialData }: { initialData: GetGalleryImagesQuery })
   }, [inView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const columns = React.useMemo(() => {
-    const pagesData = data?.pages ?? [];
+    const pagesData = data.pages;
     const columns = makeColumns(pagesData.map((page) => page.data).flat());
     return columns;
   }, [data]);

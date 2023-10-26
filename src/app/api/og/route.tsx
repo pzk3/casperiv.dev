@@ -1,6 +1,8 @@
 import { ImageResponse, NextRequest } from "next/server";
 import tailwindConfig from "tailwind.config";
 
+export const runtime = "edge";
+
 const colors = tailwindConfig.theme.extend.colors;
 const size = {
   width: 1512,

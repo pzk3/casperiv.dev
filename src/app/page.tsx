@@ -27,9 +27,7 @@ const latestBlogPosts = allBlogPosts
     description: blogPost.description,
     createdAt: blogPost.createdAt,
   }))
-  .sort((a, b) => {
-    return compareDesc(new Date(a.createdAt), new Date(b.createdAt));
-  })
+  .sort((a, b) => compareDesc(new Date(a.createdAt), new Date(b.createdAt)))
   .slice(0, 4);
 
 export default async function Home() {

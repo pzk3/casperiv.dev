@@ -27,7 +27,7 @@ export function ContactForm() {
     reValidateMode: "onChange",
   });
 
-  const { mutate, data, isLoading, error } = useMutation<
+  const { mutate, data, isPending, error } = useMutation<
     { message: string },
     Error,
     typeof initialValues
@@ -115,8 +115,8 @@ export function ContactForm() {
 
       <div className="flex items-center gap-6 mt-5">
         <Button
-          disabled={isLoading}
-          extras={isLoading ? "loading" : undefined}
+          disabled={isPending}
+          extras={isPending ? "loading" : undefined}
           className="min-w-fit"
           intent={buttonIntent}
           type="submit"

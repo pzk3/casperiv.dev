@@ -6,11 +6,14 @@ export interface GetGalleryImagesQuery {
   data: GalleryImages;
 }
 
-export async function getGalleryImagesServer(after?: number): Promise<GetGalleryImagesQuery> {
+export async function getGalleryImagesServer(
+  after?: string | null,
+): Promise<GetGalleryImagesQuery> {
   const [data] = await ronin<GalleryImages>(({ get }) => {
     get.galleryImages = {
       limitedTo: 9,
-      after,
+      // eslint-disable-next-line eqeqeq
+      after: after != null ? after : undefined,
       orderedBy: {
         descending: ["ronin.createdAt"],
       },

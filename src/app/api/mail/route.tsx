@@ -4,6 +4,8 @@ import { env } from "~/env.mjs";
 import { Resend } from "resend";
 import { EmailTemplate } from "./email";
 
+export const runtime = "edge";
+
 const MAIL_VERIFIED_SENDER = env.MAIL_VERIFIED_SENDER;
 
 const limiter = rateLimit({

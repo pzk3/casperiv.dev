@@ -98,7 +98,7 @@ export default async function App() {
               return (
                 <li
                   className={classNames(
-                    "hover:bg-gray-100 transition-colors ease-in-out",
+                    "hover:bg-gray-100 transition-colors ease-in-out first:rounded-t-md last:rounded-b-md",
                     isActiveAndNextActiveClassname,
                     isNextActive && !sponsor.isActive ? "border-none" : "",
                     sponsor.isActive
