@@ -5,8 +5,10 @@ import { Providers } from "./providers";
 import { Header } from "~/components/header";
 import { Footer } from "~/components/footer";
 import { firaCodeFont, interFont, poppinsFont } from "~/lib/fonts";
+import { viewportMeta } from "~/seo-config";
 
 export const metadata = mergeSeo({});
+export const viewport = viewportMeta;
 
 interface RootLayoutProps {
   children: React.ReactNode;

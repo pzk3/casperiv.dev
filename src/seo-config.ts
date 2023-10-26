@@ -21,11 +21,14 @@ export const DEFAULT_KEYWORDS = [
   "SnailyCADv4",
 ];
 
+export const viewportMeta = {
+  colorScheme: "only light",
+  themeColor: "#161b22",
+};
+
 export const SEO: Metadata = {
   title,
   creator: "Casper Iversen",
-  colorScheme: "light",
-  themeColor: "#161b22",
   openGraph: {
     type: "website",
     locale: "en-US",

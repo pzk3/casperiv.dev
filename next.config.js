@@ -6,9 +6,16 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["media.ronin.co", "avatars.githubusercontent.com", "raw.githubusercontent.com"],
+    remotePatterns: [
+      { hostname: "media.ronin.co", protocol: "https" },
+      { hostname: "avatars.githubusercontent.com", protocol: "https" },
+      { hostname: "raw.githubusercontent.com", protocol: "https" },
+    ],
   },
   poweredByHeader: false,
+  experimental: {
+    webpackBuildWorker: true,
+  },
   async redirects() {
     return [
       {
