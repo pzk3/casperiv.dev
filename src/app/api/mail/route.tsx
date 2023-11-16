@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await resend.emails.send({
+    const { data: result, error } = await resend.emails.send({
       to: [
         `${data.data.firstName} ${data.data.lastName} <${data.data.email}>`,
         `Casper Iversen <${MAIL_VERIFIED_SENDER}>`,
@@ -47,6 +47,10 @@ export async function POST(request: Request) {
       subject: `Confirmation of ${data.data.firstName} ${data.data.lastName}'s message`,
       react: <EmailTemplate {...data.data} />,
     });
+
+    if (error || !result?.id) {
+      throw new Error(error?.message ?? "could not send email");
+    }
 
     return new Response(
       JSON.stringify({

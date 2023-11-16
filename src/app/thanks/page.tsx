@@ -104,8 +104,8 @@ export default async function App() {
                     sponsor.isActive
                       ? "border-accent border-2"
                       : isLast
-                      ? ""
-                      : "border-b-2 border-gray-extralight",
+                        ? ""
+                        : "border-b-2 border-gray-extralight",
                   )}
                   key={sponsor.login}
                 >
