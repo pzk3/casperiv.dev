@@ -57,12 +57,11 @@ export const SEO: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: [
-      "https://casperiv.dev/icons/icon-512.png",
-      "https://casperiv.dev/icons/icon-144.png",
-      "https://casperiv.dev/icons/icon-128.png",
+      "https://casperiv.dev/icons/icon.svg",
+      "https://casperiv.dev/favicons/favicon.ico",
       "https://casperiv.dev/favicons/favicon-32x32.png",
     ],
-    shortcut: "https://casperiv.dev/icons/icon-512.png",
+    shortcut: "https://casperiv.dev/icons/logo.svg",
     apple: [
       {
         url: "https://casperiv.dev/favicons/apple-touch-icon.png",
