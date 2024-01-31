@@ -42,13 +42,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: |
-          npm config set //ronin.supply/:_authToken=${NODE_AUTH_TOKEN}
-          pnpm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-
       - name: Linting check
         run: pnpm run lint
 
